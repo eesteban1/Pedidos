@@ -243,8 +243,8 @@ namespace PedidosCegal
         protected void btnimprimir_Click(object sender, EventArgs e)
         {
             string ID = Session["IDPEDIDO"].ToString();
-            string sRuta = "Reportes/ReporteFactura.aspx?Id_Encabe=" + ID ;
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Window1", "<script> window.open('" + sRuta + "');</script>", false);
+            string sRuta = "";
+            
         }
 
         protected void ddlclientes_SelectedIndexChanged(object sender, EventArgs e)
