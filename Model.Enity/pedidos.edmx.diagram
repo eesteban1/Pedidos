@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fa0a9015d22f4eaea8b589411e8c41fe" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="ventas2Model.Accesos" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.Marcas" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.mercados" Width="1.5" PointX="5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.Monedas" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.UniMed" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.zonas" Width="1.5" PointX="2.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.Cuentas" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.Denominacion" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.UBIGEO" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.AsignaZona" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.Detalles" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.Familia" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.IGV" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.v_Acc" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.v_AcEn" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.v_Clientes" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.v_Encab" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.v_ListarPedidoFecha" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.v_Mer" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.v_MercadoxZona" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.v_Per" Width="1.5" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.v_Pro" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ventas2Model.v_Zon" Width="1.5" PointX="8.75" PointY="14.75" IsExpanded="true" />
+        <AssociationConnector Association="ventas2Model.FK_mercados_zonas" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ventas2Model.Encabezado" Width="1.5" PointX="0.5" PointY="0.75" />
+        <EntityTypeShape EntityType="ventas2Model.Producto" Width="1.5" PointX="15.375" PointY="9.75" />
+        <EntityTypeShape EntityType="ventas2Model.v_ListarProductos" Width="1.5" PointX="15.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ventas2Model.v_ListarCliente" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ventas2Model.Personal" Width="1.5" PointX="0.75" PointY="13.75" />
+        <AssociationConnector Association="ventas2Model.FK_Accesos_Personal" />
+        <EntityTypeShape EntityType="ventas2Model.v_EncabDet" Width="1.5" PointX="11.375" PointY="16.75" />
+        <EntityTypeShape EntityType="ventas2Model.v_AsignaZona" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ventas2Model.v_ListarZonas" Width="1.5" PointX="3.375" PointY="17.75" />
+        <EntityTypeShape EntityType="ventas2Model.v_ListarMercado" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ventas2Model.Cliente" Width="1.5" PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ventas2Model.v_ComboClientes" Width="1.5" PointX="17.375" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

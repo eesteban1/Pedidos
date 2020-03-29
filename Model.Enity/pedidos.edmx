@@ -1,0 +1,1859 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ventas2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accesos">
+          <Key>
+            <PropertyRef Name="Id_Acceso" />
+          </Key>
+          <Property Name="Id_Acceso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Personal" Type="int" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Clave" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha_ini" Type="datetime" />
+          <Property Name="Fecha_Fin" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Encabezado">
+          <Key>
+            <PropertyRef Name="Id_Encab" />
+          </Key>
+          <Property Name="Id_Encab" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_cliente" Type="int" />
+          <Property Name="Id_Docmto" Type="int" />
+          <Property Name="Num_Docmto" Type="int" />
+          <Property Name="Fecha_Docmto" Type="int" />
+          <Property Name="Id_FormaPago" Type="int" />
+          <Property Name="fechaCheque" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Vendedor" Type="int" />
+          <Property Name="Id_TipoMov" Type="int" />
+          <Property Name="Id_Moneda" Type="int" />
+          <Property Name="Estado_Docmto" Type="char" MaxLength="1" />
+          <Property Name="Estado_Pago" Type="char" MaxLength="1" />
+          <Property Name="IGV" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Total_Venta" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalPrecio" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Tipo_Cambio" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Notas" Type="nvarchar" MaxLength="80" />
+          <Property Name="Id_Acceso" Type="int" />
+        </EntityType>
+        <EntityType Name="Marcas">
+          <Key>
+            <PropertyRef Name="Id_Marca" />
+          </Key>
+          <Property Name="Id_Marca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="mercados">
+          <Key>
+            <PropertyRef Name="IdMercado" />
+          </Key>
+          <Property Name="IdMercado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdZona" Type="int" Nullable="false" />
+          <Property Name="NombreCorto" Type="nvarchar" MaxLength="4" />
+          <Property Name="NombreLargo" Type="nvarchar" MaxLength="80" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="80" />
+          <Property Name="ubigeo" Type="nvarchar" MaxLength="6" />
+          <Property Name="Observ" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Monedas">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="DESCRIPCIÓN" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="Id_personal" />
+          </Key>
+          <Property Name="Id_personal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApellidoPat" Type="nvarchar" MaxLength="30" />
+          <Property Name="ApellidoMat" Type="nvarchar" MaxLength="30" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+          <Property Name="NroDNI" Type="nvarchar" MaxLength="8" />
+          <Property Name="Domicilio" Type="nvarchar" MaxLength="60" />
+          <Property Name="Ubigeo" Type="varchar" MaxLength="6" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="30" />
+          <Property Name="fechaNacimiento" Type="datetime" />
+          <Property Name="Sexo" Type="char" MaxLength="1" />
+          <Property Name="fechaIngreso" Type="datetime" />
+          <Property Name="CodCargo" Type="varchar" MaxLength="10" />
+          <Property Name="EstadoCivil" Type="nvarchar" MaxLength="12" />
+          <Property Name="Nrolpss" Type="nvarchar" MaxLength="50" />
+          <Property Name="NroHijos" Type="varchar" MaxLength="60" />
+          <Property Name="Observ" Type="nvarchar" MaxLength="80" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.dbo.UBIGEO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="UBIGEO">
+          <Key>
+            <PropertyRef Name="UBIGEO" />
+          </Key>
+          <Property Name="UBIGEO" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="DISTRITO" Type="varchar" MaxLength="35" />
+          <Property Name="PROVINCIA" Type="varchar" MaxLength="27" />
+          <Property Name="DEPARTAM" Type="varchar" MaxLength="26" />
+          <Property Name="cod_dpto" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="UniMed">
+          <Key>
+            <PropertyRef Name="Id_Umedida" />
+          </Key>
+          <Property Name="Id_Umedida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Simbolo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Medida" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="zonas">
+          <Key>
+            <PropertyRef Name="IdZona" />
+          </Key>
+          <Property Name="IdZona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescripCorta" Type="varchar" MaxLength="5" />
+          <Property Name="DescripLarga" Type="varchar" MaxLength="80" />
+          <Property Name="Observacion" Type="varchar(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.AsignaZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="AsignaZona">
+          <Key>
+            <PropertyRef Name="Id_asigna" />
+          </Key>
+          <Property Name="Id_asigna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdZona" Type="int" />
+          <Property Name="Id_personal" Type="int" />
+          <Property Name="Fecha_asigna" Type="smalldatetime" />
+          <Property Name="usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Id_cliente" />
+          </Key>
+          <Property Name="Id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMercado" Type="int" />
+          <Property Name="RazonSocial" Type="varchar(max)" />
+          <Property Name="IdDenominacion" Type="int" />
+          <Property Name="Califica" Type="varchar" MaxLength="10" />
+          <Property Name="RUC" Type="varchar" MaxLength="11" />
+          <Property Name="Direccion" Type="varchar(max)" />
+          <Property Name="UbigeoComercial" Type="varchar" MaxLength="6" />
+          <Property Name="ReferenciaComercial" Type="varchar(max)" />
+          <Property Name="TelefonoComercial" Type="varchar" MaxLength="9" />
+          <Property Name="NombrePropietario" Type="varchar(max)" />
+          <Property Name="Domicilio" Type="varchar(max)" />
+          <Property Name="UbigeoDomicilio" Type="varchar" MaxLength="6" />
+          <Property Name="ReferenciaDomicilio" Type="varchar(max)" />
+          <Property Name="DNI" Type="varchar" MaxLength="9" />
+          <Property Name="TelefonoDomicilio" Type="varchar" MaxLength="9" />
+          <Property Name="GarantiaCred" Type="int" />
+          <Property Name="CreditoMaximo" Type="int" />
+          <Property Name="Observacion" Type="varchar(max)" />
+          <Property Name="NumeroPuesto" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Cuentas">
+          <Key>
+            <PropertyRef Name="Id_Dcmto" />
+          </Key>
+          <Property Name="Id_Dcmto" Type="int" Nullable="false" />
+          <Property Name="Ingreso_Salida" Type="int" />
+          <Property Name="Total" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Saldo" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NroPagos" Type="int" />
+          <Property Name="NroDias" Type="int" />
+          <Property Name="FechaUltimoPago" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="Denominacion">
+          <Key>
+            <PropertyRef Name="IdDenominacion" />
+          </Key>
+          <Property Name="IdDenominacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.Detalles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Detalles">
+          <Key>
+            <PropertyRef Name="Id_Encab" />
+          </Key>
+          <Property Name="Id_Encab" Type="int" Nullable="false" />
+          <Property Name="Item" Type="int" />
+          <Property Name="Id_prod" Type="int" />
+          <Property Name="Paquetes" Type="int" />
+          <Property Name="Medida" Type="int" />
+          <Property Name="CantidadKilos" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Id_UMedida" Type="int" />
+          <Property Name="PrecioUnit" Type="float" />
+          <Property Name="SubTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IGV" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.Familia' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Familia">
+          <Key>
+            <PropertyRef Name="Id_Familia" />
+          </Key>
+          <Property Name="Id_Familia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.IGV' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="IGV">
+          <Key>
+            <PropertyRef Name="IdAfecto" />
+          </Key>
+          <Property Name="IdAfecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nchar" MaxLength="30" />
+          <Property Name="Valor" Type="int" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id_prod" />
+          </Key>
+          <Property Name="Id_prod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar(max)" />
+          <Property Name="IdAfectoIGV" Type="int" />
+          <Property Name="IdMedida" Type="int" />
+          <Property Name="PesoKilos" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PComprasS" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PCompraD" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaS" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaD" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="StockMin" Type="int" />
+          <Property Name="StockMax" Type="int" />
+          <Property Name="StockAct" Type="int" />
+          <Property Name="Observacion" Type="varchar(max)" />
+          <Property Name="IdMarca" Type="int" />
+          <Property Name="Id_Familia" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_Acc' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_Acc">
+          <Key>
+            <PropertyRef Name="Id_Acceso" />
+          </Key>
+          <Property Name="Id_Acceso" Type="int" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Clave" Type="varchar" MaxLength="50" />
+          <Property Name="CodCargo" Type="varchar" MaxLength="10" />
+          <Property Name="Nombrescom" Type="nvarchar" MaxLength="110" />
+          <Property Name="NombreCargo" Type="nvarchar" MaxLength="30" />
+          <Property Name="Id_Personal" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_AcEn' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_AcEn">
+          <Key>
+            <PropertyRef Name="Id_Acceso" />
+            <PropertyRef Name="Id_Encab" />
+          </Key>
+          <Property Name="Id_Acceso" Type="int" Nullable="false" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Clave" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Encab" Type="int" Nullable="false" />
+          <Property Name="NombreRSocial" Type="nvarchar" MaxLength="100" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="60" />
+          <Property Name="fechaCheque" Type="varchar" MaxLength="50" />
+          <Property Name="Total_Venta" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CodNom" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_AsignaZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_AsignaZona">
+          <Key>
+            <PropertyRef Name="IdZona" />
+            <PropertyRef Name="Id_asigna" />
+          </Key>
+          <Property Name="Id_personal" Type="int" />
+          <Property Name="NombreZona" Type="varchar" MaxLength="86" />
+          <Property Name="IdZona" Type="int" Nullable="false" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id_asigna" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_Clientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdMercado" />
+            <PropertyRef Name="IdClaseClie" />
+            <PropertyRef Name="Id_DIdent" />
+          </Key>
+          <Property Name="IdCliente" Type="int" Nullable="false" />
+          <Property Name="Desc_Corta" Type="varchar" MaxLength="5" />
+          <Property Name="NroDocmto" Type="nvarchar" MaxLength="14" />
+          <Property Name="Califica" Type="nvarchar" MaxLength="1" />
+          <Property Name="NombreRSocial" Type="nvarchar" MaxLength="100" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="20" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Ubigeo" Type="nvarchar" MaxLength="6" />
+          <Property Name="Referencia" Type="nvarchar" MaxLength="100" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="30" />
+          <Property Name="NombreCorto" Type="nvarchar" MaxLength="4" />
+          <Property Name="DescripCorta" Type="varchar" MaxLength="5" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="23" />
+          <Property Name="IdMercado" Type="int" Nullable="false" />
+          <Property Name="IdClaseClie" Type="int" Nullable="false" />
+          <Property Name="Id_DIdent" Type="int" Nullable="false" />
+          <Property Name="DiMer" Type="nvarchar" MaxLength="80" />
+          <Property Name="zonmer" Type="nvarchar" MaxLength="9" />
+          <Property Name="NumeroPuesto" Type="varchar" MaxLength="10" />
+          <Property Name="Id_Acceso_crea" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_ComboClientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_ComboClientes">
+          <Key>
+            <PropertyRef Name="Id_cliente" />
+          </Key>
+          <Property Name="Id_cliente" Type="int" Nullable="false" />
+          <Property Name="NombrePropietario" Type="varchar(max)" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="9" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_Encab' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_Encab">
+          <Key>
+            <PropertyRef Name="Id_Encab" />
+          </Key>
+          <Property Name="Id_Encab" Type="int" Nullable="false" />
+          <Property Name="NombreRSocial" Type="nvarchar" MaxLength="100" />
+          <Property Name="Desc_Corta" Type="varchar" MaxLength="5" />
+          <Property Name="Num_Docmto" Type="int" />
+          <Property Name="fechaCheque" Type="nvarchar" MaxLength="30" />
+          <Property Name="NomFormaPago" Type="nvarchar" MaxLength="60" />
+          <Property Name="NomTipoMov" Type="nvarchar" MaxLength="30" />
+          <Property Name="Desc_Large" Type="varchar" MaxLength="50" />
+          <Property Name="Total_Venta" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="tipocambio" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="30" />
+          <Property Name="CantidadKilos" Type="int" />
+          <Property Name="PrecioUnit" Type="float" />
+          <Property Name="Descrip" Type="nvarchar" MaxLength="80" />
+          <Property Name="SubTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Paquetes" Type="int" />
+          <Property Name="IGV" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Id_Ecab" Type="int" />
+          <Property Name="Id_Acceso" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_EncabDet' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_EncabDet">
+          <Key>
+            <PropertyRef Name="Id_Encab" />
+            <PropertyRef Name="IdMercado" />
+          </Key>
+          <Property Name="Id_Encab" Type="int" Nullable="false" />
+          <Property Name="Id_prod" Type="int" />
+          <Property Name="Paquetes" Type="int" />
+          <Property Name="CantidadKilos" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PrecioUnit" Type="float" />
+          <Property Name="SubTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Id_cliente" Type="int" />
+          <Property Name="Id_Vendedor" Type="int" />
+          <Property Name="Total_Venta" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="fechaCheque" Type="varchar" MaxLength="50" />
+          <Property Name="IdMercado" Type="int" Nullable="false" />
+          <Property Name="NombrePropietario" Type="varchar(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_ListarCliente">
+          <Key>
+            <PropertyRef Name="Id_cliente" />
+          </Key>
+          <Property Name="Id_cliente" Type="int" Nullable="false" />
+          <Property Name="CodNom" Type="nvarchar(max)" />
+          <Property Name="NombrePropietario" Type="varchar(max)" />
+          <Property Name="Direccion" Type="varchar(max)" />
+          <Property Name="TelefonoComercial" Type="varchar" MaxLength="9" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarMercado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_ListarMercado">
+          <Key>
+            <PropertyRef Name="IdMercado" />
+          </Key>
+          <Property Name="IdMercado" Type="int" Nullable="false" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="9" />
+          <Property Name="NombreLargo" Type="nvarchar" MaxLength="80" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="80" />
+          <Property Name="Ubigeo" Type="varchar" MaxLength="90" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarPedidoFecha' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_ListarPedidoFecha">
+          <Key>
+            <PropertyRef Name="Id_Encab" />
+          </Key>
+          <Property Name="Id_Encab" Type="int" Nullable="false" />
+          <Property Name="fechaCheque" Type="varchar" MaxLength="50" />
+          <Property Name="CodNom" Type="nvarchar(max)" />
+          <Property Name="Total_Venta" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarProductos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_ListarProductos">
+          <Key>
+            <PropertyRef Name="Id_prod" />
+          </Key>
+          <Property Name="Id_prod" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="descripcion" Type="varchar(max)" />
+          <Property Name="PesoKilos" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaS" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaD" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarZonas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_ListarZonas">
+          <Key>
+            <PropertyRef Name="IdZona" />
+          </Key>
+          <Property Name="IdZona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescripCorta" Type="varchar" MaxLength="5" />
+          <Property Name="DescripLarga" Type="varchar" MaxLength="80" />
+          <Property Name="Observacion" Type="varchar(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_Mer' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_Mer">
+          <Key>
+            <PropertyRef Name="IdMercado" />
+          </Key>
+          <Property Name="IdMercado" Type="int" Nullable="false" />
+          <Property Name="DescripCorta" Type="varchar" MaxLength="5" />
+          <Property Name="NombreCorto" Type="nvarchar" MaxLength="4" />
+          <Property Name="NombreLargo" Type="nvarchar" MaxLength="80" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="80" />
+          <Property Name="ZM" Type="nvarchar" MaxLength="97" />
+          <Property Name="M" Type="nvarchar" MaxLength="85" />
+          <Property Name="Validacion" Type="nvarchar" MaxLength="9" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_MercadoxZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_MercadoxZona">
+          <Key>
+            <PropertyRef Name="IdZona" />
+            <PropertyRef Name="IdMercado" />
+          </Key>
+          <Property Name="IdZona" Type="int" Nullable="false" />
+          <Property Name="IdMercado" Type="int" Nullable="false" />
+          <Property Name="NombreLargo" Type="nvarchar" MaxLength="80" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_Per' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_Per">
+          <Key>
+            <PropertyRef Name="Id_personal" />
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Id_personal" Type="int" Nullable="false" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="61" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+          <Property Name="NroDNI" Type="nvarchar" MaxLength="8" />
+          <Property Name="Domicilio" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="30" />
+          <Property Name="fechaNacimiento" Type="datetime" />
+          <Property Name="Sexo" Type="char" MaxLength="1" />
+          <Property Name="fechaIngreso" Type="datetime" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="30" />
+          <Property Name="EstadoCivil" Type="nvarchar" MaxLength="12" />
+          <Property Name="Nrolpss" Type="nvarchar" MaxLength="50" />
+          <Property Name="NroHijos" Type="varchar" MaxLength="60" />
+          <Property Name="Codigo" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_Pro' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_Pro">
+          <Key>
+            <PropertyRef Name="Id_Producto" />
+          </Key>
+          <Property Name="Id_Producto" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="int" />
+          <Property Name="Descrip" Type="nvarchar" MaxLength="80" />
+          <Property Name="Descripcion" Type="nchar" MaxLength="50" />
+          <Property Name="Simbolo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Peso" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Desc_Large" Type="varchar" MaxLength="50" />
+          <Property Name="PCompraS" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PCompraD" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaS" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaD" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="StockMax" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="StockMin" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="StockAct" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Codigo" Type="varchar" MaxLength="10" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Id_Umedida" Type="int" />
+          <Property Name="codde" Type="nvarchar" MaxLength="85" />
+          <Property Name="Id_Familia" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="v_Zon">
+          <Key>
+            <PropertyRef Name="IdZona" />
+          </Key>
+          <Property Name="IdZona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descrip" Type="varchar" MaxLength="89" />
+          <Property Name="DescripCorta" Type="varchar" MaxLength="5" />
+          <Property Name="DescripLarga" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <Association Name="FK_Accesos_Personal">
+          <End Role="Personal" Type="Self.Personal" Multiplicity="0..1" />
+          <End Role="Accesos" Type="Self.Accesos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personal">
+              <PropertyRef Name="Id_personal" />
+            </Principal>
+            <Dependent Role="Accesos">
+              <PropertyRef Name="Id_Personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mercados_zonas">
+          <End Role="zonas" Type="Self.zonas" Multiplicity="1" />
+          <End Role="mercados" Type="Self.mercados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zonas">
+              <PropertyRef Name="IdZona" />
+            </Principal>
+            <Dependent Role="mercados">
+              <PropertyRef Name="IdZona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ventas2ModelStoreContainer">
+          <EntitySet Name="Accesos" EntityType="Self.Accesos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Encabezado" EntityType="Self.Encabezado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marcas" EntityType="Self.Marcas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mercados" EntityType="Self.mercados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monedas" EntityType="Self.Monedas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UniMed" EntityType="Self.UniMed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="zonas" EntityType="Self.zonas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="us2" store:Type="Tables" />
+          <EntitySet Name="Cuentas" EntityType="Self.Cuentas" Schema="us2" store:Type="Tables" />
+          <EntitySet Name="Denominacion" EntityType="Self.Denominacion" Schema="us2" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="us2" store:Type="Tables" />
+          <EntitySet Name="UBIGEO" EntityType="Self.UBIGEO" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UBIGEO].[UBIGEO] AS [UBIGEO], 
+    [UBIGEO].[DISTRITO] AS [DISTRITO], 
+    [UBIGEO].[PROVINCIA] AS [PROVINCIA], 
+    [UBIGEO].[DEPARTAM] AS [DEPARTAM], 
+    [UBIGEO].[cod_dpto] AS [cod_dpto]
+    FROM [dbo].[UBIGEO] AS [UBIGEO]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AsignaZona" EntityType="Self.AsignaZona" store:Type="Tables" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [AsignaZona].[Id_asigna] AS [Id_asigna], 
+    [AsignaZona].[IdZona] AS [IdZona], 
+    [AsignaZona].[Id_personal] AS [Id_personal], 
+    [AsignaZona].[Fecha_asigna] AS [Fecha_asigna], 
+    [AsignaZona].[usuario] AS [usuario]
+    FROM [us2].[AsignaZona] AS [AsignaZona]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Detalles" EntityType="Self.Detalles" store:Type="Tables" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [Detalles].[Id_Encab] AS [Id_Encab], 
+    [Detalles].[Item] AS [Item], 
+    [Detalles].[Id_prod] AS [Id_prod], 
+    [Detalles].[Paquetes] AS [Paquetes], 
+    [Detalles].[Medida] AS [Medida], 
+    [Detalles].[CantidadKilos] AS [CantidadKilos], 
+    [Detalles].[Id_UMedida] AS [Id_UMedida], 
+    [Detalles].[PrecioUnit] AS [PrecioUnit], 
+    [Detalles].[SubTotal] AS [SubTotal], 
+    [Detalles].[IGV] AS [IGV]
+    FROM [us2].[Detalles] AS [Detalles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Familia" EntityType="Self.Familia" store:Type="Tables" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [Familia].[Id_Familia] AS [Id_Familia], 
+    [Familia].[Nombre] AS [Nombre]
+    FROM [us2].[Familia] AS [Familia]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="IGV" EntityType="Self.IGV" store:Type="Tables" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [IGV].[IdAfecto] AS [IdAfecto], 
+    [IGV].[Nombre] AS [Nombre], 
+    [IGV].[Valor] AS [Valor]
+    FROM [us2].[IGV] AS [IGV]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Acc" EntityType="Self.v_Acc" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_Acc].[Id_Acceso] AS [Id_Acceso], 
+    [v_Acc].[Usuario] AS [Usuario], 
+    [v_Acc].[Clave] AS [Clave], 
+    [v_Acc].[CodCargo] AS [CodCargo], 
+    [v_Acc].[Nombrescom] AS [Nombrescom], 
+    [v_Acc].[NombreCargo] AS [NombreCargo], 
+    [v_Acc].[Id_Personal] AS [Id_Personal]
+    FROM [us2].[v_Acc] AS [v_Acc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_AcEn" EntityType="Self.v_AcEn" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_AcEn].[Id_Acceso] AS [Id_Acceso], 
+    [v_AcEn].[Nombres] AS [Nombres], 
+    [v_AcEn].[Usuario] AS [Usuario], 
+    [v_AcEn].[Clave] AS [Clave], 
+    [v_AcEn].[Id_Encab] AS [Id_Encab], 
+    [v_AcEn].[NombreRSocial] AS [NombreRSocial], 
+    [v_AcEn].[Nombre] AS [Nombre], 
+    [v_AcEn].[fechaCheque] AS [fechaCheque], 
+    [v_AcEn].[Total_Venta] AS [Total_Venta], 
+    [v_AcEn].[CodNom] AS [CodNom]
+    FROM [us2].[v_AcEn] AS [v_AcEn]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_AsignaZona" EntityType="Self.v_AsignaZona" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_AsignaZona].[Id_personal] AS [Id_personal], 
+    [v_AsignaZona].[NombreZona] AS [NombreZona], 
+    [v_AsignaZona].[IdZona] AS [IdZona], 
+    [v_AsignaZona].[Nombres] AS [Nombres], 
+    [v_AsignaZona].[Id_asigna] AS [Id_asigna]
+    FROM [us2].[v_AsignaZona] AS [v_AsignaZona]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Clientes" EntityType="Self.v_Clientes" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_Clientes].[IdCliente] AS [IdCliente], 
+    [v_Clientes].[Desc_Corta] AS [Desc_Corta], 
+    [v_Clientes].[NroDocmto] AS [NroDocmto], 
+    [v_Clientes].[Califica] AS [Califica], 
+    [v_Clientes].[NombreRSocial] AS [NombreRSocial], 
+    [v_Clientes].[Nombre] AS [Nombre], 
+    [v_Clientes].[Direccion] AS [Direccion], 
+    [v_Clientes].[Ubigeo] AS [Ubigeo], 
+    [v_Clientes].[Referencia] AS [Referencia], 
+    [v_Clientes].[Telefono] AS [Telefono], 
+    [v_Clientes].[NombreCorto] AS [NombreCorto], 
+    [v_Clientes].[DescripCorta] AS [DescripCorta], 
+    [v_Clientes].[Codigo] AS [Codigo], 
+    [v_Clientes].[IdMercado] AS [IdMercado], 
+    [v_Clientes].[IdClaseClie] AS [IdClaseClie], 
+    [v_Clientes].[Id_DIdent] AS [Id_DIdent], 
+    [v_Clientes].[DiMer] AS [DiMer], 
+    [v_Clientes].[zonmer] AS [zonmer], 
+    [v_Clientes].[NumeroPuesto] AS [NumeroPuesto], 
+    [v_Clientes].[Id_Acceso_crea] AS [Id_Acceso_crea]
+    FROM [us2].[v_Clientes] AS [v_Clientes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_ComboClientes" EntityType="Self.v_ComboClientes" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_ComboClientes].[Id_cliente] AS [Id_cliente], 
+    [v_ComboClientes].[NombrePropietario] AS [NombrePropietario], 
+    [v_ComboClientes].[Codigo] AS [Codigo]
+    FROM [us2].[v_ComboClientes] AS [v_ComboClientes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Encab" EntityType="Self.v_Encab" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_Encab].[Id_Encab] AS [Id_Encab], 
+    [v_Encab].[NombreRSocial] AS [NombreRSocial], 
+    [v_Encab].[Desc_Corta] AS [Desc_Corta], 
+    [v_Encab].[Num_Docmto] AS [Num_Docmto], 
+    [v_Encab].[fechaCheque] AS [fechaCheque], 
+    [v_Encab].[NomFormaPago] AS [NomFormaPago], 
+    [v_Encab].[NomTipoMov] AS [NomTipoMov], 
+    [v_Encab].[Desc_Large] AS [Desc_Large], 
+    [v_Encab].[Total_Venta] AS [Total_Venta], 
+    [v_Encab].[tipocambio] AS [tipocambio], 
+    [v_Encab].[Direccion] AS [Direccion], 
+    [v_Encab].[Nombre] AS [Nombre], 
+    [v_Encab].[CantidadKilos] AS [CantidadKilos], 
+    [v_Encab].[PrecioUnit] AS [PrecioUnit], 
+    [v_Encab].[Descrip] AS [Descrip], 
+    [v_Encab].[SubTotal] AS [SubTotal], 
+    [v_Encab].[Paquetes] AS [Paquetes], 
+    [v_Encab].[IGV] AS [IGV], 
+    [v_Encab].[Id_Ecab] AS [Id_Ecab], 
+    [v_Encab].[Id_Acceso] AS [Id_Acceso]
+    FROM [us2].[v_Encab] AS [v_Encab]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_EncabDet" EntityType="Self.v_EncabDet" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_EncabDet].[Id_Encab] AS [Id_Encab], 
+    [v_EncabDet].[Id_prod] AS [Id_prod], 
+    [v_EncabDet].[Paquetes] AS [Paquetes], 
+    [v_EncabDet].[CantidadKilos] AS [CantidadKilos], 
+    [v_EncabDet].[PrecioUnit] AS [PrecioUnit], 
+    [v_EncabDet].[SubTotal] AS [SubTotal], 
+    [v_EncabDet].[Id_cliente] AS [Id_cliente], 
+    [v_EncabDet].[Id_Vendedor] AS [Id_Vendedor], 
+    [v_EncabDet].[Total_Venta] AS [Total_Venta], 
+    [v_EncabDet].[fechaCheque] AS [fechaCheque], 
+    [v_EncabDet].[IdMercado] AS [IdMercado], 
+    [v_EncabDet].[NombrePropietario] AS [NombrePropietario]
+    FROM [us2].[v_EncabDet] AS [v_EncabDet]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_ListarCliente" EntityType="Self.v_ListarCliente" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_ListarCliente].[Id_cliente] AS [Id_cliente], 
+    [v_ListarCliente].[CodNom] AS [CodNom], 
+    [v_ListarCliente].[NombrePropietario] AS [NombrePropietario], 
+    [v_ListarCliente].[Direccion] AS [Direccion], 
+    [v_ListarCliente].[TelefonoComercial] AS [TelefonoComercial]
+    FROM [us2].[v_ListarCliente] AS [v_ListarCliente]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_ListarMercado" EntityType="Self.v_ListarMercado" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_ListarMercado].[IdMercado] AS [IdMercado], 
+    [v_ListarMercado].[Codigo] AS [Codigo], 
+    [v_ListarMercado].[NombreLargo] AS [NombreLargo], 
+    [v_ListarMercado].[Direccion] AS [Direccion], 
+    [v_ListarMercado].[Ubigeo] AS [Ubigeo]
+    FROM [us2].[v_ListarMercado] AS [v_ListarMercado]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_ListarPedidoFecha" EntityType="Self.v_ListarPedidoFecha" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_ListarPedidoFecha].[Id_Encab] AS [Id_Encab], 
+    [v_ListarPedidoFecha].[fechaCheque] AS [fechaCheque], 
+    [v_ListarPedidoFecha].[CodNom] AS [CodNom], 
+    [v_ListarPedidoFecha].[Total_Venta] AS [Total_Venta]
+    FROM [us2].[v_ListarPedidoFecha] AS [v_ListarPedidoFecha]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_ListarProductos" EntityType="Self.v_ListarProductos" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_ListarProductos].[Id_prod] AS [Id_prod], 
+    [v_ListarProductos].[Nombre] AS [Nombre], 
+    [v_ListarProductos].[descripcion] AS [descripcion], 
+    [v_ListarProductos].[PesoKilos] AS [PesoKilos], 
+    [v_ListarProductos].[PVentaS] AS [PVentaS], 
+    [v_ListarProductos].[PVentaD] AS [PVentaD]
+    FROM [us2].[v_ListarProductos] AS [v_ListarProductos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_ListarZonas" EntityType="Self.v_ListarZonas" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_ListarZonas].[IdZona] AS [IdZona], 
+    [v_ListarZonas].[DescripCorta] AS [DescripCorta], 
+    [v_ListarZonas].[DescripLarga] AS [DescripLarga], 
+    [v_ListarZonas].[Observacion] AS [Observacion]
+    FROM [us2].[v_ListarZonas] AS [v_ListarZonas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Mer" EntityType="Self.v_Mer" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_Mer].[IdMercado] AS [IdMercado], 
+    [v_Mer].[DescripCorta] AS [DescripCorta], 
+    [v_Mer].[NombreCorto] AS [NombreCorto], 
+    [v_Mer].[NombreLargo] AS [NombreLargo], 
+    [v_Mer].[Direccion] AS [Direccion], 
+    [v_Mer].[ZM] AS [ZM], 
+    [v_Mer].[M] AS [M], 
+    [v_Mer].[Validacion] AS [Validacion]
+    FROM [us2].[v_Mer] AS [v_Mer]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_MercadoxZona" EntityType="Self.v_MercadoxZona" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_MercadoxZona].[IdZona] AS [IdZona], 
+    [v_MercadoxZona].[IdMercado] AS [IdMercado], 
+    [v_MercadoxZona].[NombreLargo] AS [NombreLargo]
+    FROM [us2].[v_MercadoxZona] AS [v_MercadoxZona]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Per" EntityType="Self.v_Per" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_Per].[Id_personal] AS [Id_personal], 
+    [v_Per].[Apellidos] AS [Apellidos], 
+    [v_Per].[Nombres] AS [Nombres], 
+    [v_Per].[NroDNI] AS [NroDNI], 
+    [v_Per].[Domicilio] AS [Domicilio], 
+    [v_Per].[Telefono] AS [Telefono], 
+    [v_Per].[fechaNacimiento] AS [fechaNacimiento], 
+    [v_Per].[Sexo] AS [Sexo], 
+    [v_Per].[fechaIngreso] AS [fechaIngreso], 
+    [v_Per].[Nombre] AS [Nombre], 
+    [v_Per].[EstadoCivil] AS [EstadoCivil], 
+    [v_Per].[Nrolpss] AS [Nrolpss], 
+    [v_Per].[NroHijos] AS [NroHijos], 
+    [v_Per].[Codigo] AS [Codigo]
+    FROM [us2].[v_Per] AS [v_Per]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Pro" EntityType="Self.v_Pro" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_Pro].[Id_Producto] AS [Id_Producto], 
+    [v_Pro].[Valor] AS [Valor], 
+    [v_Pro].[Descrip] AS [Descrip], 
+    [v_Pro].[Descripcion] AS [Descripcion], 
+    [v_Pro].[Simbolo] AS [Simbolo], 
+    [v_Pro].[Peso] AS [Peso], 
+    [v_Pro].[Desc_Large] AS [Desc_Large], 
+    [v_Pro].[PCompraS] AS [PCompraS], 
+    [v_Pro].[PCompraD] AS [PCompraD], 
+    [v_Pro].[PVentaS] AS [PVentaS], 
+    [v_Pro].[PVentaD] AS [PVentaD], 
+    [v_Pro].[StockMax] AS [StockMax], 
+    [v_Pro].[StockMin] AS [StockMin], 
+    [v_Pro].[StockAct] AS [StockAct], 
+    [v_Pro].[Codigo] AS [Codigo], 
+    [v_Pro].[Nombre] AS [Nombre], 
+    [v_Pro].[Id_Umedida] AS [Id_Umedida], 
+    [v_Pro].[codde] AS [codde], 
+    [v_Pro].[Id_Familia] AS [Id_Familia]
+    FROM [us2].[v_Pro] AS [v_Pro]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Zon" EntityType="Self.v_Zon" store:Type="Views" store:Schema="us2">
+            <DefiningQuery>SELECT 
+    [v_Zon].[IdZona] AS [IdZona], 
+    [v_Zon].[Descrip] AS [Descrip], 
+    [v_Zon].[DescripCorta] AS [DescripCorta], 
+    [v_Zon].[DescripLarga] AS [DescripLarga]
+    FROM [us2].[v_Zon] AS [v_Zon]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Accesos_Personal" Association="Self.FK_Accesos_Personal">
+            <End Role="Personal" EntitySet="Personal" />
+            <End Role="Accesos" EntitySet="Accesos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mercados_zonas" Association="Self.FK_mercados_zonas">
+            <End Role="zonas" EntitySet="zonas" />
+            <End Role="mercados" EntitySet="mercados" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ventas2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Accesos">
+          <Key>
+            <PropertyRef Name="Id_Acceso" />
+          </Key>
+          <Property Name="Id_Acceso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Personal" Type="Int32" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_ini" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Fin" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Personal" Relationship="ventas2Model.FK_Accesos_Personal" FromRole="Accesos" ToRole="Personal" />
+        </EntityType>
+        <EntityType Name="Marcas">
+          <Key>
+            <PropertyRef Name="Id_Marca" />
+          </Key>
+          <Property Name="Id_Marca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="mercados">
+          <Key>
+            <PropertyRef Name="IdMercado" />
+          </Key>
+          <Property Name="IdMercado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdZona" Type="Int32" Nullable="false" />
+          <Property Name="NombreCorto" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="NombreLargo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="ubigeo" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Observ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="zonas" Relationship="Self.FK_mercados_zonas" FromRole="mercados" ToRole="zonas" />
+        </EntityType>
+        <EntityType Name="Monedas">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCIÓN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UniMed">
+          <Key>
+            <PropertyRef Name="Id_Umedida" />
+          </Key>
+          <Property Name="Id_Umedida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Simbolo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Medida" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="zonas">
+          <Key>
+            <PropertyRef Name="IdZona" />
+          </Key>
+          <Property Name="IdZona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescripCorta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DescripLarga" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="mercados" Relationship="Self.FK_mercados_zonas" FromRole="zonas" ToRole="mercados" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cuentas">
+          <Key>
+            <PropertyRef Name="Id_Dcmto" />
+          </Key>
+          <Property Name="Id_Dcmto" Type="Int32" Nullable="false" />
+          <Property Name="Ingreso_Salida" Type="Int32" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Saldo" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NroPagos" Type="Int32" />
+          <Property Name="NroDias" Type="Int32" />
+          <Property Name="FechaUltimoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Denominacion">
+          <Key>
+            <PropertyRef Name="IdDenominacion" />
+          </Key>
+          <Property Name="IdDenominacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UBIGEO">
+          <Key>
+            <PropertyRef Name="UBIGEO1" />
+          </Key>
+          <Property Name="UBIGEO1" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DISTRITO" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="PROVINCIA" Type="String" MaxLength="27" FixedLength="false" Unicode="false" />
+          <Property Name="DEPARTAM" Type="String" MaxLength="26" FixedLength="false" Unicode="false" />
+          <Property Name="cod_dpto" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AsignaZona">
+          <Key>
+            <PropertyRef Name="Id_asigna" />
+          </Key>
+          <Property Name="Id_asigna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdZona" Type="Int32" />
+          <Property Name="Id_personal" Type="Int32" />
+          <Property Name="Fecha_asigna" Type="DateTime" Precision="0" />
+          <Property Name="usuario" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Detalles">
+          <Key>
+            <PropertyRef Name="Id_Encab" />
+          </Key>
+          <Property Name="Id_Encab" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" />
+          <Property Name="Id_prod" Type="Int32" />
+          <Property Name="Paquetes" Type="Int32" />
+          <Property Name="Medida" Type="Int32" />
+          <Property Name="CantidadKilos" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Id_UMedida" Type="Int32" />
+          <Property Name="PrecioUnit" Type="Double" />
+          <Property Name="SubTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IGV" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Familia">
+          <Key>
+            <PropertyRef Name="Id_Familia" />
+          </Key>
+          <Property Name="Id_Familia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="IGV">
+          <Key>
+            <PropertyRef Name="IdAfecto" />
+          </Key>
+          <Property Name="IdAfecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Valor" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_Acc">
+          <Key>
+            <PropertyRef Name="Id_Acceso" />
+          </Key>
+          <Property Name="Id_Acceso" Type="Int32" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodCargo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Nombrescom" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="NombreCargo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Personal" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_AcEn">
+          <Key>
+            <PropertyRef Name="Id_Acceso" />
+            <PropertyRef Name="Id_Encab" />
+          </Key>
+          <Property Name="Id_Acceso" Type="Int32" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Encab" Type="Int32" Nullable="false" />
+          <Property Name="NombreRSocial" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="fechaCheque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Total_Venta" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CodNom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="v_Clientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdMercado" />
+            <PropertyRef Name="IdClaseClie" />
+            <PropertyRef Name="Id_DIdent" />
+          </Key>
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+          <Property Name="Desc_Corta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="NroDocmto" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="Califica" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="NombreRSocial" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ubigeo" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Referencia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NombreCorto" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="DescripCorta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="String" MaxLength="23" FixedLength="false" Unicode="true" />
+          <Property Name="IdMercado" Type="Int32" Nullable="false" />
+          <Property Name="IdClaseClie" Type="Int32" Nullable="false" />
+          <Property Name="Id_DIdent" Type="Int32" Nullable="false" />
+          <Property Name="DiMer" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="zonmer" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroPuesto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Acceso_crea" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_Encab">
+          <Key>
+            <PropertyRef Name="Id_Encab" />
+          </Key>
+          <Property Name="Id_Encab" Type="Int32" Nullable="false" />
+          <Property Name="NombreRSocial" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Desc_Corta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Num_Docmto" Type="Int32" />
+          <Property Name="fechaCheque" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NomFormaPago" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="NomTipoMov" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Desc_Large" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Total_Venta" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="tipocambio" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CantidadKilos" Type="Int32" />
+          <Property Name="PrecioUnit" Type="Double" />
+          <Property Name="Descrip" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="SubTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Paquetes" Type="Int32" />
+          <Property Name="IGV" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Id_Ecab" Type="Int32" />
+          <Property Name="Id_Acceso" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_ListarPedidoFecha">
+          <Key>
+            <PropertyRef Name="Id_Encab" />
+          </Key>
+          <Property Name="Id_Encab" Type="Int32" Nullable="false" />
+          <Property Name="fechaCheque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodNom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Total_Venta" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="v_Mer">
+          <Key>
+            <PropertyRef Name="IdMercado" />
+          </Key>
+          <Property Name="IdMercado" Type="Int32" Nullable="false" />
+          <Property Name="DescripCorta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCorto" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="NombreLargo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="ZM" Type="String" MaxLength="97" FixedLength="false" Unicode="true" />
+          <Property Name="M" Type="String" MaxLength="85" FixedLength="false" Unicode="true" />
+          <Property Name="Validacion" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="v_MercadoxZona">
+          <Key>
+            <PropertyRef Name="IdZona" />
+            <PropertyRef Name="IdMercado" />
+          </Key>
+          <Property Name="IdZona" Type="Int32" Nullable="false" />
+          <Property Name="IdMercado" Type="Int32" Nullable="false" />
+          <Property Name="NombreLargo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="v_Per">
+          <Key>
+            <PropertyRef Name="Id_personal" />
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Id_personal" Type="Int32" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="61" FixedLength="false" Unicode="true" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NroDNI" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Domicilio" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="fechaIngreso" Type="DateTime" Precision="3" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EstadoCivil" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Nrolpss" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NroHijos" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Pro">
+          <Key>
+            <PropertyRef Name="Id_Producto" />
+          </Key>
+          <Property Name="Id_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Int32" />
+          <Property Name="Descrip" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Simbolo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Peso" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Desc_Large" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PCompraS" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PCompraD" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaS" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaD" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="StockMax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="StockMin" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="StockAct" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Umedida" Type="Int32" />
+          <Property Name="codde" Type="String" MaxLength="85" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Familia" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_Zon">
+          <Key>
+            <PropertyRef Name="IdZona" />
+          </Key>
+          <Property Name="IdZona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descrip" Type="String" MaxLength="89" FixedLength="false" Unicode="false" />
+          <Property Name="DescripCorta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DescripLarga" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_mercados_zonas">
+          <End Role="zonas" Type="Self.zonas" Multiplicity="1" />
+          <End Role="mercados" Type="Self.mercados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zonas">
+              <PropertyRef Name="IdZona" />
+            </Principal>
+            <Dependent Role="mercados">
+              <PropertyRef Name="IdZona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ventas2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accesos" EntityType="Self.Accesos" />
+          <EntitySet Name="Marcas" EntityType="Self.Marcas" />
+          <EntitySet Name="mercados" EntityType="Self.mercados" />
+          <EntitySet Name="Monedas" EntityType="Self.Monedas" />
+          <EntitySet Name="UniMed" EntityType="Self.UniMed" />
+          <EntitySet Name="zonas" EntityType="Self.zonas" />
+          <EntitySet Name="Cuentas" EntityType="Self.Cuentas" />
+          <EntitySet Name="Denominacion" EntityType="Self.Denominacion" />
+          <EntitySet Name="UBIGEO" EntityType="Self.UBIGEO" />
+          <EntitySet Name="AsignaZona" EntityType="Self.AsignaZona" />
+          <EntitySet Name="Detalles" EntityType="Self.Detalles" />
+          <EntitySet Name="Familia" EntityType="Self.Familia" />
+          <EntitySet Name="IGV" EntityType="Self.IGV" />
+          <EntitySet Name="v_Acc" EntityType="Self.v_Acc" />
+          <EntitySet Name="v_AcEn" EntityType="Self.v_AcEn" />
+          <EntitySet Name="v_Clientes" EntityType="Self.v_Clientes" />
+          <EntitySet Name="v_Encab" EntityType="Self.v_Encab" />
+          <EntitySet Name="v_ListarPedidoFecha" EntityType="Self.v_ListarPedidoFecha" />
+          <EntitySet Name="v_Mer" EntityType="Self.v_Mer" />
+          <EntitySet Name="v_MercadoxZona" EntityType="Self.v_MercadoxZona" />
+          <EntitySet Name="v_Per" EntityType="Self.v_Per" />
+          <EntitySet Name="v_Pro" EntityType="Self.v_Pro" />
+          <EntitySet Name="v_Zon" EntityType="Self.v_Zon" />
+          <AssociationSet Name="FK_mercados_zonas" Association="Self.FK_mercados_zonas">
+            <End Role="zonas" EntitySet="zonas" />
+            <End Role="mercados" EntitySet="mercados" />
+          </AssociationSet>
+          <EntitySet Name="Encabezado" EntityType="ventas2Model.Encabezado" />
+          <EntitySet Name="Producto" EntityType="ventas2Model.Producto" />
+          <EntitySet Name="v_ListarProductos" EntityType="ventas2Model.v_ListarProductos" />
+          <EntitySet Name="v_ListarCliente" EntityType="ventas2Model.v_ListarCliente" />
+          <EntitySet Name="Personal" EntityType="ventas2Model.Personal" />
+          <AssociationSet Name="FK_Accesos_Personal" Association="ventas2Model.FK_Accesos_Personal">
+            <End Role="Personal" EntitySet="Personal" />
+            <End Role="Accesos" EntitySet="Accesos" />
+          </AssociationSet>
+          <EntitySet Name="v_EncabDet" EntityType="ventas2Model.v_EncabDet" />
+          <EntitySet Name="v_AsignaZona" EntityType="ventas2Model.v_AsignaZona" />
+          <EntitySet Name="v_ListarZonas" EntityType="ventas2Model.v_ListarZonas" />
+          <EntitySet Name="v_ListarMercado" EntityType="ventas2Model.v_ListarMercado" />
+          <EntitySet Name="Cliente" EntityType="ventas2Model.Cliente" />
+          <EntitySet Name="v_ComboClientes" EntityType="ventas2Model.v_ComboClientes" />
+        </EntityContainer>
+        <EntityType Name="Encabezado">
+          <Key>
+            <PropertyRef Name="Id_Encab" />
+          </Key>
+          <Property Name="Id_Encab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_cliente" Type="Int32" />
+          <Property Name="Id_Docmto" Type="Int32" />
+          <Property Name="Num_Docmto" Type="Int32" />
+          <Property Name="Fecha_Docmto" Type="Int32" />
+          <Property Name="Id_FormaPago" Type="Int32" />
+          <Property Name="fechaCheque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Vendedor" Type="Int32" />
+          <Property Name="Id_TipoMov" Type="Int32" />
+          <Property Name="Id_Moneda" Type="Int32" />
+          <Property Name="Estado_Docmto" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Estado_Pago" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IGV" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Total_Venta" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalPrecio" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tipo_Cambio" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Notas" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Acceso" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id_prod" />
+          </Key>
+          <Property Name="Id_prod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdAfectoIGV" Type="Int32" />
+          <Property Name="IdMedida" Type="Int32" />
+          <Property Name="PesoKilos" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PComprasS" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PCompraD" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaS" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaD" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="StockMin" Type="Int32" />
+          <Property Name="StockMax" Type="Int32" />
+          <Property Name="StockAct" Type="Int32" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdMarca" Type="Int32" />
+          <Property Name="Id_Familia" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_ListarProductos">
+          <Key>
+            <PropertyRef Name="Id_prod" />
+          </Key>
+          <Property Name="Id_prod" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PesoKilos" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaS" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PVentaD" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="v_ListarCliente">
+          <Key>
+            <PropertyRef Name="Id_cliente" />
+          </Key>
+          <Property Name="Id_cliente" Type="Int32" Nullable="false" />
+          <Property Name="CodNom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NombrePropietario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoComercial" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="Id_personal" />
+          </Key>
+          <Property Name="Id_personal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApellidoPat" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ApellidoMat" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NroDNI" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Domicilio" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Ubigeo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="fechaIngreso" Type="DateTime" Precision="3" />
+          <Property Name="CodCargo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoCivil" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Nrolpss" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NroHijos" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Observ" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accesos" Relationship="ventas2Model.FK_Accesos_Personal" FromRole="Personal" ToRole="Accesos" />
+        </EntityType>
+        <Association Name="FK_Accesos_Personal">
+          <End Type="ventas2Model.Personal" Role="Personal" Multiplicity="0..1" />
+          <End Type="ventas2Model.Accesos" Role="Accesos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personal">
+              <PropertyRef Name="Id_personal" />
+            </Principal>
+            <Dependent Role="Accesos">
+              <PropertyRef Name="Id_Personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="v_EncabDet">
+          <Key>
+            <PropertyRef Name="Id_Encab" />
+            <PropertyRef Name="IdMercado" />
+          </Key>
+          <Property Name="Id_Encab" Type="Int32" Nullable="false" />
+          <Property Name="Id_prod" Type="Int32" />
+          <Property Name="Paquetes" Type="Int32" />
+          <Property Name="CantidadKilos" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PrecioUnit" Type="Double" />
+          <Property Name="SubTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Id_cliente" Type="Int32" />
+          <Property Name="Id_Vendedor" Type="Int32" />
+          <Property Name="Total_Venta" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fechaCheque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdMercado" Type="Int32" Nullable="false" />
+          <Property Name="NombrePropietario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_AsignaZona">
+          <Key>
+            <PropertyRef Name="IdZona" />
+            <PropertyRef Name="Id_asigna" />
+          </Key>
+          <Property Name="Id_personal" Type="Int32" />
+          <Property Name="NombreZona" Type="String" MaxLength="86" FixedLength="false" Unicode="false" />
+          <Property Name="IdZona" Type="Int32" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_asigna" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_ListarZonas">
+          <Key>
+            <PropertyRef Name="IdZona" />
+          </Key>
+          <Property Name="IdZona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescripCorta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DescripLarga" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_ListarMercado">
+          <Key>
+            <PropertyRef Name="IdMercado" />
+          </Key>
+          <Property Name="IdMercado" Type="Int32" Nullable="false" />
+          <Property Name="Codigo" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Name="NombreLargo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Ubigeo" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Id_cliente" />
+          </Key>
+          <Property Name="Id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMercado" Type="Int32" />
+          <Property Name="RazonSocial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdDenominacion" Type="Int32" />
+          <Property Name="Califica" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RUC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UbigeoComercial" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenciaComercial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoComercial" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="NombrePropietario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Domicilio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UbigeoDomicilio" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenciaDomicilio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DNI" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoDomicilio" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="GarantiaCred" Type="Int32" />
+          <Property Name="CreditoMaximo" Type="Int32" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroPuesto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_ComboClientes">
+          <Key>
+            <PropertyRef Name="Id_cliente" />
+          </Key>
+          <Property Name="Id_cliente" Type="Int32" Nullable="false" />
+          <Property Name="NombrePropietario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ventas2ModelStoreContainer" CdmEntityContainer="ventas2Entities">
+          <EntitySetMapping Name="Accesos">
+            <EntityTypeMapping TypeName="ventas2Model.Accesos">
+              <MappingFragment StoreEntitySet="Accesos">
+                <ScalarProperty Name="Id_Acceso" ColumnName="Id_Acceso" />
+                <ScalarProperty Name="Id_Personal" ColumnName="Id_Personal" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Fecha_ini" ColumnName="Fecha_ini" />
+                <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marcas">
+            <EntityTypeMapping TypeName="ventas2Model.Marcas">
+              <MappingFragment StoreEntitySet="Marcas">
+                <ScalarProperty Name="Id_Marca" ColumnName="Id_Marca" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mercados">
+            <EntityTypeMapping TypeName="ventas2Model.mercados">
+              <MappingFragment StoreEntitySet="mercados">
+                <ScalarProperty Name="IdMercado" ColumnName="IdMercado" />
+                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
+                <ScalarProperty Name="NombreCorto" ColumnName="NombreCorto" />
+                <ScalarProperty Name="NombreLargo" ColumnName="NombreLargo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="ubigeo" ColumnName="ubigeo" />
+                <ScalarProperty Name="Observ" ColumnName="Observ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monedas">
+            <EntityTypeMapping TypeName="ventas2Model.Monedas">
+              <MappingFragment StoreEntitySet="Monedas">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="DESCRIPCIÓN" ColumnName="DESCRIPCIÓN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UniMed">
+            <EntityTypeMapping TypeName="ventas2Model.UniMed">
+              <MappingFragment StoreEntitySet="UniMed">
+                <ScalarProperty Name="Id_Umedida" ColumnName="Id_Umedida" />
+                <ScalarProperty Name="Simbolo" ColumnName="Simbolo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Medida" ColumnName="Medida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zonas">
+            <EntityTypeMapping TypeName="ventas2Model.zonas">
+              <MappingFragment StoreEntitySet="zonas">
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
+                <ScalarProperty Name="DescripCorta" ColumnName="DescripCorta" />
+                <ScalarProperty Name="DescripLarga" ColumnName="DescripLarga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cuentas">
+            <EntityTypeMapping TypeName="ventas2Model.Cuentas">
+              <MappingFragment StoreEntitySet="Cuentas">
+                <ScalarProperty Name="Id_Dcmto" ColumnName="Id_Dcmto" />
+                <ScalarProperty Name="Ingreso_Salida" ColumnName="Ingreso_Salida" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="NroPagos" ColumnName="NroPagos" />
+                <ScalarProperty Name="NroDias" ColumnName="NroDias" />
+                <ScalarProperty Name="FechaUltimoPago" ColumnName="FechaUltimoPago" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Denominacion">
+            <EntityTypeMapping TypeName="ventas2Model.Denominacion">
+              <MappingFragment StoreEntitySet="Denominacion">
+                <ScalarProperty Name="IdDenominacion" ColumnName="IdDenominacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UBIGEO">
+            <EntityTypeMapping TypeName="ventas2Model.UBIGEO">
+              <MappingFragment StoreEntitySet="UBIGEO">
+                <ScalarProperty Name="UBIGEO1" ColumnName="UBIGEO" />
+                <ScalarProperty Name="DISTRITO" ColumnName="DISTRITO" />
+                <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+                <ScalarProperty Name="DEPARTAM" ColumnName="DEPARTAM" />
+                <ScalarProperty Name="cod_dpto" ColumnName="cod_dpto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AsignaZona">
+            <EntityTypeMapping TypeName="ventas2Model.AsignaZona">
+              <MappingFragment StoreEntitySet="AsignaZona">
+                <ScalarProperty Name="Id_asigna" ColumnName="Id_asigna" />
+                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
+                <ScalarProperty Name="Id_personal" ColumnName="Id_personal" />
+                <ScalarProperty Name="Fecha_asigna" ColumnName="Fecha_asigna" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detalles">
+            <EntityTypeMapping TypeName="ventas2Model.Detalles">
+              <MappingFragment StoreEntitySet="Detalles">
+                <ScalarProperty Name="Id_Encab" ColumnName="Id_Encab" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Id_prod" ColumnName="Id_prod" />
+                <ScalarProperty Name="Paquetes" ColumnName="Paquetes" />
+                <ScalarProperty Name="Medida" ColumnName="Medida" />
+                <ScalarProperty Name="CantidadKilos" ColumnName="CantidadKilos" />
+                <ScalarProperty Name="Id_UMedida" ColumnName="Id_UMedida" />
+                <ScalarProperty Name="PrecioUnit" ColumnName="PrecioUnit" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="IGV" ColumnName="IGV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Familia">
+            <EntityTypeMapping TypeName="ventas2Model.Familia">
+              <MappingFragment StoreEntitySet="Familia">
+                <ScalarProperty Name="Id_Familia" ColumnName="Id_Familia" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IGV">
+            <EntityTypeMapping TypeName="ventas2Model.IGV">
+              <MappingFragment StoreEntitySet="IGV">
+                <ScalarProperty Name="IdAfecto" ColumnName="IdAfecto" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Acc">
+            <EntityTypeMapping TypeName="ventas2Model.v_Acc">
+              <MappingFragment StoreEntitySet="v_Acc">
+                <ScalarProperty Name="Id_Acceso" ColumnName="Id_Acceso" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="CodCargo" ColumnName="CodCargo" />
+                <ScalarProperty Name="Nombrescom" ColumnName="Nombrescom" />
+                <ScalarProperty Name="NombreCargo" ColumnName="NombreCargo" />
+                <ScalarProperty Name="Id_Personal" ColumnName="Id_Personal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_AcEn">
+            <EntityTypeMapping TypeName="ventas2Model.v_AcEn">
+              <MappingFragment StoreEntitySet="v_AcEn">
+                <ScalarProperty Name="Id_Acceso" ColumnName="Id_Acceso" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Id_Encab" ColumnName="Id_Encab" />
+                <ScalarProperty Name="NombreRSocial" ColumnName="NombreRSocial" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="fechaCheque" ColumnName="fechaCheque" />
+                <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
+                <ScalarProperty Name="CodNom" ColumnName="CodNom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Clientes">
+            <EntityTypeMapping TypeName="ventas2Model.v_Clientes">
+              <MappingFragment StoreEntitySet="v_Clientes">
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Desc_Corta" ColumnName="Desc_Corta" />
+                <ScalarProperty Name="NroDocmto" ColumnName="NroDocmto" />
+                <ScalarProperty Name="Califica" ColumnName="Califica" />
+                <ScalarProperty Name="NombreRSocial" ColumnName="NombreRSocial" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Ubigeo" ColumnName="Ubigeo" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="NombreCorto" ColumnName="NombreCorto" />
+                <ScalarProperty Name="DescripCorta" ColumnName="DescripCorta" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdMercado" ColumnName="IdMercado" />
+                <ScalarProperty Name="IdClaseClie" ColumnName="IdClaseClie" />
+                <ScalarProperty Name="Id_DIdent" ColumnName="Id_DIdent" />
+                <ScalarProperty Name="DiMer" ColumnName="DiMer" />
+                <ScalarProperty Name="zonmer" ColumnName="zonmer" />
+                <ScalarProperty Name="NumeroPuesto" ColumnName="NumeroPuesto" />
+                <ScalarProperty Name="Id_Acceso_crea" ColumnName="Id_Acceso_crea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Encab">
+            <EntityTypeMapping TypeName="ventas2Model.v_Encab">
+              <MappingFragment StoreEntitySet="v_Encab">
+                <ScalarProperty Name="Id_Encab" ColumnName="Id_Encab" />
+                <ScalarProperty Name="NombreRSocial" ColumnName="NombreRSocial" />
+                <ScalarProperty Name="Desc_Corta" ColumnName="Desc_Corta" />
+                <ScalarProperty Name="Num_Docmto" ColumnName="Num_Docmto" />
+                <ScalarProperty Name="fechaCheque" ColumnName="fechaCheque" />
+                <ScalarProperty Name="NomFormaPago" ColumnName="NomFormaPago" />
+                <ScalarProperty Name="NomTipoMov" ColumnName="NomTipoMov" />
+                <ScalarProperty Name="Desc_Large" ColumnName="Desc_Large" />
+                <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
+                <ScalarProperty Name="tipocambio" ColumnName="tipocambio" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CantidadKilos" ColumnName="CantidadKilos" />
+                <ScalarProperty Name="PrecioUnit" ColumnName="PrecioUnit" />
+                <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Paquetes" ColumnName="Paquetes" />
+                <ScalarProperty Name="IGV" ColumnName="IGV" />
+                <ScalarProperty Name="Id_Ecab" ColumnName="Id_Ecab" />
+                <ScalarProperty Name="Id_Acceso" ColumnName="Id_Acceso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_ListarPedidoFecha">
+            <EntityTypeMapping TypeName="ventas2Model.v_ListarPedidoFecha">
+              <MappingFragment StoreEntitySet="v_ListarPedidoFecha">
+                <ScalarProperty Name="Id_Encab" ColumnName="Id_Encab" />
+                <ScalarProperty Name="fechaCheque" ColumnName="fechaCheque" />
+                <ScalarProperty Name="CodNom" ColumnName="CodNom" />
+                <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Mer">
+            <EntityTypeMapping TypeName="ventas2Model.v_Mer">
+              <MappingFragment StoreEntitySet="v_Mer">
+                <ScalarProperty Name="IdMercado" ColumnName="IdMercado" />
+                <ScalarProperty Name="DescripCorta" ColumnName="DescripCorta" />
+                <ScalarProperty Name="NombreCorto" ColumnName="NombreCorto" />
+                <ScalarProperty Name="NombreLargo" ColumnName="NombreLargo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="ZM" ColumnName="ZM" />
+                <ScalarProperty Name="M" ColumnName="M" />
+                <ScalarProperty Name="Validacion" ColumnName="Validacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_MercadoxZona">
+            <EntityTypeMapping TypeName="ventas2Model.v_MercadoxZona">
+              <MappingFragment StoreEntitySet="v_MercadoxZona">
+                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
+                <ScalarProperty Name="IdMercado" ColumnName="IdMercado" />
+                <ScalarProperty Name="NombreLargo" ColumnName="NombreLargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Per">
+            <EntityTypeMapping TypeName="ventas2Model.v_Per">
+              <MappingFragment StoreEntitySet="v_Per">
+                <ScalarProperty Name="Id_personal" ColumnName="Id_personal" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="NroDNI" ColumnName="NroDNI" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
+                <ScalarProperty Name="Nrolpss" ColumnName="Nrolpss" />
+                <ScalarProperty Name="NroHijos" ColumnName="NroHijos" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Pro">
+            <EntityTypeMapping TypeName="ventas2Model.v_Pro">
+              <MappingFragment StoreEntitySet="v_Pro">
+                <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Simbolo" ColumnName="Simbolo" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Desc_Large" ColumnName="Desc_Large" />
+                <ScalarProperty Name="PCompraS" ColumnName="PCompraS" />
+                <ScalarProperty Name="PCompraD" ColumnName="PCompraD" />
+                <ScalarProperty Name="PVentaS" ColumnName="PVentaS" />
+                <ScalarProperty Name="PVentaD" ColumnName="PVentaD" />
+                <ScalarProperty Name="StockMax" ColumnName="StockMax" />
+                <ScalarProperty Name="StockMin" ColumnName="StockMin" />
+                <ScalarProperty Name="StockAct" ColumnName="StockAct" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_Umedida" ColumnName="Id_Umedida" />
+                <ScalarProperty Name="codde" ColumnName="codde" />
+                <ScalarProperty Name="Id_Familia" ColumnName="Id_Familia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Zon">
+            <EntityTypeMapping TypeName="ventas2Model.v_Zon">
+              <MappingFragment StoreEntitySet="v_Zon">
+                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
+                <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+                <ScalarProperty Name="DescripCorta" ColumnName="DescripCorta" />
+                <ScalarProperty Name="DescripLarga" ColumnName="DescripLarga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Encabezado">
+            <EntityTypeMapping TypeName="ventas2Model.Encabezado">
+              <MappingFragment StoreEntitySet="Encabezado">
+                <ScalarProperty Name="Id_Acceso" ColumnName="Id_Acceso" />
+                <ScalarProperty Name="Notas" ColumnName="Notas" />
+                <ScalarProperty Name="Tipo_Cambio" ColumnName="Tipo_Cambio" />
+                <ScalarProperty Name="TotalPrecio" ColumnName="TotalPrecio" />
+                <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
+                <ScalarProperty Name="IGV" ColumnName="IGV" />
+                <ScalarProperty Name="Estado_Pago" ColumnName="Estado_Pago" />
+                <ScalarProperty Name="Estado_Docmto" ColumnName="Estado_Docmto" />
+                <ScalarProperty Name="Id_Moneda" ColumnName="Id_Moneda" />
+                <ScalarProperty Name="Id_TipoMov" ColumnName="Id_TipoMov" />
+                <ScalarProperty Name="Id_Vendedor" ColumnName="Id_Vendedor" />
+                <ScalarProperty Name="fechaCheque" ColumnName="fechaCheque" />
+                <ScalarProperty Name="Id_FormaPago" ColumnName="Id_FormaPago" />
+                <ScalarProperty Name="Fecha_Docmto" ColumnName="Fecha_Docmto" />
+                <ScalarProperty Name="Num_Docmto" ColumnName="Num_Docmto" />
+                <ScalarProperty Name="Id_Docmto" ColumnName="Id_Docmto" />
+                <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
+                <ScalarProperty Name="Id_Encab" ColumnName="Id_Encab" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="ventas2Model.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="Id_Familia" ColumnName="Id_Familia" />
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="StockAct" ColumnName="StockAct" />
+                <ScalarProperty Name="StockMax" ColumnName="StockMax" />
+                <ScalarProperty Name="StockMin" ColumnName="StockMin" />
+                <ScalarProperty Name="PVentaD" ColumnName="PVentaD" />
+                <ScalarProperty Name="PVentaS" ColumnName="PVentaS" />
+                <ScalarProperty Name="PCompraD" ColumnName="PCompraD" />
+                <ScalarProperty Name="PComprasS" ColumnName="PComprasS" />
+                <ScalarProperty Name="PesoKilos" ColumnName="PesoKilos" />
+                <ScalarProperty Name="IdMedida" ColumnName="IdMedida" />
+                <ScalarProperty Name="IdAfectoIGV" ColumnName="IdAfectoIGV" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Id_prod" ColumnName="Id_prod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_ListarProductos">
+            <EntityTypeMapping TypeName="ventas2Model.v_ListarProductos">
+              <MappingFragment StoreEntitySet="v_ListarProductos">
+                <ScalarProperty Name="PVentaD" ColumnName="PVentaD" />
+                <ScalarProperty Name="PVentaS" ColumnName="PVentaS" />
+                <ScalarProperty Name="PesoKilos" ColumnName="PesoKilos" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_prod" ColumnName="Id_prod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_ListarCliente">
+            <EntityTypeMapping TypeName="ventas2Model.v_ListarCliente">
+              <MappingFragment StoreEntitySet="v_ListarCliente">
+                <ScalarProperty Name="TelefonoComercial" ColumnName="TelefonoComercial" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="NombrePropietario" ColumnName="NombrePropietario" />
+                <ScalarProperty Name="CodNom" ColumnName="CodNom" />
+                <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personal">
+            <EntityTypeMapping TypeName="ventas2Model.Personal">
+              <MappingFragment StoreEntitySet="Personal">
+                <ScalarProperty Name="Observ" ColumnName="Observ" />
+                <ScalarProperty Name="NroHijos" ColumnName="NroHijos" />
+                <ScalarProperty Name="Nrolpss" ColumnName="Nrolpss" />
+                <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
+                <ScalarProperty Name="CodCargo" ColumnName="CodCargo" />
+                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Ubigeo" ColumnName="Ubigeo" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="NroDNI" ColumnName="NroDNI" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="ApellidoMat" ColumnName="ApellidoMat" />
+                <ScalarProperty Name="ApellidoPat" ColumnName="ApellidoPat" />
+                <ScalarProperty Name="Id_personal" ColumnName="Id_personal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_EncabDet">
+            <EntityTypeMapping TypeName="ventas2Model.v_EncabDet">
+              <MappingFragment StoreEntitySet="v_EncabDet">
+                <ScalarProperty Name="NombrePropietario" ColumnName="NombrePropietario" />
+                <ScalarProperty Name="IdMercado" ColumnName="IdMercado" />
+                <ScalarProperty Name="fechaCheque" ColumnName="fechaCheque" />
+                <ScalarProperty Name="Total_Venta" ColumnName="Total_Venta" />
+                <ScalarProperty Name="Id_Vendedor" ColumnName="Id_Vendedor" />
+                <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="PrecioUnit" ColumnName="PrecioUnit" />
+                <ScalarProperty Name="CantidadKilos" ColumnName="CantidadKilos" />
+                <ScalarProperty Name="Paquetes" ColumnName="Paquetes" />
+                <ScalarProperty Name="Id_prod" ColumnName="Id_prod" />
+                <ScalarProperty Name="Id_Encab" ColumnName="Id_Encab" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_AsignaZona">
+            <EntityTypeMapping TypeName="ventas2Model.v_AsignaZona">
+              <MappingFragment StoreEntitySet="v_AsignaZona">
+                <ScalarProperty Name="Id_asigna" ColumnName="Id_asigna" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
+                <ScalarProperty Name="NombreZona" ColumnName="NombreZona" />
+                <ScalarProperty Name="Id_personal" ColumnName="Id_personal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_ListarZonas">
+            <EntityTypeMapping TypeName="ventas2Model.v_ListarZonas">
+              <MappingFragment StoreEntitySet="v_ListarZonas">
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="DescripLarga" ColumnName="DescripLarga" />
+                <ScalarProperty Name="DescripCorta" ColumnName="DescripCorta" />
+                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_ListarMercado">
+            <EntityTypeMapping TypeName="ventas2Model.v_ListarMercado">
+              <MappingFragment StoreEntitySet="v_ListarMercado">
+                <ScalarProperty Name="Ubigeo" ColumnName="Ubigeo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="NombreLargo" ColumnName="NombreLargo" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdMercado" ColumnName="IdMercado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="ventas2Model.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="NumeroPuesto" ColumnName="NumeroPuesto" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="CreditoMaximo" ColumnName="CreditoMaximo" />
+                <ScalarProperty Name="GarantiaCred" ColumnName="GarantiaCred" />
+                <ScalarProperty Name="TelefonoDomicilio" ColumnName="TelefonoDomicilio" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="ReferenciaDomicilio" ColumnName="ReferenciaDomicilio" />
+                <ScalarProperty Name="UbigeoDomicilio" ColumnName="UbigeoDomicilio" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="NombrePropietario" ColumnName="NombrePropietario" />
+                <ScalarProperty Name="TelefonoComercial" ColumnName="TelefonoComercial" />
+                <ScalarProperty Name="ReferenciaComercial" ColumnName="ReferenciaComercial" />
+                <ScalarProperty Name="UbigeoComercial" ColumnName="UbigeoComercial" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="RUC" ColumnName="RUC" />
+                <ScalarProperty Name="Califica" ColumnName="Califica" />
+                <ScalarProperty Name="IdDenominacion" ColumnName="IdDenominacion" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="IdMercado" ColumnName="IdMercado" />
+                <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_ComboClientes">
+            <EntityTypeMapping TypeName="ventas2Model.v_ComboClientes">
+              <MappingFragment StoreEntitySet="v_ComboClientes">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="NombrePropietario" ColumnName="NombrePropietario" />
+                <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

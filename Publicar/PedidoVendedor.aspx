@@ -1,0 +1,135 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home2.Master" AutoEventWireup="true" CodeBehind="PedidoVendedor.aspx.cs" Inherits="PedidosCegal.PedidoVendedor" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="form-horizontal">
+        <fieldset>
+            <label style="color: skyblue; font-family: Arial; font-size: xx-large">Nuevo Pedido:</label>
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">
+                        Zona:
+                        <br />
+                        <asp:Label runat="server" ID="lblzona" Style="color: skyblue; font-family: Arial;"></asp:Label>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Mercados: </label>
+                    <asp:DropDownList runat="server" ID="ddlmercados" CssClass="form-control"></asp:DropDownList>
+                </div>
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Fecha: </label>
+                    <asp:TextBox runat="server" ID="txtfecha" type="date" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Cod. Cliente:</label>
+                    <asp:TextBox runat="server" ID="txtcodcliente" CssClass="form-control" OnTextChanged="txtcodcliente_TextChanged" AutoPostBack="true" type="search"></asp:TextBox>
+                </div>
+
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Nombre del cliente: </label>
+                    <br />
+                    <asp:Label runat="server" ID="lblnombre" Style="color: skyblue; font-family: Arial;"></asp:Label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Cód. productos</label>
+                    <asp:TextBox runat="server" ID="txtcodproducto" CssClass="form-control" OnTextChanged="txtcodproducto_TextChanged" AutoPostBack="true" type="search"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Lista de productos</label>
+                    <asp:DropDownList runat="server" ID="ddlproducto" CssClass="form-control chzn-select" OnSelectedIndexChanged="ddlproducto_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                </div>
+                <script src="Scripts/jquery.min.js" type="text/javascript"></script>
+                <script src="Scripts/chosen.jquery.js" type="text/javascript"></script>
+                <script type="text/javascript">$(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({ allow_single_deselect: true });</script>
+                <link href="Content/chosen.css" rel="stylesheet" />
+            </div>
+            <div class="col-sm-12" style="overflow-x: auto; display: block">
+                <asp:UpdatePanel runat="server" ID="updDetalles">
+                    <ContentTemplate>
+                        <asp:GridView runat="server" ID="grvDetalles" CssClass="table table-stripe table-hover" AutoGenerateColumns="false" Style="align-items: center" Width="100%" PageSize="22" EmptyDataText="Sin Seleccion  de Productos" ShowHeaderWhenEmpty="True" GridLines="None" OnRowCommand="grvDetalles_RowCommand">
+                            <Columns>
+                                <asp:BoundField DataField="IdArticulo" HeaderText="Cod." />
+                                <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
+                                <asp:TemplateField HeaderText="Cantidad">
+                                    <ItemTemplate>
+                                        <asp:TextBox runat="server"
+                                            Text='<% #Eval("Cantidad") %>' ID="txtcantidad" Width="50" Style="border-radius: 5px" type="number"
+                                            AutoPostBack="true" OnTextChanged="txtcantidad_TextChanged" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Kilos">
+                                    <ItemTemplate>
+                                        <asp:TextBox runat="server" ID="txtpeso" Width="50" Style="border-radius: 5px" type="number"
+                                            Text='<% #Eval("Peso") %>' OnTextChanged="txtpeso_TextChanged"
+                                            AutoPostBack="true" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Preciounidad">
+                                    <ItemTemplate>
+                                        <asp:TextBox runat="server" ID="txtprecio" Width="50" Style="border-radius: 5px" type="number" OnTextChanged="txtprecio_TextChanged"
+                                            Text='<% #Eval("PrecioUnidad") %>' AutoPostBack="true" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="SubTotal" HeaderText="Sub Total" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:ImageButton runat="server" ImageUrl="~/img/anulada.jpg" Width="16px" Height="16px" CommandName="Eliminar" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Eliminar" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <HeaderStyle BackColor="GreenYellow" />
+                        </asp:GridView>
+
+                        <div class="form-group">
+                            <div class="col-sm-12" style="text-align: right">
+                                <table>
+                                    <tr>
+                                        <label style="color: skyblue; font-family: Arial; font-size: large">Total: </label>
+                                    </tr>
+
+                                    <tr>
+                                        <asp:Label Style="color: skyblue; font-family: Arial; font-size: large" Text="0" runat="server" ID="lbltotal" />
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+            <div class="col-md-4">
+                <asp:Button runat="server" ID="btnguardar" Text="Guardar Pedido" CssClass="btn btn-primary" OnClick="btnguardar_Click" />
+                |
+                <%--<asp:Button runat="server" ID="btnuevo" Text="Nuevo" CssClass="btn btn-primary" OnClick="btnuevo_Click" /> |--%>
+                <a href="MantePedidoVendedor.aspx">Regresar al listado de pedidos</a>
+            </div>
+        </fieldset>
+    </div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #D6EAF8">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Cuadro de Mensajes</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="msgcentrado">
+                        <asp:Label Text="" ID="txtmensaje" runat="server" Style="font-size: 18px"></asp:Label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</asp:Content>

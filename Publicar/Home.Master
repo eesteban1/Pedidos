@@ -1,0 +1,300 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="PedidosCegal.Home" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Principal- Sistema Ventas</title>
+    <link href="Style/chosen.css" rel="stylesheet" />
+    <!-- Bootstrap Core CSS -->
+    <link href="Assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- MetisMenu CSS -->
+    <link href="Assets/metisMenu/metisMenu.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="Css/sb-admin-2.css" rel="stylesheet" />
+    <!-- Morris Charts CSS -->
+    <link href="Assets/morrisjs/morris.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link href="    Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+<body>
+    
+       <div id="wrapper">
+        
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a href="Inicio.aspx">
+                        <i  class="fa fa-home fa-fw"></i> INICIO
+                    </a>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <%--@*<li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-home fa-fw"></i> QUIENES SOMOS
+                    </a>
+                    
+                </li>*@--%>
+
+                <!-- /.dropdown -->
+                <!--<li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>SERVICIOS <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="~/Cliente/BuscarClientes">
+                                <div>
+                                    <i class="fa fa-users fa-fw"></i>Registro Clientes
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-users fa-fw"></i> 3 Registro Vendedores
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-book fa-fw"></i> Reporte Facturas
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tv fa-fw"></i> Reporte Artículos
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-shopping-cart fa-fw"></i>Reporte Ventas
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+
+                    </ul>
+                    <!-- /.dropdown-alerts
+                </li>-->
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <%--@*<li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>*@--%>
+                        <li>
+                            <a href="~/Acceso/ChangePassword"><i class="fa fa-gear fa-fw"></i> Cambio de contraseña</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="Login"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                            
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <%--@*<div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>*@
+                            @*<div class="image">
+                                <a href="~/Inicio/Index"><img src="~/img/mesa-madera-vacia-sobre-fondo-tienda-desenfoque_7190-123.jpg" style="width:100%;" /></a>
+                            </div>*@--%>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="Inicio.aspx"><i class="fa fa-home fa-fw"></i> Principal</a>
+                        </li>
+                        <li>
+                            <a href="ManteCliente.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i> Clientes</a>
+                        </li>
+                        <li>
+                            <a href="ManteProducto.aspx"><i class="fa fa-shopping-basket fa-fw" style="color:#f0ad4e"></i> Productos</a>
+                        </li>
+                        <%--@*<li>
+                            <a href="#"><i class="fa fa-car fa-fw"></i> Administración<span class="fa arrow"></span></a>
+                        </li>*@--%>
+                        <%--<li>
+                            <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Ventas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">--%>
+                             <%--   @*<li>
+                    <a href="~/Venta/VentaFactura"><i class="fa fa-archive fa-fw" style="color:#f0ad4e"></i>Generar Factura</a>
+                </li>*@--%>
+                                <%--@*<li>
+                                    <a href="~/Encabezado/Pedidos"><i class="fa fa-archive fa-fw" style="color:#f0ad4e"></i>Venta Interna</a>
+                                </li>*@--%>
+                                <li>
+                                    <a href="MantePedido.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Pedidos</a>
+                                </li>
+                                <%--<li>
+                                    @*<a href="~/Detalle/Index"><i class="fa fa-info-circle fa-fw" style="color:#f0ad4e"></i>Detalle Ventas</a>
+                                </li>*@--%>
+                                <%--<li>
+                                    <a href="~/Encabezado/VentaEncabezado"><i class="fa fa-book fa-fw" style="color:#f0ad4e"></i>Reportes</a>
+                                </li>--%>
+
+<%--                            </ul>
+                        </li>--%>
+
+                        <%--<li>
+                            <a href="~/Personal/Index"><i class="fa fa-shopping-bag fa-fw"></i> Vendedores</a>
+                        </li>--%>
+                        <li>
+                            <a href="ManteZonas.aspx"><i class="fa fa-support fa-fw" style="color:#f0ad4e"></i> Zonas</a>
+                        </li>
+                        <li>
+                            <a href="ManteMercados.aspx"><i class="fa fa-shopping-basket fa-fw" style="color:#f0ad4e"></i> Mercados</a>
+                        </li>
+                        <li>
+                            <a href="AsignaZonas.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i> Asignar zonas a vendedores</a>
+                        </li>
+                      <%--  @*<li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Cuenta Corriente<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                              
+                                <li>
+                                    <a href="~/Cuentas/Index"><i class="fa fa-dollar fa-fw" style="color:#f0ad4e"></i>Cuentas</a>
+                                </li>
+                                <li>
+                                    <a href="~/Pagos/Index"><i class="fa fa-dollar fa-fw" style="color:#f0ad4e"></i>Pagos</a>
+                                </li>
+                            </ul>
+                        </li>*@--%>
+
+                            <%--<li>
+                                <a href="#"><i class="fa fa-wrench fa-fw"></i>Archivos Auxiliares<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="~/Documentos/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Documentos</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Identidad/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Documentos de Identidad</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/TipoCambio/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Tipo de Cambio</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/TipoMov/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Tipo de Movimiento</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/UniMed/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Unidad de Medida</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Marcas/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Marcas</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Familia/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Familia</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/ClaseClie/Index"><i class="fa fa-user-secret fa-fw" style="color:#f0ad4e"></i>Clase de Clientes</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Formaspago/Index"><i class="fa fa-dollar fa-fw" style="color:#f0ad4e"></i>Modos de Pago</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Acceso/Index"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Accesos</a>
+                                    </li>
+                                   <%-- @*<li>
+                <a href="#">Empresa</a>
+            </li>
+            <li>
+                <a href="#">Empleados</a>
+            </li>
+            <li>
+                <a href="#">Almacenes</a>
+            </li>
+            <li>
+                <a href="#">Cargos</a>
+            </li>
+            <li>
+                <a href="#"> Usuarios</a>
+            </li>*@
+
+                                </ul>
+                            </li>--%>
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+           <form runat="server" id="frmhome">
+               <asp:ScriptManager runat="server" ID="ScriptManager1"></asp:ScriptManager>
+                <div id="page-wrapper">
+                    <!-- /.row -->
+         
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <hr />
+                    <footer>
+                        <p>&copy; <%: DateTime.Now.Year %> - Aplicacion desarrollada por DigitalSofti</p>
+                    </footer>
+        
+
+                </div>
+               </form>
+        <!-- /#page-wrapper -->
+    </div>
+        
+  
+    <script src="Assets/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="Assets/metisMenu/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+
+    <script src="Assets/morrisjs/morris.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="Js/sb-admin-2.js"></script>
+</body>
+</html>
