@@ -26,8 +26,8 @@
             </div>
             <div class="form-group">
                 <div class="col-md-2">
-                    <label style="color: skyblue; font-family: Arial;">Cod. Cliente:</label>
-                    <asp:TextBox runat="server" ID="txtcodcliente" CssClass="form-control col-md-2" OnTextChanged="txtcodcliente_TextChanged" AutoPostBack="true" type="number"></asp:TextBox>
+                    <label style="color: skyblue; font-family: Arial;">N° puesto del Cliente:</label>
+                    <asp:TextBox runat="server" ID="txtnumeropuesto" CssClass="form-control col-md-2" OnTextChanged="txtnumeropuesto_TextChanged" AutoPostBack="true" type="number"></asp:TextBox>
                 </div>
 
                 <div class="col-md-2">

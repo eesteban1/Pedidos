@@ -227,6 +227,17 @@
     <Content Include="Home2.Master" />
     <Content Include="Content\bootstrap-chosen.less" />
     <Content Include="Content\bootstrap-chosen.scss" />
+    <Content Include="DataSet.xsc">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DataSet.xss">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="img\anulada.jpg" />
@@ -259,6 +270,7 @@
     <Content Include="PedidoVendedor.aspx" />
     <Content Include="Reportes\frmReporteBlanco.aspx" />
     <Content Include="Reportes\frmReporteCliente.aspx" />
+    <Content Include="Reportes\frmReportePedido.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chosen.jquery.js" />
@@ -305,8 +317,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Style\chosen.css" />
+    <Content Include="VerCliente.aspx" />
     <Content Include="VerPedido.aspx" />
     <Content Include="VerPedidoVendedor.aspx" />
+    <Content Include="VerProducto.aspx" />
+    <Content Include="VerZona.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -323,6 +338,11 @@
     </Compile>
     <Compile Include="AsignaZonas.aspx.designer.cs">
       <DependentUpon>AsignaZonas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -489,6 +509,13 @@
     <Compile Include="Reportes\frmReporteCliente.aspx.designer.cs">
       <DependentUpon>frmReporteCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmReportePedido.aspx.cs">
+      <DependentUpon>frmReportePedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportePedido.aspx.designer.cs">
+      <DependentUpon>frmReportePedido.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -510,6 +537,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ventas2DataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="VerCliente.aspx.cs">
+      <DependentUpon>VerCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerCliente.aspx.designer.cs">
+      <DependentUpon>VerCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="VerPedido.aspx.cs">
       <DependentUpon>VerPedido.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -523,6 +557,20 @@
     </Compile>
     <Compile Include="VerPedidoVendedor.aspx.designer.cs">
       <DependentUpon>VerPedidoVendedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerProducto.aspx.cs">
+      <DependentUpon>VerProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerProducto.aspx.designer.cs">
+      <DependentUpon>VerProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerZona.aspx.cs">
+      <DependentUpon>VerZona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerZona.aspx.designer.cs">
+      <DependentUpon>VerZona.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -559,6 +607,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\Cliente.rdlc" />
+    <EmbeddedResource Include="Reportes\frmPedido.rdlc" />
     <EmbeddedResource Include="Reportes\reporteBlanco.rdlc" />
   </ItemGroup>
   <ItemGroup>

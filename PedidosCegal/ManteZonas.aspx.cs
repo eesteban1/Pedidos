@@ -39,6 +39,10 @@ namespace PedidosCegal
             {
                 Response.Redirect("~/ModZona.aspx?IDZ=" + idzona, true);
             }
+            else if(e.CommandName=="Ver")
+            {
+                Response.Redirect("VerZona.aspx?IDZ=" + idzona, true);
+            }
             else if (e.CommandName == "Eliminar")
             {
                 ZonasDAO db = new ZonasDAO();

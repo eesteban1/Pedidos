@@ -39,6 +39,10 @@ namespace PedidosCegal
             {
                 Response.Redirect("~/ModCliente.aspx?IDC=" + idcliente, true);
             }
+            else if(e.CommandName=="Ver")
+            {
+                Response.Redirect("VerCliente.aspx?IDC=" + idcliente, true);
+            }
             else if (e.CommandName == "Eliminar")
             {
                 ClienteDAO db = new ClienteDAO();

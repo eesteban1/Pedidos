@@ -23,7 +23,7 @@ namespace PedidosCegal
         {
             int id = Convert.ToInt32(Request.QueryString["IDC"]);
             ClienteDAO db = new ClienteDAO();
-            Cliente clie =  db.Buscarcliente(id);
+            Cliente clie =  db.Buscarcliente(id,"");
             ddlmercado.SelectedValue = clie.IdMercado.ToString();
             txtcodclie.Text = clie.Id_cliente.ToString();
             txtrazonsocial.Text = clie.RazonSocial;

@@ -44,6 +44,7 @@ namespace PedidosCegal
             txtstockmax.Text = pro.StockMax.ToString();
             txtstockmin.Text = pro.StockMax.ToString();
             txtstockact.Text = pro.StockAct.ToString();
+            txtobservacion.Text = pro.Observacion;
         }
         protected void btnguardar_Click(object sender, EventArgs e)
         {

@@ -32,6 +32,8 @@ namespace PedidosCegal
                 ddlmercados.DataValueField = "IdMercado";
                 ddlmercados.DataBind();
                 ddlmercados.Items.Insert(0, new ListItem("Seleccione", "0"));
+                txtnumeropuesto.Enabled = false;
+                ddlclientes.Enabled = false;
             }
         }
 
@@ -50,11 +52,12 @@ namespace PedidosCegal
 
         void Limpiar()
         {
-            txtcodcliente.Text = "";
+            txtnumeropuesto.Text = "";
             lbltotal.Text = "";
             lblnombre.Text = "";
             ddlmercados.SelectedValue = "0";
             ddlproducto.SelectedValue = "0";
+            ddlclientes.SelectedValue = "0";
             Session["detalles"] = Util.Helper.CrearTemp_Detalles();
         }
 
@@ -64,7 +67,7 @@ namespace PedidosCegal
             {
                 PedidoDAO db = new PedidoDAO();
                 Encabezado en = new Encabezado();
-                en.Id_cliente = Convert.ToInt32(txtcodcliente.Text);
+                en.Id_cliente = Convert.ToInt32(ddlclientes.SelectedValue);
                 en.fechaCheque = txtfecha.Text;
                 en.Id_Vendedor = Convert.ToInt32(Session["IDUsuario"]);
                 en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
@@ -86,7 +89,7 @@ namespace PedidosCegal
                 lblmesaje.Text = "El pedido se guardo con exito.";
                 ddlmercados.Enabled = false;
                 txtfecha.Enabled = false;
-                txtcodcliente.Enabled = false;
+                ddlclientes.Enabled = false;
                 ddlproducto.Enabled = false;
                 grvDetalles.Enabled = false;
                 btnimprimir.Enabled = true;
@@ -138,14 +141,6 @@ namespace PedidosCegal
                         </script>";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
             }
-        }
-
-        protected void txtcodcliente_TextChanged(object sender, EventArgs e)
-        {
-            ClienteDAO db = new ClienteDAO();
-            int id = Convert.ToInt32(txtcodcliente.Text);
-            Cliente clie = db.Buscarcliente(id);
-            lblnombre.Text = clie.NombrePropietario; 
         }
 
         protected void grvDetalles_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -234,32 +229,45 @@ namespace PedidosCegal
             btnguardar.Text = "Guardar Pedido";
             ddlmercados.Enabled = true;
             txtfecha.Enabled = true;
-            txtcodcliente.Enabled = true;
+            ddlclientes.Enabled = true;
             ddlproducto.Enabled = true;
             grvDetalles.Enabled = true;
             lblmesaje.Text = "";
+            txtnumeropuesto.Enabled = false;
+            ddlclientes.Enabled = false;
         }
 
         protected void btnimprimir_Click(object sender, EventArgs e)
         {
             string ID = Session["IDPEDIDO"].ToString();
-            string sRuta = "";
-            
+            string sRuta = "Reportes/frmReportePedido.aspx?IDPED=" + ID ;
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Window1", "<script> window.open('" + sRuta + "');</script>", false);
         }
 
         protected void ddlclientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtcodcliente.Text = ddlclientes.SelectedValue;
             ClienteDAO db = new ClienteDAO();
-            int id = Convert.ToInt32(txtcodcliente.Text);
-            Cliente clie = db.Buscarcliente(id);
+            int id = Convert.ToInt32(ddlclientes.SelectedValue);
+            Cliente clie = db.Buscarcliente(id,"");
             lblnombre.Text = clie.NombrePropietario;
+            txtnumeropuesto.Text = clie.NumeroPuesto;
         }
 
         protected void ddlmercados_SelectedIndexChanged(object sender, EventArgs e)
         {
             string id = ddlmercados.SelectedValue;
             Util.Helper.ListarClientesxMerZon(ddlclientes, id);
+            txtnumeropuesto.Enabled = true;
+            ddlclientes.Enabled = true;
+        }
+
+        protected void txtnumeropuesto_TextChanged(object sender, EventArgs e)
+        {
+            ClienteDAO db = new ClienteDAO();
+            string numero = txtnumeropuesto.Text;
+            Cliente clie = db.Buscarcliente(0,numero);
+            lblnombre.Text = clie.NombrePropietario;
+            ddlclientes.SelectedValue = clie.Id_cliente.ToString();
         }
     }
 }

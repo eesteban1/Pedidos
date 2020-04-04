@@ -81,13 +81,13 @@ namespace Model.Enity
             return cliue;
         }
 
-        public Cliente Buscarcliente(int id)
+        public Cliente Buscarcliente(int id,string numero)
         {
             Cliente objClientes = new Cliente();
             string cnx = db.Database.Connection.ConnectionString;
             con = new SqlConnection(cnx);
             bool hayRegistros;
-            string find = "select*from Cliente where Id_cliente='" + id + "'";
+            string find = "select*from Cliente where Id_cliente='" + id + "'or NumeroPuesto='" + numero + "'";
             try
             {
                 
@@ -107,15 +107,15 @@ namespace Model.Enity
                     objClientes.UbigeoComercial = reader[7].ToString();
                     objClientes.ReferenciaComercial = reader[8].ToString();
                     objClientes.TelefonoComercial = reader[9].ToString();
-                    objClientes.NombrePropietario =reader[10].ToString();
+                    objClientes.NombrePropietario = reader[10].ToString();
                     objClientes.Domicilio = reader[11].ToString();
                     objClientes.UbigeoDomicilio = reader[12].ToString();
-                    objClientes.ReferenciaDomicilio =reader[13].ToString();
+                    objClientes.ReferenciaDomicilio = reader[13].ToString();
                     objClientes.DNI = reader[14].ToString();
                     objClientes.TelefonoDomicilio = reader[15].ToString();
                     objClientes.GarantiaCred = Convert.ToInt32(reader[16].ToString());
                     objClientes.CreditoMaximo = Convert.ToInt32(reader[17].ToString());
-                    objClientes.NumeroPuesto = reader[18].ToString();
+                    objClientes.Observacion = reader[18].ToString();
                     objClientes.NumeroPuesto = reader[19].ToString();
                 }
             }

@@ -10,132 +10,141 @@
 namespace PedidosCegal {
     
     
-    public partial class Pedido {
+    public partial class VerProducto {
         
         /// <summary>
-        /// Control lblzona.
+        /// Control txtcodpro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblzona;
+        protected global::System.Web.UI.WebControls.TextBox txtcodpro;
         
         /// <summary>
-        /// Control ddlmercados.
+        /// Control ddlfamilia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlmercados;
+        protected global::System.Web.UI.WebControls.DropDownList ddlfamilia;
         
         /// <summary>
-        /// Control txtfecha.
+        /// Control ddlmarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtfecha;
+        protected global::System.Web.UI.WebControls.DropDownList ddlmarca;
         
         /// <summary>
-        /// Control txtnumeropuesto.
+        /// Control txtdescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtnumeropuesto;
+        protected global::System.Web.UI.WebControls.TextBox txtdescripcion;
         
         /// <summary>
-        /// Control ddlclientes.
+        /// Control ddligv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlclientes;
+        protected global::System.Web.UI.WebControls.DropDownList ddligv;
         
         /// <summary>
-        /// Control lblnombre.
+        /// Control ddlunidadmedida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblnombre;
+        protected global::System.Web.UI.WebControls.DropDownList ddlunidadmedida;
         
         /// <summary>
-        /// Control ddlproducto.
+        /// Control txtpeso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlproducto;
+        protected global::System.Web.UI.WebControls.TextBox txtpeso;
         
         /// <summary>
-        /// Control updDetalles.
+        /// Control txtpreciocompras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updDetalles;
+        protected global::System.Web.UI.WebControls.TextBox txtpreciocompras;
         
         /// <summary>
-        /// Control grvDetalles.
+        /// Control txtpreciocomprad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvDetalles;
+        protected global::System.Web.UI.WebControls.TextBox txtpreciocomprad;
         
         /// <summary>
-        /// Control lbltotal.
+        /// Control txtprecioventas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltotal;
+        protected global::System.Web.UI.WebControls.TextBox txtprecioventas;
         
         /// <summary>
-        /// Control btnguardar.
+        /// Control txtprecioventad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnguardar;
+        protected global::System.Web.UI.WebControls.TextBox txtprecioventad;
         
         /// <summary>
-        /// Control btnuevo.
+        /// Control txtstockmax.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnuevo;
+        protected global::System.Web.UI.WebControls.TextBox txtstockmax;
         
         /// <summary>
-        /// Control btnimprimir.
+        /// Control txtstockmin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnimprimir;
+        protected global::System.Web.UI.WebControls.TextBox txtstockmin;
         
         /// <summary>
-        /// Control lblmesaje.
+        /// Control txtstockact.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmesaje;
+        protected global::System.Web.UI.WebControls.TextBox txtstockact;
+        
+        /// <summary>
+        /// Control txtobservacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtobservacion;
     }
 }

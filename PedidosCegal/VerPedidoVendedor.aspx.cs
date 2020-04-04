@@ -46,7 +46,7 @@ namespace PedidosCegal
         {
             Int32 id = Convert.ToInt32(Request.QueryString["IDV"]);
             PedidoDAO db = new PedidoDAO();
-            DataSet ds =  db.BuscarPedido(id);
+            System.Data.DataSet ds =  db.BuscarPedido(id);
             DataTable dtcabecera = ds.Tables[0];
             AsignaZonaDAO db1 = new AsignaZonaDAO();
             string idusu = Session["IDUsuario"].ToString();

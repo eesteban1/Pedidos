@@ -144,7 +144,7 @@ namespace PedidosCegal
         {
             ClienteDAO db = new ClienteDAO();
             int id = Convert.ToInt32(txtcodcliente.Text);
-            Cliente clie = db.Buscarcliente(id);
+            Cliente clie = db.Buscarcliente(id,"");
             lblnombre.Text = clie.NombrePropietario;
         }
 

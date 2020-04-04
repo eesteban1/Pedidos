@@ -46,7 +46,7 @@ namespace PedidosCegal
         {
             Int32 id = Convert.ToInt32(Request.QueryString["IDV"]);
             PedidoDAO db = new PedidoDAO();
-            DataSet ds = db.BuscarPedido(id);
+            System.Data.DataSet ds = db.BuscarPedido(id);
             DataTable dtcabecera = ds.Tables[0];
             AsignaZonaDAO db1 = new AsignaZonaDAO();
             string idusu = Session["IDUsuario"].ToString();
@@ -77,6 +77,13 @@ namespace PedidosCegal
             }
             cargarDetalles();
             lbltotal.Text = Util.Helper.TotalizarGrilla(grvDetalles, 5).ToString();
+        }
+
+        protected void btnimprimir_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(Request.QueryString["IDV"]);
+            string sRuta = "Reportes/frmReportePedido.aspx?Id_Encab=" + id;
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Window1", "<script> window.open('" + sRuta + "');</script>", false);
         }
     }
 }

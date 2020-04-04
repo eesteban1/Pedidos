@@ -86,6 +86,7 @@
                 </asp:UpdatePanel>
             </div>
             <div class="col-md-2">
+                <asp:Button runat="server" ID="btnimprimir" Text="Imprimir" CssClass="btn btn-primary" OnClick="btnimprimir_Click"/> |
                 <a href="MantePedido.aspx">Regresar al listado de pedidos</a>
             </div>
         </fieldset>

@@ -38,6 +38,10 @@ namespace PedidosCegal
             {
                 Response.Redirect("~/ModProducto.aspx?IDP=" + idpro, true);
             }
+            else if (e.CommandName=="Ver")
+            {
+                Response.Redirect("VerProducto.aspx?IDP=" + idpro, true);
+            }
             else if (e.CommandName == "Eliminar")
             {
                 ProductoDAO db = new ProductoDAO();
