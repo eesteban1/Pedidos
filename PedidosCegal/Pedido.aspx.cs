@@ -96,7 +96,7 @@ namespace PedidosCegal
             }
             catch(Exception ex)
             {
-                throw ex;
+                lblmesaje.Text = ex.Message;
             }
         }
 
@@ -133,6 +133,7 @@ namespace PedidosCegal
                 lbltotal.Text = total.ToString();
                 ddlproducto.SelectedValue = "0";
                 btnguardar.Enabled = true;
+                txtcodproducto.Text = "";
             }
             else
             {
@@ -240,7 +241,7 @@ namespace PedidosCegal
         protected void btnimprimir_Click(object sender, EventArgs e)
         {
             string ID = Session["IDPEDIDO"].ToString();
-            string sRuta = "Reportes/frmReportePedido.aspx?IDPED=" + ID ;
+            string sRuta = "Reportes/frmReportePedido.aspx?Id_Encab=" + ID ;
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Window1", "<script> window.open('" + sRuta + "');</script>", false);
         }
 
@@ -259,15 +260,86 @@ namespace PedidosCegal
             Util.Helper.ListarClientesxMerZon(ddlclientes, id);
             txtnumeropuesto.Enabled = true;
             ddlclientes.Enabled = true;
+            txtnumeropuesto.Text = "";
         }
 
         protected void txtnumeropuesto_TextChanged(object sender, EventArgs e)
         {
             ClienteDAO db = new ClienteDAO();
             string numero = txtnumeropuesto.Text;
-            Cliente clie = db.Buscarcliente(0,numero);
+            string idmercado = ddlmercados.SelectedValue;
+            Cliente clie = db.BuscarclientexPuesto(numero,idmercado);
             lblnombre.Text = clie.NombrePropietario;
             ddlclientes.SelectedValue = clie.Id_cliente.ToString();
+        }
+
+        protected void txtcodproducto_TextChanged(object sender, EventArgs e)
+        {
+            if (txtcodproducto.Text.Length > 0)
+            {
+                ProductoDAO db = new ProductoDAO();
+                int idpro = Convert.ToInt32(txtcodproducto.Text);
+                Producto pro = db.BuscarProducto(idpro);
+                if(pro.Id_prod != 0)
+                {
+                    DataTable detalles = (DataTable)Session["Detalles"];
+                    bool seEncuentra = false;
+                    int cod = Convert.ToInt32(pro.Id_prod);
+                    List<Producto> art = new List<Producto>();
+                    foreach (GridViewRow grv in grvDetalles.Rows)
+                    {
+                        Producto ar = new Producto();
+                        ar.Id_prod = Convert.ToInt32(grv.Cells[0].Text);
+                        art.Add(ar);
+                    }
+                    seEncuentra = art.Exists(x => x.Id_prod == cod);
+                    if (seEncuentra == false)
+                    {
+                        string id = Convert.ToString(pro.Id_prod);
+                        string Descripcion = pro.descripcion;
+                        decimal precio = Convert.ToDecimal(pro.PVentaS);
+                        decimal peso = Convert.ToDecimal(pro.PesoKilos);
+                        decimal cantidad = 1m;
+
+                        decimal subtotal = Math.Round(cantidad * precio, 2);
+                        Util.Helper.Agregar_Detalles(detalles, id, Descripcion, precio, cantidad, peso, subtotal);
+                        cargarDetalles();
+                        Session["Detalles"] = detalles;
+
+                        decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+                        lbltotal.Text = total.ToString();
+                        btnguardar.Enabled = true;
+                        ddlproducto.SelectedValue = "0";
+                    }
+                    else
+                    {
+                        string script = @"<script type='text/javascript'>
+                            alert('El producto ya fue ingresado.');
+                        </script>";
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                    }
+                }
+                else
+                {
+                    string script = @"<script type='text/javascript'>
+                            alert('El producto no existe.');
+                        </script>";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                }
+            }
+            else
+            {
+                //string modalScript = @"<script type=""text/javascript"">
+                //                        function openModal() {
+                //                        $('#myModal').modal('show');
+                //                         }
+                //                        </script>";
+                //ScriptManager.RegisterStartupScript(this, GetType(), "bsChgPwdModal", modalScript, false);
+                string script = @"<script type='text/javascript'>
+                            alert('El producto ya fue ingresado.');
+                        </script>";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+            }
         }
     }
 }

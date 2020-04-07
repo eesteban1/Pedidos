@@ -32,7 +32,7 @@ namespace PedidosCegal.Reportes
 
         private void renderReport()
         {
-            Id_Encabe = Request.QueryString["IDV"];
+            Id_Encabe = Request.QueryString["Id_Encab"];
             DataTable dt = cargar(Id_Encabe);
             ReportDataSource rds = new ReportDataSource("v_PedidoEncabDet", dt);
             ReportViewer1.LocalReport.DataSources.Add(rds);
@@ -46,8 +46,10 @@ namespace PedidosCegal.Reportes
 
         private DataTable cargar(string id)
         {
+            ventas2Entities db = new ventas2Entities();
             DataTable dt = new DataTable();
-            SqlConnection nc = new SqlConnection();
+            string cnx = db.Database.Connection.ConnectionString;
+            con = new SqlConnection(cnx);
             SqlCommand cmd = new SqlCommand();
             cmd.Parameters.Clear();
             cmd.CommandType = CommandType.StoredProcedure;

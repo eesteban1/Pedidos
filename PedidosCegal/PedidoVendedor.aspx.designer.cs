@@ -40,13 +40,22 @@ namespace PedidosCegal {
         protected global::System.Web.UI.WebControls.TextBox txtfecha;
         
         /// <summary>
-        /// Control txtcodcliente.
+        /// Control txtnumeropuesto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcodcliente;
+        protected global::System.Web.UI.WebControls.TextBox txtnumeropuesto;
+        
+        /// <summary>
+        /// Control ddlclientes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlclientes;
         
         /// <summary>
         /// Control lblnombre.
@@ -110,6 +119,15 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnguardar;
+        
+        /// <summary>
+        /// Control lblmesaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmesaje;
         
         /// <summary>
         /// Control txtmensaje.

@@ -50,6 +50,28 @@ namespace Model.Enity
             }
         }
 
+        public bool ExisteCliente(string text)
+        {
+            string cnx = db.Database.Connection.ConnectionString;
+            con = new SqlConnection(cnx);
+            string proce = "select * from Cliente where RazonSocial='"+text+"'";
+            try
+            {
+                comando = new SqlCommand(proce,con);
+                con.Open();
+                reader = comando.ExecuteReader();
+                return reader.Read();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public object listarclientemerzon(string codigo)
         {
             string cnx = db.Database.Connection.ConnectionString;
@@ -242,6 +264,56 @@ namespace Model.Enity
                 con.Close();
             }
 
+        }
+
+        public Cliente BuscarclientexPuesto(string numero, string idmercado)
+        {
+            Cliente objClientes = new Cliente();
+            string cnx = db.Database.Connection.ConnectionString;
+            con = new SqlConnection(cnx);
+            bool hayRegistros;
+            string find = "select*from Cliente where IdMercado='" + idmercado + "'and NumeroPuesto='" + numero + "'";
+            try
+            {
+
+                comando = new SqlCommand(find, con);
+                con.Open();
+                SqlDataReader reader = comando.ExecuteReader();
+                hayRegistros = reader.Read();
+                if (hayRegistros)
+                {
+                    objClientes.Id_cliente = Convert.ToInt32(reader[0]);
+                    objClientes.IdMercado = Convert.ToInt32(reader[1].ToString());
+                    objClientes.RazonSocial = reader[2].ToString();
+                    objClientes.IdDenominacion = Convert.ToInt32(reader[3].ToString());
+                    objClientes.Califica = reader[4].ToString();
+                    objClientes.RUC = reader[5].ToString();
+                    objClientes.Direccion = reader[6].ToString();
+                    objClientes.UbigeoComercial = reader[7].ToString();
+                    objClientes.ReferenciaComercial = reader[8].ToString();
+                    objClientes.TelefonoComercial = reader[9].ToString();
+                    objClientes.NombrePropietario = reader[10].ToString();
+                    objClientes.Domicilio = reader[11].ToString();
+                    objClientes.UbigeoDomicilio = reader[12].ToString();
+                    objClientes.ReferenciaDomicilio = reader[13].ToString();
+                    objClientes.DNI = reader[14].ToString();
+                    objClientes.TelefonoDomicilio = reader[15].ToString();
+                    objClientes.GarantiaCred = Convert.ToInt32(reader[16].ToString());
+                    objClientes.CreditoMaximo = Convert.ToInt32(reader[17].ToString());
+                    objClientes.Observacion = reader[18].ToString();
+                    objClientes.NumeroPuesto = reader[19].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return objClientes;
         }
     }
 

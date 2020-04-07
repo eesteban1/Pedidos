@@ -23,7 +23,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.5074cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -35,7 +35,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Cantidad</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -65,7 +67,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Descripción</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -95,7 +99,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Kilos</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -125,7 +131,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Precio Unit.</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -155,7 +163,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Sub. Total</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -178,7 +188,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.5074cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -190,7 +200,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Paquetes.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -220,7 +232,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!descripcion.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -250,7 +264,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!CantidadKilos.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -280,7 +296,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!PrecioUnit.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -310,7 +328,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!SubTotal.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -356,7 +376,7 @@
         <DataSetName>v_PedidoEncabDet</DataSetName>
         <Top>0.17639cm</Top>
         <Left>0.29876cm</Left>
-        <Height>1.2cm</Height>
+        <Height>1.01479cm</Height>
         <Width>15.78867cm</Width>
         <Style>
           <Border>

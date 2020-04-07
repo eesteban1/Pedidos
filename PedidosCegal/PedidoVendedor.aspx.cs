@@ -33,6 +33,8 @@ namespace PedidosCegal
                 ddlmercados.DataValueField = "IdMercado";
                 ddlmercados.DataBind();
                 ddlmercados.Items.Insert(0, new ListItem("Seleccione", "0"));
+                txtnumeropuesto.Enabled = false;
+                ddlclientes.Enabled = false;
             }
         }
 
@@ -51,12 +53,13 @@ namespace PedidosCegal
 
         void Limpiar()
         {
-            txtcodcliente.Text = "";
+            txtnumeropuesto.Text = "";
             lbltotal.Text = "";
             lblnombre.Text = "";
             Session["detalles"] = Util.Helper.CrearTemp_Detalles();
             ddlproducto.SelectedValue = "0";
             ddlmercados.SelectedValue = "0";
+            ddlclientes.SelectedValue = "0";
         }
 
         protected void btnguardar_Click(object sender, EventArgs e)
@@ -65,7 +68,7 @@ namespace PedidosCegal
             Encabezado en = new Encabezado();
             try
             {
-                en.Id_cliente = Convert.ToInt32(txtcodcliente.Text);
+                en.Id_cliente = Convert.ToInt32(ddlclientes.SelectedValue);
                 en.fechaCheque = txtfecha.Text;
                 en.Id_Vendedor = Convert.ToInt32(Session["IDUsuario"]);
                 en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
@@ -83,11 +86,16 @@ namespace PedidosCegal
                     det.SubTotal = Convert.ToDecimal(fila.Cells[5].Text);
                     db.InsertarDetalles(det, id);
                 }
-                Response.Redirect("MantePedidoVendedor.aspx", true);
+                lblmesaje.Text = "El pedido se guardo con exito.";
+                ddlmercados.Enabled = false;
+                txtfecha.Enabled = false;
+                //ddlclientes.Enabled = false;
+                ddlproducto.Enabled = false;
+                grvDetalles.Enabled = false;
             }
             catch (Exception ex)
             {
-                throw ex;
+                lblmesaje.Text = ex.Message;
             }
         }
 
@@ -127,26 +135,20 @@ namespace PedidosCegal
             }
             else
             {
-                string modalScript = @"<script type=""text/javascript"">
-                                        function openModal() {
-                                        $('#myModal').modal('show');
-                                         }
-                                        </script>";
-                ScriptManager.RegisterStartupScript(this, GetType(), "bsChgPwdModal", modalScript, false);
-                //string script = @"<script type='text/javascript'>
-                //            alert('El producto ya fue ingresado.');
-                //        </script>";
-                //ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                //string modalScript = @"<script type=""text/javascript"">
+                //                        function openModal() {
+                //                        $('#myModal').modal('show');
+                //                         }
+                //                        </script>";
+                //ScriptManager.RegisterStartupScript(this, GetType(), "bsChgPwdModal", modalScript, false);
+                string script = @"<script type='text/javascript'>
+                            alert('El producto ya fue ingresado.');
+                        </script>";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
             }
         }
 
-        protected void txtcodcliente_TextChanged(object sender, EventArgs e)
-        {
-            ClienteDAO db = new ClienteDAO();
-            int id = Convert.ToInt32(txtcodcliente.Text);
-            Cliente clie = db.Buscarcliente(id,"");
-            lblnombre.Text = clie.NombrePropietario;
-        }
+        
 
         protected void grvDetalles_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -240,43 +242,55 @@ namespace PedidosCegal
             {
                 ProductoDAO db = new ProductoDAO();
                 int idpro = Convert.ToInt32(txtcodproducto.Text);
-                ddlproducto.SelectedValue = txtcodproducto.Text;
                 Producto pro = db.BuscarProducto(idpro);
-                DataTable detalles = (DataTable)Session["Detalles"];
-                bool seEncuentra = false;
-                int cod = Convert.ToInt32(pro.Id_prod);
-                List<Producto> art = new List<Producto>();
-                foreach (GridViewRow grv in grvDetalles.Rows)
+                if(pro.Id_prod != 0)
                 {
-                    Producto ar = new Producto();
-                    ar.Id_prod = Convert.ToInt32(grv.Cells[0].Text);
-                    art.Add(ar);
-                }
-                seEncuentra = art.Exists(x => x.Id_prod == cod);
-                if (seEncuentra == false)
-                {
-                    string id = Convert.ToString(pro.Id_prod);
-                    string Descripcion = pro.descripcion;
-                    decimal precio = Convert.ToDecimal(pro.PVentaS);
-                    decimal peso = Convert.ToDecimal(pro.PesoKilos);
-                    decimal cantidad = 1m;
+                    DataTable detalles = (DataTable)Session["Detalles"];
+                    bool seEncuentra = false;
+                    int cod = Convert.ToInt32(pro.Id_prod);
+                    List<Producto> art = new List<Producto>();
+                    foreach (GridViewRow grv in grvDetalles.Rows)
+                    {
+                        Producto ar = new Producto();
+                        ar.Id_prod = Convert.ToInt32(grv.Cells[0].Text);
+                        art.Add(ar);
+                    }
+                    seEncuentra = art.Exists(x => x.Id_prod == cod);
+                    if (seEncuentra == false)
+                    {
+                        string id = Convert.ToString(pro.Id_prod);
+                        string Descripcion = pro.descripcion;
+                        decimal precio = Convert.ToDecimal(pro.PVentaS);
+                        decimal peso = Convert.ToDecimal(pro.PesoKilos);
+                        decimal cantidad = 1m;
 
-                    decimal subtotal = Math.Round(cantidad * precio, 2);
-                    Util.Helper.Agregar_Detalles(detalles, id, Descripcion, precio, cantidad, peso, subtotal);
-                    cargarDetalles();
-                    Session["Detalles"] = detalles;
+                        decimal subtotal = Math.Round(cantidad * precio, 2);
+                        Util.Helper.Agregar_Detalles(detalles, id, Descripcion, precio, cantidad, peso, subtotal);
+                        cargarDetalles();
+                        Session["Detalles"] = detalles;
 
-                    decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
-                    lbltotal.Text = total.ToString();
-                    btnguardar.Enabled = true;
+                        decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+                        lbltotal.Text = total.ToString();
+                        btnguardar.Enabled = true;
+                        ddlproducto.SelectedValue = "0";
+                        txtcodproducto.Text = "";
+                    }
+                    else
+                    {
+                        string script = @"<script type='text/javascript'>
+                            alert('El producto ya fue ingresado.');
+                        </script>";
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                    }
                 }
                 else
                 {
                     string script = @"<script type='text/javascript'>
-                            alert('El producto ya fue ingresado.');
+                            alert('El producto no existe.');
                         </script>";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
                 }
+               
             }
             else
             {
@@ -292,6 +306,34 @@ namespace PedidosCegal
                 //ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
             }
             
+        }
+
+        protected void ddlmercados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = ddlmercados.SelectedValue;
+            Util.Helper.ListarClientesxMerZon(ddlclientes, id);
+            txtnumeropuesto.Enabled = true;
+            ddlclientes.Enabled = true;
+            txtnumeropuesto.Text = "";
+        }
+
+        protected void txtnumeropuesto_TextChanged(object sender, EventArgs e)
+        {
+            ClienteDAO db = new ClienteDAO();
+            string numero = txtnumeropuesto.Text;
+            string idmercado = ddlmercados.SelectedValue;
+            Cliente clie = db.BuscarclientexPuesto(idmercado, numero);
+            lblnombre.Text = clie.NombrePropietario;
+            ddlclientes.SelectedValue = clie.Id_cliente.ToString();
+        }
+
+        protected void ddlclientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ClienteDAO db = new ClienteDAO();
+            int id = Convert.ToInt32(ddlclientes.SelectedValue);
+            Cliente clie = db.Buscarcliente(id, "");
+            lblnombre.Text = clie.NombrePropietario;
+            txtnumeropuesto.Text = clie.NumeroPuesto;
         }
     }
 }

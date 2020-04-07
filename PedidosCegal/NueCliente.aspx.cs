@@ -39,27 +39,36 @@ namespace PedidosCegal
             {
                 ClienteDAO db = new ClienteDAO();
                 Cliente clie = new Cliente();
-                clie.IdMercado = Convert.ToInt32(ddlmercado.SelectedValue);
-                clie.RazonSocial = txtrazonsocial.Text;
-                clie.IdDenominacion = Convert.ToInt32(ddldenominacion.SelectedValue);
-                clie.Califica = txtcalifica.Text;
-                clie.RUC = txtruc.Text;
-                clie.Direccion = txtdireccion.Text;
-                clie.UbigeoComercial = ddldepartamentocomercial.SelectedValue + ddlprovincicomercial.SelectedValue + ddldistritocomercial.SelectedValue;
-                clie.ReferenciaComercial = txtreferenciacomercial.Text;
-                clie.TelefonoComercial = txttelefonocomercial.Text;
-                clie.NombrePropietario = txtnombreapellido.Text;
-                clie.Domicilio = txtdomicilio.Text;
-                clie.UbigeoDomicilio = dlldepartamentopropietario.SelectedValue + ddlprovinciaspropietario.SelectedValue + ddldistritopropietario.SelectedValue;
-                clie.ReferenciaDomicilio = txtreferenciapropietario.Text;
-                clie.DNI = txtdni.Text;
-                clie.TelefonoDomicilio = txttelefonodomicilio.Text;
-                clie.GarantiaCred = Convert.ToInt32(txtgarantia.Text);
-                clie.CreditoMaximo = Convert.ToInt32(txtcredito.Text);
-                clie.Observacion = txtobservacion.Text;
-                clie.NumeroPuesto = txtnumeropuesto.Text;
-                db.Create(clie);
-                lblmesaje.Text = "El cliente se registo con exito.";
+                bool existe = db.ExisteCliente(txtrazonsocial.Text);
+                if(existe)
+                {
+                    lblmesaje.Text = "El cliente ya existe.";
+                }
+                else
+                {
+                    clie.IdMercado = Convert.ToInt32(ddlmercado.SelectedValue);
+                    clie.RazonSocial = txtrazonsocial.Text;
+                    clie.IdDenominacion = Convert.ToInt32(ddldenominacion.SelectedValue);
+                    clie.Califica = txtcalifica.Text;
+                    clie.RUC = txtruc.Text;
+                    clie.Direccion = txtdireccion.Text;
+                    clie.UbigeoComercial = ddldepartamentocomercial.SelectedValue + ddlprovincicomercial.SelectedValue + ddldistritocomercial.SelectedValue;
+                    clie.ReferenciaComercial = txtreferenciacomercial.Text;
+                    clie.TelefonoComercial = txttelefonocomercial.Text;
+                    clie.NombrePropietario = txtnombreapellido.Text;
+                    clie.Domicilio = txtdomicilio.Text;
+                    clie.UbigeoDomicilio = dlldepartamentopropietario.SelectedValue + ddlprovinciaspropietario.SelectedValue + ddldistritopropietario.SelectedValue;
+                    clie.ReferenciaDomicilio = txtreferenciapropietario.Text;
+                    clie.DNI = txtdni.Text;
+                    clie.TelefonoDomicilio = txttelefonodomicilio.Text;
+                    clie.GarantiaCred = Convert.ToInt32(txtgarantia.Text);
+                    clie.CreditoMaximo = Convert.ToInt32(txtcredito.Text);
+                    clie.Observacion = txtobservacion.Text;
+                    clie.NumeroPuesto = txtnumeropuesto.Text;
+                    db.Create(clie);
+                    lblmesaje.Text = "El cliente se registo con exito.";
+                }
+                
             }
            
             

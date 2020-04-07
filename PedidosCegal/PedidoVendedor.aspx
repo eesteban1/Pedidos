@@ -19,7 +19,7 @@
             <div class="form-group">
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Mercados: </label>
-                    <asp:DropDownList runat="server" ID="ddlmercados" CssClass="form-control"></asp:DropDownList>
+                    <asp:DropDownList runat="server" ID="ddlmercados" CssClass="form-control" OnSelectedIndexChanged="ddlmercados_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Fecha: </label>
@@ -28,10 +28,13 @@
             </div>
             <div class="form-group">
                 <div class="col-md-2">
-                    <label style="color: skyblue; font-family: Arial;">Cod. Cliente:</label>
-                    <asp:TextBox runat="server" ID="txtcodcliente" CssClass="form-control" OnTextChanged="txtcodcliente_TextChanged" AutoPostBack="true" type="search"></asp:TextBox>
+                    <label style="color: skyblue; font-family: Arial;">N° puesto del Cliente:</label>
+                    <asp:TextBox runat="server" ID="txtnumeropuesto" CssClass="form-control col-md-2" OnTextChanged="txtnumeropuesto_TextChanged" AutoPostBack="true" type="number"></asp:TextBox>
                 </div>
-
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Listado de clientes:</label>
+                    <asp:DropDownList runat="server" ID="ddlclientes" CssClass="form-control" OnSelectedIndexChanged="ddlclientes_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                </div>
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Nombre del cliente: </label>
                     <br />
@@ -113,7 +116,9 @@
             </div>
         </fieldset>
     </div>
-
+    <div class="text-primary text-success text-center">
+        <asp:label runat="server" ID="lblmesaje"></asp:label>
+    </div>
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">

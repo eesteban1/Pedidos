@@ -43,6 +43,10 @@
             </div>
             <div class="form-group">
                 <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Cód. productos</label>
+                    <asp:TextBox runat="server" ID="txtcodproducto" CssClass="form-control" OnTextChanged="txtcodproducto_TextChanged" AutoPostBack="true" type="search"></asp:TextBox>
+                </div>
+                <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Lista de productos</label>
                     <asp:DropDownList runat="server" ID="ddlproducto" CssClass="form-control" OnSelectedIndexChanged="ddlproducto_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 </div>
