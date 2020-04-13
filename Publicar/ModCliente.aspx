@@ -15,6 +15,12 @@
                 </div>
             </div>
                 <div class="form-group">
+                <label class="control-label col-md-2">N° de puesto: </label>
+                <div class="col-md-2">
+                    <asp:TextBox runat="server" ID="txtnumeropuesto" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="control-label col-md-2">Codigo: </label>
                 <div class="col-md-2">
                     <asp:TextBox runat="server" ID="txtcodclie" CssClass="form-control"></asp:TextBox>

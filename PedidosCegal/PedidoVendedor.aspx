@@ -110,8 +110,8 @@
             </div>
             <div class="col-md-4">
                 <asp:Button runat="server" ID="btnguardar" Text="Guardar Pedido" CssClass="btn btn-primary" OnClick="btnguardar_Click" />
-                |
-                <%--<asp:Button runat="server" ID="btnuevo" Text="Nuevo" CssClass="btn btn-primary" OnClick="btnuevo_Click" /> |--%>
+                |<asp:Button runat="server" ID="btnuevo" Text="Nuevo" CssClass="btn btn-primary" OnClick="btnuevo_Click" /> |
+                
                 <a href="MantePedidoVendedor.aspx">Regresar al listado de pedidos</a>
             </div>
         </fieldset>

@@ -121,6 +121,15 @@ namespace PedidosCegal {
         protected global::System.Web.UI.WebControls.Button btnguardar;
         
         /// <summary>
+        /// Control btnuevo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnuevo;
+        
+        /// <summary>
         /// Control lblmesaje.
         /// </summary>
         /// <remarks>

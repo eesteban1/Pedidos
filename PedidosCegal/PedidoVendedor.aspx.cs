@@ -234,6 +234,14 @@ namespace PedidosCegal
             btnguardar.Enabled = false;
             btnguardar.CssClass = "btn btn-primary";
             btnguardar.Text = "Guardar Pedido";
+            ddlmercados.Enabled = true;
+            txtfecha.Enabled = true;
+            ddlclientes.Enabled = true;
+            ddlproducto.Enabled = true;
+            grvDetalles.Enabled = true;
+            lblmesaje.Text = "";
+            txtnumeropuesto.Enabled = false;
+            ddlclientes.Enabled = false;
         }
 
         protected void txtcodproducto_TextChanged(object sender, EventArgs e)
