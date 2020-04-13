@@ -86,17 +86,24 @@ namespace PedidosCegal
                     det.SubTotal = Convert.ToDecimal(fila.Cells[5].Text);
                     db.InsertarDetalles(det, id);
                 }
-                lblmesaje.Text = "El pedido se guardo con exito.";
+                txtmensaje.Text = "El pedido se guardo con exito.";
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
                 ddlmercados.Enabled = false;
                 txtfecha.Enabled = false;
                 ddlclientes.Enabled = false;
                 ddlproducto.Enabled = false;
                 grvDetalles.Enabled = false;
                 btnimprimir.Enabled = true;
+                txtnumeropuesto.Enabled = false;
+                txtcodproducto.Enabled = false;
+                btnguardar.Enabled = false;
             }
             catch(Exception ex)
             {
-                lblmesaje.Text = ex.Message;
+                txtmensaje.Text = ex.Message;
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
             }
         }
 
@@ -137,10 +144,14 @@ namespace PedidosCegal
             }
             else
             {
-                string script = @"<script type='text/javascript'>
-                            alert('El producto ya fue ingresado.');
-                        </script>";
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                //string script = @"<script type='text/javascript'>
+                //            alert('El producto ya fue ingresado.');
+                //        </script>";
+                //ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                txtmensaje.Text = "El producto ya fue ingresado.";
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+                txtcodproducto.Text = "";
             }
         }
 
@@ -313,32 +324,38 @@ namespace PedidosCegal
                     }
                     else
                     {
-                        string script = @"<script type='text/javascript'>
-                            alert('El producto ya fue ingresado.');
-                        </script>";
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                        //string script = @"<script type='text/javascript'>
+                        //    alert('El producto ya fue ingresado.');
+                        //</script>";
+                        //ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                        txtmensaje.Text = "El producto ya fue ingresado.";
+                        string script = "openModal();";
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+                        txtcodproducto.Text = "";
                     }
                 }
                 else
                 {
-                    string script = @"<script type='text/javascript'>
-                            alert('El producto no existe.');
-                        </script>";
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                    //string script = @"<script type='text/javascript'>
+                    //        alert('El producto no existe.');
+                    //    </script>";
+                    //ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                    txtmensaje.Text = "El producto no existe.";
+                    string script = "openModal();";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+                    txtcodproducto.Text = "";
                 }
             }
             else
             {
-                //string modalScript = @"<script type=""text/javascript"">
-                //                        function openModal() {
-                //                        $('#myModal').modal('show');
-                //                         }
-                //                        </script>";
-                //ScriptManager.RegisterStartupScript(this, GetType(), "bsChgPwdModal", modalScript, false);
-                string script = @"<script type='text/javascript'>
-                            alert('El producto ya fue ingresado.');
-                        </script>";
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                //string script = @"<script type='text/javascript'>
+                //            alert('El producto ya fue ingresado.');
+                //        </script>";
+                //ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                txtmensaje.Text = "Debe poner el código del producto.";
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+                txtcodproducto.Text = "";
             }
         }
     }

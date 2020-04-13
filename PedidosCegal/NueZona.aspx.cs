@@ -20,13 +20,25 @@ namespace PedidosCegal
 
         protected void btnguardar_Click(object sender, EventArgs e)
         {
-            ZonasDAO db = new ZonasDAO();
-            zonas zon = new zonas();
-            zon.DescripCorta = txtcodigo.Text;
-            zon.DescripLarga = txtdescripcion.Text;
-            zon.Observacion = txtobservacion.Text;
-            db.Create(zon);
-            lblmesaje.Text = "El cliente se registo con exito.";
+            try
+            {
+                ZonasDAO db = new ZonasDAO();
+                zonas zon = new zonas();
+                zon.DescripCorta = txtcodigo.Text;
+                zon.DescripLarga = txtdescripcion.Text;
+                zon.Observacion = txtobservacion.Text;
+                db.Create(zon);
+                txtmensaje.Text = "El cliente se registo con exito.";
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+            }
+            catch (Exception ex)
+            {
+                txtmensaje.Text = ex.Message;
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+            }
+            
         }
     }
 }

@@ -53,10 +53,20 @@ namespace Model.Enity
             try
             {
                 comando = new SqlCommand("usp_ZonaInsert", con);
+                comando.Parameters.AddWithValue("@DescripCorta", zon.DescripCorta);
+                comando.Parameters.AddWithValue("@DescripLarga", zon.DescripLarga);
+                comando.Parameters.AddWithValue("@Observacion", zon.Observacion);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                con.Open();
+                comando.ExecuteNonQuery();
             }
             catch(Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                con.Close();
             }
         }
 
@@ -119,7 +129,7 @@ namespace Model.Enity
         {
             string cnx = db.Database.Connection.ConnectionString;
             con = new SqlConnection(cnx);
-            string findAll = "select*from v_ListarZonas";
+            string findAll = "select*from v_ListarZonas order by DescripCorta asc";
             try
             {
                 comando = new SqlCommand(findAll, con);

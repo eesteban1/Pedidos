@@ -11,6 +11,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Principal- Sistema Ventas</title>
+    <script src="Assets/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="Assets/metisMenu/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+
+    <script src="Assets/morrisjs/morris.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="Js/sb-admin-2.js"></script>
     <link href="Style/chosen.css" rel="stylesheet" />
     <!-- Bootstrap Core CSS -->
     <link href="Assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -30,9 +41,13 @@
     <![endif]-->
     </head>
 <body>
-    
-       <div id="wrapper">
-        
+    <script>
+        function openModal()
+            {            
+                $('#myModal').modal('show');            
+            }
+    </script>
+    <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -285,16 +300,6 @@
     </div>
         
   
-    <script src="Assets/jquery/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="Assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="Assets/metisMenu/metisMenu.min.js"></script>
-    <!-- Morris Charts JavaScript -->
-
-    <script src="Assets/morrisjs/morris.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="Js/sb-admin-2.js"></script>
+    
 </body>
 </html>

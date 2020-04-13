@@ -4,7 +4,7 @@
 <div class="well well-sm">
     <a class="btn btn-primary" href="NueZona.aspx">Nuevo</a>
 </div>
-    <asp:UpdatePanel runat="server" ID="updmante">
+    <asp:UpdatePanel runat="server" ID="updmante"  style="display:block;overflow-x:auto">
         <ContentTemplate>
             <asp:GridView class="table table-striped table-hover" runat="server" ID="grvmantezona" AutoGenerateColumns="false" Width="100%" GridLines="None" PageSize="10" AllowPaging="true" OnPageIndexChanging="grvmantezona_PageIndexChanging" OnRowCommand="grvmantezona_RowCommand">
                     <Columns>

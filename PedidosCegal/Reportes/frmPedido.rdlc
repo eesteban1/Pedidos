@@ -376,7 +376,7 @@
         <DataSetName>v_PedidoEncabDet</DataSetName>
         <Top>0.17639cm</Top>
         <Left>0.29876cm</Left>
-        <Height>1.01479cm</Height>
+        <Height>1.0148cm</Height>
         <Width>15.78867cm</Width>
         <Style>
           <Border>
@@ -421,7 +421,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!Total_Venta.Value, "v_PedidoEncabDet")</Value>
+                <Value>=First(Fields!Total_Venta.Value, "v_PedidoEncabDet")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
