@@ -86,18 +86,19 @@ namespace PedidosCegal
                     det.SubTotal = Convert.ToDecimal(fila.Cells[5].Text);
                     db.InsertarDetalles(det, id);
                 }
-                txtmensaje.Text = "El pedido se guardo con exito.";
-                string script = "openModal();";
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
-                ddlmercados.Enabled = false;
-                txtfecha.Enabled = false;
-                ddlclientes.Enabled = false;
-                ddlproducto.Enabled = false;
-                grvDetalles.Enabled = false;
-                btnimprimir.Enabled = true;
-                txtnumeropuesto.Enabled = false;
-                txtcodproducto.Enabled = false;
-                btnguardar.Enabled = false;
+                Response.Redirect("MantePedido.aspx", true);
+                //txtmensaje.Text = "El pedido se guardo con exito.";
+                //string script = "openModal();";
+                //ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+                //ddlmercados.Enabled = false;
+                //txtfecha.Enabled = false;
+                //ddlclientes.Enabled = false;
+                //ddlproducto.Enabled = false;
+                //grvDetalles.Enabled = false;
+                //btnimprimir.Enabled = true;
+                //txtnumeropuesto.Enabled = false;
+                //txtcodproducto.Enabled = false;
+                //btnguardar.Enabled = false;
             }
             catch(Exception ex)
             {
