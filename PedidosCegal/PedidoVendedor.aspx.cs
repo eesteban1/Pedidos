@@ -18,8 +18,8 @@ namespace PedidosCegal
             if (!Page.IsPostBack)
             {
                 txtfecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                cargarDetalles();
                 cargar();
+                cargarDetalles();
                 btnguardar.Enabled = false;
                 btnguardar.CssClass = "btn btn-primary";
                 btnguardar.Text = "Guardar Pedido";
@@ -324,7 +324,7 @@ namespace PedidosCegal
             ClienteDAO db = new ClienteDAO();
             string numero = txtnumeropuesto.Text;
             string idmercado = ddlmercados.SelectedValue;
-            Cliente clie = db.BuscarclientexPuesto(idmercado, numero);
+            Cliente clie = db.BuscarclientexPuesto(numero, idmercado);
             lblnombre.Text = clie.NombrePropietario;
             ddlclientes.SelectedValue = clie.Id_cliente.ToString();
         }

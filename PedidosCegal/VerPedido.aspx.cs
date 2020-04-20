@@ -50,7 +50,7 @@ namespace PedidosCegal
             DataTable dtcabecera = ds.Tables[0];
             AsignaZonaDAO db1 = new AsignaZonaDAO();
             string idusu = Session["IDUsuario"].ToString();
-            txtcodcliente.Text = Convert.ToString(dtcabecera.Rows[0]["Id_cliente"]);
+            txtnumeropuesto.Text = Convert.ToString(dtcabecera.Rows[0]["NumeroPuesto"]);
             txtfecha.Text = Convert.ToDateTime(dtcabecera.Rows[0]["fechaCheque"]).ToString("yyyy-MM-dd");
             ddlmercados.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["IdMercado"]);
             lbltotal.Text = Convert.ToString(dtcabecera.Rows[0]["Total_Venta"]);
@@ -84,6 +84,11 @@ namespace PedidosCegal
             int id = Convert.ToInt32(Request.QueryString["IDV"]);
             string sRuta = "Reportes/frmReportePedido.aspx?Id_Encab=" + id;
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Window1", "<script> window.open('" + sRuta + "');</script>", false);
+        }
+
+        protected void btncancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MantePedido.aspx", true);
         }
     }
 }

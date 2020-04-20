@@ -69,5 +69,10 @@ namespace PedidosCegal
                 Response.Redirect("VerPedidoVendedor.aspx?IDV="+id, true);
             }
         }
+
+        protected void btnnuevo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PedidoVendedor.aspx", true);
+        }
     }
 }

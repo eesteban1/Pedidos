@@ -14,7 +14,7 @@
                                     <asp:Button runat="server" ID="btnbuscar" CssClass="btn btn-success" Text="Buscar" OnClick="btnbuscar_Click" />
                                 </div>
                                 <div class=" col-sm-2" style="text-align:center">
-                                    <a class="btn btn-primary" href="PedidoVendedor.aspx">Nuevo Pedido</a>
+                                    <asp:Button runat="server" CssClass="btn btn-primary" ID="btnnuevo" Text="Nuevo Pedido" OnClick="btnnuevo_Click"/>
                                 </div>
                             </div>
                             <br />
@@ -31,7 +31,7 @@
                                                 <asp:TemplateField HeaderText="Operación">
                                                     <ItemTemplate>
                                                         <asp:Button runat="server" CssClass="btn btn-success" CommandName="Ver" Text="Ver" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Ver" />
-                                                        <asp:Button runat="server" CssClass="btn btn-danger" CommandName="Eliminar" Text="Eliminar" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Eliminar"/>
+                                                        <asp:Button runat="server" CssClass="btn btn-danger" CommandName="Eliminar" Text="Eliminar" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Eliminar" OnClientClick="return confirm('¿Desea eliminar el pedido?');"/>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                             </Columns>

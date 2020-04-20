@@ -17,8 +17,8 @@ namespace PedidosCegal
             {
                 lblmesaje.Text = "";
                 txtfecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                cargarDetalles();
                 cargar();
+                cargarDetalles();
                 btnguardar.Enabled = false;
                 btnguardar.CssClass = "btn btn-primary";
                 btnguardar.Text = "Guardar Pedido";

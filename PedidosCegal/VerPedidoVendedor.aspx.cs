@@ -50,7 +50,7 @@ namespace PedidosCegal
             DataTable dtcabecera = ds.Tables[0];
             AsignaZonaDAO db1 = new AsignaZonaDAO();
             string idusu = Session["IDUsuario"].ToString();
-            txtcodcliente.Text = Convert.ToString(dtcabecera.Rows[0]["Id_cliente"]);
+            txtnumeropuesto.Text = Convert.ToString(dtcabecera.Rows[0]["NumeroPuesto"]);
             txtfecha.Text = Convert.ToDateTime(dtcabecera.Rows[0]["fechaCheque"]).ToString("yyyy-MM-dd");
             ddlmercados.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["IdMercado"]);
             lbltotal.Text = Convert.ToString(dtcabecera.Rows[0]["Total_Venta"]);
@@ -77,6 +77,13 @@ namespace PedidosCegal
             }
             cargarDetalles();
             lbltotal.Text = Util.Helper.TotalizarGrilla(grvDetalles,5).ToString();
+        }
+
+        
+
+        protected void btncancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MantePedidoVendedor.aspx", true);
         }
     }
 }
