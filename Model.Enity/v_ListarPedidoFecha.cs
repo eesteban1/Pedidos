@@ -18,5 +18,7 @@ namespace Model.Enity
         public string fechaCheque { get; set; }
         public string CodNom { get; set; }
         public Nullable<decimal> Total_Venta { get; set; }
+        public string Desc_Large { get; set; }
+        public Nullable<int> Id_Vendedor { get; set; }
     }
 }

@@ -20,8 +20,9 @@ namespace PedidosCegal
 
         void cargar()
         {
+            int id = Convert.ToInt32(Session["IDUsuario"]);
             PedidoDAO db = new PedidoDAO();
-            grvDetalles.DataSource = db.ListarPedidos();
+            grvDetalles.DataSource = db.ListarPedidos(id);
             grvDetalles.DataBind();
 
         }
@@ -68,7 +69,12 @@ namespace PedidosCegal
             else if (e.CommandName == "Ver")
             {
                 int id = Convert.ToInt32(grvDetalles.Rows[fila].Cells[0].Text);
-                Response.Redirect("VerPedido.aspx?IDV=" + id, true);
+                Response.Redirect("VerPedido.aspx?IDVP=" + id, true);
+            }
+            else if(e.CommandName=="Modificar")
+            {
+                int id = Convert.ToInt32(grvDetalles.Rows[fila].Cells[0].Text);
+                Response.Redirect("ModPedido.aspx?IDMP="+id, true);
             }
         }
 

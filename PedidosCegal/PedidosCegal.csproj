@@ -260,6 +260,8 @@
     <Content Include="ManteZonas.aspx" />
     <Content Include="ModCliente.aspx" />
     <Content Include="ModMercado.aspx" />
+    <Content Include="ModPedido.aspx" />
+    <Content Include="ModPedidoVendedor.aspx" />
     <Content Include="ModProducto.aspx" />
     <Content Include="ModZona.aspx" />
     <Content Include="NueCliente.aspx" />
@@ -318,6 +320,7 @@
     </Content>
     <Content Include="Style\chosen.css" />
     <Content Include="VerCliente.aspx" />
+    <Content Include="VerMercado.aspx" />
     <Content Include="VerPedido.aspx" />
     <Content Include="VerPedidoVendedor.aspx" />
     <Content Include="VerProducto.aspx" />
@@ -438,6 +441,20 @@
     <Compile Include="ModMercado.aspx.designer.cs">
       <DependentUpon>ModMercado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModPedido.aspx.cs">
+      <DependentUpon>ModPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModPedido.aspx.designer.cs">
+      <DependentUpon>ModPedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModPedidoVendedor.aspx.cs">
+      <DependentUpon>ModPedidoVendedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModPedidoVendedor.aspx.designer.cs">
+      <DependentUpon>ModPedidoVendedor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModProducto.aspx.cs">
       <DependentUpon>ModProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -543,6 +560,13 @@
     </Compile>
     <Compile Include="VerCliente.aspx.designer.cs">
       <DependentUpon>VerCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerMercado.aspx.cs">
+      <DependentUpon>VerMercado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerMercado.aspx.designer.cs">
+      <DependentUpon>VerMercado.aspx</DependentUpon>
     </Compile>
     <Compile Include="VerPedido.aspx.cs">
       <DependentUpon>VerPedido.aspx</DependentUpon>

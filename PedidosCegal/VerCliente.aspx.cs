@@ -36,7 +36,7 @@ namespace PedidosCegal
             Util.Helper.ListarProvincia(ddlprovincicomercial, iddepacomer);
             ddlprovincicomercial.SelectedValue = clie.UbigeoComercial.Substring(2, 2);
             string idprovicomer = ddlprovincicomercial.SelectedValue;
-            Util.Helper.ListarDistrito(ddldistritocomercial, idprovicomer);
+            Util.Helper.ListarDistrito(ddldistritocomercial, idprovicomer,iddepacomer);
             ddldistritocomercial.SelectedValue = clie.UbigeoComercial.Substring(4, 2);
             txtreferenciacomercial.Text = clie.ReferenciaComercial;
             txttelefonocomercial.Text = clie.TelefonoComercial;
@@ -47,7 +47,7 @@ namespace PedidosCegal
             Util.Helper.ListarProvincia(ddlprovinciaspropietario, iddepapro);
             ddlprovinciaspropietario.SelectedValue = clie.UbigeoDomicilio.Substring(2, 2);
             string idprovi = ddlprovinciaspropietario.SelectedValue;
-            Util.Helper.ListarDistrito(ddldistritopropietario, idprovi);
+            Util.Helper.ListarDistrito(ddldistritopropietario, idprovi,iddepapro);
             ddldistritopropietario.SelectedValue = clie.UbigeoDomicilio.Substring(4, 2);
             txtreferenciapropietario.Text = clie.ReferenciaDomicilio;
             txtdni.Text = clie.DNI;

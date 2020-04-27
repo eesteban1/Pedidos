@@ -22,6 +22,10 @@
                     <label style="color: skyblue; font-family: Arial;">Fecha: </label>
                     <asp:TextBox runat="server" ID="txtfecha" type="date" CssClass="form-control" Enabled="false" ></asp:TextBox>
                 </div>
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Moneda: </label>
+                    <asp:DropDownList runat="server" ID="ddlmoneda" CssClass="form-control"></asp:DropDownList>
+                </div>
             </div>
             <div class="form-group">
                 <div class="col-md-2">

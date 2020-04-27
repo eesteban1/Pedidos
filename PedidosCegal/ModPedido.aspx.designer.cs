@@ -10,7 +10,7 @@
 namespace PedidosCegal {
     
     
-    public partial class Pedido {
+    public partial class ModPedido {
         
         /// <summary>
         /// Control lblzona.

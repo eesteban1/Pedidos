@@ -58,12 +58,13 @@
           <Property Name="ubigeo" Type="nvarchar" MaxLength="6" />
           <Property Name="Observ" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Monedas">
+        <EntityType Name="Moneda">
           <Key>
-            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="Id_Moneda" />
           </Key>
-          <Property Name="Codigo" Type="varchar" MaxLength="5" Nullable="false" />
-          <Property Name="DESCRIPCIÓN" Type="nvarchar" MaxLength="255" />
+          <Property Name="Id_Moneda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Desc_Corta" Type="varchar" MaxLength="5" />
+          <Property Name="Desc_Large" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Personal">
           <Key>
@@ -309,10 +310,12 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_ComboClientes' no tiene defini
         <EntityType Name="v_ComboClientes">
           <Key>
             <PropertyRef Name="Id_cliente" />
+            <PropertyRef Name="IdMercado" />
           </Key>
           <Property Name="Id_cliente" Type="int" Nullable="false" />
           <Property Name="NombrePropietario" Type="varchar(max)" />
           <Property Name="Codigo" Type="nvarchar" MaxLength="9" />
+          <Property Name="IdMercado" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ventas2.us2.v_Encab' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -360,6 +363,8 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_EncabDet' no tiene definida ni
           <Property Name="fechaCheque" Type="varchar" MaxLength="50" />
           <Property Name="IdMercado" Type="int" Nullable="false" />
           <Property Name="NombrePropietario" Type="varchar(max)" />
+          <Property Name="NumeroPuesto" Type="varchar" MaxLength="10" />
+          <Property Name="Id_Moneda" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -368,7 +373,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarCliente' no tiene defini
             <PropertyRef Name="Id_cliente" />
           </Key>
           <Property Name="Id_cliente" Type="int" Nullable="false" />
-          <Property Name="CodNom" Type="nvarchar(max)" />
+          <Property Name="CodNom" Type="nvarchar" MaxLength="20" />
           <Property Name="NombrePropietario" Type="varchar(max)" />
           <Property Name="Direccion" Type="varchar(max)" />
           <Property Name="TelefonoComercial" Type="varchar" MaxLength="9" />
@@ -395,6 +400,8 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarPedidoFecha' no tiene de
           <Property Name="fechaCheque" Type="varchar" MaxLength="50" />
           <Property Name="CodNom" Type="nvarchar(max)" />
           <Property Name="Total_Venta" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Desc_Large" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Vendedor" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarProductos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -534,7 +541,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySet Name="Encabezado" EntityType="Self.Encabezado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Marcas" EntityType="Self.Marcas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mercados" EntityType="Self.mercados" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Monedas" EntityType="Self.Monedas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Moneda" EntityType="Self.Moneda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UniMed" EntityType="Self.UniMed" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="zonas" EntityType="Self.zonas" Schema="dbo" store:Type="Tables" />
@@ -649,7 +656,8 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
             <DefiningQuery>SELECT 
     [v_ComboClientes].[Id_cliente] AS [Id_cliente], 
     [v_ComboClientes].[NombrePropietario] AS [NombrePropietario], 
-    [v_ComboClientes].[Codigo] AS [Codigo]
+    [v_ComboClientes].[Codigo] AS [Codigo], 
+    [v_ComboClientes].[IdMercado] AS [IdMercado]
     FROM [us2].[v_ComboClientes] AS [v_ComboClientes]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Encab" EntityType="Self.v_Encab" store:Type="Views" store:Schema="us2">
@@ -689,7 +697,9 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
     [v_EncabDet].[Total_Venta] AS [Total_Venta], 
     [v_EncabDet].[fechaCheque] AS [fechaCheque], 
     [v_EncabDet].[IdMercado] AS [IdMercado], 
-    [v_EncabDet].[NombrePropietario] AS [NombrePropietario]
+    [v_EncabDet].[NombrePropietario] AS [NombrePropietario], 
+    [v_EncabDet].[NumeroPuesto] AS [NumeroPuesto], 
+    [v_EncabDet].[Id_Moneda] AS [Id_Moneda]
     FROM [us2].[v_EncabDet] AS [v_EncabDet]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_ListarCliente" EntityType="Self.v_ListarCliente" store:Type="Views" store:Schema="us2">
@@ -715,7 +725,9 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
     [v_ListarPedidoFecha].[Id_Encab] AS [Id_Encab], 
     [v_ListarPedidoFecha].[fechaCheque] AS [fechaCheque], 
     [v_ListarPedidoFecha].[CodNom] AS [CodNom], 
-    [v_ListarPedidoFecha].[Total_Venta] AS [Total_Venta]
+    [v_ListarPedidoFecha].[Total_Venta] AS [Total_Venta], 
+    [v_ListarPedidoFecha].[Desc_Large] AS [Desc_Large], 
+    [v_ListarPedidoFecha].[Id_Vendedor] AS [Id_Vendedor]
     FROM [us2].[v_ListarPedidoFecha] AS [v_ListarPedidoFecha]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_ListarProductos" EntityType="Self.v_ListarProductos" store:Type="Views" store:Schema="us2">
@@ -848,13 +860,6 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <Property Name="ubigeo" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
           <Property Name="Observ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="zonas" Relationship="Self.FK_mercados_zonas" FromRole="mercados" ToRole="zonas" />
-        </EntityType>
-        <EntityType Name="Monedas">
-          <Key>
-            <PropertyRef Name="Codigo" />
-          </Key>
-          <Property Name="Codigo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DESCRIPCIÓN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="UniMed">
           <Key>
@@ -1034,6 +1039,8 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <Property Name="fechaCheque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CodNom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Total_Venta" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Desc_Large" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Vendedor" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Mer">
           <Key>
@@ -1126,7 +1133,6 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySet Name="Accesos" EntityType="Self.Accesos" />
           <EntitySet Name="Marcas" EntityType="Self.Marcas" />
           <EntitySet Name="mercados" EntityType="Self.mercados" />
-          <EntitySet Name="Monedas" EntityType="Self.Monedas" />
           <EntitySet Name="UniMed" EntityType="Self.UniMed" />
           <EntitySet Name="zonas" EntityType="Self.zonas" />
           <EntitySet Name="Cuentas" EntityType="Self.Cuentas" />
@@ -1165,6 +1171,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySet Name="v_ListarMercado" EntityType="ventas2Model.v_ListarMercado" />
           <EntitySet Name="Cliente" EntityType="ventas2Model.Cliente" />
           <EntitySet Name="v_ComboClientes" EntityType="ventas2Model.v_ComboClientes" />
+          <EntitySet Name="Moneda" EntityType="ventas2Model.Moneda" />
         </EntityContainer>
         <EntityType Name="Encabezado">
           <Key>
@@ -1225,7 +1232,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
             <PropertyRef Name="Id_cliente" />
           </Key>
           <Property Name="Id_cliente" Type="Int32" Nullable="false" />
-          <Property Name="CodNom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CodNom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="NombrePropietario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="TelefonoComercial" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
@@ -1281,6 +1288,8 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <Property Name="fechaCheque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdMercado" Type="Int32" Nullable="false" />
           <Property Name="NombrePropietario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroPuesto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Moneda" Type="Int32" />
         </EntityType>
         <EntityType Name="v_AsignaZona">
           <Key>
@@ -1340,10 +1349,20 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
         <EntityType Name="v_ComboClientes">
           <Key>
             <PropertyRef Name="Id_cliente" />
+            <PropertyRef Name="IdMercado" />
           </Key>
           <Property Name="Id_cliente" Type="Int32" Nullable="false" />
           <Property Name="NombrePropietario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Codigo" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Name="IdMercado" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Moneda">
+          <Key>
+            <PropertyRef Name="Id_Moneda" />
+          </Key>
+          <Property Name="Id_Moneda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Desc_Corta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Desc_Large" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1381,14 +1400,6 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="ubigeo" ColumnName="ubigeo" />
                 <ScalarProperty Name="Observ" ColumnName="Observ" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Monedas">
-            <EntityTypeMapping TypeName="ventas2Model.Monedas">
-              <MappingFragment StoreEntitySet="Monedas">
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="DESCRIPCIÓN" ColumnName="DESCRIPCIÓN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1573,6 +1584,8 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySetMapping Name="v_ListarPedidoFecha">
             <EntityTypeMapping TypeName="ventas2Model.v_ListarPedidoFecha">
               <MappingFragment StoreEntitySet="v_ListarPedidoFecha">
+                <ScalarProperty Name="Id_Vendedor" ColumnName="Id_Vendedor" />
+                <ScalarProperty Name="Desc_Large" ColumnName="Desc_Large" />
                 <ScalarProperty Name="Id_Encab" ColumnName="Id_Encab" />
                 <ScalarProperty Name="fechaCheque" ColumnName="fechaCheque" />
                 <ScalarProperty Name="CodNom" ColumnName="CodNom" />
@@ -1751,6 +1764,8 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySetMapping Name="v_EncabDet">
             <EntityTypeMapping TypeName="ventas2Model.v_EncabDet">
               <MappingFragment StoreEntitySet="v_EncabDet">
+                <ScalarProperty Name="Id_Moneda" ColumnName="Id_Moneda" />
+                <ScalarProperty Name="NumeroPuesto" ColumnName="NumeroPuesto" />
                 <ScalarProperty Name="NombrePropietario" ColumnName="NombrePropietario" />
                 <ScalarProperty Name="IdMercado" ColumnName="IdMercado" />
                 <ScalarProperty Name="fechaCheque" ColumnName="fechaCheque" />
@@ -1827,9 +1842,19 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySetMapping Name="v_ComboClientes">
             <EntityTypeMapping TypeName="ventas2Model.v_ComboClientes">
               <MappingFragment StoreEntitySet="v_ComboClientes">
+                <ScalarProperty Name="IdMercado" ColumnName="IdMercado" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="NombrePropietario" ColumnName="NombrePropietario" />
                 <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Moneda">
+            <EntityTypeMapping TypeName="ventas2Model.Moneda">
+              <MappingFragment StoreEntitySet="Moneda">
+                <ScalarProperty Name="Desc_Large" ColumnName="Desc_Large" />
+                <ScalarProperty Name="Desc_Corta" ColumnName="Desc_Corta" />
+                <ScalarProperty Name="Id_Moneda" ColumnName="Id_Moneda" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

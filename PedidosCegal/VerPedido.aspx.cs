@@ -33,7 +33,7 @@ namespace PedidosCegal
             ddlmercados.DataTextField = "NombreLargo";
             ddlmercados.DataValueField = "IdMercado";
             ddlmercados.DataBind();
-
+            Util.Helper.Listarmoneda(ddlmoneda);
 
         }
         void cargarDetalles()
@@ -44,7 +44,7 @@ namespace PedidosCegal
         }
         void cargar()
         {
-            Int32 id = Convert.ToInt32(Request.QueryString["IDV"]);
+            Int32 id = Convert.ToInt32(Request.QueryString["IDVP"]);
             PedidoDAO db = new PedidoDAO();
             System.Data.DataSet ds = db.BuscarPedido(id);
             DataTable dtcabecera = ds.Tables[0];
@@ -55,7 +55,7 @@ namespace PedidosCegal
             ddlmercados.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["IdMercado"]);
             lbltotal.Text = Convert.ToString(dtcabecera.Rows[0]["Total_Venta"]);
             lblnombre.Text = Convert.ToString(dtcabecera.Rows[0]["NombrePropietario"]);
-
+            ddlmoneda.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_Moneda"]);
             DataTable detalles = (DataTable)Session["detalles"];
             if (detalles.Rows.Count > 0)
             {
@@ -81,7 +81,7 @@ namespace PedidosCegal
 
         protected void btnimprimir_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(Request.QueryString["IDV"]);
+            int id = Convert.ToInt32(Request.QueryString["IDVP"]);
             string sRuta = "Reportes/frmReportePedido.aspx?Id_Encab=" + id;
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Window1", "<script> window.open('" + sRuta + "');</script>", false);
         }

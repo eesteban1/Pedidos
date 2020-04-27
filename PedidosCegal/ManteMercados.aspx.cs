@@ -39,9 +39,12 @@ namespace PedidosCegal
             }
             else if (e.CommandName == "Eliminar")
             {
-                MercadoDAO db = new MercadoDAO();
-                db.Eliminar(idmer);
-                cargar();
+                
+                    MercadoDAO db = new MercadoDAO();
+                    db.Eliminar(idmer);
+                    cargar();
+                    string script = "openModal();";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "correcto", script, true);
             }
         }
 

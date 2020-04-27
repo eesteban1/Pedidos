@@ -26,5 +26,7 @@ namespace Model.Enity
         public string fechaCheque { get; set; }
         public int IdMercado { get; set; }
         public string NombrePropietario { get; set; }
+        public string NumeroPuesto { get; set; }
+        public Nullable<int> Id_Moneda { get; set; }
     }
 }

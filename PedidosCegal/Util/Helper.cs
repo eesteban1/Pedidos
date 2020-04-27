@@ -43,6 +43,16 @@ namespace PedidosCegal.Util
             return dtTempDetalles;
         }
 
+        internal static void Listarmoneda(DropDownList ddlmoneda)
+        {
+            MonedaDAO db = new MonedaDAO();
+            ddlmoneda.DataSource = db.Listar();
+            ddlmoneda.DataValueField = "Id_Moneda";
+            ddlmoneda.DataTextField = "Desc_Large";
+            ddlmoneda.DataBind();
+            
+        }
+
         internal static void ListarZona(DropDownList ddlzona)
         {
             ZonasDAO db = new ZonasDAO();
@@ -65,10 +75,10 @@ namespace PedidosCegal.Util
             ddlvendedor.Items.Insert(0, new ListItem("Seleccione", "0"));
         }
 
-        internal static void ListarDistrito(DropDownList cbo,string idprovi)
+        internal static void ListarDistrito(DropDownList cbo,string idprovi,string iddepacomer)
         {
             UbigeoDAO db = new UbigeoDAO();
-            cbo.DataSource = db.ListarDistrito(idprovi);
+            cbo.DataSource = db.ListarDistrito(idprovi, iddepacomer);
             cbo.DataTextField = "DISTRITO";
             cbo.DataValueField = "UBIGEO1";
             cbo.DataBind();

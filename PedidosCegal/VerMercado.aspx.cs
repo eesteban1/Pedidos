@@ -8,11 +8,11 @@ using System.Web.UI.WebControls;
 
 namespace PedidosCegal
 {
-    public partial class ModMercado : System.Web.UI.Page
+    public partial class VerMercado : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 llenarcombo();
                 cargarmercado();
@@ -41,33 +41,6 @@ namespace PedidosCegal
             Util.Helper.ListarDistrito(ddldistrito, idprovicomer, iddepacomer);
             ddldistrito.SelectedValue = mer.ubigeo.Substring(4, 2).ToString();
             ddlzona.SelectedValue = mer.IdZona.ToString();
-        }
-
-        protected void btnguardar_Click(object sender, EventArgs e)
-        {
-            MercadoDAO db = new MercadoDAO();
-            mercados mer = new mercados();
-            mer.IdMercado = Convert.ToInt32(txtid.Text);
-            mer.IdZona = Convert.ToInt32(ddlzona.SelectedValue);
-            mer.NombreCorto = txtcodigo.Text;
-            mer.NombreLargo = txtmercado.Text;
-            mer.Observ = txtobservacion.Text;
-            mer.ubigeo = ddldepartamento.SelectedValue + ddlprovincia.SelectedValue + ddldistrito.SelectedValue;
-            db.update(mer);
-            Response.Redirect("ManteMercados.aspx", true);
-        }
-
-        protected void ddldepartamento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string iddepa = ddldepartamento.SelectedValue;
-            Util.Helper.ListarProvincia(ddlprovincia, iddepa);
-        }
-
-        protected void ddlprovincia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string iddepa = ddldepartamento.SelectedValue;
-            string idprovi = ddlprovincia.SelectedValue;
-            Util.Helper.ListarDistrito(ddldistrito, idprovi,iddepa);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace PedidosCegal
             Util.Helper.ListarProvincia(ddlprovincicomercial, iddepacomer);
             ddlprovincicomercial.SelectedValue = clie.UbigeoComercial.Substring(2, 2);
             string idprovicomer = ddlprovincicomercial.SelectedValue;
-            Util.Helper.ListarDistrito(ddldistritocomercial, idprovicomer);
+            Util.Helper.ListarDistrito(ddldistritocomercial, idprovicomer,iddepacomer);
             ddldistritocomercial.SelectedValue = clie.UbigeoComercial.Substring(4, 2);
             txtreferenciacomercial.Text = clie.ReferenciaComercial;
             txttelefonocomercial.Text =clie.TelefonoComercial;
@@ -47,7 +47,7 @@ namespace PedidosCegal
             Util.Helper.ListarProvincia(ddlprovinciaspropietario, iddepapro);
             ddlprovinciaspropietario.SelectedValue = clie.UbigeoDomicilio.Substring(2, 2);
             string idprovi = ddlprovinciaspropietario.SelectedValue;
-            Util.Helper.ListarDistrito(ddldistritopropietario, idprovi);
+            Util.Helper.ListarDistrito(ddldistritopropietario, idprovi,iddepapro);
             ddldistritopropietario.SelectedValue = clie.UbigeoDomicilio.Substring(4, 2);
             txtreferenciapropietario.Text = clie.ReferenciaDomicilio;
             txtdni.Text = clie.DNI;
@@ -93,7 +93,7 @@ namespace PedidosCegal
             clie.Observacion = txtobservacion.Text;
             clie.NumeroPuesto = txtnumeropuesto.Text;
             db.update(clie);
-            lblmesaje.Text = "El registro se actualizó correctamente.";
+            Response.Redirect("ManteCliente.aspx", true);
         }
 
         protected void ddldepartamentocomercial_SelectedIndexChanged(object sender, EventArgs e)
@@ -105,7 +105,8 @@ namespace PedidosCegal
         protected void ddlprovincicomercial_SelectedIndexChanged(object sender, EventArgs e)
         {
             string idprovi = ddlprovincicomercial.SelectedValue;
-            Util.Helper.ListarDistrito(ddldistritocomercial, idprovi);
+            string iddepa = ddldepartamentocomercial.SelectedValue;
+            Util.Helper.ListarDistrito(ddldistritocomercial, idprovi,iddepa);
         }
 
         protected void dlldepartamentopropietario_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,7 +118,8 @@ namespace PedidosCegal
         protected void ddlprovinciaspropietario_SelectedIndexChanged(object sender, EventArgs e)
         {
             string idprovi = ddlprovinciaspropietario.SelectedValue;
-            Util.Helper.ListarDistrito(ddldistritopropietario, idprovi);
+            string iddepa = dlldepartamentopropietario.SelectedValue;
+            Util.Helper.ListarDistrito(ddldistritopropietario, idprovi,iddepa);
         }
     }
 }

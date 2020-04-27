@@ -38,7 +38,7 @@ namespace PedidosCegal
             zon.DescripLarga = txtdescripcion.Text;
             zon.Observacion = txtobservacion.Text;
             db.update(zon);
-            lblmesaje.Text = "El registro se actualizó correctamente.";
+            Response.Redirect("ManteZonas.aspx", true);
         }
     }
 }

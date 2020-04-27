@@ -82,9 +82,9 @@ namespace Model.Enity
             return listapro;
         }
 
-        public List<UBIGEO> ListarDistrito(string idprovi)
+        public List<UBIGEO> ListarDistrito(string idprovi, string iddepacomer)
         {
-            string findAll = "select*from v_Distrito where IdProvincia='" + idprovi + "'order by DISTRITO";
+            string findAll = "select*from v_Distrito where IdProvincia='" + idprovi + "'and IdDepartamento='"+ iddepacomer + "'order by DISTRITO";
             List<UBIGEO> listapro = new List<UBIGEO>();
             try
             {

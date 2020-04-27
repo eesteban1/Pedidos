@@ -15,10 +15,10 @@ namespace Model.Enity
         private SqlCommand comando;
         private SqlDataReader reader;
 
-        public List<v_AcEn> ListarPedidos()
+        public List<v_ListarPedidoFecha> ListarPedidos(int id)
         {
-            List<v_AcEn> listaClientes = new List<v_AcEn>();
-            string findAll = "select* from v_ListarPedidoFecha order by Id_Encab Desc";
+            List<v_ListarPedidoFecha> listaClientes = new List<v_ListarPedidoFecha>();
+            string findAll = "select* from v_ListarPedidoFecha where fechaCheque=Convert(DATE,Getdate()) and Id_Vendedor='"+ id+"'order by Id_Encab Desc";
             try
             {
                 string cnx = db.Database.Connection.ConnectionString;
@@ -28,12 +28,12 @@ namespace Model.Enity
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    v_AcEn objCliente = new v_AcEn();
+                    v_ListarPedidoFecha objCliente = new v_ListarPedidoFecha();
                     objCliente.Id_Encab = Convert.ToInt32(reader[0].ToString());
                     objCliente.CodNom = reader[2].ToString();
-                    objCliente.fechaCheque = reader[1].ToString();
+                    objCliente.fechaCheque = Convert.ToDateTime(reader[1]).ToString("dd-MM-yyyy");
                     objCliente.Total_Venta = Convert.ToDecimal(reader[3].ToString());
-
+                    objCliente.Desc_Large = reader[4].ToString();
                     listaClientes.Add(objCliente);
 
                 }
@@ -163,16 +163,69 @@ namespace Model.Enity
                 comando.Parameters.AddWithValue("@fechaCheque", en.fechaCheque);
                 comando.Parameters.AddWithValue("@Id_Vendedor", en.Id_Vendedor);
                 comando.Parameters.AddWithValue("@Total_Venta", en.Total_Venta);
+                comando.Parameters.AddWithValue("@Id_Moneda", en.Id_Moneda);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 id = Convert.ToInt64(comando.ExecuteScalar().ToString());
                 //reader = comando.ExecuteReader();
-                con.Close();
+                
                 return id;
             }
             catch(Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void ModificarCabecera(Encabezado en)
+        {
+            try
+            {
+                string cnx = db.Database.Connection.ConnectionString;
+                con = new SqlConnection(cnx);
+                comando = new SqlCommand("usp_EncabezadoUpdate", con);
+                comando.Parameters.AddWithValue("@Id_cliente", en.Id_cliente);
+                comando.Parameters.AddWithValue("@fechaCheque", en.fechaCheque);
+                comando.Parameters.AddWithValue("@Id_Vendedor", en.Id_Vendedor);
+                comando.Parameters.AddWithValue("@Total_Venta", en.Total_Venta);
+                comando.Parameters.AddWithValue("@Id_Moneda", en.Id_Moneda);
+                comando.Parameters.AddWithValue("@Id_Encab", en.Id_Encab);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                con.Open();
+                reader = comando.ExecuteReader();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void EliminarDetalle(int id)
+        {
+            try
+            {
+                string cnx = db.Database.Connection.ConnectionString;
+                con = new SqlConnection(cnx);
+                string cmd = "delete from Detalles where Id_Encab='"+id+"'";
+                comando = new SqlCommand(cmd, con);
+                con.Open();
+                reader = comando.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
             }
         }
     }

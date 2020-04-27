@@ -23,14 +23,22 @@ namespace PedidosCegal
             try
             {
                 ZonasDAO db = new ZonasDAO();
-                zonas zon = new zonas();
-                zon.DescripCorta = txtcodigo.Text;
-                zon.DescripLarga = txtdescripcion.Text;
-                zon.Observacion = txtobservacion.Text;
-                db.Create(zon);
-                txtmensaje.Text = "El cliente se registo con exito.";
-                string script = "openModal();";
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+               bool existe = db.ExisteZona(txtcodigo.Text);
+                if(!existe)
+                {
+                    zonas zon = new zonas();
+                    zon.DescripCorta = txtcodigo.Text;
+                    zon.DescripLarga = txtdescripcion.Text;
+                    zon.Observacion = txtobservacion.Text;
+                    db.Create(zon);
+                    Response.Redirect("ManteZonas.aspx", true);
+                }
+               else
+                {
+                    txtmensaje.Text = "El codigo del mercado ya existe.";
+                    string script = "openModal();";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+                }
             }
             catch (Exception ex)
             {

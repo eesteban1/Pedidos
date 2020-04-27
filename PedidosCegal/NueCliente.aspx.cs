@@ -34,6 +34,9 @@ namespace PedidosCegal
                 if (txtnombreapellido.Text.Length < 0) lblmesaje.Text = "El campo Apellidos y Nombres debe ser completado.";
                 if (txtruc.Text.Length != 11) lblmesaje.Text = "El RUC debe tener 11 caracteres.";
                 if (txtdni.Text.Length != 8) lblmesaje.Text = "El DNI debe tener 8 caracteres.";
+
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "error", script, true);
             }
             else
             {
@@ -43,6 +46,8 @@ namespace PedidosCegal
                 if(existe)
                 {
                     lblmesaje.Text = "El cliente ya existe.";
+                    string script = "openModal();";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "existe", script, true);
                 }
                 else
                 {
@@ -66,7 +71,8 @@ namespace PedidosCegal
                     clie.Observacion = txtobservacion.Text;
                     clie.NumeroPuesto = txtnumeropuesto.Text;
                     db.Create(clie);
-                    lblmesaje.Text = "El cliente se registo con exito.";
+
+                    Response.Redirect("ManteCliente.aspx", true);
                 }
                 
             }
@@ -83,7 +89,8 @@ namespace PedidosCegal
         protected void ddlprovincicomercial_SelectedIndexChanged(object sender, EventArgs e)
         {
             string idprovi = ddlprovincicomercial.SelectedValue;
-            Util.Helper.ListarDistrito(ddldistritocomercial, idprovi);
+            string iddepa = ddldepartamentocomercial.SelectedValue;
+            Util.Helper.ListarDistrito(ddldistritocomercial, idprovi,iddepa);
         }
 
         protected void dlldepartamentopropietario_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,8 +101,9 @@ namespace PedidosCegal
 
         protected void ddlprovinciaspropietario_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string iddepa = dlldepartamentopropietario.SelectedValue;
             string idprovi = ddlprovinciaspropietario.SelectedValue;
-            Util.Helper.ListarDistrito(ddldistritopropietario, idprovi);
+            Util.Helper.ListarDistrito(ddldistritopropietario, idprovi, iddepa);
         }
     }
 }

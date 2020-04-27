@@ -122,10 +122,17 @@ namespace Model.Enity
                 comando.Parameters.AddWithValue("@Direccion", mer.Direccion);
                 comando.Parameters.AddWithValue("@ubigeo", mer.ubigeo);
                 comando.Parameters.AddWithValue("@Observ", mer.Observ);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                con.Open();
+                comando.ExecuteNonQuery();
             }
             catch(Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                con.Close();
             }
         }
 

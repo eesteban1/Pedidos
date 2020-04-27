@@ -14,8 +14,9 @@ namespace PedidosCegal
         {
             if(!Page.IsPostBack)
             {
-                LlenarCombo();
                 cargar();
+                LlenarCombo();
+                //quitar();
             }
         }
         void cargar()
@@ -29,6 +30,15 @@ namespace PedidosCegal
             Util.Helper.ListarVendedor(ddlvendedor);
             Util.Helper.ListarZona(ddlzona);
         }
+        //void quitar()
+        //{
+        //    int codigo;
+        //    foreach (GridViewRow fila in grvasigna.Rows)
+        //    {
+        //        codigo = Convert.ToInt32(fila.Cells[1].Text);
+        //        ddlzona.Items.RemoveAt(codigo);
+        //    }
+        //}
         protected void btnguardar_Click(object sender, EventArgs e)
         {
             AsignaZonaDAO db = new AsignaZonaDAO();
@@ -36,10 +46,9 @@ namespace PedidosCegal
             string zona = db.BuscarZonaAsignada(id,out string idzon);
             if (zona.Length > 0)
             {
-                string script = @"<script type='text/javascript'>
-                            alert('Ya se le asigno una zona al vendedor.');
-                        </script>";
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+                txtmensaje.Text = "Ya se le asigno una zona al vendedor";
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
             }
             else
             {
@@ -49,6 +58,7 @@ namespace PedidosCegal
                 asi.usuario = Convert.ToInt32(Session["IDUsuario"].ToString());
                 db.Grabar(asi);
                 cargar();
+                
             }
             
         }

@@ -10,7 +10,16 @@
 namespace PedidosCegal {
     
     
-    public partial class NuevMercado {
+    public partial class VerMercado {
+        
+        /// <summary>
+        /// Control txtid.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtid;
         
         /// <summary>
         /// Control txtcodigo.
@@ -83,14 +92,5 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtobservacion;
-        
-        /// <summary>
-        /// Control btnguardar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnguardar;
     }
 }

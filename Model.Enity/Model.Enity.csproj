@@ -91,10 +91,10 @@
     <Compile Include="mercados.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
-    <Compile Include="MonedaDAO.cs" />
-    <Compile Include="Monedas.cs">
+    <Compile Include="Moneda.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
+    <Compile Include="MonedaDAO.cs" />
     <Compile Include="PedidoDAO.cs" />
     <Compile Include="pedidos.Context.cs">
       <AutoGen>True</AutoGen>

@@ -34,6 +34,12 @@
 
 </head>
 <body>
+    <script>
+        function openModal()
+            {            
+                $('#myModal').modal('show');            
+            }
+    </script>
        <div id="wrapper">
         
         <!-- Navigation -->

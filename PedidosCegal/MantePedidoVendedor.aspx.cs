@@ -19,8 +19,9 @@ namespace PedidosCegal
         }
         void cargar()
         {
+            int id = Convert.ToInt32(Session["IDUsuario"]);
             PedidoDAO db = new PedidoDAO();
-            grvDetalles.DataSource = db.ListarPedidos();
+            grvDetalles.DataSource = db.ListarPedidos(id);
             grvDetalles.DataBind();
 
         }
@@ -42,9 +43,6 @@ namespace PedidosCegal
             }
             else
             {
-                //txtmensaje.Text = "Debe introducir un rango de fecha.";
-                //ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensaje", "openModal();", true);
-
                 string script = @"<script type='text/javascript'>
                             alert('Debe introducir un rango de fecha.');
                         </script>";
@@ -66,7 +64,12 @@ namespace PedidosCegal
             else if (e.CommandName=="Ver")
             {
                 int id = Convert.ToInt32(grvDetalles.Rows[fila].Cells[0].Text);
-                Response.Redirect("VerPedidoVendedor.aspx?IDV="+id, true);
+                Response.Redirect("VerPedidoVendedor.aspx?IDVP="+id, true);
+            }
+            else if(e.CommandName=="Modificar")
+            {
+                int id = Convert.ToInt32(grvDetalles.Rows[fila].Cells[0].Text);
+                Response.Redirect("ModPedidoVendedor.aspx?IDMP="+id, true);
             }
         }
 

@@ -35,13 +35,14 @@ namespace PedidosCegal
             mer.ubigeo = ddldepartamento.SelectedValue + ddlprovincia.SelectedValue + ddldistrito.SelectedValue;
             mer.Observ = txtobservacion.Text;
             db.Create(mer);
-            lblmesaje.Text = "El mercado se registro con exito.";
+            Response.Redirect("ManteMercados.aspx", true); 
         }
 
         protected void ddlprovincia_SelectedIndexChanged(object sender, EventArgs e)
         {
             string idprovi = ddlprovincia.SelectedValue;
-            Util.Helper.ListarDistrito(ddldistrito, idprovi);
+            string iddepa = ddldepartamento.SelectedValue;
+            Util.Helper.ListarDistrito(ddldistrito, idprovi,iddepa);
         }
 
         protected void ddldepartamento_SelectedIndexChanged(object sender, EventArgs e)

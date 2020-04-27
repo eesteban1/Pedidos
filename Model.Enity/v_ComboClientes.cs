@@ -17,5 +17,6 @@ namespace Model.Enity
         public int Id_cliente { get; set; }
         public string NombrePropietario { get; set; }
         public string Codigo { get; set; }
+        public int IdMercado { get; set; }
     }
 }

@@ -28,7 +28,6 @@ namespace Model.Enity
         public virtual DbSet<Accesos> Accesos { get; set; }
         public virtual DbSet<Marcas> Marcas { get; set; }
         public virtual DbSet<mercados> mercados { get; set; }
-        public virtual DbSet<Monedas> Monedas { get; set; }
         public virtual DbSet<UniMed> UniMed { get; set; }
         public virtual DbSet<zonas> zonas { get; set; }
         public virtual DbSet<Cuentas> Cuentas { get; set; }
@@ -59,5 +58,6 @@ namespace Model.Enity
         public virtual DbSet<v_ListarMercado> v_ListarMercado { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<v_ComboClientes> v_ComboClientes { get; set; }
+        public virtual DbSet<Moneda> Moneda { get; set; }
     }
 }

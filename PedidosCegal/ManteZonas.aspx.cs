@@ -48,6 +48,8 @@ namespace PedidosCegal
                 ZonasDAO db = new ZonasDAO();
                 db.Eliminar(idzona);
                 cargar();
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
             }
         }
     }

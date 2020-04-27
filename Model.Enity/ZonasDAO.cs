@@ -18,7 +18,7 @@ namespace Model.Enity
            
             string cnx = db.Database.Connection.ConnectionString;
             con = new SqlConnection(cnx);
-            string listar = "select* from Zonas ";
+            string listar = "select * from Zonas order by IdZona";
             List<zonas> listper = new List<zonas>();
             try
             {
@@ -44,6 +44,30 @@ namespace Model.Enity
                 con.Close();
             }
             return listper;
+        }
+
+        public bool ExisteZona(string text)
+        {
+            bool existe = true;
+            string cnx = db.Database.Connection.ConnectionString;
+            con = new SqlConnection(cnx);
+            string proce = "select * from zonas where DescripCorta='" + text + "'";
+            try
+            {
+                comando = new SqlCommand(proce, con);
+                con.Open();
+                SqlDataReader reader = comando.ExecuteReader();
+                existe = reader.Read();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return existe;
         }
 
         public void Create(zonas zon)
@@ -160,7 +184,7 @@ namespace Model.Enity
         public void Eliminar(int idzona)
         {
            
-            string eliminar = "delete* from zonas where IdZona='"+idzona+"'";
+            string eliminar = "delete from zonas where IdZona='"+ idzona +"'";
             try
             {
                 string cnx = db.Database.Connection.ConnectionString;

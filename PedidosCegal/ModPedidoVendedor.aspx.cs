@@ -2,110 +2,88 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace PedidosCegal
 {
-    public partial class PedidoVendedor : System.Web.UI.Page
+    public partial class ModPedidoVendedor : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                txtfecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                cargar();
+                Session["detalles"] = Util.Helper.CrearTemp_Detalles();
+                cargarlistas();
                 cargarDetalles();
-                btnguardar.Enabled = false;
-                btnguardar.CssClass = "btn btn-primary";
-                btnguardar.Text = "Guardar Pedido";
-                AsignaZonaDAO db = new AsignaZonaDAO();
-                string id = Session["IDUsuario"].ToString();
-                string zona = db.BuscarZonaAsignada(id, out string idzona);
-                lblzona.Text = zona;
-                MercadoDAO db1 = new MercadoDAO();
-                ddlmercados.DataSource = db1.MercadoxZona(idzona);
-                ddlmercados.DataTextField = "NombreLargo";
-                ddlmercados.DataValueField = "IdMercado";
-                ddlmercados.DataBind();
-                ddlmercados.Items.Insert(0, new ListItem("Seleccione", "0"));
-                txtnumeropuesto.Enabled = false;
-                ddlclientes.Enabled = false;
+                cargar();
             }
         }
 
-        void cargar()
+        void cargarlistas()
         {
 
+            MercadoDAO db1 = new MercadoDAO();
+            AsignaZonaDAO db = new AsignaZonaDAO();
+            string idusu = Session["IDUsuario"].ToString();
+            string zona = db.BuscarZonaAsignada(idusu, out string idzona);
+            lblzona.Text = zona;
+            ddlmercados.DataSource = db1.MercadoxZona(idzona);
+            ddlmercados.DataTextField = "NombreLargo";
+            ddlmercados.DataValueField = "IdMercado";
+            ddlmercados.DataBind();
+            Util.Helper.Listarmoneda(ddlmoneda);
             Util.Helper.Listarproductos(ddlproducto);
             Util.Helper.Listarmoneda(ddlmoneda);
-            Session["detalles"] = Util.Helper.CrearTemp_Detalles();
         }
 
         void cargarDetalles()
         {
+
             grvDetalles.DataSource = Session["detalles"];
             grvDetalles.DataBind();
         }
 
-        void Limpiar()
+        void cargar()
         {
-            txtnumeropuesto.Text = "";
-            lbltotal.Text = "";
-            lblnombre.Text = "";
-            Session["detalles"] = Util.Helper.CrearTemp_Detalles();
-            ddlproducto.SelectedValue = "0";
-            ddlmercados.SelectedValue = "0";
-            ddlclientes.SelectedValue = "0";
-        }
-
-        protected void btnguardar_Click(object sender, EventArgs e)
-        {
+            Int32 id = Convert.ToInt32(Request.QueryString["IDMP"]);
             PedidoDAO db = new PedidoDAO();
-            Encabezado en = new Encabezado();
-            try
+            System.Data.DataSet ds = db.BuscarPedido(id);
+            DataTable dtcabecera = ds.Tables[0];
+            AsignaZonaDAO db1 = new AsignaZonaDAO();
+            string idusu = Session["IDUsuario"].ToString();
+            txtnumeropuesto.Text = Convert.ToString(dtcabecera.Rows[0]["NumeroPuesto"]);
+            txtfecha.Text = Convert.ToDateTime(dtcabecera.Rows[0]["fechaCheque"]).ToString("yyyy-MM-dd");
+            ddlmercados.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["IdMercado"]);
+            lbltotal.Text = Convert.ToString(dtcabecera.Rows[0]["Total_Venta"]);
+            lblnombre.Text = Convert.ToString(dtcabecera.Rows[0]["NombrePropietario"]);
+            ddlmoneda.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_Moneda"]);
+            DataTable detalles = (DataTable)Session["detalles"];
+            if (detalles.Rows.Count > 0)
             {
-                en.Id_cliente = Convert.ToInt32(ddlclientes.SelectedValue);
-                en.fechaCheque = txtfecha.Text;
-                en.Id_Vendedor = Convert.ToInt32(Session["IDUsuario"]);
-                en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
-                Int64 id = db.InsertarCabecera(en);
-                foreach (GridViewRow fila in grvDetalles.Rows)
-                {
-                    Detalles det = new Detalles();
-                    TextBox cantidad = (TextBox)fila.FindControl("txtcantidad");
-                    det.Paquetes = Convert.ToInt32(cantidad.Text);
-                    TextBox precio = (TextBox)fila.FindControl("txtprecio");
-                    det.PrecioUnit = Convert.ToDouble(precio.Text);
-                    TextBox peso = (TextBox)fila.FindControl("txtpeso");
-                    det.CantidadKilos = Convert.ToDecimal(peso.Text);
-                    det.Id_prod = Convert.ToInt32(fila.Cells[0].Text);
-                    det.SubTotal = Convert.ToDecimal(fila.Cells[5].Text);
-                    db.InsertarDetalles(det, id);
-                }
-                Response.Redirect("MantePedidoVendedor.aspx", true);
-                //txtmensaje.Text = "El pedido se guardo con exito.";
-                //string script = "openModal();";
-                //ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
-                //ddlmercados.Enabled = false;
-                //txtfecha.Enabled = false;
-                //ddlclientes.Enabled = false;
-                //ddlproducto.Enabled = false;
-                //grvDetalles.Enabled = false;
-                //txtnumeropuesto.Enabled = false;
-                //txtcodproducto.Enabled = false;
-                //btnguardar.Enabled = false;
+                detalles.Rows.Clear();
             }
-            catch (Exception ex)
+            DataTable dtdetalles = ds.Tables[1];
+
+            foreach (DataRow Rg in dtdetalles.Rows)
             {
-                txtmensaje.Text = ex.Message;
-                string script = "openModal();";
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+                string idpro = Convert.ToString(Rg["Id_prod"]);
+                string Descripcion = Convert.ToString(Rg["descripcion"]);
+                decimal precio = Convert.ToDecimal(Rg["PrecioUnit"]);
+                int dcantidad = Convert.ToInt32(Rg["Paquetes"]);
+                decimal peso = Convert.ToDecimal(Rg["CantidadKilos"]);
+                decimal total = dcantidad * precio;
+
+                Util.Helper.Agregar_Detalles(detalles, idpro, Descripcion, precio, dcantidad, peso, total);
+                Session["detalles"] = detalles;
             }
+            cargarDetalles();
+            lbltotal.Text = Util.Helper.TotalizarGrilla(grvDetalles, 5).ToString();
+            string idmer = ddlmercados.SelectedValue;
+            Util.Helper.ListarClientesxMerZon(ddlclientes, idmer);
+            ddlclientes.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_cliente"]);
         }
 
         protected void ddlproducto_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,7 +93,7 @@ namespace PedidosCegal
             Producto producto = db.BuscarProducto(idpro);
             DataTable detalles = (DataTable)Session["Detalles"];
             bool seEncuentra = false;
-            int cod = Convert.ToInt32(producto.Id_prod);
+            int cod = producto.Id_prod;
             List<Producto> art = new List<Producto>();
             foreach (GridViewRow grv in grvDetalles.Rows)
             {
@@ -141,12 +119,13 @@ namespace PedidosCegal
                 lbltotal.Text = total.ToString();
                 ddlproducto.SelectedValue = "0";
                 btnguardar.Enabled = true;
+                txtcodproducto.Text = "";
             }
             else
             {
                 txtmensaje.Text = "El producto ya fue ingresado.";
                 string script = "openModal();";
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "duncion", script, true);
                 txtcodproducto.Text = "";
             }
         }
@@ -229,30 +208,42 @@ namespace PedidosCegal
 
         }
 
-        protected void btnuevo_Click(object sender, EventArgs e)
+        protected void ddlclientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Limpiar();
-            btnguardar.Enabled = false;
-            btnguardar.CssClass = "btn btn-primary";
-            btnguardar.Text = "Guardar Pedido";
-            ddlmercados.Enabled = true;
-            txtfecha.Enabled = true;
+            ClienteDAO db = new ClienteDAO();
+            int id = Convert.ToInt32(ddlclientes.SelectedValue);
+            Cliente clie = db.Buscarcliente(id, "");
+            lblnombre.Text = clie.NombrePropietario;
+            txtnumeropuesto.Text = clie.NumeroPuesto;
+        }
+
+        protected void ddlmercados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = ddlmercados.SelectedValue;
+            Util.Helper.ListarClientesxMerZon(ddlclientes, id);
+            txtnumeropuesto.Enabled = true;
             ddlclientes.Enabled = true;
-            ddlproducto.Enabled = true;
-            grvDetalles.Enabled = true;
-            lblmesaje.Text = "";
-            txtnumeropuesto.Enabled = false;
-            ddlclientes.Enabled = false;
+            txtnumeropuesto.Text = "";
+        }
+
+        protected void txtnumeropuesto_TextChanged(object sender, EventArgs e)
+        {
+            ClienteDAO db = new ClienteDAO();
+            string numero = txtnumeropuesto.Text;
+            string idmercado = ddlmercados.SelectedValue;
+            Cliente clie = db.BuscarclientexPuesto(numero, idmercado);
+            lblnombre.Text = clie.NombrePropietario;
+            ddlclientes.SelectedValue = clie.Id_cliente.ToString();
         }
 
         protected void txtcodproducto_TextChanged(object sender, EventArgs e)
         {
-            if(txtcodproducto.Text.Length>0)
+            if (txtcodproducto.Text.Length > 0)
             {
                 ProductoDAO db = new ProductoDAO();
                 int idpro = Convert.ToInt32(txtcodproducto.Text);
                 Producto pro = db.BuscarProducto(idpro);
-                if(pro.Id_prod != 0)
+                if (pro.Id_prod != 0)
                 {
                     DataTable detalles = (DataTable)Session["Detalles"];
                     bool seEncuentra = false;
@@ -282,7 +273,6 @@ namespace PedidosCegal
                         lbltotal.Text = total.ToString();
                         btnguardar.Enabled = true;
                         ddlproducto.SelectedValue = "0";
-                        txtcodproducto.Text = "";
                     }
                     else
                     {
@@ -299,7 +289,6 @@ namespace PedidosCegal
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
                     txtcodproducto.Text = "";
                 }
-               
             }
             else
             {
@@ -308,35 +297,44 @@ namespace PedidosCegal
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
                 txtcodproducto.Text = "";
             }
-            
         }
 
-        protected void ddlmercados_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnguardar_Click(object sender, EventArgs e)
         {
-            string id = ddlmercados.SelectedValue;
-            Util.Helper.ListarClientesxMerZon(ddlclientes, id);
-            txtnumeropuesto.Enabled = true;
-            ddlclientes.Enabled = true;
-            txtnumeropuesto.Text = "";
-        }
-
-        protected void txtnumeropuesto_TextChanged(object sender, EventArgs e)
-        {
-            ClienteDAO db = new ClienteDAO();
-            string numero = txtnumeropuesto.Text;
-            string idmercado = ddlmercados.SelectedValue;
-            Cliente clie = db.BuscarclientexPuesto(numero, idmercado);
-            lblnombre.Text = clie.NombrePropietario;
-            ddlclientes.SelectedValue = clie.Id_cliente.ToString();
-        }
-
-        protected void ddlclientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ClienteDAO db = new ClienteDAO();
-            int id = Convert.ToInt32(ddlclientes.SelectedValue);
-            Cliente clie = db.Buscarcliente(id, "");
-            lblnombre.Text = clie.NombrePropietario;
-            txtnumeropuesto.Text = clie.NumeroPuesto;
+            try
+            {
+                PedidoDAO db = new PedidoDAO();
+                Encabezado en = new Encabezado();
+                en.Id_Encab = Convert.ToInt32(Request.QueryString["IDMP"]);
+                en.Id_cliente = Convert.ToInt32(ddlclientes.SelectedValue);
+                en.fechaCheque = txtfecha.Text;
+                en.Id_Vendedor = Convert.ToInt32(Session["IDUsuario"]);
+                en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
+                en.Id_Moneda = Convert.ToInt32(ddlmoneda.SelectedValue);
+                Int32 id = en.Id_Encab;
+                db.ModificarCabecera(en);
+                db.EliminarDetalle(id);
+                foreach (GridViewRow fila in grvDetalles.Rows)
+                {
+                    Detalles det = new Detalles();
+                    TextBox cantidad = (TextBox)fila.FindControl("txtcantidad");
+                    det.Paquetes = Convert.ToInt32(cantidad.Text);
+                    TextBox precio = (TextBox)fila.FindControl("txtprecio");
+                    det.PrecioUnit = Convert.ToDouble(precio.Text);
+                    TextBox peso = (TextBox)fila.FindControl("txtpeso");
+                    det.CantidadKilos = Convert.ToDecimal(peso.Text);
+                    det.Id_prod = Convert.ToInt32(fila.Cells[0].Text);
+                    det.SubTotal = Convert.ToDecimal(fila.Cells[5].Text);
+                    db.InsertarDetalles(det, id);
+                }
+                Response.Redirect("MantePedidoVendedor.aspx", true);
+            }
+            catch (Exception ex)
+            {
+                txtmensaje.Text = ex.Message;
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+            }
         }
     }
 }

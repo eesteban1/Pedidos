@@ -13,6 +13,15 @@ namespace PedidosCegal {
     public partial class ModCliente {
         
         /// <summary>
+        /// Control txtcodclie.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtcodclie;
+        
+        /// <summary>
         /// Control ddlmercado.
         /// </summary>
         /// <remarks>
@@ -29,15 +38,6 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtnumeropuesto;
-        
-        /// <summary>
-        /// Control txtcodclie.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcodclie;
         
         /// <summary>
         /// Control txtrazonsocial.

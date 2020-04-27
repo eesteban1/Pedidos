@@ -12,9 +12,10 @@ namespace Model.Enity
     using System;
     using System.Collections.Generic;
     
-    public partial class Monedas
+    public partial class Moneda
     {
-        public string Codigo { get; set; }
-        public string DESCRIPCIÓN { get; set; }
+        public int Id_Moneda { get; set; }
+        public string Desc_Corta { get; set; }
+        public string Desc_Large { get; set; }
     }
 }
