@@ -69,9 +69,9 @@ namespace Model.Enity
             }
         }
 
-        public List<v_AcEn> ListarPedidosFecha(string fi, string ff)
+        public List<v_ListarPedidoFecha> ListarPedidosFecha(string fi, string ff)
         {
-            List<v_AcEn> listaClientes = new List<v_AcEn>();
+            List<v_ListarPedidoFecha> listaClientes = new List<v_ListarPedidoFecha>();
            //string findAll = "select* from v_AcEn where fechaCheque between '"+ fi +" and "+ ff + "'";
             try
             {
@@ -85,12 +85,12 @@ namespace Model.Enity
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    v_AcEn objCliente = new v_AcEn();
+                    v_ListarPedidoFecha objCliente = new v_ListarPedidoFecha();
                     objCliente.Id_Encab = Convert.ToInt32(reader[0].ToString());
                     objCliente.CodNom = reader[2].ToString();
                     objCliente.fechaCheque = reader[1].ToString();
                     objCliente.Total_Venta = Convert.ToDecimal(reader[3].ToString());
-
+                    objCliente.Desc_Large = reader[4].ToString();
                     listaClientes.Add(objCliente);
 
                 }
