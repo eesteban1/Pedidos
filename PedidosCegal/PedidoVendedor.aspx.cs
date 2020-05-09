@@ -73,6 +73,7 @@ namespace PedidosCegal
                 en.fechaCheque = txtfecha.Text;
                 en.Id_Vendedor = Convert.ToInt32(Session["IDUsuario"]);
                 en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
+                en.Id_Moneda = Convert.ToInt32(ddlmoneda.SelectedValue);
                 Int64 id = db.InsertarCabecera(en);
                 foreach (GridViewRow fila in grvDetalles.Rows)
                 {
@@ -88,17 +89,6 @@ namespace PedidosCegal
                     db.InsertarDetalles(det, id);
                 }
                 Response.Redirect("MantePedidoVendedor.aspx", true);
-                //txtmensaje.Text = "El pedido se guardo con exito.";
-                //string script = "openModal();";
-                //ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
-                //ddlmercados.Enabled = false;
-                //txtfecha.Enabled = false;
-                //ddlclientes.Enabled = false;
-                //ddlproducto.Enabled = false;
-                //grvDetalles.Enabled = false;
-                //txtnumeropuesto.Enabled = false;
-                //txtcodproducto.Enabled = false;
-                //btnguardar.Enabled = false;
             }
             catch (Exception ex)
             {
