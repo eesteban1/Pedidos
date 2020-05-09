@@ -74,7 +74,7 @@ namespace PedidosCegal
                 en.Id_Vendedor = Convert.ToInt32(Session["IDUsuario"]);
                 en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
                 en.Id_Moneda = Convert.ToInt32(ddlmoneda.SelectedValue);
-                Int64 id = db.InsertarCabecera(en);
+                Int64 id = db.InsertarCabecera(en); 
                 foreach (GridViewRow fila in grvDetalles.Rows)
                 {
                     Detalles det = new Detalles();
