@@ -22,7 +22,7 @@ namespace PedidosCegal
         {
             int id = Convert.ToInt32(Session["IDUsuario"]);
             PedidoDAO db = new PedidoDAO();
-            grvDetalles.DataSource = db.ListarPedidos(id);
+            grvDetalles.DataSource = db.ListarPedidosAdmin();
             grvDetalles.DataBind();
 
         }

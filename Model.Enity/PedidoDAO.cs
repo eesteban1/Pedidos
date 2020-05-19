@@ -15,10 +15,45 @@ namespace Model.Enity
         private SqlCommand comando;
         private SqlDataReader reader;
 
-        public List<v_ListarPedidoFecha> ListarPedidos(int id)
+        public List<v_ListarPedidoFecha> ListarPedidosVendedor(int id)
         {
             List<v_ListarPedidoFecha> listaClientes = new List<v_ListarPedidoFecha>();
             string findAll = "select* from v_ListarPedidoFecha where fechaCheque=Convert(DATE,Getdate()) and Id_Vendedor='"+ id+"'order by Id_Encab Desc";
+            try
+            {
+                string cnx = db.Database.Connection.ConnectionString;
+                con = new SqlConnection(cnx);
+                comando = new SqlCommand(findAll, con);
+                con.Open();
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    v_ListarPedidoFecha objCliente = new v_ListarPedidoFecha();
+                    objCliente.Id_Encab = Convert.ToInt32(reader[0].ToString());
+                    objCliente.CodNom = reader[2].ToString();
+                    objCliente.fechaCheque = Convert.ToDateTime(reader[1]).ToString("dd-MM-yyyy");
+                    objCliente.Total_Venta = Convert.ToDecimal(reader[3].ToString());
+                    objCliente.Desc_Large = reader[4].ToString();
+                    listaClientes.Add(objCliente);
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return listaClientes;
+        }
+
+        public List<v_ListarPedidoFecha> ListarPedidosAdmin()
+        {
+            List<v_ListarPedidoFecha> listaClientes = new List<v_ListarPedidoFecha>();
+            string findAll = "select* from v_ListarPedidoFecha where fechaCheque=Convert(DATE,Getdate()) order by Id_Encab Desc";
             try
             {
                 string cnx = db.Database.Connection.ConnectionString;

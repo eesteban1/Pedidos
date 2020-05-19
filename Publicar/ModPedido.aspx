@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Pedido.aspx.cs" Inherits="PedidosCegal.Pedido" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="ModPedido.aspx.cs" Inherits="PedidosCegal.ModPedido" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="form-horizontal">
+      <div class="form-horizontal">
         <fieldset>
-            <label style="color: skyblue; font-family: Arial; font-size: xx-large">Nuevo Pedido:</label>
+            <label style="color: skyblue; font-family: Arial; font-size: xx-large">Modificar Pedido:</label>
 
             <div class="form-group">
                 <div class="col-md-2">
@@ -85,7 +84,7 @@
                                 <asp:BoundField DataField="SubTotal" HeaderText="Sub Total" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:ImageButton runat="server" ImageUrl="~/img/anulada.jpg" Width="16px" Height="16px" CommandName="Eliminar" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Eliminar" OnClientClick="return confirm('¿Esta seguro que desea borrar el pedido?');"/>
+                                        <asp:ImageButton runat="server" ImageUrl="~/img/anulada.jpg" Width="16px" Height="16px" CommandName="Eliminar" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Eliminar"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -110,7 +109,7 @@
             </div>
             <div class="col-md-6">
                 <asp:Button runat="server" ID="btnguardar" Text="Guardar Pedido" CssClass="btn btn-primary" OnClick="btnguardar_Click" />|
-                <asp:Button runat="server" ID="btnimprimir" Text="Imprimir" CssClass="btn btn-primary" OnClick="btnimprimir_Click" Enabled="false"/> |
+                <asp:Button runat="server" ID="btnimprimir" Text="Imprimir" CssClass="btn btn-primary" OnClick="btnimprimir_Click"/> |
                 <a href="MantePedido.aspx">Regresar al listado de pedidos</a>
             </div>
         </fieldset>

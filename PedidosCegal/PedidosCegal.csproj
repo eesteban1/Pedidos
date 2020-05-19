@@ -256,6 +256,7 @@
     <Content Include="ManteMercados.aspx" />
     <Content Include="MantePedido.aspx" />
     <Content Include="MantePedidoVendedor.aspx" />
+    <Content Include="MantePersonal.aspx" />
     <Content Include="ManteProducto.aspx" />
     <Content Include="ManteZonas.aspx" />
     <Content Include="ModCliente.aspx" />
@@ -412,6 +413,13 @@
     </Compile>
     <Compile Include="MantePedidoVendedor.aspx.designer.cs">
       <DependentUpon>MantePedidoVendedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MantePersonal.aspx.cs">
+      <DependentUpon>MantePersonal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MantePersonal.aspx.designer.cs">
+      <DependentUpon>MantePersonal.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManteProducto.aspx.cs">
       <DependentUpon>ManteProducto.aspx</DependentUpon>

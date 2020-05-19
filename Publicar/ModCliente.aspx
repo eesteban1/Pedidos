@@ -8,24 +8,25 @@
         <fieldset>
             <div class="form-horizontal form-group" style="border:solid">
              <label style="font-size:large; font-family:Arial">Establecimiento Comercial</label>
+             <div class="form-group">
+                <label class="control-label col-md-2">Codigo: </label>
+                <div class="col-md-2">
+                    <asp:TextBox runat="server" ID="txtcodclie" CssClass="form-control" Enabled="false"></asp:TextBox>
+                </div>
+            </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Zona-Mercado: </label>
                 <div class="col-md-2">
                     <asp:DropDownList runat="server" ID="ddlmercado" CssClass="form-control"></asp:DropDownList>
                 </div>
             </div>
-                <div class="form-group">
+            <div class="form-group">
                 <label class="control-label col-md-2">N° de puesto: </label>
                 <div class="col-md-2">
                     <asp:TextBox runat="server" ID="txtnumeropuesto" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="control-label col-md-2">Codigo: </label>
-                <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtcodclie" CssClass="form-control"></asp:TextBox>
-                </div>
-            </div>
+            
             <div class="form-group">
                 <label class="control-label col-md-2">Razón social: </label>
                 <div class="col-md-2">

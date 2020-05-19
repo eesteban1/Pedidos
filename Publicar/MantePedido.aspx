@@ -23,7 +23,7 @@
                                     <asp:Button runat="server" ID="btnbuscar" CssClass="btn btn-success" Text="Buscar" OnClick="btnbuscar_Click" />
                                 </div>
                                 <div class=" col-sm-2" style="text-align:center">
-                                    <a class="btn btn-primary" href="Pedido.aspx">Nuevo Pedido</a>
+                                    <asp:Button runat="server" CssClass="btn btn-primary" ID="btnnuevo" Text="Nuevo Pedido" OnClick="btnnuevo_Click"/>
                                 </div>
                             </div>
                             <br />
@@ -36,11 +36,13 @@
                                                 <asp:BoundField DataField="Id_Encab" HeaderText="N° Pedido" />
                                                 <asp:BoundField DataField="fechaCheque" HeaderText="Fecha" />
                                                 <asp:BoundField DataField="CodNom" HeaderText="Cod y Nombre Cliente" />
+                                                <asp:BoundField DataField="Desc_Large" HeaderText="Moneda" />
                                                 <asp:BoundField DataField="Total_Venta" HeaderText="Total" />
                                                 <asp:TemplateField HeaderText="Operación">
                                                     <ItemTemplate>
-                                                        <asp:Button runat="server" CssClass="btn btn-success" CommandName="Ver" Text="Ver" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Ver" />
-                                                        <asp:Button runat="server" CssClass="btn btn-danger" CommandName="Eliminar" Text="Eliminar" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Eliminar" />
+                                                        <asp:Button runat="server" CssClass="btn btn-success" CommandName="Ver" Text="V" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Ver" />
+                                                        <asp:Button runat="server" CssClass="btn btn-primary" CommandName="Modificar" Text="M" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Modificar" />
+                                                        <asp:Button runat="server" CssClass="btn btn-danger" CommandName="Eliminar" Text="X" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Eliminar" OnClientClick="return confirm('¿Desea eliminar el pedido?');"/>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
                                             </Columns>

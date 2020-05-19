@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="form-horizontal">
         <fieldset>
-            <label style="color: skyblue; font-family: Arial; font-size: xx-large">Nuevo Pedido:</label>
+            <label style="color: skyblue; font-family: Arial; font-size: xx-large">Ver Pedido:</label>
 
             <div class="form-group">
                 <div class="col-md-2">
@@ -22,11 +22,15 @@
                     <label style="color: skyblue; font-family: Arial;">Fecha: </label>
                     <asp:TextBox runat="server" ID="txtfecha" type="date" CssClass="form-control" Enabled="false" ></asp:TextBox>
                 </div>
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Moneda: </label>
+                    <asp:DropDownList runat="server" ID="ddlmoneda" CssClass="form-control"></asp:DropDownList>
+                </div>
             </div>
             <div class="form-group">
                 <div class="col-md-2">
-                    <label style="color: skyblue; font-family: Arial;">Cod. Cliente:</label>
-                    <asp:TextBox runat="server" ID="txtcodcliente" CssClass="form-control col-md-2" type="number" Enabled="false"></asp:TextBox>
+                    <label style="color: skyblue; font-family: Arial;">N° puesto del Cliente:</label>
+                    <asp:TextBox runat="server" ID="txtnumeropuesto" CssClass="form-control col-md-2" type="number" Enabled="false"></asp:TextBox>
                 </div>
 
                 <div class="col-md-2">
@@ -86,7 +90,7 @@
                 </asp:UpdatePanel>
             </div>
             <div class="col-md-2">
-                <a href="MantePedidoVendedor.aspx">Regresar al listado de pedidos</a>
+                <asp:Button runat="server" CssClass ="btn btn-primary" Text="Regresar" ID="btncancelar" OnClick="btncancelar_Click"/>
             </div>
         </fieldset>
     </div>

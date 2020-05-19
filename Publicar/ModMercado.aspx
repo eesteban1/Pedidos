@@ -9,7 +9,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2">Código: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtcodigo" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtcodigo" CssClass="form-control" Enabled="false"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">

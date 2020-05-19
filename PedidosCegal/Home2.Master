@@ -21,7 +21,6 @@
     <script src="Assets/morrisjs/morris.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="Js/sb-admin-2.js"></script>
     <link href="Style/chosen.css" rel="stylesheet" />
     <!-- Bootstrap Core CSS -->
     <link href="Assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -32,7 +31,7 @@
     <!-- Morris Charts CSS -->
     <link href="Assets/morrisjs/morris.css" rel="stylesheet" />
     <!-- Custom Fonts -->
-    <link href="    Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -84,7 +83,6 @@
                         <li class="divider"></li>
                         <li>
                             <a href="Login"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
-                            
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
