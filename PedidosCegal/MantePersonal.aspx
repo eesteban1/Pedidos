@@ -6,9 +6,9 @@
     </div>
     <asp:UpdatePanel runat="server" ID="updmanteper">
         <ContentTemplate>
-            <asp:GridView Class="table table-hover table-striped" runat="server" ID="grvmante" AutoGenerateColumns="false" Width="100%" GridLines="None" PageSize="50" AllowPaging="true">
+            <asp:GridView Class="table table-hover table-striped" runat="server" ID="grvmante" AutoGenerateColumns="false" Width="100%" GridLines="None" PageSize="50" AllowPaging="true" OnPageIndexChanging="grvmante_PageIndexChanging" OnRowCommand="grvmante_RowCommand">
                 <Columns>
-                    <asp:BoundField DataField="Id_Personal" HeaderText="Codigo" />
+                    <asp:BoundField DataField="Id_personal" HeaderText="Codigo" />
                     <asp:BoundField DataField="ApellidoPat" HeaderText="Apellido Paterno" />
                     <asp:BoundField DataField="ApellidoMat" HeaderText="Aapellido Materno" />
                     <asp:BoundField DataField="Nombres" HeaderText="Nombre" />

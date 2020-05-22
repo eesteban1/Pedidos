@@ -42,7 +42,7 @@ namespace PedidosCegal
             {
                 ClienteDAO db = new ClienteDAO();
                 Cliente clie = new Cliente();
-                bool existe = db.ExisteCliente(txtrazonsocial.Text);
+                bool existe = db.ExisteCliente(txtdni.Text);
                 if(existe)
                 {
                     lblmesaje.Text = "El cliente ya existe.";

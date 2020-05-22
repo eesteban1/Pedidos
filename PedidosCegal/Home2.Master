@@ -102,12 +102,7 @@
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Ventas<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="PedidoVendedor.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Pedidos</a>
-                                </li>
-                            </ul>
+                            <a href="PedidoVendedor.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Pedidos</a>
                         </li>
                     </ul>
                 </div>
@@ -136,16 +131,5 @@
         
   
     <!-- jQuery -->
-    <script src="Assets/jquery/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="Assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="Assets/metisMenu/metisMenu.min.js"></script>
-    <!-- Morris Charts JavaScript -->
-
-    <script src="Assets/morrisjs/morris.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="Js/sb-admin-2.js"></script>
 </body>
 </html>

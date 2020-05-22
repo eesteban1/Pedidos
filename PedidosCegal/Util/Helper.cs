@@ -20,6 +20,18 @@ namespace PedidosCegal.Util
             cbo.DataBind();
         }
 
+        internal static void ListarCargo(DropDownList ddlcargo)
+        {
+            CargoDAO db = new CargoDAO();
+            ddlcargo.DataSource = db.Listar();
+            ddlcargo.DataTextField = "Nombre";
+            ddlcargo.DataValueField = "Codigo";
+            ddlcargo.DataBind();
+            ddlcargo.Items.Insert(0, new ListItem("Seleccione", "0"));
+        }
+
+        
+
         public static void ListarClientesxMerZon(DropDownList cbo,string codigo)
         {
             ClienteDAO db = new ClienteDAO();

@@ -12,13 +12,11 @@ namespace Model.Enity
     using System;
     using System.Collections.Generic;
     
-    public partial class AsignaZona
+    public partial class cargos
     {
-        public int Id_asigna { get; set; }
-        public Nullable<int> IdZona { get; set; }
-        public Nullable<int> Id_personal { get; set; }
-        public Nullable<System.DateTime> Fecha_asigna { get; set; }
-        public Nullable<int> usuario { get; set; }
-        public string Id_Dia { get; set; }
+        public int Codigo { get; set; }
+        public string Nombre { get; set; }
+        public string Acciones { get; set; }
+        public string sw { get; set; }
     }
 }

@@ -263,9 +263,11 @@
     <Content Include="ModMercado.aspx" />
     <Content Include="ModPedido.aspx" />
     <Content Include="ModPedidoVendedor.aspx" />
+    <Content Include="ModPersonal.aspx" />
     <Content Include="ModProducto.aspx" />
     <Content Include="ModZona.aspx" />
     <Content Include="NueCliente.aspx" />
+    <Content Include="NuePersonal.aspx" />
     <Content Include="NueProducto.aspx" />
     <Content Include="NuevMercado.aspx" />
     <Content Include="NueZona.aspx" />
@@ -463,6 +465,13 @@
     <Compile Include="ModPedidoVendedor.aspx.designer.cs">
       <DependentUpon>ModPedidoVendedor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModPersonal.aspx.cs">
+      <DependentUpon>ModPersonal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModPersonal.aspx.designer.cs">
+      <DependentUpon>ModPersonal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModProducto.aspx.cs">
       <DependentUpon>ModProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -483,6 +492,13 @@
     </Compile>
     <Compile Include="NueCliente.aspx.designer.cs">
       <DependentUpon>NueCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NuePersonal.aspx.cs">
+      <DependentUpon>NuePersonal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuePersonal.aspx.designer.cs">
+      <DependentUpon>NuePersonal.aspx</DependentUpon>
     </Compile>
     <Compile Include="NueProducto.aspx.cs">
       <DependentUpon>NueProducto.aspx</DependentUpon>

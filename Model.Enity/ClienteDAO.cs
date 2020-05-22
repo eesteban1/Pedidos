@@ -54,7 +54,7 @@ namespace Model.Enity
         {
             string cnx = db.Database.Connection.ConnectionString;
             con = new SqlConnection(cnx);
-            string proce = "select * from Cliente where RazonSocial='"+text+"'";
+            string proce = "select * from Cliente where DNI='"+text+"'";
             try
             {
                 comando = new SqlCommand(proce,con);

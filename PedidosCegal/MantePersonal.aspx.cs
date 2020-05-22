@@ -24,6 +24,30 @@ namespace PedidosCegal
             grvmante.DataBind();
         }
 
+        protected void grvmante_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grvmante.PageIndex = e.NewPageIndex;
+            cargar();
+        }
 
+        protected void grvmante_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int fila = Convert.ToInt32(e.CommandArgument);
+            int idpersonal = Convert.ToInt32(grvmante.Rows[fila].Cells[0].Text);
+            if(e.CommandName == "Modificar")
+            {
+                Response.Redirect("~/ModPersonal.aspx?IDPERSONA=" + idpersonal, true);
+            }
+            else if(e.CommandName=="Ver")
+            {
+                Response.Redirect("VePersonal.aspx?IDPERSONA=" + idpersonal, true);
+            }
+            else if(e.CommandName=="Eliminar")
+            {
+                PersonalDAO db = new PersonalDAO();
+                db.Eliminar(idpersonal);
+                cargar();
+            }
+        }
     }
 }

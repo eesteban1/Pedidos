@@ -57,17 +57,21 @@
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
     <Compile Include="AsignaZonaDAO.cs" />
+    <Compile Include="CargoDAO.cs" />
+    <Compile Include="cargos.cs">
+      <DependentUpon>pedidos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Cliente.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
-    <Compile Include="DenominacionDAO.cs" />
-    <Compile Include="ClienteDAO.cs" />
     <Compile Include="Cuentas.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
     <Compile Include="Denominacion.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
+    <Compile Include="DenominacionDAO.cs" />
+    <Compile Include="ClienteDAO.cs" />
     <Compile Include="Detalles.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
@@ -141,9 +145,6 @@
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
     <Compile Include="v_ComboClientes.cs">
-      <DependentUpon>pedidos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="v_Encab.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
     <Compile Include="v_EncabDet.cs">

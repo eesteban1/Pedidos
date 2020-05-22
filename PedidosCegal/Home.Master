@@ -229,7 +229,7 @@
         <!-- /#page-wrapper -->
     </div>
         <!-- jQuery -->
-    <script src="Assets/jquery/jquery.min.js"></script>
+    <%--<script src="Assets/jquery/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="Assets/bootstrap/js/bootstrap.min.js"></script>
     <!-- Metis Menu Plugin JavaScript -->
@@ -239,7 +239,7 @@
     <script src="Assets/morrisjs/morris.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="Js/sb-admin-2.js"></script>
+    <script src="Js/sb-admin-2.js"></script>--%>
   
     
 </body>
