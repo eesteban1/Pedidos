@@ -157,10 +157,11 @@ namespace Model.Enity
             }
         }
 
-        public void Eliminar(int idpersonal)
+        public string Eliminar(int idpersonal,out string error)
         {
             SqlConnection con = null;
             string delete = "delete from Personal where Id_personal='" + idpersonal + "'";
+            string mensaje="";
             try
             {
                 string cnx = db.Database.Connection.ConnectionString;
@@ -171,12 +172,14 @@ namespace Model.Enity
             }
             catch(Exception ex)
             {
-                throw ex;
+                 mensaje = ex.ToString();
             }
             finally
             {
                 con.Close();
             }
+            error = mensaje;
+            return mensaje;
         }
 
         public void Create(Personal per)
@@ -232,7 +235,11 @@ namespace Model.Enity
 
                     Personal per = new Personal();
                     per.Id_personal = Convert.ToInt32(reader[0].ToString());
+                    per.ApellidoPat = reader[1].ToString();
+                    per.ApellidoMat = reader[2].ToString();
                     per.Nombres = reader[3].ToString();
+                    per.Domicilio = reader[5].ToString();
+                    per.Telefono = reader[7].ToString();
                     listper.Add(per);
                 }
                 

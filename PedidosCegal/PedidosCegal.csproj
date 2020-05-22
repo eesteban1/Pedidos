@@ -326,6 +326,7 @@
     <Content Include="VerMercado.aspx" />
     <Content Include="VerPedido.aspx" />
     <Content Include="VerPedidoVendedor.aspx" />
+    <Content Include="VerPersonal.aspx" />
     <Content Include="VerProducto.aspx" />
     <Content Include="VerZona.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -605,6 +606,13 @@
     </Compile>
     <Compile Include="VerPedidoVendedor.aspx.designer.cs">
       <DependentUpon>VerPedidoVendedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerPersonal.aspx.cs">
+      <DependentUpon>VerPersonal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerPersonal.aspx.designer.cs">
+      <DependentUpon>VerPersonal.aspx</DependentUpon>
     </Compile>
     <Compile Include="VerProducto.aspx.cs">
       <DependentUpon>VerProducto.aspx</DependentUpon>

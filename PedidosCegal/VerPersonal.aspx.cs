@@ -8,15 +8,14 @@ using System.Web.UI.WebControls;
 
 namespace PedidosCegal
 {
-    public partial class ModPersonal : System.Web.UI.Page
+    public partial class VerPersonal : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 cargarcombo();
                 cargar();
-                lblmesaje.Text = "";
             }
         }
         void cargarcombo()
@@ -24,6 +23,7 @@ namespace PedidosCegal
             Util.Helper.ListarCargo(ddlcargo);
             Util.Helper.ListarDepartamento(ddldepartamento);
         }
+
         void cargar()
         {
             int id = Convert.ToInt32(Request.QueryString["IDPERSONA"]);
@@ -49,44 +49,6 @@ namespace PedidosCegal
             ddlcivil.SelectedValue = per.EstadoCivil;
             txthijos.Text = per.NroHijos;
             txtipss.Text = per.Nrolpss;
-            txtobservacion.Text = per.Observ;
-        }
-
-        protected void ddldepartamento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string iddepa = ddldepartamento.SelectedValue;
-            Util.Helper.ListarProvincia(ddlprovincia, iddepa);
-        }
-
-        protected void ddlprovincia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string idprovi = ddlprovincia.SelectedValue;
-            string iddepa = ddldepartamento.SelectedValue;
-            Util.Helper.ListarDistrito(ddldistrito, idprovi, iddepa);
-        }
-
-        protected void btnguardar_Click(object sender, EventArgs e)
-        {
-            PersonalDAO db = new PersonalDAO();
-            Personal per = new Personal();
-            per.ApellidoMat = txtapemat.Text;
-            per.ApellidoPat = txtapepat.Text;
-            per.Nombres = txtnombre.Text;
-            per.NroDNI = txtdni.Text;
-            per.Domicilio = txtdomicilio.Text;
-            per.Ubigeo = ddldepartamento.SelectedValue + ddlprovincia.SelectedValue + ddldistrito.SelectedValue;
-            per.Telefono = txttelefono.Text;
-            per.fechaNacimiento = Convert.ToDateTime(txtfechanac.Text);
-            per.Sexo = rdbsexo.SelectedValue;
-            per.fechaIngreso = Convert.ToDateTime(txtfechaingre.Text);
-            per.CodCargo = ddlcargo.SelectedValue;
-            per.EstadoCivil = ddlcivil.SelectedValue;
-            per.Nrolpss = txtipss.Text;
-            per.NroHijos = txthijos.Text;
-            per.Observ = txtobservacion.Text;
-            db.Update(per);
-
-            Response.Redirect("MantePersonal.aspx", true);
         }
     }
 }

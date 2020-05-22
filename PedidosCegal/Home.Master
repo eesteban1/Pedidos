@@ -140,6 +140,10 @@
                         <li>
                             <a href="AsignaZonas.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i> Asignar zonas a vendedores</a>
                         </li>
+                        <li>
+                            <a href="MantePersonal.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Personal</a>
+                        </li>
+
                       <%--  @*<li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Cuenta Corriente<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

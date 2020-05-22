@@ -40,14 +40,30 @@ namespace PedidosCegal
             }
             else if(e.CommandName=="Ver")
             {
-                Response.Redirect("VePersonal.aspx?IDPERSONA=" + idpersonal, true);
+                Response.Redirect("VerPersonal.aspx?IDPERSONA=" + idpersonal, true);
             }
             else if(e.CommandName=="Eliminar")
             {
                 PersonalDAO db = new PersonalDAO();
-                db.Eliminar(idpersonal);
-                cargar();
+                string mensaje = db.Eliminar(idpersonal,out string error);
+                if(mensaje.Length == 0)
+                {
+                    cargar();
+                }
+                else
+                {
+                    mensajeerror();
+                }
+                
             }
         }
+
+        void mensajeerror()
+        {
+            string script = "openModal();";
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "error", script, true);
+        }
+
+
     }
 }
