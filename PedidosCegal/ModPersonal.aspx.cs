@@ -29,6 +29,7 @@ namespace PedidosCegal
             int id = Convert.ToInt32(Request.QueryString["IDPERSONA"]);
             PersonalDAO db = new PersonalDAO();
             Personal per = db.BuscarPersonal(id);
+            txtcodigo.Text = per.Id_personal.ToString();
             txtapemat.Text = per.ApellidoMat;
             txtapepat.Text = per.ApellidoPat;
             txtnombre.Text = per.Nombres;
@@ -84,6 +85,7 @@ namespace PedidosCegal
             per.Nrolpss = txtipss.Text;
             per.NroHijos = txthijos.Text;
             per.Observ = txtobservacion.Text;
+            per.Id_personal = Convert.ToInt32(txtcodigo.Text);
             db.Update(per);
 
             Response.Redirect("MantePersonal.aspx", true);

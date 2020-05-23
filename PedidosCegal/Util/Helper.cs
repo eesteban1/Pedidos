@@ -55,6 +55,15 @@ namespace PedidosCegal.Util
             return dtTempDetalles;
         }
 
+        internal static void ListarFormaPago(DropDownList ddlformapago)
+        {
+            FormasPagoDAO db = new FormasPagoDAO();
+            ddlformapago.DataSource = db.Listar();
+            ddlformapago.DataValueField = "Id_FormaPago";
+            ddlformapago.DataTextField = "Nombre";
+            ddlformapago.DataBind();
+        }
+
         internal static void Listarmoneda(DropDownList ddlmoneda)
         {
             MonedaDAO db = new MonedaDAO();

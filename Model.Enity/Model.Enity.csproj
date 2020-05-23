@@ -82,6 +82,10 @@
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
     <Compile Include="FamiliaDAO.cs" />
+    <Compile Include="FormasPago.cs">
+      <DependentUpon>pedidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormasPagoDAO.cs" />
     <Compile Include="IdentidadDAO.cs" />
     <Compile Include="IGV.cs">
       <DependentUpon>pedidos.tt</DependentUpon>

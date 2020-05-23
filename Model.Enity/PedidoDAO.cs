@@ -199,6 +199,7 @@ namespace Model.Enity
                 comando.Parameters.AddWithValue("@Id_Vendedor", en.Id_Vendedor);
                 comando.Parameters.AddWithValue("@Total_Venta", en.Total_Venta);
                 comando.Parameters.AddWithValue("@Id_Moneda", en.Id_Moneda);
+                comando.Parameters.AddWithValue("@Id_FormaPago", en.Id_FormaPago);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 id = Convert.ToInt64(comando.ExecuteScalar().ToString());

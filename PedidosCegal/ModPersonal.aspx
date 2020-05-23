@@ -6,6 +6,7 @@
     <div class="form-horizontal">
         <fieldset>
             <div class="form-horizontal form-group">
+                <asp:TextBox runat="server" ID="txtcodigo" Visible="false"></asp:TextBox>
                 <div class="form-group">
                     <label class="control-label col-md-2">Apellidos*: </label>
                     <div class="col-md-2">

@@ -43,6 +43,8 @@ namespace PedidosCegal
 
             Util.Helper.Listarproductos(ddlproducto);
             Util.Helper.Listarmoneda(ddlmoneda);
+            Util.Helper.ListarFormaPago(ddlformapago);
+            ddlmoneda.SelectedValue = "1";
             Session["detalles"] = Util.Helper.CrearTemp_Detalles();
         }
 
@@ -74,6 +76,7 @@ namespace PedidosCegal
                 en.Id_Vendedor = Convert.ToInt32(Session["IDUsuario"]);
                 en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
                 en.Id_Moneda = Convert.ToInt32(ddlmoneda.SelectedValue);
+                en.Id_FormaPago = Convert.ToInt32(ddlformapago.SelectedValue);
                 Int64 id = db.InsertarCabecera(en); 
                 foreach (GridViewRow fila in grvDetalles.Rows)
                 {

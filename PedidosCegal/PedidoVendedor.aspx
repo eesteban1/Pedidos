@@ -22,6 +22,10 @@
                     <asp:DropDownList runat="server" ID="ddlmercados" CssClass="form-control" OnSelectedIndexChanged="ddlmercados_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Forma de Pago: </label>
+                    <asp:DropDownList runat="server" ID="ddlformapago" CssClass="form-control"></asp:DropDownList>
+                </div>
+                <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Fecha: </label>
                     <asp:TextBox runat="server" ID="txtfecha" type="date" CssClass="form-control"></asp:TextBox>
                 </div>

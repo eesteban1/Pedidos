@@ -41,6 +41,7 @@
         <EntityTypeShape EntityType="ventas2Model.v_ListarCliente" Width="1.5" PointX="15.375" PointY="15.75" />
         <EntityTypeShape EntityType="ventas2Model.v_MercadoxZona" Width="1.5" PointX="16.375" PointY="5.75" />
         <EntityTypeShape EntityType="ventas2Model.Familia" Width="1.5" PointX="5.375" PointY="17.75" />
+        <EntityTypeShape EntityType="ventas2Model.FormasPago" Width="1.5" PointX="7.375" PointY="17.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -121,6 +121,7 @@ namespace Model.Enity
                 comando.Parameters.AddWithValue("@Nrolpss", per.Nrolpss);
                 comando.Parameters.AddWithValue("@NroHijos", per.NroHijos);
                 comando.Parameters.AddWithValue("@Observ", per.Observ);
+                comando.Parameters.AddWithValue("@Id_personal", per.Id_personal);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 comando.ExecuteNonQuery();

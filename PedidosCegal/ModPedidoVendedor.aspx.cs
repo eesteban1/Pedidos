@@ -60,6 +60,7 @@ namespace PedidosCegal
             lbltotal.Text = Convert.ToString(dtcabecera.Rows[0]["Total_Venta"]);
             lblnombre.Text = Convert.ToString(dtcabecera.Rows[0]["NombrePropietario"]);
             ddlmoneda.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_Moneda"]);
+            ddlformapago.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_FormaPago"]);
             DataTable detalles = (DataTable)Session["detalles"];
             if (detalles.Rows.Count > 0)
             {
