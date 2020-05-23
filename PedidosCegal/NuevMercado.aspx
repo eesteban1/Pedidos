@@ -5,12 +5,7 @@
     </div>
     <div class="form-horizontal">
         <fieldset>
-            <div class="form-group">
-                <label class="control-label col-md-2">Código: </label>
-                <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtcodigo" CssClass="form-control"></asp:TextBox>
-                </div>
-            </div>
+            
             <div class="form-group">
                 <label class="control-label col-md-2">Descripción de la zona: </label>
                 <div class="col-md-2">
@@ -21,6 +16,12 @@
                 <label class="control-label col-md-2">Nombre del mercado: </label>
                 <div class="col-md-2">
                     <asp:TextBox runat="server" ID="txtmercado" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Código del mercado: </label>
+                <div class="col-md-2">
+                    <asp:TextBox runat="server" ID="txtcodigo" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
