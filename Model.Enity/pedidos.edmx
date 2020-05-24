@@ -291,6 +291,9 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_AsignaZona' no tiene definida 
           <Property Name="IdZona" Type="int" Nullable="false" />
           <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
           <Property Name="Id_asigna" Type="int" Nullable="false" />
+          <Property Name="DescripCorta" Type="varchar" MaxLength="5" />
+          <Property Name="ApellidoMat" Type="nvarchar" MaxLength="30" />
+          <Property Name="ApellidoPat" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ventas2.us2.v_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -355,6 +358,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_EncabDet' no tiene definida ni
           <Property Name="NombrePropietario" Type="varchar(max)" />
           <Property Name="NumeroPuesto" Type="varchar" MaxLength="10" />
           <Property Name="Id_Moneda" Type="int" />
+          <Property Name="Id_FormaPago" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -618,7 +622,10 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
     [v_AsignaZona].[NombreZona] AS [NombreZona], 
     [v_AsignaZona].[IdZona] AS [IdZona], 
     [v_AsignaZona].[Nombres] AS [Nombres], 
-    [v_AsignaZona].[Id_asigna] AS [Id_asigna]
+    [v_AsignaZona].[Id_asigna] AS [Id_asigna], 
+    [v_AsignaZona].[DescripCorta] AS [DescripCorta], 
+    [v_AsignaZona].[ApellidoMat] AS [ApellidoMat], 
+    [v_AsignaZona].[ApellidoPat] AS [ApellidoPat]
     FROM [us2].[v_AsignaZona] AS [v_AsignaZona]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Clientes" EntityType="Self.v_Clientes" store:Type="Views" store:Schema="us2">
@@ -668,7 +675,8 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
     [v_EncabDet].[IdMercado] AS [IdMercado], 
     [v_EncabDet].[NombrePropietario] AS [NombrePropietario], 
     [v_EncabDet].[NumeroPuesto] AS [NumeroPuesto], 
-    [v_EncabDet].[Id_Moneda] AS [Id_Moneda]
+    [v_EncabDet].[Id_Moneda] AS [Id_Moneda], 
+    [v_EncabDet].[Id_FormaPago] AS [Id_FormaPago]
     FROM [us2].[v_EncabDet] AS [v_EncabDet]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_ListarCliente" EntityType="Self.v_ListarCliente" store:Type="Views" store:Schema="us2">
@@ -1038,6 +1046,9 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <Property Name="IdZona" Type="Int32" Nullable="false" />
           <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Id_asigna" Type="Int32" Nullable="false" />
+          <Property Name="DescripCorta" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoMat" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ApellidoPat" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="v_Clientes">
           <Key>
@@ -1096,6 +1107,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <Property Name="NombrePropietario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="NumeroPuesto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Id_Moneda" Type="Int32" />
+          <Property Name="Id_FormaPago" Type="Int32" />
         </EntityType>
         <EntityType Name="v_ListarMercado">
           <Key>
@@ -1578,6 +1590,9 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySetMapping Name="v_AsignaZona">
             <EntityTypeMapping TypeName="ventas2Model.v_AsignaZona">
               <MappingFragment StoreEntitySet="v_AsignaZona">
+                <ScalarProperty Name="ApellidoPat" ColumnName="ApellidoPat" />
+                <ScalarProperty Name="ApellidoMat" ColumnName="ApellidoMat" />
+                <ScalarProperty Name="DescripCorta" ColumnName="DescripCorta" />
                 <ScalarProperty Name="Id_personal" ColumnName="Id_personal" />
                 <ScalarProperty Name="NombreZona" ColumnName="NombreZona" />
                 <ScalarProperty Name="IdZona" ColumnName="IdZona" />
@@ -1625,6 +1640,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySetMapping Name="v_EncabDet">
             <EntityTypeMapping TypeName="ventas2Model.v_EncabDet">
               <MappingFragment StoreEntitySet="v_EncabDet">
+                <ScalarProperty Name="Id_FormaPago" ColumnName="Id_FormaPago" />
                 <ScalarProperty Name="Id_Encab" ColumnName="Id_Encab" />
                 <ScalarProperty Name="Id_prod" ColumnName="Id_prod" />
                 <ScalarProperty Name="Paquetes" ColumnName="Paquetes" />

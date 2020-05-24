@@ -19,5 +19,8 @@ namespace Model.Enity
         public int IdZona { get; set; }
         public string Nombres { get; set; }
         public int Id_asigna { get; set; }
+        public string DescripCorta { get; set; }
+        public string ApellidoMat { get; set; }
+        public string ApellidoPat { get; set; }
     }
 }

@@ -224,7 +224,7 @@ namespace Model.Enity
             SqlConnection con = null;
             string cnx = db.Database.Connection.ConnectionString;
             con = new SqlConnection(cnx);
-            string listar = "select* from Personal ";
+            string listar = "select* from Personal where CodCargo=1 ";
             List<Personal> listper = new List<Personal>();
             try
             {

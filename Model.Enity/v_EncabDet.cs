@@ -28,5 +28,6 @@ namespace Model.Enity
         public string NombrePropietario { get; set; }
         public string NumeroPuesto { get; set; }
         public Nullable<int> Id_Moneda { get; set; }
+        public Nullable<int> Id_FormaPago { get; set; }
     }
 }
