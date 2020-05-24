@@ -30,7 +30,7 @@ namespace Model.Enity
 
                     zonas per = new zonas();
                     per.IdZona = Convert.ToInt32(reader[0].ToString());
-                    per.DescripLarga = reader[2].ToString();
+                    per.DescripLarga = reader[1].ToString() +"-"+ reader[2].ToString();
                     listper.Add(per);
                 }
 
