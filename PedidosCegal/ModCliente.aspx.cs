@@ -57,7 +57,6 @@ namespace PedidosCegal
             txtobservacion.Text = clie.Observacion;
             txtnumeropuesto.Text = clie.NumeroPuesto.ToString();
         }
-
         void llenarcomobo()
         {
             Util.Helper.ListarDenominacion(ddldenominacion);

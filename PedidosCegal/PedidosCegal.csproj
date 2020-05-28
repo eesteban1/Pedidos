@@ -252,6 +252,7 @@
     <Content Include="Js\jquery.min.js" />
     <Content Include="Js\sb-admin-2.js" />
     <Content Include="Login.aspx" />
+    <Content Include="ManteAcceso.aspx" />
     <Content Include="ManteCliente.aspx" />
     <Content Include="ManteMercados.aspx" />
     <Content Include="MantePedido.aspx" />
@@ -259,6 +260,7 @@
     <Content Include="MantePersonal.aspx" />
     <Content Include="ManteProducto.aspx" />
     <Content Include="ManteZonas.aspx" />
+    <Content Include="ModAcceso.aspx" />
     <Content Include="ModCliente.aspx" />
     <Content Include="ModMercado.aspx" />
     <Content Include="ModPedido.aspx" />
@@ -266,6 +268,7 @@
     <Content Include="ModPersonal.aspx" />
     <Content Include="ModProducto.aspx" />
     <Content Include="ModZona.aspx" />
+    <Content Include="NueAcceso.aspx" />
     <Content Include="NueCliente.aspx" />
     <Content Include="NuePersonal.aspx" />
     <Content Include="NueProducto.aspx" />
@@ -322,6 +325,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Style\chosen.css" />
+    <Content Include="VerAcceso.aspx" />
     <Content Include="VerCliente.aspx" />
     <Content Include="VerMercado.aspx" />
     <Content Include="VerPedido.aspx" />
@@ -389,6 +393,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManteAcceso.aspx.cs">
+      <DependentUpon>ManteAcceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManteAcceso.aspx.designer.cs">
+      <DependentUpon>ManteAcceso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManteCliente.aspx.cs">
       <DependentUpon>ManteCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -438,6 +449,13 @@
     <Compile Include="ManteZonas.aspx.designer.cs">
       <DependentUpon>ManteZonas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModAcceso.aspx.cs">
+      <DependentUpon>ModAcceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModAcceso.aspx.designer.cs">
+      <DependentUpon>ModAcceso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModCliente.aspx.cs">
       <DependentUpon>ModCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -486,6 +504,13 @@
     </Compile>
     <Compile Include="ModZona.aspx.designer.cs">
       <DependentUpon>ModZona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NueAcceso.aspx.cs">
+      <DependentUpon>NueAcceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NueAcceso.aspx.designer.cs">
+      <DependentUpon>NueAcceso.aspx</DependentUpon>
     </Compile>
     <Compile Include="NueCliente.aspx.cs">
       <DependentUpon>NueCliente.aspx</DependentUpon>
@@ -578,6 +603,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ventas2DataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VerAcceso.aspx.cs">
+      <DependentUpon>VerAcceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerAcceso.aspx.designer.cs">
+      <DependentUpon>VerAcceso.aspx</DependentUpon>
     </Compile>
     <Compile Include="VerCliente.aspx.cs">
       <DependentUpon>VerCliente.aspx</DependentUpon>

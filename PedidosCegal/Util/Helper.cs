@@ -20,6 +20,16 @@ namespace PedidosCegal.Util
             cbo.DataBind();
         }
 
+        internal static void ListarPersonal(DropDownList ddlpersonal)
+        {
+            PersonalDAO db = new PersonalDAO();
+            ddlpersonal.DataSource = db.ListarPersonal();
+            ddlpersonal.DataTextField= "Nombres";
+            ddlpersonal.DataValueField = "Id_personal";
+            ddlpersonal.DataBind();
+            ddlpersonal.Items.Insert(0, new ListItem("Seleccione", "0"));
+        }
+
         internal static void ListarCargo(DropDownList ddlcargo)
         {
             CargoDAO db = new CargoDAO();
@@ -29,8 +39,6 @@ namespace PedidosCegal.Util
             ddlcargo.DataBind();
             ddlcargo.Items.Insert(0, new ListItem("Seleccione", "0"));
         }
-
-        
 
         public static void ListarClientesxMerZon(DropDownList cbo,string codigo)
         {
@@ -83,8 +91,6 @@ namespace PedidosCegal.Util
             ddlzona.DataBind();
             ddlzona.Items.Insert(0, new ListItem("Seleccione", "0"));
         }
-
-        
 
         internal static void ListarVendedor(DropDownList ddlvendedor)
         {

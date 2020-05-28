@@ -55,6 +55,43 @@ namespace Model.Enity
             }
         }
 
+        public object ListarPersonal()
+        {
+            SqlConnection con = null;
+            string cnx = db.Database.Connection.ConnectionString;
+            con = new SqlConnection(cnx);
+            string listar = "select* from Personal";
+            List<Personal> listper = new List<Personal>();
+            try
+            {
+                SqlCommand comando = new SqlCommand(listar, con);
+                con.Open();
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    Personal per = new Personal();
+                    per.Id_personal = Convert.ToInt32(reader[0].ToString());
+                    per.ApellidoPat = reader[1].ToString();
+                    per.ApellidoMat = reader[2].ToString();
+                    per.Nombres = reader[3].ToString();
+                    per.Domicilio = reader[5].ToString();
+                    per.Telefono = reader[7].ToString();
+                    listper.Add(per);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return listper;
+        }
+
         public Personal BuscarPersonal(int id)
         {
             Personal objper = new Personal();
