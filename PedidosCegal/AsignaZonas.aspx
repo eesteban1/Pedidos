@@ -25,7 +25,7 @@
                 <asp:GridView class="table table-hover table-striped" runat="server" ID="grvasigna" AutoGenerateColumns="false" Width="100%" GridLines="None" PageSize="10" AllowPaging="true" OnPageIndexChanging="grvasigna_PageIndexChanging" OnRowCommand="grvasigna_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="Id_asigna" HeaderStyle-CssClass="hide" FooterStyle-CssClass="hide" ItemStyle-CssClass="hide"/>
-                        <asp:BoundField DataField="IdZona" HeaderText="Cód. Zona"/>
+                        <asp:BoundField DataField="DescripCorta" HeaderText="Cód. Zona"/>
                         <asp:BoundField DataField="NombreZona" HeaderText="Nombre de la zona" />
                         <asp:BoundField DataField="Nombres" HeaderText="Vendedor"/>
                         <asp:TemplateField HeaderText="Operaciones" ItemStyle-CssClass="hidden-tablet" HeaderStyle-CssClass="hidden-tablet" >

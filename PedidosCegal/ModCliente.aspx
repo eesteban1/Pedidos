@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Zona-Mercado: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddlmercado" CssClass="form-control"></asp:DropDownList>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             
             <div class="form-group">
                 <label class="control-label col-md-2">Razón social: </label>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <asp:TextBox runat="server" ID="txtrazonsocial" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
@@ -53,26 +53,26 @@
             </div>
              <div class="form-group">
                 <label class="control-label col-md-2">Dirección: </label>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <asp:TextBox runat="server" ID="txtdireccion" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Departamento: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddldepartamentocomercial" CssClass="form-control" OnSelectedIndexChanged="ddldepartamentocomercial_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="control-label col-md-2">Provincias: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddlprovincicomercial" CssClass="form-control" OnSelectedIndexChanged="ddlprovincicomercial_SelectedIndexChanged"   AutoPostBack="true"></asp:DropDownList>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Distrito: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddldistritocomercial" CssClass="form-control"></asp:DropDownList>
                 </div>
             </div>
@@ -95,38 +95,38 @@
                 <label style="font-size:large; font-family:Arial">Datos del propietario</label>
             <div class="form-group">
                 <label class="control-label col-md-2">Apelldios y Nombres: </label>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <asp:TextBox runat="server" ID="txtnombreapellido" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Domicilio: </label>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <asp:TextBox runat="server" ID="txtdomicilio" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Departamento: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="dlldepartamentopropietario" CssClass="form-control" OnSelectedIndexChanged="dlldepartamentopropietario_SelectedIndexChanged"  AutoPostBack="true"></asp:DropDownList>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="control-label col-md-2">Provincias: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddlprovinciaspropietario" CssClass="form-control" OnSelectedIndexChanged="ddlprovinciaspropietario_SelectedIndexChanged"  AutoPostBack="true"></asp:DropDownList>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Distrito: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddldistritopropietario" CssClass="form-control"></asp:DropDownList>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Referencia: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:TextBox runat="server" ID="txtreferenciapropietario" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
@@ -156,7 +156,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Observación: </label>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <asp:TextBox runat="server" ID="txtobservacion" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>

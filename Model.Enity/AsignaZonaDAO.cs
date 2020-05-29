@@ -109,8 +109,9 @@ namespace Model.Enity
                     asigna.Id_personal = Convert.ToInt32(reader[0].ToString());
                     asigna.NombreZona = reader[1].ToString();
                     asigna.IdZona = Convert.ToInt32(reader[2].ToString());
-                    asigna.Nombres = reader[3].ToString();
+                    asigna.Nombres = reader[3].ToString() + " " + reader[7].ToString() + " " + reader[6].ToString();
                     asigna.Id_asigna = Convert.ToInt32(reader[4].ToString());
+                    asigna.DescripCorta = reader[5].ToString();
                     asig.Add(asigna);
 
                 }

@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoDAO.cs" />
     <Compile Include="Accesos.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>

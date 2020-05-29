@@ -92,7 +92,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Observacion: </label>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <asp:TextBox runat="server" ID="txtobservacion" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
