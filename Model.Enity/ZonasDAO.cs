@@ -18,7 +18,7 @@ namespace Model.Enity
            
             string cnx = db.Database.Connection.ConnectionString;
             con = new SqlConnection(cnx);
-            string listar = "select * from Zonas order by IdZona";
+            string listar = "select * from Zonas order by DescripCorta asc";
             List<zonas> listper = new List<zonas>();
             try
             {
