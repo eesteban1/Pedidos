@@ -30,6 +30,16 @@ namespace PedidosCegal.Util
             ddlpersonal.Items.Insert(0, new ListItem("Seleccione", "0"));
         }
 
+        internal static void ListarDia(DropDownList ddldia)
+        {
+            AsignaZonaDAO db = new AsignaZonaDAO();
+            ddldia.DataSource = db.ListarDia();
+            ddldia.DataTextField = "Descripcion";
+            ddldia.DataValueField = "Id_Dia";
+            ddldia.DataBind();
+            ddldia.Items.Insert(0, new ListItem("Seleccione", "0"));
+        }
+
         internal static void ListarCargo(DropDownList ddlcargo)
         {
             CargoDAO db = new CargoDAO();

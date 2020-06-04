@@ -60,5 +60,6 @@ namespace Model.Enity
         public virtual DbSet<v_MercadoxZona> v_MercadoxZona { get; set; }
         public virtual DbSet<Familia> Familia { get; set; }
         public virtual DbSet<FormasPago> FormasPago { get; set; }
+        public virtual DbSet<Dia> Dia { get; set; }
     }
 }

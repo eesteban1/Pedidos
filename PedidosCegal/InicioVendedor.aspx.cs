@@ -19,7 +19,15 @@ namespace PedidosCegal
                 string id = Session["IDUsuario"].ToString();
                 AsignaZonaDAO db = new AsignaZonaDAO();
                 string zona = db.BuscarZonaAsignada(id,out string idzona);
-                lblzona.Text = zona;
+                if(zona.Length>0)
+                {
+                    lblzona.Text = zona;
+                }
+                else
+                {
+                    lblzona.Text = "Usted no tiene asigando una zona par el dia de hoy.";
+                }
+                
             }
         }
     }

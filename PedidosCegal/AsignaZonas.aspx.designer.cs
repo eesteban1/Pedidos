@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PedidosCegal {
-    
-    
-    public partial class AsignaZonas {
-        
+namespace PedidosCegal
+{
+
+
+    public partial class AsignaZonas
+    {
+
         /// <summary>
         /// Control ddlvendedor.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlvendedor;
-        
+
         /// <summary>
         /// Control ddlzona.
         /// </summary>
@@ -29,7 +31,16 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlzona;
-        
+
+        /// <summary>
+        /// Control ddldia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddldia;
+
         /// <summary>
         /// Control btnguardar.
         /// </summary>
@@ -38,7 +49,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnguardar;
-        
+
         /// <summary>
         /// Control udpasigna.
         /// </summary>
@@ -47,7 +58,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel udpasigna;
-        
+
         /// <summary>
         /// Control grvasigna.
         /// </summary>
@@ -56,7 +67,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grvasigna;
-        
+
         /// <summary>
         /// Control txtmensaje.
         /// </summary>

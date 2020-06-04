@@ -12,8 +12,12 @@
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Lista de zonas: </label>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <asp:DropDownList runat="server" ID="ddlzona" CssClass="form-control"></asp:DropDownList>
+        </div>
+        <label class="control-label col-md-1">Día: </label>
+        <div class="col-md-2">
+            <asp:DropDownList runat="server" ID="ddldia" CssClass="form-control"></asp:DropDownList>
         </div>
     </div>
     <div class="form-actions col-md-offset-2">

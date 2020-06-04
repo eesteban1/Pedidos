@@ -29,6 +29,7 @@ namespace PedidosCegal
         {
             Util.Helper.ListarVendedor(ddlvendedor);
             Util.Helper.ListarZona(ddlzona);
+            Util.Helper.ListarDia(ddldia);
         }
         //void quitar()
         //{
@@ -43,10 +44,11 @@ namespace PedidosCegal
         {
             AsignaZonaDAO db = new AsignaZonaDAO();
             string id = ddlvendedor.SelectedValue;
-            string zona = db.BuscarZonaAsignada(id,out string idzon);
-            if (zona.Length > 0)
+            string dia = ddldia.SelectedValue;
+            bool existe = db.BuscarExistenciaZonaXDia(id,dia);
+            if (existe)
             {
-                txtmensaje.Text = "Ya se le asigno una zona al vendedor";
+                txtmensaje.Text = "Ya se le asigno una zona al vendedor el "+dia;
                 string script = "openModal();";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
             }
@@ -56,6 +58,7 @@ namespace PedidosCegal
                 asi.Id_personal = Convert.ToInt32(ddlvendedor.SelectedValue);
                 asi.IdZona = Convert.ToInt32(ddlzona.SelectedValue);
                 asi.usuario = Convert.ToInt32(Session["IDUsuario"].ToString());
+                asi.Id_Dia = ddldia.SelectedValue;
                 db.Grabar(asi);
                 cargar();
                 
