@@ -11,8 +11,8 @@
                         <asp:BoundField DataField="IdMercado" ItemStyle-CssClass="hide" HeaderStyle-CssClass="hide"/>
                         <asp:BoundField DataField="Codigo" HeaderText="Código"/>
                         <asp:BoundField DataField="NombreLargo" HeaderText="Nombre del mercado" />
-                        <asp:BoundField DataField="Direccion" HeaderText="Nombre del mercado"/>
-                        <asp:BoundField DataField="Ubigeo" HeaderText="Dirección" />
+                        <asp:BoundField DataField="Direccion" HeaderText="Dirección"/>
+                        <asp:BoundField DataField="Ubigeo" HeaderText="Distrito Prov. Dpmto." />
                         <asp:TemplateField HeaderText="Operaciones" ItemStyle-CssClass="hidden-tablet" HeaderStyle-CssClass="hidden-tablet" >
                             <ItemTemplate>
                                <asp:Button ID="btnmodi" CssClass="btn btn-info" Text="M" runat="server" CommandName="Modificar" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Modificar"/>

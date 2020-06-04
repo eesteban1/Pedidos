@@ -14,19 +14,19 @@
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Familia: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddlfamilia" CssClass="form-control"></asp:DropDownList>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Marca: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddlmarca" CssClass="form-control"></asp:DropDownList>
                  </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Descripción del producto: </label>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <asp:TextBox runat="server" ID="txtdescripcion" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
@@ -92,7 +92,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Observacion: </label>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <asp:TextBox runat="server" ID="txtobservacion" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>

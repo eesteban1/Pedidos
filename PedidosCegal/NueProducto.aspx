@@ -1,25 +1,31 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="NueProducto.aspx.cs" Inherits="PedidosCegal.NueProducto" %>
+﻿
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="NueProducto.aspx.cs" Inherits="PedidosCegal.NueProducto" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+
+
     <div class="well well-sm text-primary text-center">
         <h2>Nuevo Producto</h2>
     </div>
-     <div class="form-horizontal">
+     <div class="form-horizontal" id="contenedor">
         <fieldset>
             <div class="form-group">
                 <label class="control-label col-md-2">Familia: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddlfamilia" CssClass="form-control"></asp:DropDownList>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Marca: </label>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddlmarca" CssClass="form-control"></asp:DropDownList>
                  </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Descripción del producto: </label>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <asp:TextBox runat="server" ID="txtdescripcion" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
@@ -38,7 +44,8 @@
             <div class="form-group">
                 <label class="control-label col-md-2">Peso: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtpeso" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtpeso"  onkeypress="return Enter(this, event)" CssClass="form-control number"></asp:TextBox>
+                   
                 </div>
             </div>
             <div class="form-group">
@@ -85,7 +92,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Observacion: </label>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <asp:TextBox runat="server" ID="txtobservacion" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
@@ -94,8 +101,43 @@
                 <a href="ManteProducto.aspx">Regresar al listado</a>
             </div>
         </fieldset>
+
+       $<script type='text/javascript'>
+            $("#contenedor").on("keyup", "input.number", function (event) {
+                $('input.number').keyup(function (event) {
+                    if (event.which >= 37 && event.which <= 40) {
+                        event.preventDefault();
+                    }
+
+                    $(this).val(function (index, value) {
+                        return value
+                            .replace(/\D/g, "")
+                            .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+                    });
+                });
+            });
+    </script>
+
+<%--             <SCRIPT language=Javascript>
+       <!--
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+       //-->
+    </SCRIPT>--%>
+
+
+
     </div>
     <div class="text-primary text-success text-center">
         <asp:label runat="server" ID="lblmesaje"></asp:label>
     </div>
+
+
+
 </asp:Content>
