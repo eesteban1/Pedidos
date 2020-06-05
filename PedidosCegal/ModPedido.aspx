@@ -4,20 +4,20 @@
         <fieldset>
             <label style="color: skyblue; font-family: Arial; font-size: xx-large">Modificar Pedido:</label>
 
-            <div class="form-group">
+            <%--<div class="form-group">
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Zona:
                         <br />
                         <asp:Label runat="server" ID="lblzona" Style="color: skyblue; font-family: Arial;"></asp:Label>
                     </label>
                 </div>
-            </div>
+            </div>--%>
 
             <div class="form-group">
-                <div class="col-md-2">
+                <%--<div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Mercados: </label>
                     <asp:DropDownList runat="server" ID="ddlmercados" CssClass="form-control" OnSelectedIndexChanged="ddlmercados_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                </div>
+                </div>--%>
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Forma de Pago: </label>
                     <asp:DropDownList runat="server" ID="ddlformapago" CssClass="form-control"></asp:DropDownList>
@@ -32,15 +32,19 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-2">
+                <%--<div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">N° puesto del Cliente:</label>
                     <asp:TextBox runat="server" ID="txtnumeropuesto" CssClass="form-control col-md-2" OnTextChanged="txtnumeropuesto_TextChanged" AutoPostBack="true" type="number"></asp:TextBox>
-                </div>
-
+                </div>--%>
+                <asp:TextBox runat="server" CssClass="hide" ID="txtcodigo"></asp:TextBox>
                 <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Codigo cliente: </label>
+                    <asp:TextBox runat="server" ID="txtcodigocliente" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtocdigocliente_TextChanged"></asp:TextBox>
+                </div>
+                <%--<div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Listado de clientes:</label>
                     <asp:DropDownList runat="server" ID="ddlclientes" CssClass="form-control" OnSelectedIndexChanged="ddlclientes_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                </div>
+                </div>--%>
 
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Nombre del cliente: </label>

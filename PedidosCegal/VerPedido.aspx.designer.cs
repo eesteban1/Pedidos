@@ -7,29 +7,22 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PedidosCegal {
-    
-    
-    public partial class VerPedido {
-        
+namespace PedidosCegal
+{
+
+
+    public partial class VerPedido
+    {
+
         /// <summary>
-        /// Control lblzona.
+        /// Control ddlformapago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblzona;
-        
-        /// <summary>
-        /// Control ddlmercados.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlmercados;
-        
+        protected global::System.Web.UI.WebControls.DropDownList ddlformapago;
+
         /// <summary>
         /// Control txtfecha.
         /// </summary>
@@ -38,7 +31,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtfecha;
-        
+
         /// <summary>
         /// Control ddlmoneda.
         /// </summary>
@@ -47,16 +40,16 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlmoneda;
-        
+
         /// <summary>
-        /// Control txtnumeropuesto.
+        /// Control txtcodigocliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtnumeropuesto;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtcodigocliente;
+
         /// <summary>
         /// Control lblnombre.
         /// </summary>
@@ -65,7 +58,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblnombre;
-        
+
         /// <summary>
         /// Control updDetalles.
         /// </summary>
@@ -74,7 +67,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel updDetalles;
-        
+
         /// <summary>
         /// Control grvDetalles.
         /// </summary>
@@ -83,7 +76,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grvDetalles;
-        
+
         /// <summary>
         /// Control lbltotal.
         /// </summary>
@@ -92,7 +85,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotal;
-        
+
         /// <summary>
         /// Control btnimprimir.
         /// </summary>
@@ -101,7 +94,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnimprimir;
-        
+
         /// <summary>
         /// Control btncancelar.
         /// </summary>

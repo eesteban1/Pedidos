@@ -4,19 +4,23 @@
         <fieldset>
             <label style="color: skyblue; font-family: Arial; font-size: xx-large">Ver Pedido:</label>
 
-            <div class="form-group">
+            <%--<div class="form-group">
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Zona:
                         <br />
                         <asp:Label runat="server" ID="lblzona" Style="color: skyblue; font-family: Arial;"></asp:Label>
                     </label>
                 </div>
-            </div>
+            </div>--%>
 
             <div class="form-group">
-                <div class="col-md-2">
+                <%--<div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Mercados: </label>
                     <asp:DropDownList runat="server" ID="ddlmercados" CssClass="form-control" Enabled="false"></asp:DropDownList>
+                </div>--%>
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Forma de Pago: </label>
+                    <asp:DropDownList runat="server" ID="ddlformapago" CssClass="form-control" Enabled="false"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Fecha: </label>
@@ -24,20 +28,28 @@
                 </div>
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Moneda: </label>
-                    <asp:DropDownList runat="server" ID="ddlmoneda" CssClass="form-control"></asp:DropDownList>
+                    <asp:DropDownList runat="server" ID="ddlmoneda" CssClass="form-control" Enabled="false"></asp:DropDownList>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-2">
+                <%--<div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">N° puesto del Cliente:</label>
                     <asp:TextBox runat="server" ID="txtnumeropuesto" CssClass="form-control col-md-2"  type="number" Enabled="false"></asp:TextBox>
+                </div>--%>
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Codigo cliente: </label>
+                    <asp:TextBox runat="server" ID="txtcodigocliente" CssClass="form-control" AutoPostBack="true" Enabled="false"></asp:TextBox>
                 </div>
-
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Nombre del cliente: </label>
                     <br />
                     <asp:Label runat="server" ID="lblnombre" Style="color: skyblue; font-family: Arial;"></asp:Label>
                 </div>
+                <%--<div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Nombre del cliente: </label>
+                    <br />
+                    <asp:Label runat="server" ID="lblnombre" Style="color: skyblue; font-family: Arial;"></asp:Label>
+                </div>--%>
             </div>
             
             <div class="col-sm-12" style="overflow-x:auto; display:block">

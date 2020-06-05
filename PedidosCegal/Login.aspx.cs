@@ -12,8 +12,22 @@ namespace PedidosCegal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblerror.Visible = false;
-            txtuser.Focus();
+            if (Request.Params["mensaje"] != null)
+            {
+                string men = Request.Params["mensaje"].ToString();
+                if (men == "1")
+                {
+                    lblerror.Text = "Debe iniciar sesión para ingresar al sitio.";
+                    lblerror.Visible = true;
+                    txtuser.Focus();
+                }
+            }
+            else
+            {
+                lblerror.Visible = false;
+                txtuser.Focus();
+            }
+                
         }
         protected void btningresar_Click(object sender, EventArgs e)
         {
@@ -44,6 +58,7 @@ namespace PedidosCegal
             }
             else
             {
+                lblerror.Text = "Usuario o contraseña incorrecto";
                 lblerror.Visible = true;
                 txtpass.Focus();
             }

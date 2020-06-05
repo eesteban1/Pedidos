@@ -24,16 +24,17 @@ namespace PedidosCegal
         void cargarlistas()
         {
 
-            MercadoDAO db1 = new MercadoDAO();
-            AsignaZonaDAO db = new AsignaZonaDAO();
-            string idusu = Session["IDUsuario"].ToString();
-            string zona = db.BuscarZonaAsignada(idusu, out string idzona);
-            lblzona.Text = zona;
-            ddlmercados.DataSource = db1.MercadoxZona(idzona);
-            ddlmercados.DataTextField = "NombreLargo";
-            ddlmercados.DataValueField = "IdMercado";
-            ddlmercados.DataBind();
+            //MercadoDAO db1 = new MercadoDAO();
+            //AsignaZonaDAO db = new AsignaZonaDAO();
+            //string idusu = Session["IDUsuario"].ToString();
+            //string zona = db.BuscarZonaAsignada(idusu, out string idzona);
+            //lblzona.Text = zona;
+            //ddlmercados.DataSource = db1.MercadoxZona(idzona);
+            //ddlmercados.DataTextField = "NombreLargo";
+            //ddlmercados.DataValueField = "IdMercado";
+            //ddlmercados.DataBind();
             Util.Helper.Listarmoneda(ddlmoneda);
+            Util.Helper.ListarFormaPago(ddlformapago);
 
         }
         void cargarDetalles()
@@ -50,12 +51,14 @@ namespace PedidosCegal
             DataTable dtcabecera = ds.Tables[0];
             AsignaZonaDAO db1 = new AsignaZonaDAO();
             string idusu = Session["IDUsuario"].ToString();
-            txtnumeropuesto.Text = Convert.ToString(dtcabecera.Rows[0]["NumeroPuesto"]);
+            //txtnumeropuesto.Text = Convert.ToString(dtcabecera.Rows[0]["NumeroPuesto"]);
             txtfecha.Text = Convert.ToDateTime(dtcabecera.Rows[0]["fechaCheque"]).ToString("yyyy-MM-dd");
-            ddlmercados.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["IdMercado"]);
+            //ddlmercados.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["IdMercado"]);
             lbltotal.Text = Convert.ToString(dtcabecera.Rows[0]["Total_Venta"]);
             lblnombre.Text = Convert.ToString(dtcabecera.Rows[0]["NombrePropietario"]);
             ddlmoneda.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_Moneda"]);
+            ddlformapago.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_FormaPago"]);
+            txtcodigocliente.Text = Convert.ToString(dtcabecera.Rows[0]["CodCompuesto"]);
             DataTable detalles = (DataTable)Session["detalles"];
             if (detalles.Rows.Count > 0)
             {

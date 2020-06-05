@@ -48,7 +48,7 @@ namespace PedidosCegal
             bool existe = db.BuscarExistenciaZonaXDia(id,dia);
             if (existe)
             {
-                txtmensaje.Text = "Ya se le asigno una zona al vendedor el "+dia;
+                txtmensaje.Text = "Ya se le asigno una zona al vendedor el " + ddldia.SelectedItem.ToString(); ;
                 string script = "openModal();";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
             }

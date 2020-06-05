@@ -15,24 +15,6 @@ namespace PedidosCegal
     {
 
         /// <summary>
-        /// Control lblzona.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblzona;
-
-        /// <summary>
-        /// Control ddlmercados.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlmercados;
-
-        /// <summary>
         /// Control ddlformapago.
         /// </summary>
         /// <remarks>
@@ -60,22 +42,22 @@ namespace PedidosCegal
         protected global::System.Web.UI.WebControls.DropDownList ddlmoneda;
 
         /// <summary>
-        /// Control txtnumeropuesto.
+        /// Control txtcodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtnumeropuesto;
+        protected global::System.Web.UI.WebControls.TextBox txtcodigo;
 
         /// <summary>
-        /// Control ddlclientes.
+        /// Control txtcodigocliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlclientes;
+        protected global::System.Web.UI.WebControls.TextBox txtcodigocliente;
 
         /// <summary>
         /// Control lblnombre.

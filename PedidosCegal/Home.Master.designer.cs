@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PedidosCegal {
-    
-    
-    public partial class Home {
-        
+namespace PedidosCegal
+{
+
+
+    public partial class Home
+    {
+
         /// <summary>
         /// Control frmhome.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm frmhome;
-        
+
         /// <summary>
         /// Control ScriptManager1.
         /// </summary>
@@ -29,7 +31,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// Control MainContent.
         /// </summary>

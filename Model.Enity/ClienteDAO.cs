@@ -315,6 +315,36 @@ namespace Model.Enity
             }
             return objClientes;
         }
+
+        public Cliente BuscarClientexCodigo(string text)
+        {
+            Cliente objClientes = new Cliente();
+            string cnx = db.Database.Connection.ConnectionString;
+            con = new SqlConnection(cnx);
+            bool hayRegistros;
+            string find = "select*from v_ListarCliente where CodNom='" + text+"'";
+            try
+            {
+                comando = new SqlCommand(find, con);
+                con.Open();
+                SqlDataReader reader = comando.ExecuteReader();
+                hayRegistros = reader.Read();
+                if(hayRegistros)
+                {
+                    objClientes.Id_cliente = Convert.ToInt32(reader[0]);
+                    objClientes.NombrePropietario = reader[2].ToString();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return objClientes;
+        }
     }
 
 }

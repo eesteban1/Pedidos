@@ -279,6 +279,7 @@
     <Content Include="Reportes\frmReporteBlanco.aspx" />
     <Content Include="Reportes\frmReporteCliente.aspx" />
     <Content Include="Reportes\frmReportePedido.aspx" />
+    <Content Include="salida.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chosen.jquery.js" />
@@ -582,6 +583,13 @@
     </Compile>
     <Compile Include="Reportes\frmReportePedido.aspx.designer.cs">
       <DependentUpon>frmReportePedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="salida.aspx.cs">
+      <DependentUpon>salida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="salida.aspx.designer.cs">
+      <DependentUpon>salida.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

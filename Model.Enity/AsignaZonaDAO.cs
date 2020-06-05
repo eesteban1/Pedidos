@@ -56,7 +56,7 @@ namespace Model.Enity
                 con = new SqlConnection(cnx);
                 comando = new SqlCommand(findAll, con);
                 con.Open();
-                comando.ExecuteNonQuery();
+                reader = comando.ExecuteReader();
                 exis = reader.Read();
             }
             catch(Exception ex)

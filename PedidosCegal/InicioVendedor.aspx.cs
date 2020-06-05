@@ -25,9 +25,8 @@ namespace PedidosCegal
                 }
                 else
                 {
-                    lblzona.Text = "Usted no tiene asigando una zona par el dia de hoy.";
+                    lblzona.Text = "Usted no tiene asigando una zona para el dia de hoy.";
                 }
-                
             }
         }
     }

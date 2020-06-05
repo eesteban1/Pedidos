@@ -6,19 +6,18 @@
             <label style="color: skyblue; font-family: Arial; font-size: xx-large">Nuevo Pedido:</label>
 
             <div class="form-group">
-                <div class="col-md-2">
+                <%--<div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Zona:
-                        <br />
-                        <asp:Label runat="server" ID="lblzona" Style="color: skyblue; font-family: Arial;"></asp:Label>
                     </label>
-                </div>
+                    <asp:DropDownList runat="server" ID="ddlzona" CssClass="form-control" OnSelectedIndexChanged="ddlzona_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                </div>--%>
             </div>
 
             <div class="form-group">
-                <div class="col-md-2">
+                <%--<div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Mercados: </label>
                     <asp:DropDownList runat="server" ID="ddlmercados" CssClass="form-control" OnSelectedIndexChanged="ddlmercados_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                </div>
+                </div>--%>
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Forma de Pago: </label>
                     <asp:DropDownList runat="server" ID="ddlformapago" CssClass="form-control"></asp:DropDownList>
@@ -33,16 +32,21 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-2">
+                <%--<div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">N° puesto del Cliente:</label>
                     <asp:TextBox runat="server" ID="txtnumeropuesto" CssClass="form-control col-md-2" OnTextChanged="txtnumeropuesto_TextChanged" AutoPostBack="true" type="number"></asp:TextBox>
-                </div>
+                </div>--%>
 
-                <div class="col-md-2">
+                <%--<div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Listado de clientes:</label>
                     <asp:DropDownList runat="server" ID="ddlclientes" CssClass="form-control" OnSelectedIndexChanged="ddlclientes_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                </div>--%>
+                <asp:TextBox runat="server" CssClass="hide" ID="txtcodigo"></asp:TextBox>
+                <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Codigo cliente: </label>
+                    <asp:TextBox runat="server" ID="txtocdigocliente" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtocdigocliente_TextChanged"></asp:TextBox>
                 </div>
-
+                
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Nombre del cliente: </label>
                     <br />
@@ -56,8 +60,12 @@
                 </div>
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Lista de productos</label>
-                    <asp:DropDownList runat="server" ID="ddlproducto" CssClass="form-control" OnSelectedIndexChanged="ddlproducto_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList runat="server" ID="ddlproducto" CssClass="form-control chzn-select" OnSelectedIndexChanged="ddlproducto_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 </div>
+                <script src="Scripts/jquery.min.js" type="text/javascript"></script>
+                <script src="Scripts/chosen.jquery.js" type="text/javascript"></script>
+                <script type="text/javascript">$(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({ allow_single_deselect: true });</script>
+                <link href="Content/chosen.css" rel="stylesheet" />
             </div>
             <div class="col-sm-12" style="overflow-x:auto; display:block">
                 <asp:UpdatePanel runat="server" ID="updDetalles">

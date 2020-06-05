@@ -25,18 +25,19 @@ namespace PedidosCegal
         void cargarlistas()
         {
 
-            MercadoDAO db1 = new MercadoDAO();
-            AsignaZonaDAO db = new AsignaZonaDAO();
-            string idusu = Session["IDUsuario"].ToString();
-            string zona = db.BuscarZonaAsignada(idusu, out string idzona);
-            lblzona.Text = zona;
-            ddlmercados.DataSource = db1.MercadoxZona(idzona);
-            ddlmercados.DataTextField = "NombreLargo";
-            ddlmercados.DataValueField = "IdMercado";
-            ddlmercados.DataBind();
+            //MercadoDAO db1 = new MercadoDAO();
+            //AsignaZonaDAO db = new AsignaZonaDAO();
+            //string idusu = Session["IDUsuario"].ToString();
+            //string zona = db.BuscarZonaAsignada(idusu, out string idzona);
+            //lblzona.Text = zona;
+            //ddlmercados.DataSource = db1.MercadoxZona(idzona);
+            //ddlmercados.DataTextField = "NombreLargo";
+            //ddlmercados.DataValueField = "IdMercado";
+            //ddlmercados.DataBind();
             Util.Helper.Listarmoneda(ddlmoneda);
             Util.Helper.Listarproductos(ddlproducto);
             Util.Helper.Listarmoneda(ddlmoneda);
+            Util.Helper.ListarFormaPago(ddlformapago);
         }
 
         void cargarDetalles()
@@ -44,6 +45,16 @@ namespace PedidosCegal
 
             grvDetalles.DataSource = Session["detalles"];
             grvDetalles.DataBind();
+        }
+
+        void cargarmercado(string idzona)
+        {
+            MercadoDAO db2 = new MercadoDAO();
+            
+            ddlmercados.DataSource = db2.MercadoxZona(idzona);
+            ddlmercados.DataTextField = "NombreLargo";
+            ddlmercados.DataValueField = "IdMercado";
+            ddlmercados.DataBind();
         }
 
         void cargar()
@@ -61,6 +72,9 @@ namespace PedidosCegal
             lblnombre.Text = Convert.ToString(dtcabecera.Rows[0]["NombrePropietario"]);
             ddlmoneda.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_Moneda"]);
             ddlformapago.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_FormaPago"]);
+            string idzona = Convert.ToString(dtcabecera.Rows[0]["IdZona"]);
+            lblzona.Text = Convert.ToString(dtcabecera.Rows[0]["DescripLarga"]);
+            cargarmercado(idzona);
             DataTable detalles = (DataTable)Session["detalles"];
             if (detalles.Rows.Count > 0)
             {

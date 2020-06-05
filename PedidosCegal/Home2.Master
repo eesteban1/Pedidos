@@ -77,9 +77,9 @@
                         <%--@*<li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>*@--%>
-                        <li>
+                        <%--<li>
                             <a href="~/Acceso/ChangePassword"><i class="fa fa-gear fa-fw"></i> Cambio de contraseña</a>
-                        </li>
+                        </li>--%>
                         <li class="divider"></li>
                         <li>
                             <a href="Login"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
@@ -102,7 +102,7 @@
                         </li>
                         
                         <li>
-                            <a href="PedidoVendedor.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Pedidos</a>
+                            <a href="MantePedidoVendedor.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Pedidos</a>
                         </li>
                     </ul>
                 </div>

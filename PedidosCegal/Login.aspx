@@ -50,7 +50,7 @@
             </div>
             <br />
             <asp:Button runat="server" Text="Iniciar Sesión" ID="btningresar" OnClick="btningresar_Click" CommandName="Login" />
-            <asp:Label runat="server" ID="lblerror" Style="color: red;">"Usuario o contraseña incorrecto"</asp:Label>
+            <asp:Label runat="server" ID="lblerror" Style="color: red;"></asp:Label>
         </form>
     </div>
 </body>
