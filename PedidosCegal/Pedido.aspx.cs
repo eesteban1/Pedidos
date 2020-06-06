@@ -23,22 +23,14 @@ namespace PedidosCegal
                 btnguardar.CssClass = "btn btn-primary";
                 btnguardar.Text = "Guardar Pedido";
                 AsignaZonaDAO db = new AsignaZonaDAO();
-                string id = Session["IDUsuario"].ToString();
-                string zona = db.BuscarZonaAsignada(id, out string idzona);
-                lblzona.Text = zona;
-                MercadoDAO db1 = new MercadoDAO();
-                ddlmercados.DataSource = db1.MercadoxZona(idzona);
-                ddlmercados.DataTextField = "NombreLargo";
-                ddlmercados.DataValueField = "IdMercado";
-                ddlmercados.DataBind();
-                ddlmercados.Items.Insert(0, new ListItem("Seleccione", "0"));
-                txtnumeropuesto.Enabled = false;
-                ddlclientes.Enabled = false;
+                //txtnumeropuesto.Enabled = false;
+                //ddlclientes.Enabled = false;
             }
         }
 
         void cargar()
         {
+            //Util.Helper.ListarZona(ddlzona);
             Util.Helper.Listarproductos(ddlproducto);
             Util.Helper.Listarmoneda(ddlmoneda);
             Util.Helper.ListarFormaPago(ddlformapago);
@@ -54,12 +46,12 @@ namespace PedidosCegal
 
         void Limpiar()
         {
-            txtnumeropuesto.Text = "";
+            //txtnumeropuesto.Text = "";
             lbltotal.Text = "";
             lblnombre.Text = "";
-            ddlmercados.SelectedValue = "0";
+            //ddlmercados.SelectedValue = "0";
             ddlproducto.SelectedValue = "0";
-            ddlclientes.SelectedValue = "0";
+            //ddlclientes.SelectedValue = "0";
             Session["detalles"] = Util.Helper.CrearTemp_Detalles();
         }
 
@@ -69,7 +61,7 @@ namespace PedidosCegal
             {
                 PedidoDAO db = new PedidoDAO();
                 Encabezado en = new Encabezado();
-                en.Id_cliente = Convert.ToInt32(ddlclientes.SelectedValue);
+                en.Id_cliente = Convert.ToInt32(txtcodigo.Text);
                 en.fechaCheque = txtfecha.Text;
                 en.Id_Vendedor = Convert.ToInt32(Session["IDUsuario"]);
                 en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
@@ -244,14 +236,14 @@ namespace PedidosCegal
             btnguardar.Enabled = false;
             btnguardar.CssClass = "btn btn-primary";
             btnguardar.Text = "Guardar Pedido";
-            ddlmercados.Enabled = true;
+            //ddlmercados.Enabled = true;
             txtfecha.Enabled = true;
-            ddlclientes.Enabled = true;
+            //ddlclientes.Enabled = true;
             ddlproducto.Enabled = true;
             grvDetalles.Enabled = true;
             lblmesaje.Text = "";
-            txtnumeropuesto.Enabled = false;
-            ddlclientes.Enabled = false;
+            //txtnumeropuesto.Enabled = false;
+            //ddlclientes.Enabled = false;
         }
 
         protected void btnimprimir_Click(object sender, EventArgs e)
@@ -261,33 +253,33 @@ namespace PedidosCegal
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Window1", "<script> window.open('" + sRuta + "');</script>", false);
         }
 
-        protected void ddlclientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ClienteDAO db = new ClienteDAO();
-            int id = Convert.ToInt32(ddlclientes.SelectedValue);
-            Cliente clie = db.Buscarcliente(id,"");
-            lblnombre.Text = clie.NombrePropietario;
-            txtnumeropuesto.Text = clie.NumeroPuesto;
-        }
+        //protected void ddlclientes_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    ClienteDAO db = new ClienteDAO();
+        //    int id = Convert.ToInt32(ddlclientes.SelectedValue);
+        //    Cliente clie = db.Buscarcliente(id,"");
+        //    lblnombre.Text = clie.NombrePropietario;
+        //    txtnumeropuesto.Text = clie.NumeroPuesto;
+        //}
 
-        protected void ddlmercados_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string id = ddlmercados.SelectedValue;
-            Util.Helper.ListarClientesxMerZon(ddlclientes, id);
-            txtnumeropuesto.Enabled = true;
-            ddlclientes.Enabled = true;
-            txtnumeropuesto.Text = "";
-        }
+        //protected void ddlmercados_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string id = ddlmercados.SelectedValue;
+        //    Util.Helper.ListarClientesxMerZon(ddlclientes, id);
+        //    txtnumeropuesto.Enabled = true;
+        //    ddlclientes.Enabled = true;
+        //    txtnumeropuesto.Text = "";
+        //}
 
-        protected void txtnumeropuesto_TextChanged(object sender, EventArgs e)
-        {
-            ClienteDAO db = new ClienteDAO();
-            string numero = txtnumeropuesto.Text;
-            string idmercado = ddlmercados.SelectedValue;
-            Cliente clie = db.BuscarclientexPuesto(numero,idmercado);
-            lblnombre.Text = clie.NombrePropietario;
-            ddlclientes.SelectedValue = clie.Id_cliente.ToString();
-        }
+        //protected void txtnumeropuesto_TextChanged(object sender, EventArgs e)
+        //{
+        //    ClienteDAO db = new ClienteDAO();
+        //    string numero = txtnumeropuesto.Text;
+        //    string idmercado = ddlmercados.SelectedValue;
+        //    Cliente clie = db.BuscarclientexPuesto(numero,idmercado);
+        //    lblnombre.Text = clie.NombrePropietario;
+        //    ddlclientes.SelectedValue = clie.Id_cliente.ToString();
+        //}
 
         protected void txtcodproducto_TextChanged(object sender, EventArgs e)
         {
@@ -363,5 +355,24 @@ namespace PedidosCegal
                 txtcodproducto.Text = "";
             }
         }
+
+        protected void txtocdigocliente_TextChanged(object sender, EventArgs e)
+        {
+            ClienteDAO db = new ClienteDAO();
+            Cliente clie = db.BuscarClientexCodigo(txtocdigocliente.Text);
+            lblnombre.Text = clie.NombrePropietario;
+            txtcodigo.Text = clie.Id_cliente.ToString();
+        }
+
+        //protected void ddlzona_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string idzona = ddlzona.SelectedValue;
+        //    MercadoDAO db1 = new MercadoDAO();
+        //    ddlmercados.DataSource = db1.MercadoxZona(idzona);
+        //    ddlmercados.DataTextField = "NombreLargo";
+        //    ddlmercados.DataValueField = "IdMercado";
+        //    ddlmercados.DataBind();
+        //    ddlmercados.Items.Insert(0, new ListItem("Seleccione", "0"));
+        //}
     }
 }

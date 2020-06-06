@@ -55,7 +55,7 @@ namespace PedidosCegal
                     acc.Id_Personal = Convert.ToInt32(ddlpersonal.SelectedValue);
                     acc.Usuario = txtusuario.Text;
                     acc.Clave = txtclave.Text;
-                    db.Update(acc);
+                    db.Create(acc);
 
                     Response.Redirect("ManteAcceso.aspx", true);
                 }

@@ -19,12 +19,16 @@
                     <asp:DropDownList runat="server" ID="ddlmercados" CssClass="form-control" Enabled="false"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
+                    <label style="color: skyblue; font-family: Arial;">Forma de Pago: </label>
+                    <asp:DropDownList runat="server" ID="ddlformapago" CssClass="form-control" Enabled="false"></asp:DropDownList>
+                </div>
+                <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Fecha: </label>
                     <asp:TextBox runat="server" ID="txtfecha" type="date" CssClass="form-control" Enabled="false" ></asp:TextBox>
                 </div>
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Moneda: </label>
-                    <asp:DropDownList runat="server" ID="ddlmoneda" CssClass="form-control"></asp:DropDownList>
+                    <asp:DropDownList runat="server" ID="ddlmoneda" CssClass="form-control" Enabled="false"></asp:DropDownList>
                 </div>
             </div>
             <div class="form-group">

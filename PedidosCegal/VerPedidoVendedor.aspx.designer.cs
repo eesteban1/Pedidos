@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PedidosCegal {
-    
-    
-    public partial class VerPedidoVendedor {
-        
+namespace PedidosCegal
+{
+
+
+    public partial class VerPedidoVendedor
+    {
+
         /// <summary>
         /// Control lblzona.
         /// </summary>
@@ -20,7 +22,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblzona;
-        
+
         /// <summary>
         /// Control ddlmercados.
         /// </summary>
@@ -29,7 +31,16 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlmercados;
-        
+
+        /// <summary>
+        /// Control ddlformapago.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlformapago;
+
         /// <summary>
         /// Control txtfecha.
         /// </summary>
@@ -38,7 +49,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtfecha;
-        
+
         /// <summary>
         /// Control ddlmoneda.
         /// </summary>
@@ -47,7 +58,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlmoneda;
-        
+
         /// <summary>
         /// Control txtnumeropuesto.
         /// </summary>
@@ -56,7 +67,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtnumeropuesto;
-        
+
         /// <summary>
         /// Control lblnombre.
         /// </summary>
@@ -65,7 +76,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblnombre;
-        
+
         /// <summary>
         /// Control updDetalles.
         /// </summary>
@@ -74,7 +85,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel updDetalles;
-        
+
         /// <summary>
         /// Control grvDetalles.
         /// </summary>
@@ -83,7 +94,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grvDetalles;
-        
+
         /// <summary>
         /// Control lbltotal.
         /// </summary>
@@ -92,7 +103,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotal;
-        
+
         /// <summary>
         /// Control btncancelar.
         /// </summary>

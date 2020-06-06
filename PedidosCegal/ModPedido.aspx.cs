@@ -36,7 +36,7 @@ namespace PedidosCegal
             //ddlmercados.DataBind();
             Util.Helper.Listarmoneda(ddlmoneda);
             Util.Helper.Listarproductos(ddlproducto);
-            Util.Helper.Listarmoneda(ddlmoneda);
+            Util.Helper.ListarFormaPago(ddlformapago);
         }
 
         void cargarDetalles()
@@ -56,20 +56,21 @@ namespace PedidosCegal
             AsignaZonaDAO db1 = new AsignaZonaDAO();
             string idusu = Convert.ToString(dtcabecera.Rows[0]["Id_Vendedor"]);
 
-            string zona = db1.BuscarZonaAsignada(idusu, out string idzona);
-            lblzona.Text = zona;
-            ddlmercados.DataSource = db2.MercadoxZona(idzona);
-            ddlmercados.DataTextField = "NombreLargo";
-            ddlmercados.DataValueField = "IdMercado";
-            ddlmercados.DataBind();
+            //string zona = db1.BuscarZonaAsignada(idusu, out string idzona);
+            //lblzona.Text = zona;
+            //ddlmercados.DataSource = db2.MercadoxZona(idzona);
+            //ddlmercados.DataTextField = "NombreLargo";
+            //ddlmercados.DataValueField = "IdMercado";
+            //ddlmercados.DataBind();
 
-            txtnumeropuesto.Text = Convert.ToString(dtcabecera.Rows[0]["NumeroPuesto"]);
+            //txtnumeropuesto.Text = Convert.ToString(dtcabecera.Rows[0]["NumeroPuesto"]);
             txtfecha.Text = Convert.ToDateTime(dtcabecera.Rows[0]["fechaCheque"]).ToString("yyyy-MM-dd");
-            ddlmercados.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["IdMercado"]);
+            //ddlmercados.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["IdMercado"]);
             lbltotal.Text = Convert.ToString(dtcabecera.Rows[0]["Total_Venta"]);
             lblnombre.Text = Convert.ToString(dtcabecera.Rows[0]["NombrePropietario"]);
             ddlmoneda.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_Moneda"]);
             ddlformapago.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_FormaPago"]);
+            txtcodigocliente.Text = Convert.ToString(dtcabecera.Rows[0]["CodCompuesto"]);
             DataTable detalles = (DataTable)Session["detalles"];
             if (detalles.Rows.Count > 0)
             {
@@ -91,9 +92,9 @@ namespace PedidosCegal
             }
             cargarDetalles();
             lbltotal.Text = Util.Helper.TotalizarGrilla(grvDetalles, 5).ToString();
-            string idmer = ddlmercados.SelectedValue;
-            Util.Helper.ListarClientesxMerZon(ddlclientes, idmer);
-            ddlclientes.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_cliente"]);
+            //string idmer = ddlmercados.SelectedValue;
+            //Util.Helper.ListarClientesxMerZon(ddlclientes, idmer);
+            txtcodigo.Text = Convert.ToString(dtcabecera.Rows[0]["Id_cliente"]);
         }
 
         protected void ddlproducto_SelectedIndexChanged(object sender, EventArgs e)
@@ -218,33 +219,33 @@ namespace PedidosCegal
 
         }
 
-        protected void ddlclientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ClienteDAO db = new ClienteDAO();
-            int id = Convert.ToInt32(ddlclientes.SelectedValue);
-            Cliente clie = db.Buscarcliente(id, "");
-            lblnombre.Text = clie.NombrePropietario;
-            txtnumeropuesto.Text = clie.NumeroPuesto;
-        }
+        //protected void ddlclientes_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    ClienteDAO db = new ClienteDAO();
+        //    int id = Convert.ToInt32(ddlclientes.SelectedValue);
+        //    Cliente clie = db.Buscarcliente(id, "");
+        //    lblnombre.Text = clie.NombrePropietario;
+        //    txtnumeropuesto.Text = clie.NumeroPuesto;
+        //}
 
-        protected void ddlmercados_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string id = ddlmercados.SelectedValue;
-            Util.Helper.ListarClientesxMerZon(ddlclientes, id);
-            txtnumeropuesto.Enabled = true;
-            ddlclientes.Enabled = true;
-            txtnumeropuesto.Text = "";
-        }
+        //protected void ddlmercados_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string id = ddlmercados.SelectedValue;
+        //    Util.Helper.ListarClientesxMerZon(ddlclientes, id);
+        //    txtnumeropuesto.Enabled = true;
+        //    ddlclientes.Enabled = true;
+        //    txtnumeropuesto.Text = "";
+        //}
 
-        protected void txtnumeropuesto_TextChanged(object sender, EventArgs e)
-        {
-            ClienteDAO db = new ClienteDAO();
-            string numero = txtnumeropuesto.Text;
-            string idmercado = ddlmercados.SelectedValue;
-            Cliente clie = db.BuscarclientexPuesto(numero, idmercado);
-            lblnombre.Text = clie.NombrePropietario;
-            ddlclientes.SelectedValue = clie.Id_cliente.ToString();
-        }
+        //protected void txtnumeropuesto_TextChanged(object sender, EventArgs e)
+        //{
+        //    ClienteDAO db = new ClienteDAO();
+        //    string numero = txtnumeropuesto.Text;
+        //    string idmercado = ddlmercados.SelectedValue;
+        //    Cliente clie = db.BuscarclientexPuesto(numero, idmercado);
+        //    lblnombre.Text = clie.NombrePropietario;
+        //    ddlclientes.SelectedValue = clie.Id_cliente.ToString();
+        //}
 
         protected void txtcodproducto_TextChanged(object sender, EventArgs e)
         {
@@ -316,7 +317,7 @@ namespace PedidosCegal
                 PedidoDAO db = new PedidoDAO();
                 Encabezado en = new Encabezado();
                 en.Id_Encab = Convert.ToInt32(Request.QueryString["IDMP"]);
-                en.Id_cliente = Convert.ToInt32(ddlclientes.SelectedValue);
+                en.Id_cliente = Convert.ToInt32(txtcodigo.Text);
                 en.fechaCheque = txtfecha.Text;
                 en.Id_Vendedor = Convert.ToInt32(Session["IDUsuario"]);
                 en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
@@ -352,6 +353,14 @@ namespace PedidosCegal
             string ID = Request.QueryString["IDMP"];
             string sRuta = "Reportes/frmReportePedido.aspx?Id_Encab=" + ID;
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Window1", "<script> window.open('" + sRuta + "');</script>", false);
+        }
+
+        protected void txtocdigocliente_TextChanged(object sender, EventArgs e)
+        {
+            ClienteDAO db = new ClienteDAO();
+            Cliente clie = db.BuscarClientexCodigo(txtcodigocliente.Text);
+            lblnombre.Text = clie.NombrePropietario;
+            txtcodigo.Text = clie.Id_cliente.ToString();
         }
     }
 }

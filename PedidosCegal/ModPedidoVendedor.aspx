@@ -113,7 +113,7 @@
             </div>
             <div class="col-md-6">
                 <asp:Button runat="server" ID="btnguardar" Text="Guardar Pedido" CssClass="btn btn-primary" OnClick="btnguardar_Click" />|
-                <a href="MantePedido.aspx">Regresar al listado de pedidos</a>
+                <a href="MantePedidoVendedor.aspx">Regresar al listado de pedidos</a>
             </div>
         </fieldset>
     </div>

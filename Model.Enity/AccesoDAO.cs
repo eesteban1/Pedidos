@@ -98,6 +98,30 @@ namespace Model.Enity
             return objacc;
         }
 
+        public void Create(Accesos acc)
+        {
+            string cnx = db.Database.Connection.ConnectionString;
+            con = new SqlConnection(cnx);
+            try
+            {
+                comando = new SqlCommand("usp_AccesoInsert", con);
+                comando.Parameters.AddWithValue("@Id_Personal", acc.Id_Personal);
+                comando.Parameters.AddWithValue("@Usuario", acc.Usuario);
+                comando.Parameters.AddWithValue("@Clave", acc.Clave);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                con.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public bool ExisteUsario(string text)
         {
             string cnx = db.Database.Connection.ConnectionString;

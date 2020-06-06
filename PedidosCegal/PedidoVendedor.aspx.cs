@@ -69,36 +69,46 @@ namespace PedidosCegal
         {
             PedidoDAO db = new PedidoDAO();
             Encabezado en = new Encabezado();
-            try
+            if(lblzona.Text.Length==0)
             {
-                en.Id_cliente = Convert.ToInt32(ddlclientes.SelectedValue);
-                en.fechaCheque = txtfecha.Text;
-                en.Id_Vendedor = Convert.ToInt32(Session["IDUsuario"]);
-                en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
-                en.Id_Moneda = Convert.ToInt32(ddlmoneda.SelectedValue);
-                en.Id_FormaPago = Convert.ToInt32(ddlformapago.SelectedValue);
-                Int64 id = db.InsertarCabecera(en); 
-                foreach (GridViewRow fila in grvDetalles.Rows)
-                {
-                    Detalles det = new Detalles();
-                    TextBox cantidad = (TextBox)fila.FindControl("txtcantidad");
-                    det.Paquetes = Convert.ToInt32(cantidad.Text);
-                    TextBox precio = (TextBox)fila.FindControl("txtprecio");
-                    det.PrecioUnit = Convert.ToDouble(precio.Text);
-                    TextBox peso = (TextBox)fila.FindControl("txtpeso");
-                    det.CantidadKilos = Convert.ToDecimal(peso.Text);
-                    det.Id_prod = Convert.ToInt32(fila.Cells[0].Text);
-                    det.SubTotal = Convert.ToDecimal(fila.Cells[5].Text);
-                    db.InsertarDetalles(det, id);
-                }
-                Response.Redirect("MantePedidoVendedor.aspx", true);
-            }
-            catch (Exception ex)
-            {
-                txtmensaje.Text = ex.Message;
+                txtmensaje.Text = "No se puede guardar el pedido porque no tiene una zona para hoy.";
                 string script = "openModal();";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
             }
+            else
+            {
+                try
+                {
+                    en.Id_cliente = Convert.ToInt32(ddlclientes.SelectedValue);
+                    en.fechaCheque = txtfecha.Text;
+                    en.Id_Vendedor = Convert.ToInt32(Session["IDUsuario"]);
+                    en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
+                    en.Id_Moneda = Convert.ToInt32(ddlmoneda.SelectedValue);
+                    en.Id_FormaPago = Convert.ToInt32(ddlformapago.SelectedValue);
+                    Int64 id = db.InsertarCabecera(en);
+                    foreach (GridViewRow fila in grvDetalles.Rows)
+                    {
+                        Detalles det = new Detalles();
+                        TextBox cantidad = (TextBox)fila.FindControl("txtcantidad");
+                        det.Paquetes = Convert.ToInt32(cantidad.Text);
+                        TextBox precio = (TextBox)fila.FindControl("txtprecio");
+                        det.PrecioUnit = Convert.ToDouble(precio.Text);
+                        TextBox peso = (TextBox)fila.FindControl("txtpeso");
+                        det.CantidadKilos = Convert.ToDecimal(peso.Text);
+                        det.Id_prod = Convert.ToInt32(fila.Cells[0].Text);
+                        det.SubTotal = Convert.ToDecimal(fila.Cells[5].Text);
+                        db.InsertarDetalles(det, id);
+                    }
+                    Response.Redirect("MantePedidoVendedor.aspx", true);
+                }
+                catch (Exception ex)
+                {
+                    txtmensaje.Text = ex.Message;
+                    string script = "openModal();";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+                }
+            }
+            
         }
 
         protected void ddlproducto_SelectedIndexChanged(object sender, EventArgs e)

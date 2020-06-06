@@ -80,7 +80,7 @@
                         </li>--%>
                         <li class="divider"></li>
                         <li>
-                            <a href="Login"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                            <a href="salida.aspx"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -224,6 +224,7 @@
                     <!-- /.row -->
          
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        
                     </asp:ContentPlaceHolder>
                     <hr />
                     <footer>

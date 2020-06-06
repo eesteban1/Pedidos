@@ -14,9 +14,16 @@ namespace PedidosCegal
         {
             if(!Page.IsPostBack)
             {
-                lblnombre.Text = Session["NombreUsuario"].ToString();
-                lblcargo.Text = Session["CargoUsuario"].ToString();
-                string id = Session["IDUsuario"].ToString();
+                try
+                {
+                    lblnombre.Text = Session["NombreUsuario"].ToString();
+                    lblcargo.Text = Session["CargoUsuario"].ToString();
+                    string id = Session["IDUsuario"].ToString();
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("Login.aspx?mensaje=1");
+                }
                 //AsignaZonaDAO db = new AsignaZonaDAO();
                 //string zona = db.BuscarZonaAsignada(id, out string idzona);
                 //lblzona.Text = zona;

@@ -7,12 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace PedidosCegal
 {
-    public partial class Home : System.Web.UI.MasterPage
+    public partial class salida : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Remove("NombreUsuario");
+            Session.Remove("IDUsuario");
+            Session.Remove("CargoUsuario");
+            Response.Redirect("Login.aspx", true);
         }
-
     }
 }
