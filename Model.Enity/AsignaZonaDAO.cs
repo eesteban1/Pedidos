@@ -46,6 +46,62 @@ namespace Model.Enity
             }
         }
 
+        public bool BuscarExistenciaZonaXDia(string id,string dia)
+        {
+            bool exis = false;
+            try
+            {
+                string cnx = db.Database.Connection.ConnectionString;
+                string findAll = "select*from v_AsignaZona where Id_personal ='"+id+"'and Id_Dia='"+dia+"'";
+                con = new SqlConnection(cnx);
+                comando = new SqlCommand(findAll, con);
+                con.Open();
+                comando.ExecuteNonQuery();
+                exis = reader.Read();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return exis;
+        }
+
+        public object ListarDia()
+        {
+            string cnx = db.Database.Connection.ConnectionString;
+            con = new SqlConnection(cnx);
+            string findAll = "select*from Dia order by Orden asc";
+            try
+            {
+                comando = new SqlCommand(findAll, con);
+                con.Open();
+                reader = comando.ExecuteReader();
+                List<Dia> asig = new List<Dia>();
+                while (reader.Read())
+                {
+                    Dia asigna = new Dia();
+                    asigna.Id_Dia = reader[0].ToString();
+                    asigna.Descripcion = reader[1].ToString();
+                    asig.Add(asigna);
+
+                }
+                return asig;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public void Grabar(AsignaZona asi)
         {
             string cnx = db.Database.Connection.ConnectionString;
@@ -56,6 +112,7 @@ namespace Model.Enity
                 comando.Parameters.AddWithValue("@IdZona", asi.IdZona);
                 comando.Parameters.AddWithValue("@Id_personal", asi.Id_personal);
                 comando.Parameters.AddWithValue("@usuario", asi.usuario);
+                comando.Parameters.AddWithValue("@Id_Dia", asi.Id_Dia);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 comando.ExecuteNonQuery();

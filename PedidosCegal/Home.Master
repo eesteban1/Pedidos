@@ -227,7 +227,7 @@
                     </asp:ContentPlaceHolder>
                     <hr />
                     <footer>
-                        <p>&copy; <%: DateTime.Now.Year %> - Aplicacion desarrollada por DigitalSofti</p>
+                        <p>&copy; <%: DateTime.Now.Year %> - Aplicacion desarrollada por DigitalSoft-i</p>
                     </footer>
         
 

@@ -20,7 +20,7 @@ namespace PedidosCegal
         private void cargar()
         {
             PersonalDAO db = new PersonalDAO();
-            grvmante.DataSource = db.ListarVendedor();
+            grvmante.DataSource = db.ListarPersonal();
             grvmante.DataBind();
         }
 

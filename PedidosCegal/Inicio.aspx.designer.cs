@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace PedidosCegal {
-    
-    
-    public partial class Inicio {
-        
+namespace PedidosCegal
+{
+
+
+    public partial class Inicio
+    {
+
         /// <summary>
         /// Control lblnombre.
         /// </summary>
@@ -20,16 +22,7 @@ namespace PedidosCegal {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblnombre;
-        
-        /// <summary>
-        /// Control lblzona.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblzona;
-        
+
         /// <summary>
         /// Control lblcargo.
         /// </summary>

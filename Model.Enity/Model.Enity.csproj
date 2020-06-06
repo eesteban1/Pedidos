@@ -76,6 +76,9 @@
     <Compile Include="Detalles.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dia.cs">
+      <DependentUpon>pedidos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Encabezado.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>

@@ -17,9 +17,9 @@ namespace PedidosCegal
                 lblnombre.Text = Session["NombreUsuario"].ToString();
                 lblcargo.Text = Session["CargoUsuario"].ToString();
                 string id = Session["IDUsuario"].ToString();
-                AsignaZonaDAO db = new AsignaZonaDAO();
-                string zona = db.BuscarZonaAsignada(id, out string idzona);
-                lblzona.Text = zona;
+                //AsignaZonaDAO db = new AsignaZonaDAO();
+                //string zona = db.BuscarZonaAsignada(id, out string idzona);
+                //lblzona.Text = zona;
             }
         }
     }

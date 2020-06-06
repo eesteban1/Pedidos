@@ -208,6 +208,13 @@ advertencia 6002: La tabla o vista 'ventas2.us2.Detalles' no tiene definida ning
           <Property Name="SubTotal" Type="decimal" Precision="18" Scale="2" />
           <Property Name="IGV" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
+        <EntityType Name="Dia">
+          <Key>
+            <PropertyRef Name="Id_Dia" />
+          </Key>
+          <Property Name="Id_Dia" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="10" />
+        </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ventas2.us2.Familia' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Familia">
@@ -257,7 +264,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Acc' no tiene definida ninguna
           <Property Name="Usuario" Type="varchar" MaxLength="50" />
           <Property Name="Clave" Type="varchar" MaxLength="50" />
           <Property Name="CodCargo" Type="varchar" MaxLength="10" />
-          <Property Name="Nombrescom" Type="nvarchar" MaxLength="110" />
+          <Property Name="Nombrescom" Type="nvarchar" MaxLength="112" />
           <Property Name="NombreCargo" Type="nvarchar" MaxLength="30" />
           <Property Name="Id_Personal" Type="int" />
         </EntityType>
@@ -544,6 +551,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="us2" store:Type="Tables" />
           <EntitySet Name="Cuentas" EntityType="Self.Cuentas" Schema="us2" store:Type="Tables" />
           <EntitySet Name="Denominacion" EntityType="Self.Denominacion" Schema="us2" store:Type="Tables" />
+          <EntitySet Name="Dia" EntityType="Self.Dia" Schema="us2" store:Type="Tables" />
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="us2" store:Type="Tables" />
           <EntitySet Name="UBIGEO" EntityType="Self.UBIGEO" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1016,7 +1024,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CodCargo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Nombrescom" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="Nombrescom" Type="String" MaxLength="112" FixedLength="false" Unicode="true" />
           <Property Name="NombreCargo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Id_Personal" Type="Int32" />
         </EntityType>
@@ -1284,6 +1292,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySet Name="v_MercadoxZona" EntityType="ventas2Model.v_MercadoxZona" />
           <EntitySet Name="Familia" EntityType="ventas2Model.Familia" />
           <EntitySet Name="FormasPago" EntityType="ventas2Model.FormasPago" />
+          <EntitySet Name="Dia" EntityType="ventas2Model.Dia" />
         </EntityContainer>
         <EntityType Name="Producto">
           <Key>
@@ -1337,6 +1346,13 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           </Key>
           <Property Name="Id_FormaPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Dia">
+          <Key>
+            <PropertyRef Name="Id_Dia" />
+          </Key>
+          <Property Name="Id_Dia" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1826,6 +1842,14 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
               <MappingFragment StoreEntitySet="FormasPago">
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id_FormaPago" ColumnName="Id_FormaPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dia">
+            <EntityTypeMapping TypeName="ventas2Model.Dia">
+              <MappingFragment StoreEntitySet="Dia">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_Dia" ColumnName="Id_Dia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -8,7 +8,7 @@
     <label style="color:green; font-family:Arial; font-size:xx-large">EL CEGALITO S.A.C.</label>
     <p><%: DateTime.Now %></p>
     <p style="color:dodgerblue; font-size:large">Bienvenido: <asp:Label  runat="server" style="color:dodgerblue; font-size:large" ID="lblnombre"></asp:Label></p>
-    <p style="color:dodgerblue; font-size:large">Zona: <asp:Label  runat="server" style="color:dodgerblue; font-size:large" ID="lblzona"></asp:Label></p>
+    <%--<p style="color:dodgerblue; font-size:large">Zona: <asp:Label  runat="server" style="color:dodgerblue; font-size:large" ID="lblzona"></asp:Label></p>--%>
     <p style="color:dodgerblue; font-size:large">Cargo: <asp:Label  runat="server" style="color:dodgerblue; font-size:large" ID="lblcargo"></asp:Label></p>
     <div class="row">
     <div class="col-lg-3 col-md-6">
