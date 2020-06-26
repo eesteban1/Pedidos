@@ -9,8 +9,8 @@
             <asp:GridView Class="table table-hover table-striped" runat="server" ID="grvmante" AutoGenerateColumns="false" Width="100%" GridLines="None" PageSize="50" AllowPaging="true" OnPageIndexChanging="grvmante_PageIndexChanging" OnRowCommand="grvmante_RowCommand">
                 <Columns>
                     <asp:BoundField DataField="Id_personal" HeaderText="Codigo" />
-                    <asp:BoundField DataField="ApellidoPat" HeaderText="Apellido Paterno" />
-                    <asp:BoundField DataField="ApellidoMat" HeaderText="Aapellido Materno" />
+                    <asp:BoundField DataField="Nombre" HeaderText="Cargo" />
+                    <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" />
                     <asp:BoundField DataField="Nombres" HeaderText="Nombre" />
                     <asp:BoundField DataField="Domicilio" HeaderText="Dirección" />
                     <asp:BoundField DataField="Telefono" HeaderText="Teléfono" />

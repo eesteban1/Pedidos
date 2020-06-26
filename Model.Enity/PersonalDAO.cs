@@ -60,8 +60,8 @@ namespace Model.Enity
             SqlConnection con = null;
             string cnx = db.Database.Connection.ConnectionString;
             con = new SqlConnection(cnx);
-            string listar = "select* from Personal";
-            List<Personal> listper = new List<Personal>();
+            string listar = "select* from v_Per";
+            List<v_Per> listper = new List<v_Per>();
             try
             {
                 SqlCommand comando = new SqlCommand(listar, con);
@@ -69,17 +69,16 @@ namespace Model.Enity
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-
-                    Personal per = new Personal();
+                    v_Per per = new v_Per();
                     per.Id_personal = Convert.ToInt32(reader[0].ToString());
-                    per.ApellidoPat = reader[1].ToString();
-                    per.ApellidoMat = reader[2].ToString();
-                    per.Nombres = reader[3].ToString();
-                    per.Domicilio = reader[5].ToString();
-                    per.Telefono = reader[7].ToString();
+                    per.Apellidos = reader[1].ToString();
+                    //per.ApellidoMat = reader[2].ToString();
+                    per.Nombres = reader[2].ToString();
+                    per.Domicilio = reader[4].ToString();
+                    per.Telefono = reader[5].ToString();
+                    per.Nombre = reader[9].ToString();
                     listper.Add(per);
                 }
-
             }
             catch (Exception ex)
             {

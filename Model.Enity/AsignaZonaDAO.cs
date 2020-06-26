@@ -169,6 +169,7 @@ namespace Model.Enity
                     asigna.Nombres = reader[3].ToString() + " " + reader[7].ToString() + " " + reader[6].ToString();
                     asigna.Id_asigna = Convert.ToInt32(reader[4].ToString());
                     asigna.DescripCorta = reader[5].ToString();
+                    asigna.Descripcion = reader[9].ToString();
                     asig.Add(asigna);
 
                 }

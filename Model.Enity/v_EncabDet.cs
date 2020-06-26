@@ -29,5 +29,6 @@ namespace Model.Enity
         public string NumeroPuesto { get; set; }
         public Nullable<int> Id_Moneda { get; set; }
         public Nullable<int> Id_FormaPago { get; set; }
+        public string CodCompuesto { get; set; }
     }
 }

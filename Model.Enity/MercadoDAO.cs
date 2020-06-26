@@ -161,7 +161,7 @@ namespace Model.Enity
         {
             string cnx = db.Database.Connection.ConnectionString;
             con = new SqlConnection(cnx);
-            string findAll = "select*from v_ListarMercado ORDER BY Codigo";
+            string findAll = "select*from v_ListarMercado ORDER BY Codigo asc";
             try
             {
                 comando = new SqlCommand(findAll, con);
