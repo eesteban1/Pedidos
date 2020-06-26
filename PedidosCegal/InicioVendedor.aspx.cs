@@ -28,6 +28,7 @@ namespace PedidosCegal
                     else
                     {
                         lblzona.Text = "Usted no tiene asigando una zona para el dia de hoy.";
+                        Session["NO"] = lblzona.Text;
                     }
                 }
                 else

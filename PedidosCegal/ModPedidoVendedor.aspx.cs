@@ -19,6 +19,10 @@ namespace PedidosCegal
                 cargarlistas();
                 cargarDetalles();
                 cargar();
+                //if (Session["NO"] != null)
+                //{
+                //    btnguardar.Enabled = false;
+                //}
             }
         }
 

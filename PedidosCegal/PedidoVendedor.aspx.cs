@@ -17,6 +17,10 @@ namespace PedidosCegal
         {
             if (!Page.IsPostBack)
             {
+                if(Session["NO"] != null)
+                {
+                    btnguardar.Enabled = false;
+                }
                 txtfecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 cargar();
                 cargarDetalles();
