@@ -22,5 +22,7 @@ namespace Model.Enity
         public string DescripCorta { get; set; }
         public string ApellidoMat { get; set; }
         public string ApellidoPat { get; set; }
+        public string Id_Dia { get; set; }
+        public string Descripcion { get; set; }
     }
 }

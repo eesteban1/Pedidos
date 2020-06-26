@@ -17,7 +17,7 @@ namespace PedidosCegal
                 string men = Request.Params["mensaje"].ToString();
                 if (men == "1")
                 {
-                    lblerror.Text = "Debe iniciar sesión para ingresar al sitio.";
+                    lblerror.Text = "Debe iniciar sesión.";
                     lblerror.Visible = true;
                     txtuser.Focus();
                 }

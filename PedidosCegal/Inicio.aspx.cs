@@ -12,15 +12,25 @@ namespace PedidosCegal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
-                try
+                //try
+                //{
+                //    lblnombre.Text = Session["NombreUsuario"].ToString();
+                //    lblcargo.Text = Session["CargoUsuario"].ToString();
+                //    string id = Session["IDUsuario"].ToString();
+                //}
+                //catch (Exception ex)
+                //{
+                //    Response.Redirect("Login.aspx?mensaje=1");
+                //}
+                if (Session["IDUsuario"] != null)
                 {
                     lblnombre.Text = Session["NombreUsuario"].ToString();
                     lblcargo.Text = Session["CargoUsuario"].ToString();
                     string id = Session["IDUsuario"].ToString();
                 }
-                catch (Exception ex)
+                else
                 {
                     Response.Redirect("Login.aspx?mensaje=1");
                 }

@@ -32,6 +32,7 @@
                         <asp:BoundField DataField="DescripCorta" HeaderText="Cód. Zona"/>
                         <asp:BoundField DataField="NombreZona" HeaderText="Nombre de la zona" />
                         <asp:BoundField DataField="Nombres" HeaderText="Vendedor"/>
+                        <asp:BoundField DataField="Descripcion" HeaderText="Día" />
                         <asp:TemplateField HeaderText="Operaciones" ItemStyle-CssClass="hidden-tablet" HeaderStyle-CssClass="hidden-tablet" >
                             <ItemTemplate>
                                 <asp:Button CssClass="btn btn-danger" Text="X" ID="Eliminar" runat="server" CommandName="Eliminar" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Eliminar" OnClientClick="return confirm('¿Desea eliminar la asignación?');"/>

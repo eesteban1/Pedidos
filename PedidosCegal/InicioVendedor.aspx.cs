@@ -14,18 +14,25 @@ namespace PedidosCegal
         {
             if (!Page.IsPostBack)
             {
-                lblnombre.Text = Session["NombreUsuario"].ToString();
-                lblcargo.Text = Session["CargoUsuario"].ToString();
-                string id = Session["IDUsuario"].ToString();
-                AsignaZonaDAO db = new AsignaZonaDAO();
-                string zona = db.BuscarZonaAsignada(id,out string idzona);
-                if(zona.Length>0)
+                if(Session["IDUsuario"] != null)
                 {
-                    lblzona.Text = zona;
+                    lblnombre.Text = Session["NombreUsuario"].ToString();
+                    lblcargo.Text = Session["CargoUsuario"].ToString();
+                    string id = Session["IDUsuario"].ToString();
+                    AsignaZonaDAO db = new AsignaZonaDAO();
+                    string zona = db.BuscarZonaAsignada(id, out string idzona);
+                    if (zona.Length > 0)
+                    {
+                        lblzona.Text = zona;
+                    }
+                    else
+                    {
+                        lblzona.Text = "Usted no tiene asigando una zona para el dia de hoy.";
+                    }
                 }
                 else
                 {
-                    lblzona.Text = "Usted no tiene asigando una zona para el dia de hoy.";
+                    Response.Redirect("Login.aspx?mensaje=1");
                 }
             }
         }

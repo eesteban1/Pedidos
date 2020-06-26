@@ -16,5 +16,6 @@ namespace Model.Enity
     {
         public string Id_Dia { get; set; }
         public string Descripcion { get; set; }
+        public Nullable<int> Orden { get; set; }
     }
 }
