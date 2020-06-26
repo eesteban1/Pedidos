@@ -107,7 +107,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">Observacion</label>
                     <div class="col-md-2">
-                        <asp:TextBox runat="server" ID="txtobservacion" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtobservacion" CssClass="form-control" Enabled="false"></asp:TextBox>
                     </div>
                 </div>
             </div>
