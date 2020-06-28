@@ -20,5 +20,6 @@ namespace Model.Enity
         public Nullable<decimal> Total_Venta { get; set; }
         public string Desc_Large { get; set; }
         public Nullable<int> Id_Vendedor { get; set; }
+        public string Nombres { get; set; }
     }
 }

@@ -146,6 +146,12 @@
                         <li>
                             <a href="ManteAcceso.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Accesos</a>
                         </li>
+                        <li>
+                            <a href="ManteMarcas.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Marcas</a>
+                        </li>
+                        <li>
+                            <a href="ManteFamilia.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Familias</a>
+                        </li>
 
                       <%--  @*<li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Cuenta Corriente<span class="fa arrow"></span></a>
