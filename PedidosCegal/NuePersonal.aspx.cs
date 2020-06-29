@@ -40,35 +40,43 @@ namespace PedidosCegal
 
         protected void btnguardar_Click(object sender, EventArgs e)
         {
-            PersonalDAO db = new PersonalDAO();
-            Personal per = new Personal();
-            bool existe = db.ExistePersonal(txtdni.Text);
-            if(existe)
+            if(txtfechaingre.Text != "" && txtfechanac.Text !="")
             {
-                lblmesaje.Text = "El personal ya existe.";
-                string script = "openModal();";
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "existe", script, true);
+                PersonalDAO db = new PersonalDAO();
+                Personal per = new Personal();
+                bool existe = db.ExistePersonal(txtdni.Text);
+                if (existe)
+                {
+                    lblmesaje.Text = "El personal ya existe.";
+                    string script = "openModal();";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "existe", script, true);
+                }
+                else
+                {
+                    per.ApellidoMat = txtapemat.Text;
+                    per.ApellidoPat = txtapepat.Text;
+                    per.Nombres = txtnombre.Text;
+                    per.NroDNI = txtdni.Text;
+                    per.Domicilio = txtdomicilio.Text;
+                    per.Ubigeo = ddldepartamento.SelectedValue + ddlprovincia.SelectedValue + ddldistrito.SelectedValue;
+                    per.Telefono = txttelefono.Text;
+                    per.fechaNacimiento = Convert.ToDateTime(txtfechanac.Text);
+                    per.Sexo = rdbsexo.SelectedValue;
+                    per.fechaIngreso = Convert.ToDateTime(txtfechaingre.Text);
+                    per.CodCargo = ddlcargo.SelectedValue;
+                    per.EstadoCivil = ddlcivil.SelectedValue;
+                    per.Nrolpss = txtipss.Text;
+                    per.NroHijos = txthijos.Text;
+                    per.Observ = txtobservacion.Text;
+                    db.Create(per);
+                    Response.Redirect("MantePersonal.aspx", true);
+                }
             }
             else
             {
-                per.ApellidoMat = txtapemat.Text;
-                per.ApellidoPat = txtapepat.Text;
-                per.Nombres = txtnombre.Text;
-                per.NroDNI = txtdni.Text;
-                per.Domicilio = txtdomicilio.Text;
-                per.Ubigeo = ddldepartamento.SelectedValue + ddlprovincia.SelectedValue + ddldistrito.SelectedValue;
-                per.Telefono = txttelefono.Text;
-                per.fechaNacimiento = Convert.ToDateTime(txtfechanac.Text);
-                per.Sexo = rdbsexo.SelectedValue;
-                per.fechaIngreso = Convert.ToDateTime(txtfechaingre.Text);
-                per.CodCargo = ddlcargo.SelectedValue;
-                per.EstadoCivil = ddlcivil.SelectedValue;
-                per.Nrolpss = txtipss.Text;
-                per.NroHijos = txthijos.Text;
-                per.Observ = txtobservacion.Text;
-                db.Create(per);
-
-                Response.Redirect("MantePersonal.aspx", true);
+                lblmesaje.Text = "Debe ingresar la fecha.";
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "error", script, true);
             }
         }
     }

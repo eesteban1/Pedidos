@@ -15,6 +15,10 @@ namespace PedidosCegal
             if (!Page.IsPostBack)
             {
                 cargar();
+                if (Session["NO"] != null)
+                {
+                    btnnuevo.Enabled = false;
+                }
             }
         }
         void cargar()
