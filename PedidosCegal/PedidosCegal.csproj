@@ -257,6 +257,8 @@
     <Content Include="Login.aspx" />
     <Content Include="ManteAcceso.aspx" />
     <Content Include="ManteCliente.aspx" />
+    <Content Include="ManteFamilia.aspx" />
+    <Content Include="ManteMarcas.aspx" />
     <Content Include="ManteMercados.aspx" />
     <Content Include="MantePedido.aspx" />
     <Content Include="MantePedidoVendedor.aspx" />
@@ -265,6 +267,8 @@
     <Content Include="ManteZonas.aspx" />
     <Content Include="ModAcceso.aspx" />
     <Content Include="ModCliente.aspx" />
+    <Content Include="ModFamilia.aspx" />
+    <Content Include="ModMarca.aspx" />
     <Content Include="ModMercado.aspx" />
     <Content Include="ModPedido.aspx" />
     <Content Include="ModPedidoVendedor.aspx" />
@@ -273,6 +277,8 @@
     <Content Include="ModZona.aspx" />
     <Content Include="NueAcceso.aspx" />
     <Content Include="NueCliente.aspx" />
+    <Content Include="NueFamilia.aspx" />
+    <Content Include="NueMarca.aspx" />
     <Content Include="NuePersonal.aspx" />
     <Content Include="NueProducto.aspx" />
     <Content Include="NuevMercado.aspx" />
@@ -331,6 +337,8 @@
     <Content Include="Style\chosen.css" />
     <Content Include="VerAcceso.aspx" />
     <Content Include="VerCliente.aspx" />
+    <Content Include="VerFamili.aspx" />
+    <Content Include="VerMarca.aspx" />
     <Content Include="VerMercado.aspx" />
     <Content Include="VerPedido.aspx" />
     <Content Include="VerPedidoVendedor.aspx" />
@@ -411,6 +419,20 @@
     <Compile Include="ManteCliente.aspx.designer.cs">
       <DependentUpon>ManteCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManteFamilia.aspx.cs">
+      <DependentUpon>ManteFamilia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManteFamilia.aspx.designer.cs">
+      <DependentUpon>ManteFamilia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManteMarcas.aspx.cs">
+      <DependentUpon>ManteMarcas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManteMarcas.aspx.designer.cs">
+      <DependentUpon>ManteMarcas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManteMercados.aspx.cs">
       <DependentUpon>ManteMercados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -467,6 +489,20 @@
     <Compile Include="ModCliente.aspx.designer.cs">
       <DependentUpon>ModCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModFamilia.aspx.cs">
+      <DependentUpon>ModFamilia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModFamilia.aspx.designer.cs">
+      <DependentUpon>ModFamilia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModMarca.aspx.cs">
+      <DependentUpon>ModMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModMarca.aspx.designer.cs">
+      <DependentUpon>ModMarca.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModMercado.aspx.cs">
       <DependentUpon>ModMercado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -522,6 +558,20 @@
     </Compile>
     <Compile Include="NueCliente.aspx.designer.cs">
       <DependentUpon>NueCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NueFamilia.aspx.cs">
+      <DependentUpon>NueFamilia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NueFamilia.aspx.designer.cs">
+      <DependentUpon>NueFamilia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NueMarca.aspx.cs">
+      <DependentUpon>NueMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NueMarca.aspx.designer.cs">
+      <DependentUpon>NueMarca.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuePersonal.aspx.cs">
       <DependentUpon>NuePersonal.aspx</DependentUpon>
@@ -628,6 +678,20 @@
     </Compile>
     <Compile Include="VerCliente.aspx.designer.cs">
       <DependentUpon>VerCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerFamili.aspx.cs">
+      <DependentUpon>VerFamili.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerFamili.aspx.designer.cs">
+      <DependentUpon>VerFamili.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerMarca.aspx.cs">
+      <DependentUpon>VerMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerMarca.aspx.designer.cs">
+      <DependentUpon>VerMarca.aspx</DependentUpon>
     </Compile>
     <Compile Include="VerMercado.aspx.cs">
       <DependentUpon>VerMercado.aspx</DependentUpon>

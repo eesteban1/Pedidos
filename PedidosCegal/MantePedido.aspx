@@ -35,6 +35,7 @@
                                             <Columns>
                                                 <asp:BoundField DataField="Id_Encab" HeaderText="N° Pedido" />
                                                 <asp:BoundField DataField="fechaCheque" HeaderText="Fecha" />
+                                                <asp:BoundField DataField="Nombres" HeaderText="Vendedor" />
                                                 <asp:BoundField DataField="CodNom" HeaderText="Cod y Nombre Cliente" />
                                                 <asp:BoundField DataField="Desc_Large" HeaderText="Moneda" />
                                                 <asp:BoundField DataField="Total_Venta" HeaderText="Total" />
@@ -48,7 +49,7 @@
                                             </Columns>
                                             <EditRowStyle BackColor="#999999" />
                                             <HeaderStyle BackColor="#337ab7" Font-Bold="true" ForeColor="White" />
-                                            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Center" />
+                                            <PagerStyle BackColor="White" ForeColor="Black"  />
                                         </asp:GridView>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>

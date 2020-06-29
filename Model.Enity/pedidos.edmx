@@ -407,6 +407,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarPedidoFecha' no tiene de
           <Property Name="Total_Venta" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Desc_Large" Type="varchar" MaxLength="50" />
           <Property Name="Id_Vendedor" Type="int" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarProductos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -719,7 +720,8 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
     [v_ListarPedidoFecha].[CodNom] AS [CodNom], 
     [v_ListarPedidoFecha].[Total_Venta] AS [Total_Venta], 
     [v_ListarPedidoFecha].[Desc_Large] AS [Desc_Large], 
-    [v_ListarPedidoFecha].[Id_Vendedor] AS [Id_Vendedor]
+    [v_ListarPedidoFecha].[Id_Vendedor] AS [Id_Vendedor], 
+    [v_ListarPedidoFecha].[Nombres] AS [Nombres]
     FROM [us2].[v_ListarPedidoFecha] AS [v_ListarPedidoFecha]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_ListarProductos" EntityType="Self.v_ListarProductos" store:Type="Views" store:Schema="us2">
@@ -1147,6 +1149,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <Property Name="Total_Venta" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Desc_Large" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Id_Vendedor" Type="Int32" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="v_ListarProductos">
           <Key>
@@ -1702,6 +1705,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySetMapping Name="v_ListarPedidoFecha">
             <EntityTypeMapping TypeName="ventas2Model.v_ListarPedidoFecha">
               <MappingFragment StoreEntitySet="v_ListarPedidoFecha">
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
                 <ScalarProperty Name="Id_Encab" ColumnName="Id_Encab" />
                 <ScalarProperty Name="fechaCheque" ColumnName="fechaCheque" />
                 <ScalarProperty Name="CodNom" ColumnName="CodNom" />

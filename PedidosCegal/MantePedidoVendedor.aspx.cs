@@ -19,6 +19,8 @@ namespace PedidosCegal
                 {
                     btnnuevo.Enabled = false;
                 }
+                txtfechafinal.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
+                txtfechainicia.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
             }
         }
         void cargar()

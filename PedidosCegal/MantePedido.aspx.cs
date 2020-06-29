@@ -15,7 +15,10 @@ namespace PedidosCegal
             if(!Page.IsPostBack)
             {
                 cargar();
+                txtfechafinal.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
+                txtfechainicia.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
             }
+            
         }
 
         void cargar()

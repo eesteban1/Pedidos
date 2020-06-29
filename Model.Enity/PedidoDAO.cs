@@ -69,6 +69,7 @@ namespace Model.Enity
                     objCliente.fechaCheque = Convert.ToDateTime(reader[1]).ToString("dd-MM-yyyy");
                     objCliente.Total_Venta = Convert.ToDecimal(reader[3].ToString());
                     objCliente.Desc_Large = reader[4].ToString();
+                    objCliente.Nombres = reader[6].ToString();
                     listaClientes.Add(objCliente);
 
                 }
@@ -126,6 +127,7 @@ namespace Model.Enity
                     objCliente.fechaCheque = reader[1].ToString();
                     objCliente.Total_Venta = Convert.ToDecimal(reader[3].ToString());
                     objCliente.Desc_Large = reader[4].ToString();
+                    objCliente.Nombres = reader[6].ToString();
                     listaClientes.Add(objCliente);
 
                 }

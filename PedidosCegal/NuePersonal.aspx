@@ -9,16 +9,16 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">Apellidos*: </label>
                     <div class="col-md-2">
-                        <asp:TextBox runat="server" ID="txtapepat" CssClass="form-control" placeholder="Paterno" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtapepat" CssClass="form-control" placeholder="Paterno"></asp:TextBox>
                     </div>
                     <div class="col-md-2">
-                        <asp:TextBox runat="server" ID="txtapemat" CssClass="form-control" placeholder="Materno" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtapemat" CssClass="form-control" placeholder="Materno"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-2">Nombres*: </label>
                     <div class="col-md-2">
-                        <asp:TextBox runat="server" ID="txtnombre" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtnombre" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group">
