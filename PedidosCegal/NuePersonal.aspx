@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">DNI: </label>
                     <div class="col-md-2">
-                        <asp:TextBox runat="server" ID="txtdni" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtdni" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group">
