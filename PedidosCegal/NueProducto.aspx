@@ -12,6 +12,18 @@
      <div class="form-horizontal" id="contenedor">
         <fieldset>
             <div class="form-group">
+                <label class="control-label col-md-2">Código: </label>
+                <div class="col-md-6">
+                    <asp:TextBox runat="server" ID="txtcodigo" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Descripción del producto: </label>
+                <div class="col-md-6">
+                    <asp:TextBox runat="server" ID="txtdescripcion" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="control-label col-md-2">Familia: </label>
                 <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddlfamilia" CssClass="form-control"></asp:DropDownList>
@@ -22,12 +34,6 @@
                 <div class="col-md-4">
                     <asp:DropDownList runat="server" ID="ddlmarca" CssClass="form-control"></asp:DropDownList>
                  </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-2">Descripción del producto: </label>
-                <div class="col-md-6">
-                    <asp:TextBox runat="server" ID="txtdescripcion" CssClass="form-control"></asp:TextBox>
-                </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Afecto IGV: </label>
@@ -102,7 +108,7 @@
             </div>
         </fieldset>
 
-       $<script type='text/javascript'>
+       <script type='text/javascript'>
             $("#contenedor").on("keyup", "input.number", function (event) {
                 $('input.number').keyup(function (event) {
                     if (event.which >= 37 && event.which <= 40) {
@@ -133,6 +139,24 @@
 
 
 
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #D6EAF8">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Cuadro de Mensajes</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="msgcentrado">
+                        <asp:Label Text="" ID="Label1" runat="server" Style="font-size: 18px"></asp:Label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="text-primary text-success text-center">
         <asp:label runat="server" ID="lblmesaje"></asp:label>

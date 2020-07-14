@@ -66,7 +66,7 @@ namespace PedidosCegal
             pro.IdMedida = Convert.ToInt32(ddlunidadmedida.SelectedValue);
             pro.Observacion = txtobservacion.Text;
             db.update(pro);
-            lblmesaje.Text = "El producto se actulizo correctamente.";
+            Response.Redirect("ManteProducto.aspx",true);
         }
     }
 }

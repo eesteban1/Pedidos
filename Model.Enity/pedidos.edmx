@@ -55,13 +55,6 @@
           <Property Name="Id_FormaPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="60" />
         </EntityType>
-        <EntityType Name="Marcas">
-          <Key>
-            <PropertyRef Name="Id_Marca" />
-          </Key>
-          <Property Name="Id_Marca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Descripcion" Type="nchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="mercados">
           <Key>
             <PropertyRef Name="IdMercado" />
@@ -239,7 +232,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.IGV' no tiene definida ninguna c
           <Key>
             <PropertyRef Name="Id_prod" />
           </Key>
-          <Property Name="Id_prod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_prod" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="varchar(max)" />
           <Property Name="IdAfectoIGV" Type="int" />
           <Property Name="IdMedida" Type="int" />
@@ -547,7 +540,6 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySet Name="cargos" EntityType="Self.cargos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Encabezado" EntityType="Self.Encabezado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormasPago" EntityType="Self.FormasPago" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Marcas" EntityType="Self.Marcas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mercados" EntityType="Self.mercados" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Moneda" EntityType="Self.Moneda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
@@ -1417,14 +1409,6 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
                 <ScalarProperty Name="Tipo_Cambio" ColumnName="Tipo_Cambio" />
                 <ScalarProperty Name="Notas" ColumnName="Notas" />
                 <ScalarProperty Name="Id_Acceso" ColumnName="Id_Acceso" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Marcas">
-            <EntityTypeMapping TypeName="ventas2Model.Marcas">
-              <MappingFragment StoreEntitySet="Marcas">
-                <ScalarProperty Name="Id_Marca" ColumnName="Id_Marca" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

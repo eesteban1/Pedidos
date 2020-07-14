@@ -91,6 +91,7 @@ namespace Model.Enity
                 string cnx = db.Database.Connection.ConnectionString;
                 con = new SqlConnection(cnx);
                 comando = new SqlCommand("usp_ProductoInsert", con);
+                comando.Parameters.AddWithValue("@Id_prod", pro.Id_prod);
                 comando.Parameters.AddWithValue("@descripcion",pro.descripcion);
                 comando.Parameters.AddWithValue("@IdAfectoIGV", pro.IdAfectoIGV);
                 comando.Parameters.AddWithValue("@IdMedida", pro.IdMedida);
