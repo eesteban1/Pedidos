@@ -34,6 +34,7 @@ namespace Model.Enity
                     objProdcutos.PesoKilos = Convert.ToDecimal(reader[3].ToString());
                     objProdcutos.PVentaS = Convert.ToDecimal(reader[4].ToString());
                     objProdcutos.PVentaD = Convert.ToDecimal(reader[5].ToString());
+                    objProdcutos.Marca = reader[6].ToString();
                     listaTipoMov.Add(objProdcutos);
                 }
 

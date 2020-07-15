@@ -414,6 +414,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarProductos' no tiene defi
           <Property Name="PesoKilos" Type="decimal" Precision="18" Scale="2" />
           <Property Name="PVentaS" Type="decimal" Precision="18" Scale="2" />
           <Property Name="PVentaD" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Marca" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ventas2.us2.v_ListarZonas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -723,7 +724,8 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
     [v_ListarProductos].[descripcion] AS [descripcion], 
     [v_ListarProductos].[PesoKilos] AS [PesoKilos], 
     [v_ListarProductos].[PVentaS] AS [PVentaS], 
-    [v_ListarProductos].[PVentaD] AS [PVentaD]
+    [v_ListarProductos].[PVentaD] AS [PVentaD], 
+    [v_ListarProductos].[Marca] AS [Marca]
     FROM [us2].[v_ListarProductos] AS [v_ListarProductos]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_ListarZonas" EntityType="Self.v_ListarZonas" store:Type="Views" store:Schema="us2">
@@ -1153,6 +1155,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <Property Name="PesoKilos" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PVentaS" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PVentaD" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Marca" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="v_ListarZonas">
           <Key>
@@ -1702,6 +1705,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySetMapping Name="v_ListarProductos">
             <EntityTypeMapping TypeName="ventas2Model.v_ListarProductos">
               <MappingFragment StoreEntitySet="v_ListarProductos">
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
                 <ScalarProperty Name="Id_prod" ColumnName="Id_prod" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />

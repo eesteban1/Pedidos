@@ -20,5 +20,6 @@ namespace Model.Enity
         public Nullable<decimal> PesoKilos { get; set; }
         public Nullable<decimal> PVentaS { get; set; }
         public Nullable<decimal> PVentaD { get; set; }
+        public string Marca { get; set; }
     }
 }
