@@ -50,50 +50,49 @@
             <div class="form-group">
                 <label class="control-label col-md-2">Peso: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtpeso"  onkeypress="return Enter(this, event)" CssClass="form-control number"></asp:TextBox>
-                   
+                    <asp:TextBox runat="server" ID="txtpeso" CssClass="form-control" type="number" Text="0.00"></asp:TextBox><%--onkeypress="return Enter(this, event)"--%>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Precio Compra S/: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtpreciocompras" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtpreciocompras" CssClass="form-control" Text="0.00" type="number"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Precio Compra $: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtpreciocomprad" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtpreciocomprad" CssClass="form-control" Text="0.00" type="number"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Precio venta S/: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtprecioventas" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtprecioventas" CssClass="form-control" Text="0.00" type="number"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Precio venta $: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtprecioventad" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtprecioventad" CssClass="form-control" Text="0.00" type="number"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Stock máximo: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtstockmax" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtstockmax" CssClass="form-control" Text="0" type="number"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Stock mínimo: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtstockmin" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtstockmin" CssClass="form-control" Text="0" type="number"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Stock actual: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtstockact" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtstockact" CssClass="form-control" Text="0" type="number"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">

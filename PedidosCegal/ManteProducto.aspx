@@ -11,8 +11,9 @@
                 <asp:GridView class="table table-striped table-hover" runat="server" ID="grvmanteproducto" AutoGenerateColumns="false" Width="100%" GridLines="None" PageSize="50" AllowPaging="true" OnPageIndexChanging="grvmanteproducto_PageIndexChanging" OnRowCommand="grvmanteproducto_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="Id_prod" HeaderText="Codigo" ItemStyle-CssClass="hidden-phone hidden-tablet" HeaderStyle-CssClass="hidden-phone hidden-tablet"/>
-                        <asp:BoundField DataField="Nombre" HeaderText="Familia" ItemStyle-CssClass="hidden-tablet" HeaderStyle-CssClass="hidden-tablet"/>
                         <asp:BoundField DataField="descripcion" HeaderText="Nombre producto" ItemStyle-CssClass="hidden-phone hidden-tablet" HeaderStyle-CssClass="hidden-phone hidden-tablet"/>
+                        <asp:BoundField DataField="Nombre" HeaderText="Familia" ItemStyle-CssClass="hidden-tablet" HeaderStyle-CssClass="hidden-tablet"/>
+                        <asp:BoundField DataField="Marca" HeaderText="Marca" ItemStyle-CssClass="hidden-tablet" HeaderStyle-CssClass="hidden-tablet"/>
                         <asp:BoundField DataField="PesoKilos" HeaderText="Peso en Kg" ItemStyle-CssClass="hidden-phone hidden-tablet" HeaderStyle-CssClass="hidden-phone hidden-tablet"/>
                         <asp:BoundField DataField="PVentaS" HeaderText="P. venta S/"  ItemStyle-CssClass="hidden-phone hidden-tablet" HeaderStyle-CssClass="hidden-phone hidden-tablet"/>
                         <asp:BoundField DataField="PVentaD" HeaderText="P. venta $"  ItemStyle-CssClass="hidden-phone hidden-tablet" HeaderStyle-CssClass="hidden-phone hidden-tablet"/>
