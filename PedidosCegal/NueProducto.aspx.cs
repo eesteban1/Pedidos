@@ -42,7 +42,7 @@ namespace PedidosCegal
                 txtstockmax.Text = "0";
             if (txtstockmin.Text.Length < 1)
                 txtstockmin.Text = "0";
-            if (txtstockact.Text.Length < 2)
+            if (txtstockact.Text.Length < 1)
                 txtstockact.Text = "0";
             ProductoDAO db = new ProductoDAO();
             Producto pro = new Producto();
