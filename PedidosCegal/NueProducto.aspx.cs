@@ -28,6 +28,22 @@ namespace PedidosCegal
         }
         protected void btnguardar_Click(object sender, EventArgs e)
         {
+            if (txtpreciocomprad.Text.Length < 0)
+                txtpreciocomprad.Text = "0.00";
+            if (txtpeso.Text.Length < 0)
+                txtpeso.Text = "0.00";
+            if (txtpreciocompras.Text.Length < 0)
+                txtpreciocompras.Text = "0.00";
+            if (txtprecioventad.Text.Length < 0)
+                txtprecioventad.Text = "0.00";
+            if (txtprecioventas.Text.Length < 0)
+                txtprecioventas.Text = "0.00";
+            if (txtstockmax.Text.Length < 0)
+                txtstockmax.Text = "0";
+            if (txtstockmin.Text.Length < 0)
+                txtstockmin.Text = "0";
+            if (txtstockact.Text.Length < 0)
+                txtstockact.Text = "0";
             ProductoDAO db = new ProductoDAO();
             Producto pro = new Producto();
             if(txtcodigo.Text.Length>0)
