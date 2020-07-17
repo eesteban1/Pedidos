@@ -13,7 +13,7 @@
         <fieldset>
             <div class="form-group">
                 <label class="control-label col-md-2">Código: </label>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <asp:TextBox runat="server" ID="txtcodigo" CssClass="form-control" MaxLength="32"></asp:TextBox>
                 </div>
             </div>

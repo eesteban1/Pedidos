@@ -28,11 +28,11 @@ namespace PedidosCegal
         }
         protected void btnguardar_Click(object sender, EventArgs e)
         {
-            if (txtpreciocomprad.Text.Length < 1)
+            if ((txtpreciocomprad.Text.Length) < 1)
                 txtpreciocomprad.Text = "0.00";
             if (txtpeso.Text.Length < 1)
                 txtpeso.Text = "0.00";
-            if (txtpreciocompras.Text.Length < 0)
+            if (txtpreciocompras.Text.Length < 1)
                 txtpreciocompras.Text = "0.00";
             if (txtprecioventad.Text.Length < 1)
                 txtprecioventad.Text = "0.00";
