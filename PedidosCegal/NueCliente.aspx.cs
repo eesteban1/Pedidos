@@ -28,13 +28,18 @@ namespace PedidosCegal
 
         protected void btnguardar_Click(object sender, EventArgs e)
         {
-            if(txtrazonsocial.Text.Length < 0  || txtruc.Text.Length != 11  || txtnombreapellido.Text.Length < 0 || txtdni.Text.Length != 8)
+            if(txtrazonsocial.Text.Length < 0 )
             {
                 if(txtrazonsocial.Text.Length < 0) lblmesaje.Text = "El campo Razon Social debe ser completado.";
-                if (txtnombreapellido.Text.Length < 0) lblmesaje.Text = "El campo Apellidos y Nombres debe ser completado.";
-                if (txtruc.Text.Length != 11) lblmesaje.Text = "El RUC debe tener 11 caracteres.";
-                if (txtdni.Text.Length != 8) lblmesaje.Text = "El DNI debe tener 8 caracteres.";
+                //if (txtruc.Text.Length != 11) lblmesaje.Text = "El RUC debe tener 11 caracteres.";
+                //if (txtdni.Text.Length != 8) lblmesaje.Text = "El DNI debe tener 8 caracteres.";
 
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "error", script, true);
+            }
+            else if (txtnombreapellido.Text.Length < 0)
+            {
+                lblmesaje.Text = "El campo Apellidos y Nombres debe ser completado.";
                 string script = "openModal();";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "error", script, true);
             }
@@ -42,15 +47,16 @@ namespace PedidosCegal
             {
                 ClienteDAO db = new ClienteDAO();
                 Cliente clie = new Cliente();
-                bool existe = db.ExisteCliente(txtdni.Text);
-                if(existe)
-                {
-                    lblmesaje.Text = "El cliente ya existe.";
-                    string script = "openModal();";
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "existe", script, true);
-                }
-                else
-                {
+                //bool existe = db.ExisteCliente(txtdni.Text);
+                //if(existe)
+                //{
+                //    lblmesaje.Text = "El cliente ya existe.";
+                //    string script = "openModal();";
+                //    ScriptManager.RegisterStartupScript(this, typeof(Page), "existe", script, true);
+                //}
+                //else
+                //{
+
                     clie.IdMercado = Convert.ToInt32(ddlmercado.SelectedValue); 
                     clie.RazonSocial = txtrazonsocial.Text;
                     clie.IdDenominacion = Convert.ToInt32(ddldenominacion.SelectedValue);
@@ -71,9 +77,8 @@ namespace PedidosCegal
                     clie.Observacion = txtobservacion.Text;
                     clie.NumeroPuesto = txtnumeropuesto.Text;
                     db.Create(clie);
-
                     Response.Redirect("ManteCliente.aspx", true);
-                }
+                //}
                 
             }
            
