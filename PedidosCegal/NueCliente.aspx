@@ -23,7 +23,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2">Razón social: </label>
                 <div class="col-md-6">
-                    <asp:TextBox runat="server" ID="txtrazonsocial" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtrazonsocial" CssClass="form-control" MaxLength="50"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
@@ -41,13 +41,13 @@
             <div class="form-group">
                 <label class="control-label col-md-2">RUC: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtruc" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtruc" CssClass="form-control" MaxLength="11"></asp:TextBox>
                 </div>
             </div>
              <div class="form-group">
                 <label class="control-label col-md-2">Dirección: </label>
                 <div class="col-md-6">
-                    <asp:TextBox runat="server" ID="txtdireccion" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtdireccion" CssClass="form-control" MaxLength="100"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
@@ -79,7 +79,7 @@
             <div class="form-group">
                 <label class="control-label col-md-2">Teléfono: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txttelefonocomercial" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txttelefonocomercial" CssClass="form-control" MaxLength="9"></asp:TextBox>
                 </div>
             </div>
             </div>
@@ -89,13 +89,13 @@
             <div class="form-group">
                 <label class="control-label col-md-2">Apelldios y Nombres: </label>
                 <div class="col-md-6">
-                    <asp:TextBox runat="server" ID="txtnombreapellido" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtnombreapellido" CssClass="form-control" MaxLength="50"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Domicilio: </label>
                 <div class="col-md-6">
-                    <asp:TextBox runat="server" ID="txtdomicilio" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtdomicilio" CssClass="form-control" MaxLength="100"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
@@ -126,13 +126,13 @@
             <div class="form-group">
                 <label class="control-label col-md-2">DNI: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtdni" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtdni" CssClass="form-control" MaxLength="8"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-md-2">Telefono: </label>
                 <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txttelefonodomicilio" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txttelefonodomicilio" CssClass="form-control" MaxLength="9"></asp:TextBox>
                 </div>
             </div>
             <div class="form-group">
