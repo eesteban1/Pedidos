@@ -28,7 +28,11 @@ namespace PedidosCegal
 
         protected void btnguardar_Click(object sender, EventArgs e)
         {
-            if(txtrazonsocial.Text.Length < 0 )
+            if (txtgarantia.Text.Length < 1)
+                txtgarantia.Text = "0";
+            if (txtcredito.Text.Length < 1)
+                txtcredito.Text = "0";
+            if(txtrazonsocial.Text.Length < 1 )
             {
                 if(txtrazonsocial.Text.Length < 0) lblmesaje.Text = "El campo Razon Social debe ser completado.";
                 //if (txtruc.Text.Length != 11) lblmesaje.Text = "El RUC debe tener 11 caracteres.";
