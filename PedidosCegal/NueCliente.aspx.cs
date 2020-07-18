@@ -56,6 +56,7 @@ namespace PedidosCegal
                 //}
                 //else
                 //{
+
                     clie.IdMercado = Convert.ToInt32(ddlmercado.SelectedValue); 
                     clie.RazonSocial = txtrazonsocial.Text;
                     clie.IdDenominacion = Convert.ToInt32(ddldenominacion.SelectedValue);
