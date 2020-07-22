@@ -17,7 +17,7 @@ namespace Model.Enity
         public List<v_ListarProductos> ListarProducto()
         {
             List<v_ListarProductos> listaTipoMov = new List<v_ListarProductos>();
-            string find = "select*from v_ListarProductos";
+            string find = "select*from v_ListarProductos order by Id_prod asc";
             try
             {
                 string cnx = db.Database.Connection.ConnectionString;
@@ -55,7 +55,7 @@ namespace Model.Enity
         public List<Producto> Listar()
         {
             List<Producto> listapro = new List<Producto>();
-            string findAll = "select*from Producto";
+            string findAll = "select*from Producto order by Id_prod asc";
             try
             {
                 string cnx = db.Database.Connection.ConnectionString;
