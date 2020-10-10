@@ -38,16 +38,19 @@
             </div>
         </fieldset>
     </div>
+    <%--<rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Arial" Font-Size="10pt" Height="724px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="50%" EnableTheming="True" SizeToReportContent="True">
+                        <LocalReport ReportPath="Reportes/Pedidos.rdlc"></LocalReport>
+                    </rsweb:ReportViewer>--%>
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content sidebar" style="display:block;overflow-x:auto;width:128%">
+            <div class="modal-content sidebar" style="display:block;overflow-x:auto;width:132%">
                 <div class="modal-header" style="background-color: #D6EAF8">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Pedidos</h4>
                 </div>
                 <div class="modal-body">
-                    <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Arial" Font-Size="10pt" Height="724px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="50%" EnableTheming="True" SizeToReportContent="True">
-                        <LocalReport ReportPath="Reportes/Prdidos.rdlc"></LocalReport>
+                    <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Arial" Font-Size="10pt" Height="724px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="10%" EnableTheming="True" SizeToReportContent="True">
+                        <LocalReport ReportPath="Reportes/Pedidos.rdlc"></LocalReport>
                     </rsweb:ReportViewer>
                 </div>
                 <div class="modal-footer">
