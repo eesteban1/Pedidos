@@ -61,11 +61,12 @@
                 <div class="col-md-2">
                     <label style="color: skyblue; font-family: Arial;">Lista de productos</label>
                     <asp:DropDownList runat="server" ID="ddlproducto" CssClass="form-control chzn-select" OnSelectedIndexChanged="ddlproducto_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                </div>
-                <script src="Scripts/jquery.min.js" type="text/javascript"></script>
+                    <%--<script src="Scripts/jquery.min.js" type="text/javascript"></script>
                 <script src="Scripts/chosen.jquery.js" type="text/javascript"></script>
-                <script type="text/javascript">$(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({ allow_single_deselect: true });</script>
-                <link href="Content/chosen.css" rel="stylesheet" />
+                <script type="text/javascript">$(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({ allow_single_deselect: true });</script>--%>
+                
+                </div>
+                
             </div>
             <div class="col-sm-12" style="overflow-x:auto; display:block">
                 <asp:UpdatePanel runat="server" ID="updDetalles">

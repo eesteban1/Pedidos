@@ -97,27 +97,142 @@
                         <li>
                             <a href="Inicio.aspx"><i class="fa fa-home fa-fw"></i> Principal</a>
                         </li>
+                        <!-- mantenimientos-->
+                         <li>
+                            <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Administración<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="ManteCliente.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i> Clientes</a>
+                                </li>
+                                <li>
+                                    <a href="ManteZonas.aspx"><i class="fa fa-support fa-fw" style="color:#f0ad4e"></i> Zonas</a>
+                                </li>
+                                <li>
+                                    <a href="ManteMercados.aspx"><i class="fa fa-shopping-basket fa-fw" style="color:#f0ad4e"></i> Mercados</a>
+                                </li>
+                                <li>
+                                    <a href="ManteProducto.aspx"><i class="fa fa-shopping-basket fa-fw" style="color:#f0ad4e"></i> Productos</a>
+                                </li>
+                                <li>
+                                    <a href="ManteMarcas.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Marcas</a>
+                                </li>
+                                <li>
+                                    <a href="ManteFamilia.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Familias</a>
+                                </li>
+                                <li>
+                                    <a href="AsignaZonas.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i> Asignar zonas a vendedores</a>
+                                </li>
+                                <li>
+                                    <a href="MantePersonal.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Personal</a>
+                                </li>
+                                <li>
+                                    <a href="ManteAcceso.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Accesos</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li>
+                            <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Almacenes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Ingresos<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Nota de abono</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Nota de recojo</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Salida<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="MantePedido.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Pedidos</a>
+                                        </li>
+                                        <li>
+                                            <a href="PrintDoc.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Imprimir documentos</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Clasificar pedidos<span class="fa arrow"></span></a>
+                                            <ul class="nav nav-second-level">
+                                                <li>
+                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Peso de 0 a 20</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Peso de 23 a 60</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Bolsa, cajas, paquetes</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Por orden de llegada de 15 al 20</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Por orden de llegada de 30 a 60</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Por orden de llegada de 61 a mas</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Por orden de llegada en general</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Peso general</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Cuentas corrientes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Clientes<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color: #f0ad4e"></i>Planilla de cobranza</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Consultas<span class="fa arrow"></span></a>
+                                            <ul class="nav nav-third-level">
+                                                <li>
+                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color: #f0ad4e"></i>Guías canceladas y pendientes</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color: #f0ad4e"></i>Estado de cuenta corriente</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color: #f0ad4e"></i>Actualizar número de pagos </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color: #f0ad4e"></i>Proovedores</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <%--<li>
                             <a href="ManteCliente.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i> Clientes</a>
-                        </li>
-                        <li>
-                            <a href="ManteProducto.aspx"><i class="fa fa-shopping-basket fa-fw" style="color:#f0ad4e"></i> Productos</a>
-                        </li>
+                        </li>--%>
+                       
                         <%--@*<li>
                             <a href="#"><i class="fa fa-car fa-fw"></i> Administración<span class="fa arrow"></span></a>
                         </li>*@--%>
-                        <%--<li>
+                       <%-- <li>
                             <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Ventas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">--%>
-                             <%--   @*<li>
-                    <a href="~/Venta/VentaFactura"><i class="fa fa-archive fa-fw" style="color:#f0ad4e"></i>Generar Factura</a>
-                </li>*@--%>
+                                <%--<li>
+                                    <a href="~/Venta/VentaFactura"><i class="fa fa-archive fa-fw" style="color:#f0ad4e"></i>Generar Factura</a>
+                                </li>--%>
                                 <%--@*<li>
                                     <a href="~/Encabezado/Pedidos"><i class="fa fa-archive fa-fw" style="color:#f0ad4e"></i>Venta Interna</a>
                                 </li>*@--%>
-                                <li>
-                                    <a href="MantePedido.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Pedidos</a>
-                                </li>
+                                
                                 <%--<li>
                                     @*<a href="~/Detalle/Index"><i class="fa fa-info-circle fa-fw" style="color:#f0ad4e"></i>Detalle Ventas</a>
                                 </li>*@--%>
@@ -131,27 +246,17 @@
                         <%--<li>
                             <a href="~/Personal/Index"><i class="fa fa-shopping-bag fa-fw"></i> Vendedores</a>
                         </li>--%>
-                        <li>
+                        <%--<li>
                             <a href="ManteZonas.aspx"><i class="fa fa-support fa-fw" style="color:#f0ad4e"></i> Zonas</a>
                         </li>
                         <li>
                             <a href="ManteMercados.aspx"><i class="fa fa-shopping-basket fa-fw" style="color:#f0ad4e"></i> Mercados</a>
                         </li>
-                        <li>
-                            <a href="AsignaZonas.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i> Asignar zonas a vendedores</a>
-                        </li>
-                        <li>
-                            <a href="MantePersonal.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Personal</a>
-                        </li>
-                        <li>
-                            <a href="ManteAcceso.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Accesos</a>
-                        </li>
-                        <li>
-                            <a href="ManteMarcas.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Marcas</a>
-                        </li>
+                        
+                        
                         <li>
                             <a href="ManteFamilia.aspx"><i class="fa fa-user fa-fw" style="color:#f0ad4e"></i>Familias</a>
-                        </li>
+                        </li>--%>
 
                       <%--  @*<li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Cuenta Corriente<span class="fa arrow"></span></a>
@@ -250,10 +355,10 @@
     <script src="Assets/metisMenu/metisMenu.min.js"></script>
     <!-- Morris Charts JavaScript -->
 
-    <script src="Assets/morrisjs/morris.min.js"></script>
+    <script src="Assets/morrisjs/morris.min.js"></script>--%>
 
     <!-- Custom Theme JavaScript -->
-    <script src="Js/sb-admin-2.js"></script>--%>
+    <script src="Js/sb-admin-2.js"></script>
   
     
 </body>
