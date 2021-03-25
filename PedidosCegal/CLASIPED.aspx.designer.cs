@@ -11,7 +11,7 @@ namespace PedidosCegal
 {
 
 
-    public partial class PrintDoc
+    public partial class CLASIPED
     {
 
         /// <summary>
@@ -24,31 +24,31 @@ namespace PedidosCegal
         protected global::System.Web.UI.WebControls.DropDownList ddldocumento;
 
         /// <summary>
-        /// Control txtfecha.
+        /// Control txtzonmer.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtfecha;
+        protected global::System.Web.UI.WebControls.TextBox txtzonmer;
 
         /// <summary>
-        /// Control txtinicial.
+        /// Control txtfechai.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtinicial;
+        protected global::System.Web.UI.WebControls.TextBox txtfechai;
 
         /// <summary>
-        /// Control txtfinal.
+        /// Control txtfechaf.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtfinal;
+        protected global::System.Web.UI.WebControls.TextBox txtfechaf;
 
         /// <summary>
         /// Control btnbsucar.

@@ -27,12 +27,13 @@ namespace PedidosCegal
 
         void cargar()
         {
-           
+            Util.Helper.listarDocumentos(ddldocumento);
+            txtfecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void report()
         {
-            DataTable dt = Buscar(txtfinal.Text,txtinicial.Text);
+            DataTable dt = Buscar(txtfecha.Text,txtfinal.Text,txtinicial.Text);
             ReportDataSource rds = new ReportDataSource("v_PedidoEncabDet", dt);
             ReportViewer1.LocalReport.DataSources.Add(rds);
             ReportViewer1.LocalReport.ReportPath = "Reportes/Pedidos.rdlc";
@@ -43,7 +44,7 @@ namespace PedidosCegal
             ReportViewer1.LocalReport.Refresh();
         }
 
-        private DataTable Buscar(string final, string inicial)
+        private DataTable Buscar(string fecha,string final, string inicial)
         {
             string cnx = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             DataTable dt = new DataTable();
@@ -55,6 +56,7 @@ namespace PedidosCegal
             cmd.CommandText = "usp_Rangoreporte";
             cmd.Parameters.AddWithValue("@inicial", inicial);
             cmd.Parameters.AddWithValue("@final", final);
+            cmd.Parameters.AddWithValue("@fecha", fecha);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             adp.Fill(dt);
             return dt;

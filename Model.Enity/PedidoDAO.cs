@@ -266,5 +266,36 @@ namespace Model.Enity
                 con.Close();
             }
         }
+        public object ListarDocumento()
+        {
+            SqlConnection con = null;
+            string cnx = db.Database.Connection.ConnectionString;
+            con = new SqlConnection(cnx);
+            string listar = "select * from Documentos";
+            List<Documentos> listper = new List<Documentos>();
+            try
+            {
+                SqlCommand comando = new SqlCommand(listar, con);
+                con.Open();
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    Documentos per = new Documentos();
+                    per.Id_documento = Convert.ToInt32(reader[0].ToString());
+                    per.Nombre = reader[1].ToString();
+                    listper.Add(per);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return listper;
+        }
+
     }
 }

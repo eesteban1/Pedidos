@@ -20,6 +20,15 @@ namespace PedidosCegal.Util
             cbo.DataBind();
         }
 
+        public static void listarDocumentos(DropDownList ddl)
+        {
+            PedidoDAO db = new PedidoDAO();
+            ddl.DataSource = db.ListarDocumento();
+            ddl.DataTextField = "Nombre";
+            ddl.DataValueField = "Id_documento";
+            ddl.DataBind();
+        }
+
         internal static void ListarPersonal(DropDownList ddlpersonal)
         {
             PersonalDAO db = new PersonalDAO();

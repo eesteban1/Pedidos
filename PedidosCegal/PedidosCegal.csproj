@@ -159,6 +159,7 @@
     <Content Include="bootstrap\bootstrap.min.css" />
     <Content Include="bootstrap\bootstrap.min.js" />
     <Content Include="bootstrap\gridview.css" />
+    <Content Include="CLASIPED.aspx" />
     <Content Include="Content\bootstrap-chosen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -241,6 +242,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile3.pubxml" />
+    <Content Include="rgpollegada.aspx" />
     <Content Include="RPedido.xsc">
       <DependentUpon>RPedido.xsd</DependentUpon>
     </Content>
@@ -251,6 +253,28 @@
     </None>
     <Content Include="RPedido.xss">
       <DependentUpon>RPedido.xsd</DependentUpon>
+    </Content>
+    <Content Include="RPesos.xsc">
+      <DependentUpon>RPesos.xsd</DependentUpon>
+    </Content>
+    <None Include="RPesos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RPesos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="RPesos.xss">
+      <DependentUpon>RPesos.xsd</DependentUpon>
+    </Content>
+    <Content Include="rptgeneral.xsc">
+      <DependentUpon>rptgeneral.xsd</DependentUpon>
+    </Content>
+    <None Include="rptgeneral.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rptgeneral.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="rptgeneral.xss">
+      <DependentUpon>rptgeneral.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="img\anulada.jpg" />
@@ -372,6 +396,13 @@
     </Compile>
     <Compile Include="AsignaZonas.aspx.designer.cs">
       <DependentUpon>AsignaZonas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CLASIPED.aspx.cs">
+      <DependentUpon>CLASIPED.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CLASIPED.aspx.designer.cs">
+      <DependentUpon>CLASIPED.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -655,10 +686,27 @@
     <Compile Include="Reportes\frmReportePedido.aspx.designer.cs">
       <DependentUpon>frmReportePedido.aspx</DependentUpon>
     </Compile>
+    <Compile Include="rgpollegada.aspx.cs">
+      <DependentUpon>rgpollegada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rgpollegada.aspx.designer.cs">
+      <DependentUpon>rgpollegada.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RPedido.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPedido.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RPesos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPesos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rptgeneral.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptgeneral.xsd</DependentUpon>
     </Compile>
     <Compile Include="salida.aspx.cs">
       <DependentUpon>salida.aspx</DependentUpon>
@@ -795,7 +843,10 @@
     <EmbeddedResource Include="Reportes\Cliente.rdlc" />
     <EmbeddedResource Include="Reportes\frmPedido.rdlc" />
     <EmbeddedResource Include="Reportes\Pedidos.rdlc" />
+    <EmbeddedResource Include="Reportes\productoagrupado.rdlc" />
+    <EmbeddedResource Include="Reportes\rptgeneralpedidos.rdlc" />
     <EmbeddedResource Include="Reportes\reporteBlanco.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportpesos.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model.Enity\Model.Enity.csproj">

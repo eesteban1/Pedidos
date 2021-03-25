@@ -25,6 +25,13 @@
           <Property Name="Acciones" Type="nchar" MaxLength="1" />
           <Property Name="sw" Type="char" MaxLength="1" />
         </EntityType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="Id_documento" />
+          </Key>
+          <Property Name="Id_documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="Encabezado">
           <Key>
             <PropertyRef Name="Id_Encab" />
@@ -539,6 +546,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
         <EntityContainer Name="ventas2ModelStoreContainer">
           <EntitySet Name="Accesos" EntityType="Self.Accesos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cargos" EntityType="Self.cargos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Encabezado" EntityType="Self.Encabezado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormasPago" EntityType="Self.FormasPago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mercados" EntityType="Self.mercados" Schema="dbo" store:Type="Tables" />
@@ -1301,6 +1309,7 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <EntitySet Name="Familia" EntityType="ventas2Model.Familia" />
           <EntitySet Name="FormasPago" EntityType="ventas2Model.FormasPago" />
           <EntitySet Name="Dia" EntityType="ventas2Model.Dia" />
+          <EntitySet Name="Documentos" EntityType="ventas2Model.Documentos" />
         </EntityContainer>
         <EntityType Name="Producto">
           <Key>
@@ -1362,6 +1371,13 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
           <Property Name="Id_Dia" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Orden" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="Id_documento" />
+          </Key>
+          <Property Name="Id_documento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1857,6 +1873,14 @@ advertencia 6002: La tabla o vista 'ventas2.us2.v_Zon' no tiene definida ninguna
                 <ScalarProperty Name="Orden" ColumnName="Orden" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Id_Dia" ColumnName="Id_Dia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documentos">
+            <EntityTypeMapping TypeName="ventas2Model.Documentos">
+              <MappingFragment StoreEntitySet="Documentos">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_documento" ColumnName="Id_documento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

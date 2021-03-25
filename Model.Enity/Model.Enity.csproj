@@ -80,6 +80,9 @@
     <Compile Include="Dia.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Documentos.cs">
+      <DependentUpon>pedidos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Encabezado.cs">
       <DependentUpon>pedidos.tt</DependentUpon>
     </Compile>

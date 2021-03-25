@@ -61,5 +61,6 @@ namespace Model.Enity
         public virtual DbSet<Familia> Familia { get; set; }
         public virtual DbSet<FormasPago> FormasPago { get; set; }
         public virtual DbSet<Dia> Dia { get; set; }
+        public virtual DbSet<Documentos> Documentos { get; set; }
     }
 }
