@@ -187,6 +187,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="grupoempaque.aspx" />
     <Content Include="Home.Master" />
     <Content Include="Assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
@@ -411,6 +412,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="grupoempaque.aspx.cs">
+      <DependentUpon>grupoempaque.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grupoempaque.aspx.designer.cs">
+      <DependentUpon>grupoempaque.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.Master.cs">
       <DependentUpon>Home.Master</DependentUpon>
@@ -813,6 +821,11 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="vPedidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vPedidos.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -831,6 +844,17 @@
     </None>
     <Content Include="ventas2DataSet4.xss">
       <DependentUpon>ventas2DataSet4.xsd</DependentUpon>
+    </Content>
+    <Content Include="vPedidos.xsc">
+      <DependentUpon>vPedidos.xsd</DependentUpon>
+    </Content>
+    <None Include="vPedidos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>vPedidos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="vPedidos.xss">
+      <DependentUpon>vPedidos.xsd</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

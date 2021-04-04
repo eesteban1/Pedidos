@@ -69,6 +69,24 @@ namespace PedidosCegal
                 string script = "openModal();";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
             }
+            else if(ddldocumento.SelectedValue =="3")
+            {
+                string inicio = "0";
+                string final = "10000000";
+                if (txtzonmer.Text.Length == 2)
+                {
+                    string zona = txtzonmer.Text.Substring(0, 1);
+                    string mercado = txtzonmer.Text.Substring(1, 1);
+                    report1(inicio, final, zona, mercado);
+                }
+                else
+                {
+                    string zona = txtzonmer.Text.Substring(0, 1);
+                    report1(inicio, final, zona, "");
+                }
+                string script = "openModal();";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
+            }
         }
         void report1(string inicio,string final,string zona,string mercado)
         {

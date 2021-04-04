@@ -13,6 +13,7 @@
                         <asp:ListItem Value="0">Seleccionar</asp:ListItem>
                         <asp:ListItem Value="1">Pesos de 0 a 20</asp:ListItem>
                         <asp:ListItem Value="2">Pesos de 23 a 60</asp:ListItem>
+                        <asp:ListItem Value="3">Peso general</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <label class="control-label col-md-1">Zona/Mercado:</label>

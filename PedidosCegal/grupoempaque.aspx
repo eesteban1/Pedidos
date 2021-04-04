@@ -1,21 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="rgpollegada.aspx.cs" Inherits="PedidosCegal.rgpollegada" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="grupoempaque.aspx.cs" Inherits="PedidosCegal.grupoempaque" %>
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="well well-sm text-primary text-center">
-        <h2>CLASIFICACION DE PEDIDOS POR ORDEN DE LLEGADA</h2>
+     <div class="well well-sm text-primary text-center">
+        <h2>CLASIFICACION DE PRODUCTOS POR PAQUETES</h2>
     </div>
     <div class="form-horizontal">
-        <fieldset>
-            <div class="form-group">
-                <label class="control-label col-md-2">Tipo de reporte: </label>
-                <div class="col-md-2">
-                    <asp:DropDownList runat="server" ID="ddldocumento" CssClass="form-control">
-                        <asp:ListItem Value="0">Seleccionar</asp:ListItem>
-                        <asp:ListItem Value="1">General</asp:ListItem>
-                        
-                    </asp:DropDownList>
-                </div>
-            </div>
+        <fieldset>            
             <div class="form-group">
                 <label class="control-label col-md-2">Desde: </label>
                 <div class="col-md-2">
@@ -44,7 +34,7 @@
                 </div>
                 <div class="modal-body">
                     <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Arial" Font-Size="10pt" Height="724px" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="10%" EnableTheming="True" SizeToReportContent="True">
-                        <LocalReport ReportPath="Reportes/rptgeneralpedidos.rdlc"></LocalReport>
+                        <LocalReport ReportPath="Reportes/productoagrupado.rdlc"></LocalReport>
                     </rsweb:ReportViewer>
                 </div>
                 <div class="modal-footer">
@@ -61,7 +51,9 @@
                     <h4 class="modal-title">Pedidos</h4>
                 </div>
                 <div class="modal-body">
-                    <label>Debe escojer el tipo de reporte y la zona o mercado.</label>
+                    <div class="msgcentrado">
+                        <asp:Label Text="" ID="lblmesaje" runat="server" Style="font-size: 18px"></asp:Label>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

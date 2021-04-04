@@ -134,7 +134,7 @@
                   <Width>6.42938cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.05456cm</Width>
+                  <Width>1.43556cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -197,7 +197,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -532,7 +531,7 @@
             <Top>3.99203cm</Top>
             <Left>0.52111cm</Left>
             <Height>2.4cm</Height>
-            <Width>9.98394cm</Width>
+            <Width>10.36494cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -642,17 +641,21 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Sum(Fields!Paquetes.Value)</Value>
-                    <Style />
+                    <Style>
+                      <Format>#,0.00;(#,0.00)</Format>
+                    </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox108</rd:DefaultName>
             <Top>6.78714cm</Top>
-            <Left>9.83149cm</Left>
+            <Left>9.52105cm</Left>
             <Height>0.66146cm</Height>
-            <Width>1.05456cm</Width>
+            <Width>2.32456cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -673,18 +676,26 @@
                   <TextRun>
                     <Value>=Sum(Fields!Paquetes.Value * Fields!CantidadKilos.Value)</Value>
                     <Style>
-                      <Format>0;(0)</Format>
+                      <Format>#,0;(#,0)</Format>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> KG</Value>
+                    <Style>
+                      <Format>#,0;(#,0)</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox108</rd:DefaultName>
             <Top>7.62852cm</Top>
-            <Left>9.83149cm</Left>
+            <Left>9.52105cm</Left>
             <Height>0.66146cm</Height>
-            <Width>1.05456cm</Width>
+            <Width>2.32456cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -712,9 +723,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox108</rd:DefaultName>
             <Top>6.78714cm</Top>
-            <Left>0.52111cm</Left>
+            <Left>3.06111cm</Left>
             <Height>0.66146cm</Height>
-            <Width>8.92938cm</Width>
+            <Width>6.38938cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -742,9 +753,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox108</rd:DefaultName>
             <Top>7.62852cm</Top>
-            <Left>0.52111cm</Left>
+            <Left>3.06111cm</Left>
             <Height>0.66146cm</Height>
-            <Width>8.92938cm</Width>
+            <Width>6.38938cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -772,7 +783,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>0.53868cm</Top>
-            <Left>13.62562cm</Left>
+            <Left>10.45062cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>7</ZIndex>
@@ -802,7 +813,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>0.53868cm</Top>
-            <Left>11.05506cm</Left>
+            <Left>7.88006cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>8</ZIndex>
@@ -820,7 +831,7 @@
         <Height>3.56663in</Height>
         <Style />
       </Body>
-      <Width>7.30592in</Width>
+      <Width>5.41008in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

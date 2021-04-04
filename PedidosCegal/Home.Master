@@ -44,7 +44,10 @@
         function openModal()
             {            
                 $('#myModal').modal('show');            
-            }
+        }
+        function openModalError() {
+            $('#myModalerror').modal('show');
+        }
     </script>
     <div id="wrapper">
         <!-- Navigation -->
@@ -157,7 +160,7 @@
                                             <a href="#"><i class="fa fa-shopping-cart fa-fw"></i>Clasificar pedidos<span class="fa arrow"></span></a>
                                             <ul class="nav nav-second-level">
                                                 <li>
-                                                    <a href="CLASIPED.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Peso de 0 a 20</a>
+                                                    <a href="CLASIPED.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Peso</a>
                                                 </li>
                                                <%-- <li>
                                                     <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Por orden de llegada de 15 al 20</a>
@@ -169,10 +172,10 @@
                                                     <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Por orden de llegada de 61 a mas</a>
                                                 </li>--%>
                                                 <li>
-                                                    <a href="rgpollegada.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Por orden de llegada en general</a>
+                                                    <a href="rgpollegada.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Por orden de llegada</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Peso general</a>
+                                                    <a href="grupoempaque.aspx"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>Empaques</a>
                                                 </li>
                                             </ul>
                                         </li>
