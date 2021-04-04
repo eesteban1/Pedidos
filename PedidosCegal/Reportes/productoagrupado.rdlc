@@ -375,7 +375,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>9.90833cm</Size>
+                    <Size>10.14646cm</Size>
                     <CellContents>
                       <Textbox Name="descripcion">
                         <CanGrow>true</CanGrow>
@@ -407,7 +407,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>9.90833cm</Size>
+                    <Size>10.14646cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox7">
                         <CanGrow>true</CanGrow>
@@ -444,7 +444,7 @@
             <Top>4.2037cm</Top>
             <Left>0.97578cm</Left>
             <Height>1.8cm</Height>
-            <Width>12.40833cm</Width>
+            <Width>12.64646cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
