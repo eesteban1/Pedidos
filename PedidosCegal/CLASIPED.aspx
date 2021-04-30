@@ -16,10 +16,19 @@
                         <asp:ListItem Value="3">Peso general</asp:ListItem>
                     </asp:DropDownList>
                 </div>
-                <label class="control-label col-md-1">Zona/Mercado:</label>
-                <div class="col-md-2">
-                    <asp:TextBox runat="server" ID="txtzonmer" CssClass="form-control" MaxLength="2"></asp:TextBox>
+                <label class="control-label col-md-1">Zona:</label>
+               <%-- <div class="col-md-2">
+                    <asp:TextBox runat="server" ID="txtzonmer" CssClass="form-control" MaxLength="2"></asp:TextBox>--%>
+                    
+                    
                     <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtzonmer" ErrorMessage="Debe ingresar la zona y mercado." ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                <%--</div>--%>
+                <div class="col-md-2">
+                    <asp:DropDownList runat="server" ID="ddlzona" CssClass="form-control" OnSelectedIndexChanged="ddlzona_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                </div>
+                <label class="control-label col-md-1">Mercado:</label>
+                <div class="col-md-2">
+                    <asp:DropDownList runat="server" ID="ddlmercado" CssClass="form-control"></asp:DropDownList>
                 </div>
             </div>
             <div class="form-group">

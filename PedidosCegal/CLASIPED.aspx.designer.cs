@@ -24,13 +24,22 @@ namespace PedidosCegal
         protected global::System.Web.UI.WebControls.DropDownList ddldocumento;
 
         /// <summary>
-        /// Control txtzonmer.
+        /// Control ddlzona.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtzonmer;
+        protected global::System.Web.UI.WebControls.DropDownList ddlzona;
+
+        /// <summary>
+        /// Control ddlmercado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlmercado;
 
         /// <summary>
         /// Control txtfechai.

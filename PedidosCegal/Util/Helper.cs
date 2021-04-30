@@ -169,7 +169,15 @@ namespace PedidosCegal.Util
             cbo.DataValueField = "IdMercado";
             cbo.DataBind();
         }
-
+        public static void ListarMercadoxZona(DropDownList cbo,string zona)
+        {
+            MercadoDAO db = new MercadoDAO();
+            cbo.DataSource = db.MercadoxZona(zona);
+            cbo.DataTextField = "NombreLargo";
+            cbo.DataValueField = "IdMercado";
+            cbo.DataBind();
+            cbo.Items.Insert(0, new ListItem("Seleccione", "0"));
+        }
         internal static void Agregar_Detalles(DataTable detalles, string id, string descripcion, decimal precio, decimal cantidad, decimal peso, decimal subtotal)
         {
             DataRow fila = detalles.NewRow();

@@ -36,6 +36,7 @@ namespace PedidosCegal.Reportes
             
             DataTable dt = cargar();
             ReportDataSource rds = new ReportDataSource("v_Clientes", dt);
+            ReportViewer1.LocalReport.DataSources.Clear();
             ReportViewer1.LocalReport.DataSources.Add(rds);
             ReportViewer1.LocalReport.ReportPath = "Reportes/Cliente.rdlc";
 

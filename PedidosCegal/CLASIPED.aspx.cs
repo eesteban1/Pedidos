@@ -21,7 +21,8 @@ namespace PedidosCegal
         {
             if(!Page.IsPostBack)
             {
-
+                Util.Helper.ListarZona(ddlzona);
+                
             }
         }
 
@@ -36,15 +37,15 @@ namespace PedidosCegal
                 string inicio = "0";
                 string final = "20";
                 
-                if(txtzonmer.Text.Length == 2)
+                if(ddlmercado.SelectedValue != "0")
                 {
-                    string zona = txtzonmer.Text.Substring(0, 1);
-                    string mercado = txtzonmer.Text.Substring(1, 1);
+                    string zona = ddlzona.SelectedValue;
+                    string mercado = ddlmercado.SelectedValue;
                     report1(inicio, final, zona, mercado);
                 }
                 else
                 {
-                    string zona = txtzonmer.Text.Substring(0, 1);
+                    string zona = ddlzona.SelectedValue;
                     report1(inicio, final, zona, "");
                 }
                 string script = "openModal();";
@@ -55,15 +56,15 @@ namespace PedidosCegal
                 string inicio = "23";
                 string final = "60";
 
-                if (txtzonmer.Text.Length == 2)
+                if (ddlmercado.SelectedValue != "0")
                 {
-                    string zona = txtzonmer.Text.Substring(0, 1);
-                    string mercado = txtzonmer.Text.Substring(1, 1);
+                    string zona = ddlzona.SelectedValue;
+                    string mercado = ddlmercado.SelectedValue;
                     report1(inicio, final, zona, mercado);
                 }
                 else
                 {
-                    string zona = txtzonmer.Text.Substring(0, 1);
+                    string zona = ddlzona.SelectedValue;
                     report1(inicio, final, zona, "");
                 }
                 string script = "openModal();";
@@ -73,15 +74,15 @@ namespace PedidosCegal
             {
                 string inicio = "0";
                 string final = "10000000";
-                if (txtzonmer.Text.Length == 2)
+                if (ddlmercado.SelectedValue != "0")
                 {
-                    string zona = txtzonmer.Text.Substring(0, 1);
-                    string mercado = txtzonmer.Text.Substring(1, 1);
+                    string zona = ddlzona.SelectedValue;
+                    string mercado = ddlmercado.SelectedValue;
                     report1(inicio, final, zona, mercado);
                 }
                 else
                 {
-                    string zona = txtzonmer.Text.Substring(0, 1);
+                    string zona = ddlzona.SelectedValue;
                     report1(inicio, final, zona, "");
                 }
                 string script = "openModal();";
@@ -92,6 +93,7 @@ namespace PedidosCegal
         {
             DataTable dt = Buscar(txtfechai.Text,txtfechaf.Text,inicio,final,zona,mercado);
             ReportDataSource rds = new ReportDataSource("v_PedidoEncabDet", dt);
+            ReportViewer1.LocalReport.DataSources.Clear();
             ReportViewer1.LocalReport.DataSources.Add(rds);
             ReportViewer1.LocalReport.ReportPath = "Reportes/Reportpesos.rdlc";
 
@@ -100,6 +102,7 @@ namespace PedidosCegal
             rptParams[1] = new ReportParameter("fin", final);
             ReportViewer1.LocalReport.SetParameters(rptParams);
             ReportViewer1.LocalReport.Refresh();
+            
         }
 
         private DataTable Buscar(string fechai,string fechaf, string inicio, string final,string zona,string mercado)
@@ -121,6 +124,12 @@ namespace PedidosCegal
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             adp.Fill(dt);
             return dt;
+        }
+
+        protected void ddlzona_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string zona = ddlzona.SelectedValue;
+            Util.Helper.ListarMercadoxZona(ddlmercado,zona);
         }
     }
 }
