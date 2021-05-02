@@ -24,6 +24,15 @@ namespace PedidosCegal
         protected global::System.Web.UI.WebControls.DropDownList ddldocumento;
 
         /// <summary>
+        /// Control lblzona.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblzona;
+
+        /// <summary>
         /// Control ddlzona.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace PedidosCegal
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlzona;
+
+        /// <summary>
+        /// Control lblmercado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmercado;
 
         /// <summary>
         /// Control ddlmercado.

@@ -34,6 +34,7 @@ namespace PedidosCegal
             }
             else if(ddldocumento.SelectedValue == "1")
             {
+                
                 string inicio = "0";
                 string final = "20";
                 
@@ -53,6 +54,7 @@ namespace PedidosCegal
             }
             else if(ddldocumento.SelectedValue =="2")
             {
+              
                 string inicio = "23";
                 string final = "60";
 
@@ -72,19 +74,10 @@ namespace PedidosCegal
             }
             else if(ddldocumento.SelectedValue =="3")
             {
+              
                 string inicio = "0";
                 string final = "10000000";
-                if (ddlmercado.SelectedValue != "0")
-                {
-                    string zona = ddlzona.SelectedValue;
-                    string mercado = ddlmercado.SelectedValue;
-                    report1(inicio, final, zona, mercado);
-                }
-                else
-                {
-                    string zona = ddlzona.SelectedValue;
-                    report1(inicio, final, zona, "");
-                }
+                report1(inicio, final, "", "");
                 string script = "openModal();";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
             }
@@ -97,9 +90,11 @@ namespace PedidosCegal
             ReportViewer1.LocalReport.DataSources.Add(rds);
             ReportViewer1.LocalReport.ReportPath = "Reportes/Reportpesos.rdlc";
 
-            ReportParameter[] rptParams = new ReportParameter[2];
+            ReportParameter[] rptParams = new ReportParameter[4];
             rptParams[0] = new ReportParameter("ini", inicio);
             rptParams[1] = new ReportParameter("fin", final);
+            rptParams[2] = new ReportParameter("finicial", txtfechai.Text);
+            rptParams[3] = new ReportParameter("ffinal", txtfechaf.Text);
             ReportViewer1.LocalReport.SetParameters(rptParams);
             ReportViewer1.LocalReport.Refresh();
             
@@ -130,6 +125,25 @@ namespace PedidosCegal
         {
             string zona = ddlzona.SelectedValue;
             Util.Helper.ListarMercadoxZona(ddlmercado,zona);
+        }
+
+        protected void ddldocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddldocumento.SelectedValue == "3")
+            {
+             
+                ddlmercado.Visible = false;
+                ddlzona.Visible = false;
+                lblmercado.Visible = false;
+                lblzona.Visible = false;
+            }
+            else
+            {
+                ddlmercado.Visible = true;
+                lblmercado.Visible = true;
+                lblzona.Visible = true;
+                ddlzona.Visible = true;
+            }
         }
     }
 }

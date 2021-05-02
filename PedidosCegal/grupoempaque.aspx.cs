@@ -19,7 +19,6 @@ namespace PedidosCegal
         SqlParameter param;
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnbsucar_Click(object sender, EventArgs e)

@@ -9,14 +9,15 @@
             <div class="form-group">
                 <label class="control-label col-md-2">Tipo de reporte: </label>
                 <div class="col-md-2">
-                    <asp:DropDownList runat="server" ID="ddldocumento" CssClass="form-control">
+                    <asp:DropDownList runat="server" ID="ddldocumento" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddldocumento_SelectedIndexChanged">
                         <asp:ListItem Value="0">Seleccionar</asp:ListItem>
                         <asp:ListItem Value="1">Pesos de 0 a 20</asp:ListItem>
                         <asp:ListItem Value="2">Pesos de 23 a 60</asp:ListItem>
                         <asp:ListItem Value="3">Peso general</asp:ListItem>
                     </asp:DropDownList>
                 </div>
-                <label class="control-label col-md-1">Zona:</label>
+                <asp:Label runat="server" CssClass="control-label col-md-1" ID="lblzona">Zona:</asp:Label>
+                <%--<label class="control-label col-md-1" id="lblzona">Zona:</label>--%>
                <%-- <div class="col-md-2">
                     <asp:TextBox runat="server" ID="txtzonmer" CssClass="form-control" MaxLength="2"></asp:TextBox>--%>
                     
@@ -26,7 +27,8 @@
                 <div class="col-md-2">
                     <asp:DropDownList runat="server" ID="ddlzona" CssClass="form-control" OnSelectedIndexChanged="ddlzona_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 </div>
-                <label class="control-label col-md-1">Mercado:</label>
+                <asp:Label runat="server" CssClass="control-label col-md-1" ID="lblmercado">Mercado:</asp:Label>
+                <%--<label class="control-label col-md-1">Mercado:</label>--%>
                 <div class="col-md-2">
                     <asp:DropDownList runat="server" ID="ddlmercado" CssClass="form-control"></asp:DropDownList>
                 </div>

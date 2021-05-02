@@ -43,9 +43,11 @@ namespace PedidosCegal
             ReportViewer1.LocalReport.DataSources.Add(rds);
             ReportViewer1.LocalReport.ReportPath = "Reportes/rptgeneralpedidos.rdlc";
 
-            ReportParameter[] rptParams = new ReportParameter[2];
+            ReportParameter[] rptParams = new ReportParameter[4];
             rptParams[0] = new ReportParameter("ini", inicio);
             rptParams[1] = new ReportParameter("fin", final);
+            rptParams[2] = new ReportParameter("finicial", txtfechai.Text);
+            rptParams[3] = new ReportParameter("ffinal", txtfechaf.Text);
             ReportViewer1.LocalReport.SetParameters(rptParams);
             ReportViewer1.LocalReport.Refresh();
         }
