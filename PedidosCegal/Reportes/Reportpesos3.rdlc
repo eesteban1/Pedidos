@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>2327b4db-f32f-4817-94a0-b81e5295b0d4</rd:DataSourceID>
+      <rd:DataSourceID>e9b27655-f394-465d-85ca-e8b121dbde5e</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -544,8 +544,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>v_PedidoEncabDet</DataSetName>
-            <Top>4.94453cm</Top>
-            <Left>0.52111cm</Left>
+            <Top>3.91158cm</Top>
+            <Left>0.09525cm</Left>
             <Height>2.4cm</Height>
             <Width>10.36494cm</Width>
             <Style>
@@ -583,8 +583,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>4.15025cm</Top>
-            <Left>2.43999cm</Left>
+            <Top>3.1173cm</Top>
+            <Left>1.98622cm</Left>
             <Height>0.6cm</Height>
             <Width>9.40562cm</Width>
             <ZIndex>1</ZIndex>
@@ -634,8 +634,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0.53868cm</Top>
-            <Left>0.52111cm</Left>
+            <Top>0.14073cm</Top>
+            <Left>0.09525cm</Left>
             <Height>1.73771cm</Height>
             <Width>6.86562cm</Width>
             <ZIndex>2</ZIndex>
@@ -668,8 +668,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox108</rd:DefaultName>
-            <Top>7.73964cm</Top>
-            <Left>9.52105cm</Left>
+            <Top>6.70669cm</Top>
+            <Left>9.06728cm</Left>
             <Height>0.66146cm</Height>
             <Width>2.32456cm</Width>
             <ZIndex>3</ZIndex>
@@ -708,8 +708,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox108</rd:DefaultName>
-            <Top>8.58102cm</Top>
-            <Left>9.52105cm</Left>
+            <Top>7.54807cm</Top>
+            <Left>9.06728cm</Left>
             <Height>0.66146cm</Height>
             <Width>2.32456cm</Width>
             <ZIndex>4</ZIndex>
@@ -738,8 +738,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox108</rd:DefaultName>
-            <Top>7.73964cm</Top>
-            <Left>3.06111cm</Left>
+            <Top>6.70669cm</Top>
+            <Left>2.60734cm</Left>
             <Height>0.66146cm</Height>
             <Width>6.38938cm</Width>
             <ZIndex>5</ZIndex>
@@ -768,8 +768,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox108</rd:DefaultName>
-            <Top>8.58102cm</Top>
-            <Left>3.06111cm</Left>
+            <Top>7.54807cm</Top>
+            <Left>2.60734cm</Left>
             <Height>0.66146cm</Height>
             <Width>6.38938cm</Width>
             <ZIndex>6</ZIndex>
@@ -798,8 +798,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>0.53868cm</Top>
-            <Left>9.90381cm</Left>
+            <Top>0.14073cm</Top>
+            <Left>9.45004cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>7</ZIndex>
@@ -828,8 +828,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>0.53868cm</Top>
-            <Left>7.88006cm</Left>
+            <Top>0.14073cm</Top>
+            <Left>7.42629cm</Left>
             <Height>0.6cm</Height>
             <Width>2.02375cm</Width>
             <ZIndex>8</ZIndex>
@@ -870,8 +870,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>3.37386cm</Top>
-            <Left>2.43999cm</Left>
+            <Top>2.34091cm</Top>
+            <Left>1.98622cm</Left>
             <Height>0.6cm</Height>
             <Width>9.40562cm</Width>
             <ZIndex>9</ZIndex>
@@ -885,52 +885,18 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox6">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Zona: </Value>
-                    <Style />
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Fields!DescripLarga.Value</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox6</rd:DefaultName>
-            <Top>2.39398cm</Top>
-            <Left>0.52111cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.86562cm</Width>
-            <ZIndex>10</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>3.99342in</Height>
+        <Height>3.375in</Height>
         <Style />
       </Body>
-      <Width>5.04181in</Width>
+      <Width>5.15625in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
-        <LeftMargin>0cm</LeftMargin>
-        <RightMargin>0cm</RightMargin>
-        <TopMargin>0cm</TopMargin>
-        <BottomMargin>0cm</BottomMargin>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>2cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>
@@ -983,5 +949,5 @@
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>984f40d8-ea4d-4215-b54f-07e483a08961</rd:ReportID>
+  <rd:ReportID>32495b65-1c2f-4a8b-b939-c5311674c854</rd:ReportID>
 </Report>

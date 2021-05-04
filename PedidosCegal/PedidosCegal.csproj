@@ -868,6 +868,8 @@
     <EmbeddedResource Include="Reportes\frmPedido.rdlc" />
     <EmbeddedResource Include="Reportes\Pedidos.rdlc" />
     <EmbeddedResource Include="Reportes\productoagrupado.rdlc" />
+    <EmbeddedResource Include="Reportes\reportpesos2.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportpesos3.rdlc" />
     <EmbeddedResource Include="Reportes\rptgeneralpedidos.rdlc" />
     <EmbeddedResource Include="Reportes\reporteBlanco.rdlc" />
     <EmbeddedResource Include="Reportes\Reportpesos.rdlc" />

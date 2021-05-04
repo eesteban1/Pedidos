@@ -309,6 +309,14 @@ namespace PedidosCegal {
             
             private global::System.Data.DataColumn columnDescripCorta;
             
+            private global::System.Data.DataColumn columnIdMercado;
+            
+            private global::System.Data.DataColumn columnIdZona;
+            
+            private global::System.Data.DataColumn columnDescripLarga;
+            
+            private global::System.Data.DataColumn columnNombreLargo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public v_PedidoEncabDetDataTable() {
@@ -464,6 +472,38 @@ namespace PedidosCegal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IdMercadoColumn {
+                get {
+                    return this.columnIdMercado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IdZonaColumn {
+                get {
+                    return this.columnIdZona;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DescripLargaColumn {
+                get {
+                    return this.columnDescripLarga;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NombreLargoColumn {
+                get {
+                    return this.columnNombreLargo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -499,7 +539,26 @@ namespace PedidosCegal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public v_PedidoEncabDetRow Addv_PedidoEncabDetRow(int Id_Encab, string RazonSocial, string RUC, string Direccion, string fechaCheque, int Id_prod, string descripcion, int Paquetes, decimal CantidadKilos, double PrecioUnit, decimal SubTotal, decimal Total_Venta, string codcom, string NombreCorto, string DescripCorta) {
+            public v_PedidoEncabDetRow Addv_PedidoEncabDetRow(
+                        int Id_Encab, 
+                        string RazonSocial, 
+                        string RUC, 
+                        string Direccion, 
+                        string fechaCheque, 
+                        int Id_prod, 
+                        string descripcion, 
+                        int Paquetes, 
+                        decimal CantidadKilos, 
+                        double PrecioUnit, 
+                        decimal SubTotal, 
+                        decimal Total_Venta, 
+                        string codcom, 
+                        string NombreCorto, 
+                        string DescripCorta, 
+                        int IdMercado, 
+                        int IdZona, 
+                        string DescripLarga, 
+                        string NombreLargo) {
                 v_PedidoEncabDetRow rowv_PedidoEncabDetRow = ((v_PedidoEncabDetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id_Encab,
@@ -516,17 +575,14 @@ namespace PedidosCegal {
                         Total_Venta,
                         codcom,
                         NombreCorto,
-                        DescripCorta};
+                        DescripCorta,
+                        IdMercado,
+                        IdZona,
+                        DescripLarga,
+                        NombreLargo};
                 rowv_PedidoEncabDetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowv_PedidoEncabDetRow);
                 return rowv_PedidoEncabDetRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public v_PedidoEncabDetRow FindById_Encab(int Id_Encab) {
-                return ((v_PedidoEncabDetRow)(this.Rows.Find(new object[] {
-                            Id_Encab})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -561,6 +617,10 @@ namespace PedidosCegal {
                 this.columncodcom = base.Columns["codcom"];
                 this.columnNombreCorto = base.Columns["NombreCorto"];
                 this.columnDescripCorta = base.Columns["DescripCorta"];
+                this.columnIdMercado = base.Columns["IdMercado"];
+                this.columnIdZona = base.Columns["IdZona"];
+                this.columnDescripLarga = base.Columns["DescripLarga"];
+                this.columnNombreLargo = base.Columns["NombreLargo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -596,10 +656,15 @@ namespace PedidosCegal {
                 base.Columns.Add(this.columnNombreCorto);
                 this.columnDescripCorta = new global::System.Data.DataColumn("DescripCorta", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescripCorta);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId_Encab}, true));
+                this.columnIdMercado = new global::System.Data.DataColumn("IdMercado", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIdMercado);
+                this.columnIdZona = new global::System.Data.DataColumn("IdZona", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIdZona);
+                this.columnDescripLarga = new global::System.Data.DataColumn("DescripLarga", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescripLarga);
+                this.columnNombreLargo = new global::System.Data.DataColumn("NombreLargo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombreLargo);
                 this.columnId_Encab.AllowDBNull = false;
-                this.columnId_Encab.Unique = true;
                 this.columnRazonSocial.MaxLength = 2147483647;
                 this.columnRUC.MaxLength = 11;
                 this.columnDireccion.MaxLength = 2147483647;
@@ -609,6 +674,10 @@ namespace PedidosCegal {
                 this.columncodcom.MaxLength = 19;
                 this.columnNombreCorto.MaxLength = 4;
                 this.columnDescripCorta.MaxLength = 5;
+                this.columnIdMercado.AllowDBNull = false;
+                this.columnIdZona.AllowDBNull = false;
+                this.columnDescripLarga.MaxLength = 80;
+                this.columnNombreLargo.MaxLength = 80;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -986,6 +1055,60 @@ namespace PedidosCegal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int IdMercado {
+                get {
+                    return ((int)(this[this.tablev_PedidoEncabDet.IdMercadoColumn]));
+                }
+                set {
+                    this[this.tablev_PedidoEncabDet.IdMercadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int IdZona {
+                get {
+                    return ((int)(this[this.tablev_PedidoEncabDet.IdZonaColumn]));
+                }
+                set {
+                    this[this.tablev_PedidoEncabDet.IdZonaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DescripLarga {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_PedidoEncabDet.DescripLargaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DescripLarga\' de la tabla \'v_PedidoEncabDet\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablev_PedidoEncabDet.DescripLargaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NombreLargo {
+                get {
+                    try {
+                        return ((string)(this[this.tablev_PedidoEncabDet.NombreLargoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NombreLargo\' de la tabla \'v_PedidoEncabDet\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablev_PedidoEncabDet.NombreLargoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsRazonSocialNull() {
                 return this.IsNull(this.tablev_PedidoEncabDet.RazonSocialColumn);
             }
@@ -1150,6 +1273,30 @@ namespace PedidosCegal {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDescripCortaNull() {
                 this[this.tablev_PedidoEncabDet.DescripCortaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDescripLargaNull() {
+                return this.IsNull(this.tablev_PedidoEncabDet.DescripLargaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDescripLargaNull() {
+                this[this.tablev_PedidoEncabDet.DescripLargaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNombreLargoNull() {
+                return this.IsNull(this.tablev_PedidoEncabDet.NombreLargoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNombreLargoNull() {
+                this[this.tablev_PedidoEncabDet.NombreLargoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1327,6 +1474,10 @@ namespace PedidosCegal.RPesosTableAdapters {
             tableMapping.ColumnMappings.Add("codcom", "codcom");
             tableMapping.ColumnMappings.Add("NombreCorto", "NombreCorto");
             tableMapping.ColumnMappings.Add("DescripCorta", "DescripCorta");
+            tableMapping.ColumnMappings.Add("IdMercado", "IdMercado");
+            tableMapping.ColumnMappings.Add("IdZona", "IdZona");
+            tableMapping.ColumnMappings.Add("DescripLarga", "DescripLarga");
+            tableMapping.ColumnMappings.Add("NombreLargo", "NombreLargo");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1345,7 +1496,8 @@ namespace PedidosCegal.RPesosTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id_Encab, RazonSocial, RUC, Direccion, fechaCheque, Id_prod, descripcion, " +
                 "Paquetes, CantidadKilos, PrecioUnit, SubTotal, Total_Venta, codcom, NombreCorto," +
-                " DescripCorta FROM us2.v_PedidoEncabDet";
+                " DescripCorta, IdMercado, IdZona, DescripLarga, NombreLargo FROM us2.v_PedidoEnc" +
+                "abDet";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

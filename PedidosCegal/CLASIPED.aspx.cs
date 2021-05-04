@@ -42,7 +42,7 @@ namespace PedidosCegal
                 {
                     string zona = ddlzona.SelectedValue;
                     string mercado = ddlmercado.SelectedValue;
-                    report1(inicio, final, zona, mercado);
+                    report2(inicio, final, zona, mercado);
                 }
                 else
                 {
@@ -62,7 +62,7 @@ namespace PedidosCegal
                 {
                     string zona = ddlzona.SelectedValue;
                     string mercado = ddlmercado.SelectedValue;
-                    report1(inicio, final, zona, mercado);
+                    report2(inicio, final, zona, mercado);
                 }
                 else
                 {
@@ -77,7 +77,7 @@ namespace PedidosCegal
               
                 string inicio = "0";
                 string final = "10000000";
-                report1(inicio, final, "", "");
+                report3(inicio, final, "", "");
                 string script = "openModal();";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
             }
@@ -98,6 +98,42 @@ namespace PedidosCegal
             ReportViewer1.LocalReport.SetParameters(rptParams);
             ReportViewer1.LocalReport.Refresh();
             
+        }
+
+        void report2(string inicio, string final, string zona, string mercado)
+        {
+            DataTable dt = Buscar(txtfechai.Text, txtfechaf.Text, inicio, final, zona, mercado);
+            ReportDataSource rds = new ReportDataSource("v_PedidoEncabDet", dt);
+            ReportViewer1.LocalReport.DataSources.Clear();
+            ReportViewer1.LocalReport.DataSources.Add(rds);
+            ReportViewer1.LocalReport.ReportPath = "Reportes/Reportpesos2.rdlc";
+
+            ReportParameter[] rptParams = new ReportParameter[4];
+            rptParams[0] = new ReportParameter("ini", inicio);
+            rptParams[1] = new ReportParameter("fin", final);
+            rptParams[2] = new ReportParameter("finicial", txtfechai.Text);
+            rptParams[3] = new ReportParameter("ffinal", txtfechaf.Text);
+            ReportViewer1.LocalReport.SetParameters(rptParams);
+            ReportViewer1.LocalReport.Refresh();
+
+        }
+
+        void report3(string inicio, string final, string zona, string mercado)
+        {
+            DataTable dt = Buscar(txtfechai.Text, txtfechaf.Text, inicio, final, zona, mercado);
+            ReportDataSource rds = new ReportDataSource("v_PedidoEncabDet", dt);
+            ReportViewer1.LocalReport.DataSources.Clear();
+            ReportViewer1.LocalReport.DataSources.Add(rds);
+            ReportViewer1.LocalReport.ReportPath = "Reportes/Reportpesos3.rdlc";
+
+            ReportParameter[] rptParams = new ReportParameter[4];
+            rptParams[0] = new ReportParameter("ini", inicio);
+            rptParams[1] = new ReportParameter("fin", final);
+            rptParams[2] = new ReportParameter("finicial", txtfechai.Text);
+            rptParams[3] = new ReportParameter("ffinal", txtfechaf.Text);
+            ReportViewer1.LocalReport.SetParameters(rptParams);
+            ReportViewer1.LocalReport.Refresh();
+
         }
 
         private DataTable Buscar(string fechai,string fechaf, string inicio, string final,string zona,string mercado)

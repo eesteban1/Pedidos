@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="ConnectionString (Web.config)" DbObjectName="ventas2.us2.v_PedidoEncabDet" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Id_Encab, RazonSocial, RUC, Direccion, fechaCheque, Id_prod, descripcion, Paquetes, CantidadKilos, PrecioUnit, SubTotal, Total_Venta, codcom, NombreCorto, DescripCorta FROM us2.v_PedidoEncabDet</CommandText>
+                    <CommandText>SELECT Id_Encab, RazonSocial, RUC, Direccion, fechaCheque, Id_prod, descripcion, Paquetes, CantidadKilos, PrecioUnit, SubTotal, Total_Venta, codcom, NombreCorto, DescripCorta, IdMercado, IdZona, DescripLarga, NombreLargo FROM us2.v_PedidoEncabDet</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -34,6 +34,10 @@
               <Mapping SourceColumn="codcom" DataSetColumn="codcom" />
               <Mapping SourceColumn="NombreCorto" DataSetColumn="NombreCorto" />
               <Mapping SourceColumn="DescripCorta" DataSetColumn="DescripCorta" />
+              <Mapping SourceColumn="IdMercado" DataSetColumn="IdMercado" />
+              <Mapping SourceColumn="IdZona" DataSetColumn="IdZona" />
+              <Mapping SourceColumn="DescripLarga" DataSetColumn="DescripLarga" />
+              <Mapping SourceColumn="NombreLargo" DataSetColumn="NombreLargo" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -111,14 +115,26 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="IdMercado" msprop:Generator_ColumnVarNameInTable="columnIdMercado" msprop:Generator_ColumnPropNameInRow="IdMercado" msprop:Generator_ColumnPropNameInTable="IdMercadoColumn" msprop:Generator_UserColumnName="IdMercado" type="xs:int" />
+              <xs:element name="IdZona" msprop:Generator_ColumnVarNameInTable="columnIdZona" msprop:Generator_ColumnPropNameInRow="IdZona" msprop:Generator_ColumnPropNameInTable="IdZonaColumn" msprop:Generator_UserColumnName="IdZona" type="xs:int" />
+              <xs:element name="DescripLarga" msprop:Generator_ColumnVarNameInTable="columnDescripLarga" msprop:Generator_ColumnPropNameInRow="DescripLarga" msprop:Generator_ColumnPropNameInTable="DescripLargaColumn" msprop:Generator_UserColumnName="DescripLarga" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreLargo" msprop:Generator_ColumnVarNameInTable="columnNombreLargo" msprop:Generator_ColumnPropNameInRow="NombreLargo" msprop:Generator_ColumnPropNameInTable="NombreLargoColumn" msprop:Generator_UserColumnName="NombreLargo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:v_PedidoEncabDet" />
-      <xs:field xpath="mstns:Id_Encab" />
-    </xs:unique>
   </xs:element>
 </xs:schema>
