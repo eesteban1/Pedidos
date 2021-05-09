@@ -22,7 +22,7 @@ namespace PedidosCegal
             if(!Page.IsPostBack)
             {
                 Util.Helper.ListarZona(ddlzona);
-                
+                Util.Helper.ListarMercadoxZona(ddlmercado, "");
             }
         }
 
@@ -44,10 +44,14 @@ namespace PedidosCegal
                     string mercado = ddlmercado.SelectedValue;
                     report2(inicio, final, zona, mercado);
                 }
-                else
+                else if (ddlzona.SelectedValue != "0")
                 {
                     string zona = ddlzona.SelectedValue;
                     report1(inicio, final, zona, "");
+                }
+                else
+                {
+                    report3(inicio, final, "", "");
                 }
                 string script = "openModal();";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
@@ -64,10 +68,14 @@ namespace PedidosCegal
                     string mercado = ddlmercado.SelectedValue;
                     report2(inicio, final, zona, mercado);
                 }
-                else
+                else if(ddlzona.SelectedValue != "0")
                 {
                     string zona = ddlzona.SelectedValue;
                     report1(inicio, final, zona, "");
+                }
+                else
+                {
+                    report3(inicio, final, "", "");
                 }
                 string script = "openModal();";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, true);
