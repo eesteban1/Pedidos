@@ -205,7 +205,7 @@ namespace Model.Enity
                 {
                     v_MercadoxZona objMercados = new v_MercadoxZona();
                     objMercados.IdMercado = Convert.ToInt32(reader[1].ToString());
-                    objMercados.NombreLargo = reader[2].ToString();
+                    objMercados.NombreLargo = reader[3].ToString() + "-" + reader[2].ToString();
                     ListarMercado.Add(objMercados);
                 }
                 return ListarMercado;
