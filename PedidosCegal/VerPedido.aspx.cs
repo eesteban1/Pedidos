@@ -54,6 +54,7 @@ namespace PedidosCegal
             //txtnumeropuesto.Text = Convert.ToString(dtcabecera.Rows[0]["NumeroPuesto"]);
             txtfecha.Text = Convert.ToDateTime(dtcabecera.Rows[0]["fechaCheque"]).ToString("yyyy-MM-dd");
             //ddlmercados.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["IdMercado"]);
+            lbligv.Text = Convert.ToString(dtcabecera.Rows[0]["IGV"]);
             lbltotal.Text = Convert.ToString(dtcabecera.Rows[0]["Total_Venta"]);
             lblnombre.Text = Convert.ToString(dtcabecera.Rows[0]["NombrePropietario"]);
             ddlmoneda.SelectedValue = Convert.ToString(dtcabecera.Rows[0]["Id_Moneda"]);
@@ -73,10 +74,19 @@ namespace PedidosCegal
                 decimal precio = Convert.ToDecimal(Rg["PrecioUnit"]);
                 int dcantidad = Convert.ToInt32(Rg["Paquetes"]);
                 decimal peso = Convert.ToDecimal(Rg["CantidadKilos"]);
-                decimal total = dcantidad * precio;
-
-                Util.Helper.Agregar_Detalles(detalles, idpro, Descripcion, precio, dcantidad, peso, total);
-                Session["detalles"] = detalles;
+                decimal igv = Convert.ToDecimal(Rg["IGV"]);
+                if(precio<=15)
+                {
+                    decimal total = dcantidad * precio * peso;
+                    Util.Helper.Agregar_Detalles(detalles, idpro, Descripcion, precio, dcantidad, peso, igv, total);
+                    Session["detalles"] = detalles;
+                }
+                else
+                {
+                    decimal total = dcantidad * precio;
+                    Util.Helper.Agregar_Detalles(detalles, idpro, Descripcion, precio, dcantidad, peso, igv, total);
+                    Session["detalles"] = detalles;
+                }
             }
             cargarDetalles();
             lbltotal.Text = Util.Helper.TotalizarGrilla(grvDetalles, 5).ToString();

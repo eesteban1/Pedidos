@@ -77,6 +77,7 @@ namespace PedidosCegal.Util
             dtTempDetalles.Columns.Add(new DataColumn("Cantidad", System.Type.GetType("System.Decimal")));
             dtTempDetalles.Columns.Add(new DataColumn("Peso", System.Type.GetType("System.Decimal")));
             dtTempDetalles.Columns.Add(new DataColumn("PrecioUnidad", System.Type.GetType("System.Decimal")));
+            dtTempDetalles.Columns.Add(new DataColumn("igvsub", System.Type.GetType("System.Decimal")));
             dtTempDetalles.Columns.Add(new DataColumn("SubTotal", System.Type.GetType("System.Decimal")));
 
             return dtTempDetalles;
@@ -161,6 +162,21 @@ namespace PedidosCegal.Util
             cbo.Items.Insert(0, new ListItem("Seleccione", "0"));
         }
 
+        public static decimal TotalizarGrillaafec(GridView grv, int NumeroColumna)
+        {
+            decimal total = 0;
+
+            foreach (GridViewRow fila in grv.Rows)
+            {
+                decimal afecto = Convert.ToDecimal(fila.Cells[7].Text);
+                if (afecto != 0)
+                {
+                    total += Convert.ToDecimal(fila.Cells[NumeroColumna].Text);
+                }
+            }
+            return total;
+        }
+
         public static void ListarMercado(DropDownList cbo)
         {
             MercadoDAO db = new MercadoDAO();
@@ -178,7 +194,7 @@ namespace PedidosCegal.Util
             cbo.DataBind();
             cbo.Items.Insert(0, new ListItem("Seleccione", "0"));
         }
-        internal static void Agregar_Detalles(DataTable detalles, string id, string descripcion, decimal precio, decimal cantidad, decimal peso, decimal subtotal)
+        internal static void Agregar_Detalles(DataTable detalles, string id, string descripcion, decimal precio, decimal cantidad, decimal peso,decimal igvsub ,decimal subtotal)
         {
             DataRow fila = detalles.NewRow();
             //llena sus columnas
@@ -187,6 +203,7 @@ namespace PedidosCegal.Util
             fila["preciounidad"] = precio;
             fila["cantidad"] = cantidad;
             fila["peso"] = peso;
+            fila["igvsub"] = igvsub;
             fila["subtotal"] = subtotal;
             //Agrega la fila al datatable)
             detalles.Rows.Add(fila);

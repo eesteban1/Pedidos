@@ -91,7 +91,9 @@
                                     <tr>
                                         <label style="color: skyblue; font-family: Arial; font-size: large">Total: </label>
                                     </tr>
-                                    
+                                    <tr>
+                                        <asp:Label Style="color: skyblue; font-family: Arial; font-size: large" Text="0" runat="server" ID="lbligv" />
+                                    </tr>
                                     <tr>
                                         <asp:Label Style="color: skyblue; font-family: Arial; font-size: large" Text="0" runat="server" ID="lbltotal" />
                                     </tr>

@@ -35,12 +35,12 @@ namespace PedidosCegal
             Util.Helper.Listarmoneda(ddlmoneda);
             Util.Helper.ListarFormaPago(ddlformapago);
             ddlmoneda.SelectedValue = "1";
-            Session["detalles"] = Util.Helper.CrearTemp_Detalles();
+            Session["Detalles"] = Util.Helper.CrearTemp_Detalles();
         }
 
         void cargarDetalles()
         {
-            grvDetalles.DataSource = Session["detalles"];
+            grvDetalles.DataSource = Session["Detalles"];
             grvDetalles.DataBind();
         }
 
@@ -126,18 +126,64 @@ namespace PedidosCegal
                 string Descripcion = producto.descripcion;
                 decimal precio = Convert.ToDecimal(producto.PVentaS);
                 decimal peso = Convert.ToDecimal(producto.PesoKilos);
+                int afecto = Convert.ToInt32(producto.IdAfectoIGV);
+                decimal igv = 0.00m;
+                if(afecto == 1)
+                {
+                    igv = 0.18m;
+                }
                 decimal cantidad = 1m;
+                if(precio <= 15)
+                {
+                    decimal subtotal = Math.Round(cantidad * precio * peso, 2);
+                    decimal igvsub = subtotal - Math.Round(subtotal / (1 + igv), 2);
+                    Util.Helper.Agregar_Detalles(detalles, id, Descripcion, precio, cantidad, peso, igvsub,subtotal);
+                    cargarDetalles();
+                    Session["Detalles"] = detalles;
+                    if(igv == 0.18m)
+                    {
+                        decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 6);
+                        decimal totaligv = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+                        lbligv.Text = totaligv.ToString();
+                        lbltotal.Text = total.ToString();
+                    }
+                    else
+                    {
+                        decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 6);
+                        lbltotal.Text = total.ToString();
+                    }
+                    //decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+                    
+                    ddlproducto.SelectedValue = "0";
+                    btnguardar.Enabled = true;
+                    txtcodproducto.Text = "";
+                }
+                else
+                {
+                    decimal subtotal = Math.Round(cantidad * precio, 2);
+                    decimal igvsub = subtotal - Math.Round(subtotal / (1 + igv), 2);
+                    Util.Helper.Agregar_Detalles(detalles, id, Descripcion, precio, cantidad, peso, igvsub, subtotal);
+                    cargarDetalles();
+                    Session["Detalles"] = detalles;
+                    if (igv == 0.18m)
+                    {
+                        decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 6);
+                        decimal totaligv = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+                        lbligv.Text = totaligv.ToString();
+                        lbltotal.Text = total.ToString();
+                    }
+                    else
+                    {
+                        decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 6);
+                        lbltotal.Text = total.ToString();
+                    }
+                    //decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
 
-                decimal subtotal = Math.Round(cantidad * precio, 2);
-                Util.Helper.Agregar_Detalles(detalles, id, Descripcion, precio, cantidad, peso,subtotal);
-                cargarDetalles();
-                Session["Detalles"] = detalles;
-
-                decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
-                lbltotal.Text = total.ToString();
-                ddlproducto.SelectedValue = "0";
-                btnguardar.Enabled = true;
-                txtcodproducto.Text = "";
+                    ddlproducto.SelectedValue = "0";
+                    btnguardar.Enabled = true;
+                    txtcodproducto.Text = "";
+                }
+                
             }
             else
             {
@@ -176,14 +222,59 @@ namespace PedidosCegal
             decimal precio = Math.Round(Convert.ToDecimal(pre.Text), 2);
             decimal peso = Math.Round(Convert.ToDecimal(pes.Text), 2);
             int dcantidad = Convert.ToInt32(txt.Text);
-            decimal subtotal = dcantidad * precio ;
-            dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
-            dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
-            dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
-            dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+            decimal igv = Convert.ToDecimal(currentRow.Cells[5].Text);
+            if(precio <= 15)
+            {
+                if(igv == 0)
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio * peso,2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / (1 + igv)), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igvsub"] = subigv;
+                }
+                else
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio * peso,2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / 1.18m), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igvsub"] = subigv;
+                }
+            }
+            else
+            {
+                if (igv == 0)
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio,2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / (1 + igv)), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igv"] = subigv;
+                }
+                else
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio,2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / 1.18m), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igv"] = subigv;
+                }
+            }
+            
             Session["detalles"] = dtdetalles;
             cargarDetalles();
-            decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+            decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 6);
+            decimal igvtotal = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+            lbligv.Text = igvtotal.ToString();
             lbltotal.Text = total.ToString();
         }
 
@@ -197,14 +288,59 @@ namespace PedidosCegal
             decimal precio = Math.Round(Convert.ToDecimal(pre.Text), 2);
             decimal peso = Math.Round(Convert.ToDecimal(pes.Text), 2);
             int dcantidad = Convert.ToInt32(txt.Text);
-            decimal subtotal = dcantidad * precio ;
-            dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
-            dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
-            dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
-            dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+            decimal igv = Convert.ToDecimal(currentRow.Cells[5].Text);
+            if (precio <= 15)
+            {
+                if (igv == 0)
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio * peso, 2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / (1 + igv)), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igvsub"] = subigv;
+                }
+                else
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio * peso, 2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / 1.18m), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igvsub"] = subigv;
+                }
+            }
+            else
+            {
+                if (igv == 0)
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio, 2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / (1 + igv)), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igv"] = subigv;
+                }
+                else
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio, 2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / 1.18m), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igv"] = subigv;
+                }
+            }
+
             Session["detalles"] = dtdetalles;
             cargarDetalles();
-            decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+            decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 6);
+            decimal igvtotal = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+            lbligv.Text = igvtotal.ToString();
             lbltotal.Text = total.ToString();
         }
 
@@ -218,16 +354,60 @@ namespace PedidosCegal
             decimal precio = Math.Round(Convert.ToDecimal(pre.Text), 2);
             decimal peso = Math.Round(Convert.ToDecimal(pes.Text), 2);
             int dcantidad = Convert.ToInt32(txt.Text);
-            decimal subtotal = Math.Round(dcantidad * precio,2);
-            dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
-            dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
-            dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
-            dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+            decimal igv = Convert.ToDecimal(currentRow.Cells[5].Text);
+            if (precio <= 15)
+            {
+                if (igv == 0)
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio * peso, 2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / (1 + igv)), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igvsub"] = subigv;
+                }
+                else
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio * peso, 2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / 1.18m), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igvsub"] = subigv;
+                }
+            }
+            else
+            {
+                if (igv == 0)
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio, 2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / (1 + igv)), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igv"] = subigv;
+                }
+                else
+                {
+                    decimal subtotal = Math.Round(dcantidad * precio, 2);
+                    decimal subigv = Math.Round(subtotal - (subtotal / 1.18m), 2);
+                    dtdetalles.Rows[currentRow.RowIndex]["PrecioUnidad"] = precio;
+                    dtdetalles.Rows[currentRow.RowIndex]["Cantidad"] = dcantidad;
+                    dtdetalles.Rows[currentRow.RowIndex]["SubTotal"] = subtotal;
+                    dtdetalles.Rows[currentRow.RowIndex]["Peso"] = peso;
+                    dtdetalles.Rows[currentRow.RowIndex]["igv"] = subigv;
+                }
+            }
             Session["detalles"] = dtdetalles;
             cargarDetalles();
-            decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+            decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 6);
+            decimal igvtotal = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+            lbligv.Text = igvtotal.ToString();
             lbltotal.Text = total.ToString();
-            
+
         }
 
         protected void btnuevo_Click(object sender, EventArgs e)
@@ -307,17 +487,63 @@ namespace PedidosCegal
                         string Descripcion = pro.descripcion;
                         decimal precio = Convert.ToDecimal(pro.PVentaS);
                         decimal peso = Convert.ToDecimal(pro.PesoKilos);
+                        int afecto = Convert.ToInt32(pro.IdAfectoIGV);
+                        decimal igv = 0.00m;
+                        if (afecto == 1)
+                        {
+                            igv = 0.18m;
+                        }
                         decimal cantidad = 1m;
+                        if (precio <= 15)
+                        {
+                            decimal subtotal = Math.Round(cantidad * precio * peso, 2);
+                            decimal igvsub = subtotal - Math.Round(subtotal / (1 + igv), 2);
+                            Util.Helper.Agregar_Detalles(detalles, id, Descripcion, precio, cantidad, peso, igvsub, subtotal);
+                            cargarDetalles();
+                            Session["Detalles"] = detalles;
+                            if (igv == 0.18m)
+                            {
+                                decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 6);
+                                decimal totaligv = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+                                lbligv.Text = totaligv.ToString();
+                                lbltotal.Text = total.ToString();
+                            }
+                            else
+                            {
+                                decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 6);
+                                lbltotal.Text = total.ToString();
+                            }
+                            //decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
 
-                        decimal subtotal = Math.Round(cantidad * precio, 2);
-                        Util.Helper.Agregar_Detalles(detalles, id, Descripcion, precio, cantidad, peso, subtotal);
-                        cargarDetalles();
-                        Session["Detalles"] = detalles;
+                            ddlproducto.SelectedValue = "0";
+                            btnguardar.Enabled = true;
+                            txtcodproducto.Text = "";
+                        }
+                        else
+                        {
+                            decimal subtotal = Math.Round(cantidad * precio, 2);
+                            decimal igvsub = subtotal - Math.Round(subtotal / (1 + igv), 2);
+                            Util.Helper.Agregar_Detalles(detalles, id, Descripcion, precio, cantidad, peso, igvsub, subtotal);
+                            cargarDetalles();
+                            Session["Detalles"] = detalles;
+                            if (igv == 0.18m)
+                            {
+                                decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 6);
+                                decimal totaligv = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+                                lbligv.Text = totaligv.ToString();
+                                lbltotal.Text = total.ToString();
+                            }
+                            else
+                            {
+                                decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 6);
+                                lbltotal.Text = total.ToString();
+                            }
+                            //decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
 
-                        decimal total = Util.Helper.TotalizarGrilla(grvDetalles, 5);
-                        lbltotal.Text = total.ToString();
-                        btnguardar.Enabled = true;
-                        ddlproducto.SelectedValue = "0";
+                            ddlproducto.SelectedValue = "0";
+                            btnguardar.Enabled = true;
+                            txtcodproducto.Text = "";
+                        }
                     }
                     else
                     {

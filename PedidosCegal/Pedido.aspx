@@ -95,10 +95,11 @@
                                             Text='<% #Eval("PrecioUnidad") %>' AutoPostBack="true" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:BoundField DataField="igvsub" HeaderText="IGV" />
                                 <asp:BoundField DataField="SubTotal" HeaderText="Sub Total" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:ImageButton runat="server" ImageUrl="~/img/anulada.jpg" Width="16px" Height="16px" CommandName="Eliminar" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Eliminar" OnClientClick="return confirm('¿Esta seguro que desea borrar el pedido?');"/>
+                                        <asp:ImageButton runat="server" ImageUrl="~/img/anulada.jpg" Width="16px" Height="16px" CommandName="Eliminar" CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' title="Eliminar"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -111,7 +112,9 @@
                                     <tr>
                                         <label style="color: skyblue; font-family: Arial; font-size: large">Total: </label>
                                     </tr>
-                                    
+                                    <tr>
+                                        <asp:Label Style="color: skyblue; font-family: Arial; font-size: large" Text="0" runat="server" ID="lbligv" />
+                                    </tr>
                                     <tr>
                                         <asp:Label Style="color: skyblue; font-family: Arial; font-size: large" Text="0" runat="server" ID="lbltotal" />
                                     </tr>
