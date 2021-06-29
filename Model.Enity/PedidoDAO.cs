@@ -176,6 +176,7 @@ namespace Model.Enity
                 comando.Parameters.AddWithValue("@Paquetes", detalles.Paquetes);
                 comando.Parameters.AddWithValue("@CantidadKilos", detalles.CantidadKilos);
                 comando.Parameters.AddWithValue("@PrecioUnit", detalles.PrecioUnit);
+                comando.Parameters.AddWithValue("@IGV", detalles.IGV);
                 comando.Parameters.AddWithValue("@SubTotal", detalles.SubTotal);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
@@ -202,6 +203,7 @@ namespace Model.Enity
                 comando.Parameters.AddWithValue("@Total_Venta", en.Total_Venta);
                 comando.Parameters.AddWithValue("@Id_Moneda", en.Id_Moneda);
                 comando.Parameters.AddWithValue("@Id_FormaPago", en.Id_FormaPago);
+                comando.Parameters.AddWithValue("@IGV", en.IGV);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 id = Convert.ToInt64(comando.ExecuteScalar().ToString());
@@ -232,6 +234,7 @@ namespace Model.Enity
                 comando.Parameters.AddWithValue("@Total_Venta", en.Total_Venta);
                 comando.Parameters.AddWithValue("@Id_Moneda", en.Id_Moneda);
                 comando.Parameters.AddWithValue("@Id_Encab", en.Id_Encab);
+                comando.Parameters.AddWithValue("@IGV", en.IGV);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 con.Open();
                 reader = comando.ExecuteReader();

@@ -67,6 +67,7 @@ namespace PedidosCegal
                 en.Total_Venta = Convert.ToDecimal(lbltotal.Text);
                 en.Id_Moneda = Convert.ToInt32(ddlmoneda.SelectedValue);
                 en.Id_FormaPago = Convert.ToInt32(ddlformapago.SelectedValue);
+                en.IGV = Convert.ToDecimal(lbligv.Text);
                 Int64 id = db.InsertarCabecera(en);
                 Session["IDPEDIDO"] = id;
                 foreach (GridViewRow fila in grvDetalles.Rows)
@@ -79,7 +80,8 @@ namespace PedidosCegal
                     TextBox peso = (TextBox)fila.FindControl("txtpeso");
                     det.CantidadKilos = Convert.ToDecimal(peso.Text);
                     det.Id_prod = Convert.ToInt32(fila.Cells[0].Text);
-                    det.SubTotal = Convert.ToDecimal(fila.Cells[5].Text);
+                    det.IGV = Convert.ToDecimal(fila.Cells[5].Text);
+                    det.SubTotal = Convert.ToDecimal(fila.Cells[6].Text);
                     db.InsertarDetalles(det, id);
                 }
                 Response.Redirect("MantePedido.aspx", true);
@@ -207,7 +209,7 @@ namespace PedidosCegal
                 dtdetalles.Rows[fila].Delete();
                 cargarDetalles();
                 Session["Detalles"] = dtdetalles;
-                decimal subtotal = Util.Helper.TotalizarGrilla(grvDetalles, 5);
+                decimal subtotal = Util.Helper.TotalizarGrilla(grvDetalles, 6);
                 lbltotal.Text = subtotal.ToString();
             }
         }

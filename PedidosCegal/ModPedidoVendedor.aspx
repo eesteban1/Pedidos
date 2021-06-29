@@ -99,12 +99,14 @@
                             <div class="col-sm-12" style="text-align: right">
                                 <table>
                                     <tr>
-                                        <label style="color: skyblue; font-family: Arial; font-size: large">Total: </label>
+                                        <label style="color: skyblue; font-family: Arial; font-size: large">IGV: </label>
                                     </tr>
                                     <tr>
-
+                                        <asp:Label Style="color: skyblue; font-family: Arial; font-size: large" Text="0" runat="server" ID="lbligv" />
                                     </tr>
-                                       <asp:Label Style="color: skyblue; font-family: Arial; font-size: large" Text="0" runat="server" ID="lbligv" />
+                                       <tr>
+                                        <label style="color: skyblue; font-family: Arial; font-size: large">Total: </label>
+                                    </tr>
                                     <tr>
                                         <asp:Label Style="color: skyblue; font-family: Arial; font-size: large" Text="0" runat="server" ID="lbltotal" />
                                     </tr>
