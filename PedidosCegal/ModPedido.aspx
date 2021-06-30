@@ -89,6 +89,7 @@
                                             Text='<% #Eval("PrecioUnidad") %>' AutoPostBack="true" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:BoundField DataField="igvsub" HeaderText="IGV" />
                                 <asp:BoundField DataField="SubTotal" HeaderText="Sub Total" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
